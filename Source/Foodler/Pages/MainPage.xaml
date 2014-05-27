@@ -14,7 +14,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -48,9 +48,25 @@
                             <RowDefinition Height="3*"></RowDefinition>
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0">
-                            <TextBlock>Participants List</TextBlock>
-                        </StackPanel>
+                        <Grid Grid.Row="0">
+                            <ListBox Name="ListParticipants" SelectedItem="{Binding SelectedParticipant, Mode=TwoWay}" ItemsSource="{Binding Participants}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock
+                                                Width="375"
+                                                VerticalAlignment="Center"
+                                                FontSize="40"
+                                                Text="{Binding Name}"/>
+                                            <Button
+                                                Command="{Binding RemoveParticipantCommand}"
+                                                VerticalAlignment="Center"
+                                                Content="X"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
                         <StackPanel Grid.Row="1">
                             <Button Name="BtnAddParticipants" Content="Add Participants" Click="BtnAddParticipants_OnClick"/>
                             <Button Name="BtnGoFoodTab" Content="Next" Click="BtnGoFoodTab_OnClick" />

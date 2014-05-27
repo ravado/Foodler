@@ -1,16 +1,21 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Navigation;
+using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
 
 namespace Foodler.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private readonly MainViewModel _viewModel;
+
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-
+            _viewModel = new MainViewModel();
+            DataContext = _viewModel;
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
@@ -30,6 +35,12 @@ namespace Foodler.Pages
         //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
         //    ApplicationBar.MenuItems.Add(appBarMenuItem);
         //}
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            _viewModel.Initialize();
+        }
+
         private void BtnGoFoodTab_OnClick(object sender, RoutedEventArgs e)
         {
             MainPivot.SelectedIndex = (++MainPivot.SelectedIndex);

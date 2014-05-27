@@ -8,5 +8,12 @@ namespace Foodler.Models
         public Guid Id { get; set; }
         public string Name { get; set; }
         public BitmapImage Avatar { get; set; }
+
+        public Participant(){}
+
+        public Participant(string name) : this()
+        {
+            Name = name;
+        }
     }
 }
