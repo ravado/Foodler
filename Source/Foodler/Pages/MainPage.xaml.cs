@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
 using Foodler.ViewModels;
@@ -41,11 +44,6 @@ namespace Foodler.Pages
             _viewModel.Initialize();
         }
 
-        private void BtnGoFoodTab_OnClick(object sender, RoutedEventArgs e)
-        {
-            MainPivot.SelectedIndex = (++MainPivot.SelectedIndex);
-        }
-
         private void BtnAddParticipants_OnClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/AddParticipantPage.xaml", UriKind.RelativeOrAbsolute));
@@ -56,14 +54,37 @@ namespace Foodler.Pages
             NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        private void BtnGoFoodTab_OnClick(object sender, RoutedEventArgs e)
+        {
+            SwitchPivot(1);
+        }
+
         private void BtnGoSumTab_OnClick(object sender, RoutedEventArgs e)
         {
-            MainPivot.SelectedIndex = (++MainPivot.SelectedIndex);
+            SwitchPivot(2);
+
         }
 
         private void BtnDone_OnClick(object sender, RoutedEventArgs e)
         {
-            MainPivot.SelectedIndex = 0;
+            SwitchPivot(0);
+        }
+
+        private async void SwitchPivot(int newIndex)
+        {
+            UnlockMainPivot();
+            await Task.Delay(TimeSpan.FromMilliseconds(50));
+            MainPivot.SelectedIndex = newIndex;
+            LockMainPivot();
+        }
+        private void LockMainPivot()
+        {
+            if (!MainPivot.IsLocked) MainPivot.IsLocked = true;
+        }
+
+        private void UnlockMainPivot()
+        {
+            if (MainPivot.IsLocked) MainPivot.IsLocked = false;
         }
     }
 }

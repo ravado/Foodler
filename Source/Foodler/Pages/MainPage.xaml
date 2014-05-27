@@ -41,7 +41,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:Pivot Title="FOODLER" Name="MainPivot">
+            <phone:Pivot Title="FOODLER" Name="MainPivot" IsLocked="True"  Style="{StaticResource PivotStyle}">
                 <phone:PivotItem Header="participants">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -49,7 +49,7 @@
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <ListBox Name="ListParticipants" SelectedItem="{Binding SelectedParticipant, Mode=TwoWay}" ItemsSource="{Binding Participants}">
+                            <ListBox Name="ListParticipants" ItemsSource="{Binding Participants}">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
@@ -93,7 +93,7 @@
                 <phone:PivotItem Header="sum">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="7*"></RowDefinition>
+                            <RowDefinition Height="6*"></RowDefinition>
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0">

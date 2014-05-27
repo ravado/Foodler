@@ -53,8 +53,6 @@ namespace Foodler.ViewModels
         {
             var selected = participantViewModel;
             Participants.Remove(selected);
-
-            var str = "";
         }
     }
 }
