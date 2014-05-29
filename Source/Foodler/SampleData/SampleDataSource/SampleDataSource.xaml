@@ -5,15 +5,39 @@
 -->
 <SampleData:SampleDataSource xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
   <SampleData:SampleDataSource.Participants>
-    <SampleData:ParticipantsItem Name="Nam" Property2="True" />
-    <SampleData:ParticipantsItem Name="Maecenas" Property2="False" />
-    <SampleData:ParticipantsItem Name="Praesent" Property2="True" />
-    <SampleData:ParticipantsItem Name="Aenean" Property2="False" />
-    <SampleData:ParticipantsItem Name="Mauris" Property2="True" />
-    <SampleData:ParticipantsItem Name="Aliquam" Property2="False" />
-    <SampleData:ParticipantsItem Name="Nullam" Property2="True" />
-    <SampleData:ParticipantsItem Name="Integer" Property2="False" />
-    <SampleData:ParticipantsItem Name="Class" Property2="True" />
-    <SampleData:ParticipantsItem Name="Accumsan" Property2="False" />
+    <SampleData:ParticipantsItem Name="Aaberg, Jesper" Property2="True" />
+    <SampleData:ParticipantsItem Name="Adams, Ellen" Property2="False" />
+    <SampleData:ParticipantsItem Name="Adams, Terry" Property2="True" />
+    <SampleData:ParticipantsItem Name="Adams, Terry" Property2="False" />
+    <SampleData:ParticipantsItem Name="Penor, Lori" Property2="True" />
+    <SampleData:ParticipantsItem Name="Pfeiffer, Michael" Property2="False" />
+    <SampleData:ParticipantsItem Name="Philips, Carol" Property2="True" />
+    <SampleData:ParticipantsItem Name="Poe, Toni" Property2="False" />
+    <SampleData:ParticipantsItem Name="Hicks, Cassie" Property2="True" />
+    <SampleData:ParticipantsItem Name="Argentiero, Luca" Property2="False" />
   </SampleData:SampleDataSource.Participants>
+  <SampleData:SampleDataSource.AvaibleParticipants>
+    <SampleData:AvaibleParticipantsItem Name="Aaberg, Jesper" />
+    <SampleData:AvaibleParticipantsItem Name="Adams, Ellen" />
+    <SampleData:AvaibleParticipantsItem Name="Adams, Terry" />
+    <SampleData:AvaibleParticipantsItem Name="Adams, Terry" />
+    <SampleData:AvaibleParticipantsItem Name="Penor, Lori" />
+    <SampleData:AvaibleParticipantsItem Name="Pfeiffer, Michael" />
+    <SampleData:AvaibleParticipantsItem Name="Philips, Carol" />
+    <SampleData:AvaibleParticipantsItem Name="Poe, Toni" />
+    <SampleData:AvaibleParticipantsItem Name="Hicks, Cassie" />
+    <SampleData:AvaibleParticipantsItem Name="Argentiero, Luca" />
+  </SampleData:SampleDataSource.AvaibleParticipants>
+  <SampleData:SampleDataSource.ChosenParticipants>
+    <SampleData:ChosenParticipantsItem Name="Aaberg, Jesper" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Ellen" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Terry" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Terry" />
+    <SampleData:ChosenParticipantsItem Name="Penor, Lori" />
+    <SampleData:ChosenParticipantsItem Name="Pfeiffer, Michael" />
+    <SampleData:ChosenParticipantsItem Name="Philips, Carol" />
+    <SampleData:ChosenParticipantsItem Name="Poe, Toni" />
+    <SampleData:ChosenParticipantsItem Name="Hicks, Cassie" />
+    <SampleData:ChosenParticipantsItem Name="Argentiero, Luca" />
+  </SampleData:SampleDataSource.ChosenParticipants>
 </SampleData:SampleDataSource>

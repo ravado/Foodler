@@ -27,23 +27,24 @@ namespace Foodler.ViewModels
             Participants = new ObservableCollection<ParticipantViewModel>();
         }
 
-        public void Initialize()
+        public void Initialize(List<ParticipantViewModel> participants)
         {
-            var participants = new List<ParticipantViewModel>();
-            participants.Add(new ParticipantViewModel("Ivan", OnRemoveParticipant));
-            participants.Add(new ParticipantViewModel("Oleg", OnRemoveParticipant));
-            participants.Add(new ParticipantViewModel("Vadim", OnRemoveParticipant));
-            participants.Add(new ParticipantViewModel("Julia", OnRemoveParticipant));
-            participants.Add(new ParticipantViewModel("Eugene", OnRemoveParticipant));
-            participants.Add(new ParticipantViewModel("Anatoliy", OnRemoveParticipant));
-            participants.Add(new ParticipantViewModel("Kostya", OnRemoveParticipant));
-            participants.Add(new ParticipantViewModel("Marina", OnRemoveParticipant));
+            //var participants = new List<ParticipantViewModel>();
+            //participants.Add(new ParticipantViewModel("Ivan", OnRemoveParticipant));
+            //participants.Add(new ParticipantViewModel("Oleg", OnRemoveParticipant));
+            //participants.Add(new ParticipantViewModel("Vadim", OnRemoveParticipant));
+            //participants.Add(new ParticipantViewModel("Julia", OnRemoveParticipant));
+            //participants.Add(new ParticipantViewModel("Eugene", OnRemoveParticipant));
+            //participants.Add(new ParticipantViewModel("Anatoliy", OnRemoveParticipant));
+            //participants.Add(new ParticipantViewModel("Kostya", OnRemoveParticipant));
+            //participants.Add(new ParticipantViewModel("Marina", OnRemoveParticipant));
 
             if (Participants != null)
             {
                 Participants.Clear();
                 foreach (var p in participants)
                 {
+                    p.SubscribeOnDelete(OnRemoveParticipant);
                     Participants.Add(p);
                 }
             }

@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Navigation;
+using Foodler.Common;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
 
@@ -41,7 +42,13 @@ namespace Foodler.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            _viewModel.Initialize();
+
+
+            if (TransfareManager.SelectedParticipants != null)
+            {
+                _viewModel.Initialize(TransfareManager.SelectedParticipants);
+            }
+                
         }
 
         private void BtnAddParticipants_OnClick(object sender, RoutedEventArgs e)

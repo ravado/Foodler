@@ -47,6 +47,30 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				return this._Participants;
 			}
 		}
+
+		private AvaibleParticipants _AvaibleParticipants = new AvaibleParticipants();
+
+		public AvaibleParticipants AvaibleParticipants
+		{
+			get
+			{
+				return this._AvaibleParticipants;
+			}
+		}
+
+		private ChosenParticipants _ChosenParticipants = new ChosenParticipants();
+
+		public ChosenParticipants ChosenParticipants
+		{
+			get
+			{
+				return this._ChosenParticipants;
+			}
+		}
+	}
+
+	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>
+	{ 
 	}
 
 	public class ParticipantsItem : System.ComponentModel.INotifyPropertyChanged
@@ -100,7 +124,75 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
-	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>
+	public class AvaibleParticipantsItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+	}
+
+	public class AvaibleParticipants : System.Collections.ObjectModel.ObservableCollection<AvaibleParticipantsItem>
+	{ 
+	}
+
+	public class ChosenParticipantsItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+	}
+
+	public class ChosenParticipants : System.Collections.ObjectModel.ObservableCollection<ChosenParticipantsItem>
 	{ 
 	}
 #endif
