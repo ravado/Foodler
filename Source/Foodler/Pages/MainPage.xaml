@@ -106,13 +106,27 @@
                 <phone:PivotItem Header="sum">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="6*"></RowDefinition>
+                            <RowDefinition Height="5*"></RowDefinition>
+                            <RowDefinition Height="1*"></RowDefinition>
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0">
-                            <TextBlock>Participants Due List</TextBlock>
+                            <ListBox ItemsSource="{Binding ParticipantContainers}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock Margin="10" Text="{Binding Participant.Name}"/>
+                                            <TextBlock Margin="10" Text="{Binding TotalCost, StringFormat='#,#.00'}"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
                         </StackPanel>
-                        <StackPanel Grid.Row="1">
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Text="Total: "/>
+                            <TextBlock Text="{Binding FoodTotalCost}"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2">
                             <Button Name="BtnDone" Content="Done" Click="BtnDone_OnClick" />
                         </StackPanel>
                     </Grid>

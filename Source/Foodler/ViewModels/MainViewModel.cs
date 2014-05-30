@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Windows.Input;
-using Foodler.Common;
-using Foodler.Models;
+﻿using System.Linq;
 using Foodler.ViewModels.Common;
 using Foodler.ViewModels.Items;
-using Microsoft.Phone.Reactive;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Foodler.ViewModels
 {
@@ -19,28 +15,32 @@ namespace Foodler.ViewModels
             set { _selectedParticipant = value; NotifyPropertyChanged(); }
         }
 
+        private decimal _foodTotalCost;
+
         public ObservableCollection<ParticipantViewModel> Participants { get; set; }
 
         public ObservableCollection<FoodContainerViewModel> FoodContainers { get; set; }
+        public ObservableCollection<ParticipantContainerViewModel> ParticipantContainers { get; set; }
+
+        public decimal FoodTotalCost
+        {
+            get { return _foodTotalCost; }
+            set
+            {
+                _foodTotalCost = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         public MainViewModel()
         {
             Participants = new ObservableCollection<ParticipantViewModel>();
             FoodContainers = new ObservableCollection<FoodContainerViewModel>();
+            ParticipantContainers = new ObservableCollection<ParticipantContainerViewModel>();
         }
 
         public void Initialize(List<ParticipantViewModel> participants)
         {
-            //var participants = new List<ParticipantViewModel>();
-            //participants.Add(new ParticipantViewModel("Ivan", OnRemoveParticipant));
-            //participants.Add(new ParticipantViewModel("Oleg", OnRemoveParticipant));
-            //participants.Add(new ParticipantViewModel("Vadim", OnRemoveParticipant));
-            //participants.Add(new ParticipantViewModel("Julia", OnRemoveParticipant));
-            //participants.Add(new ParticipantViewModel("Eugene", OnRemoveParticipant));
-            //participants.Add(new ParticipantViewModel("Anatoliy", OnRemoveParticipant));
-            //participants.Add(new ParticipantViewModel("Kostya", OnRemoveParticipant));
-            //participants.Add(new ParticipantViewModel("Marina", OnRemoveParticipant));
-
             if (Participants != null)
             {
                 Participants.Clear();
@@ -56,6 +56,46 @@ namespace Foodler.ViewModels
         {
             var selected = participantViewModel;
             Participants.Remove(selected);
+        }
+
+        private void UpdateTotalCost()
+        {
+            var cost = 0.0m;
+            if (FoodContainers != null)
+            {
+                cost += FoodContainers.Where(food => food.Food != null).Sum(food => food.Food.Cost);
+            }
+            FoodTotalCost = cost;
+        }
+        public void SumUp()
+        {
+            var people = new Dictionary<string, decimal>();
+            foreach (var fc in FoodContainers)
+            {
+                var cost = fc.Food.Cost;
+                var equalPrice = cost/fc.ParticipantCount;
+                foreach (var participant in fc.Participants)
+                {
+                    if (people.ContainsKey(participant.Name))
+                    {
+                        people[participant.Name] += equalPrice;
+                    }
+                    else
+                    {
+                        people[participant.Name] = equalPrice;
+                    }
+                    
+                }
+            }
+            foreach (var p in people)
+            {
+                ParticipantContainers.Add(new ParticipantContainerViewModel(new ParticipantViewModel(p.Key, null), null)
+                {
+                    TotalCost = p.Value
+                });
+            }
+
+            UpdateTotalCost();
         }
     }
 }

@@ -72,8 +72,8 @@ namespace Foodler.Pages
 
         private void BtnGoSumTab_OnClick(object sender, RoutedEventArgs e)
         {
+            _viewModel.SumUp();
             SwitchPivot(2);
-
         }
 
         private void BtnDone_OnClick(object sender, RoutedEventArgs e)
