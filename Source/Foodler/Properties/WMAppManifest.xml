@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
-  <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8a}" Title="Foodler" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Foodler author" Description="Sample description" Publisher="Foodler" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
+  <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8a}" Title="Foodler" RuntimeType="Silverlight" Version="0.1.0.0" Genre="apps.normal" Author="Foodler author" Description="Sample description" Publisher="Foodler" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
     <IconPath IsRelative="true" IsResource="false">beer-icon.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
