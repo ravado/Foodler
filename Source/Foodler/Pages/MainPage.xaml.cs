@@ -43,10 +43,14 @@ namespace Foodler.Pages
         {
             base.OnNavigatedTo(e);
 
-
             if (TransfareManager.SelectedParticipants != null)
             {
                 _viewModel.Initialize(TransfareManager.SelectedParticipants);
+            }
+
+            if (TransfareManager.FoodContainer != null)
+            {
+                _viewModel.FoodContainers.Add(TransfareManager.FoodContainer);
             }
                 
         }

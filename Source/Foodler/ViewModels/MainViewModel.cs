@@ -13,7 +13,6 @@ namespace Foodler.ViewModels
     public class MainViewModel : BaseViewModel
     {
         private ParticipantViewModel _selectedParticipant;
-
         public ParticipantViewModel SelectedParticipant
         {
             get { return _selectedParticipant; }
@@ -22,9 +21,12 @@ namespace Foodler.ViewModels
 
         public ObservableCollection<ParticipantViewModel> Participants { get; set; }
 
+        public ObservableCollection<FoodContainerViewModel> FoodContainers { get; set; }
+
         public MainViewModel()
         {
             Participants = new ObservableCollection<ParticipantViewModel>();
+            FoodContainers = new ObservableCollection<FoodContainerViewModel>();
         }
 
         public void Initialize(List<ParticipantViewModel> participants)

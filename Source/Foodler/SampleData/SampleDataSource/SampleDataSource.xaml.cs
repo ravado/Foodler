@@ -67,6 +67,25 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				return this._ChosenParticipants;
 			}
 		}
+
+		private Food _Food = new Food();
+
+		public Food Food
+		{
+			get
+			{
+				return this._Food;
+			}
+
+			set
+			{
+				if (this._Food != value)
+				{
+					this._Food = value;
+					this.OnPropertyChanged("Food");
+				}
+			}
+		}
 	}
 
 	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>
@@ -124,6 +143,10 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
+	public class AvaibleParticipants : System.Collections.ObjectModel.ObservableCollection<AvaibleParticipantsItem>
+	{ 
+	}
+
 	public class AvaibleParticipantsItem : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -156,7 +179,7 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
-	public class AvaibleParticipants : System.Collections.ObjectModel.ObservableCollection<AvaibleParticipantsItem>
+	public class ChosenParticipants : System.Collections.ObjectModel.ObservableCollection<ChosenParticipantsItem>
 	{ 
 	}
 
@@ -192,8 +215,55 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
-	public class ChosenParticipants : System.Collections.ObjectModel.ObservableCollection<ChosenParticipantsItem>
-	{ 
+	public class Food : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private double _Cost = 0;
+
+		public double Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+
+			set
+			{
+				if (this._Cost != value)
+				{
+					this._Cost = value;
+					this.OnPropertyChanged("Cost");
+				}
+			}
+		}
 	}
 #endif
 }

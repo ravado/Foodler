@@ -80,9 +80,22 @@
                             <RowDefinition Height="3*"></RowDefinition>
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
-                        <StackPanel Grid.Row="0">
-                            <TextBlock>Food List</TextBlock>
-                        </StackPanel>
+                        <ListBox Grid.Row="0"
+                                 Name="ListFood"
+                                 ItemsSource="{Binding FoodContainers}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Food.Name}"
+                                                   Margin="10"/>
+                                        <TextBlock Text="{Binding Food.Cost}"
+                                                   Margin="10"/>
+                                        <TextBlock Text="{Binding ParticipantCount}"
+                                                   Margin="10"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
                         <StackPanel Grid.Row="1">
                             <Button Name="BtnAddFood" Content="Add Food" Click="BtnAddFood_OnClick" />
                             <Button Name="BtnGoSumTab" Content="Next" Click="BtnGoSumTab_OnClick" />

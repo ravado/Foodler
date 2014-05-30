@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -14,7 +15,7 @@
     shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -33,11 +34,26 @@
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
                 <TextBlock>Food:</TextBlock>
-                <TextBox></TextBox>
+                <TextBox Name="TextFoodName" Text="{Binding Food.Name, Mode=TwoWay}"/>
                 <TextBlock>Cost:</TextBlock>
-                <TextBox></TextBox>
+                <TextBox Name="TextFoodCost" InputScope="Number" Text="{Binding Food.Cost, Mode=TwoWay}"/>
                 <TextBlock>Participants:</TextBlock>
-                <TextBox Height="400" Text="List of participants"></TextBox>
+                <toolkit:LongListMultiSelector 
+                        Name="NewJokesMultiSelector"
+                        Margin="0 10"
+                        ItemsSource="{Binding Participants}"
+                    
+                        SelectionChanged="NewJokesMultiSelector_OnSelectionChanged"
+                        LayoutMode="List"
+                        EnforceIsSelectionEnabled="True">
+                    <toolkit:LongListMultiSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Background="Transparent">
+                                <TextBlock Text="{Binding Name}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </toolkit:LongListMultiSelector.ItemTemplate>
+                </toolkit:LongListMultiSelector>
             </StackPanel>
             <StackPanel Grid.Row="1">
                 <Button Name="BtnDone" Content="Done" Click="BtnDone_OnClick"/>

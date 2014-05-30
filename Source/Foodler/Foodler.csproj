@@ -119,6 +119,9 @@
     </Compile>
     <Compile Include="ViewModels\AddParticipantsViewModel.cs" />
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
+    <Compile Include="ViewModels\AddFoodViewModel.cs" />
+    <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
+    <Compile Include="ViewModels\Items\FoodViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>

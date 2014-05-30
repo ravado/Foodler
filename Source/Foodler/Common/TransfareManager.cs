@@ -10,5 +10,6 @@ namespace Foodler.Common
     public static class TransfareManager
     {
         public static List<ParticipantViewModel> SelectedParticipants { get; set; }
+        public static FoodContainerViewModel FoodContainer { get; set; }
     }
 }

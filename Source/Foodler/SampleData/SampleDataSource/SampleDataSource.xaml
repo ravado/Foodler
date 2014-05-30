@@ -40,4 +40,7 @@
     <SampleData:ChosenParticipantsItem Name="Hicks, Cassie" />
     <SampleData:ChosenParticipantsItem Name="Argentiero, Luca" />
   </SampleData:SampleDataSource.ChosenParticipants>
+  <SampleData:SampleDataSource.Food>
+    <SampleData:Food Name="Nam" Cost="992" />
+  </SampleData:SampleDataSource.Food>
 </SampleData:SampleDataSource>
