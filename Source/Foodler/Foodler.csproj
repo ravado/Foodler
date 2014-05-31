@@ -95,6 +95,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\ActionCommand.cs" />
+    <Compile Include="Common\StateManager.cs" />
     <Compile Include="Common\TransfareManager.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\Food.cs" />

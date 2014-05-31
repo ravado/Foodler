@@ -13,12 +13,18 @@ namespace Foodler.Pages
 {
     public partial class AddParticipantPage : PhoneApplicationPage
     {
-        private AddParticipantsViewModel _viewModel;
+        private readonly AddParticipantsViewModel _viewModel;
         public AddParticipantPage()
         {
             InitializeComponent();
             _viewModel = new AddParticipantsViewModel();
             DataContext = _viewModel;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            StateManager.InvolvedParticipants = _viewModel.GetInvolvedParticipants();
+            base.OnNavigatedFrom(e);
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

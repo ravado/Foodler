@@ -12,18 +12,19 @@ namespace Foodler.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private readonly MainViewModel _viewModel;
+        public MainViewModel ViewModel { get; private set; }
 
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-            _viewModel = new MainViewModel();
-            DataContext = _viewModel;
+            ViewModel = new MainViewModel();
+            DataContext = ViewModel;
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
 
+        public string Waiting { get; set; }
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()
         //{
@@ -41,18 +42,16 @@ namespace Foodler.Pages
         //}
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
-
-            if (TransfareManager.SelectedParticipants != null)
-            {
-                _viewModel.Initialize(TransfareManager.SelectedParticipants);
-            }
-
+            // get chosen participants from addparticipants page
+            if(StateManager.InvolvedParticipants != null)
+                ViewModel.SetInvolvedParticipants(StateManager.InvolvedParticipants);
+            
             if (TransfareManager.FoodContainer != null)
             {
-                _viewModel.FoodContainers.Add(TransfareManager.FoodContainer);
+                ViewModel.FoodContainers.Add(TransfareManager.FoodContainer);
             }
-                
+
+            base.OnNavigatedTo(e);
         }
 
         private void BtnAddParticipants_OnClick(object sender, RoutedEventArgs e)
@@ -72,7 +71,7 @@ namespace Foodler.Pages
 
         private void BtnGoSumTab_OnClick(object sender, RoutedEventArgs e)
         {
-            _viewModel.SumUp();
+            ViewModel.SumUp();
             SwitchPivot(2);
         }
 

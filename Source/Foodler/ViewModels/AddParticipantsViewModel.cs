@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Foodler.Models;
 using Foodler.ViewModels.Common;
 using Foodler.ViewModels.Items;
 
@@ -58,6 +59,11 @@ namespace Foodler.ViewModels
         {
             myItem.SubscribeOnDelete(OnRemoveParticipant);
             ChosenParticipants.Add(myItem);
+        }
+
+        public IEnumerable<Participant> GetInvolvedParticipants()
+        {
+            return ChosenParticipants.Select(p => new Participant(p.Name)).ToList();
         }
     }
 }
