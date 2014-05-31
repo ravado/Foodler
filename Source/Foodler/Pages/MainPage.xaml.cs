@@ -43,15 +43,29 @@ namespace Foodler.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // get chosen participants from addparticipants page
-            if(StateManager.InvolvedParticipants != null)
+            if (StateManager.InvolvedParticipants != null)
                 ViewModel.SetInvolvedParticipants(StateManager.InvolvedParticipants);
-            
+
             if (TransfareManager.FoodContainer != null)
             {
                 ViewModel.FoodContainers.Add(TransfareManager.FoodContainer);
             }
 
             base.OnNavigatedTo(e);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            // which page do we go
+            if (e.Content is AddParticipantPage)
+            {
+                StateManager.InvolvedParticipants = ViewModel.GetInvolvedParticipants();
+            }
+            else if (e.Content is AddFoodPage)
+            {
+            }
+
+            base.OnNavigatedFrom(e);
         }
 
         private void BtnAddParticipants_OnClick(object sender, RoutedEventArgs e)
