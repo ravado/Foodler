@@ -1,6 +1,5 @@
-﻿using Expression.Blend.SampleData.SampleDataSource;
-using System.Data.Linq;
-using Foodler.Common.Contracts;
+﻿using System.Data.Linq;
+using Foodler.Models;
 
 namespace Foodler.DB
 {
@@ -8,7 +7,7 @@ namespace Foodler.DB
     {
         public const string CONNECTION_STRING = "Data Source=isostore:/Foodler.sdf";
 
-        public Table<IParticipant> Participants;
+        public Table<Participant> Participants;
 
         public FoodlerDataContext(string connectionString) : base(connectionString)
         {

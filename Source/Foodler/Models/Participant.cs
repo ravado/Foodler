@@ -5,7 +5,7 @@ using Foodler.Common.Contracts;
 
 namespace Foodler.Models
 {
-    [Table]
+    [Table(Name = "Participants")]
     public class Participant : BaseModel, IParticipant
     {
         #region Fields
@@ -13,7 +13,7 @@ namespace Foodler.Models
         private Guid _id;
         private string _name;
         private bool _isUserContact;
-        private WriteableBitmap _avatar;
+        private object _avatar;
 
         #endregion
 
@@ -39,8 +39,8 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
-        [Column]
-        public WriteableBitmap Avatar
+        [Column(DbType = "varbinary(max)")]
+        public object Avatar
         {
             get { return _avatar; }
             set
@@ -66,10 +66,15 @@ namespace Foodler.Models
 
         public Participant() { }
 
-        public Participant(string name) : this()
+        public Participant(Guid id, string name, bool isUserContact = false, WriteableBitmap avatar = null) : this()
         {
+            Id = id;
             Name = name;
+            IsUserContact = isUserContact;
+            Avatar = avatar;
         }
+
+
 
         #endregion
     }

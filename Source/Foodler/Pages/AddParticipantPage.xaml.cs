@@ -19,7 +19,7 @@ namespace Foodler.Pages
         public AddParticipantPage()
         {
             InitializeComponent();
-            ViewModel = new AddParticipantsViewModel();
+            ViewModel = new AddParticipantsViewModel(new ParticipantService());
             DataContext = ViewModel;
         }
 
