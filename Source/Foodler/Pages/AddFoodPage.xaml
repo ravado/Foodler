@@ -36,7 +36,7 @@
                 <TextBlock>Food:</TextBlock>
                 <TextBox Name="TextFoodName" InputScope="Text" Text="{Binding Food.Name, Mode=TwoWay}"/>
                 <TextBlock>Cost:</TextBlock>
-                <TextBox Name="TextFoodCost" InputScope="Number" Text="{Binding Food.Cost, Mode=TwoWay}"/>
+                <TextBox Name="TextFoodCost" InputScope="Number" Text="{Binding Food.Price, Mode=TwoWay}"/>
                 <TextBlock>Participants:</TextBlock>
                 <toolkit:LongListMultiSelector 
                         Name="NewJokesMultiSelector"
@@ -45,7 +45,7 @@
                     
                         SelectionChanged="NewJokesMultiSelector_OnSelectionChanged"
                         LayoutMode="List"
-                        EnforceIsSelectionEnabled="True">
+                        EnforceIsSelectionEnabled="True" Foreground="#FFC92525">
                     <toolkit:LongListMultiSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Background="Transparent">

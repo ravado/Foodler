@@ -23,7 +23,6 @@
   </xs:complexType>
   <xs:complexType name="ParticipantsItem">
     <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
-    <xs:attribute name="Property2" type="xs:boolean" />
   </xs:complexType>
   <xs:complexType name="AvaibleParticipants">
     <xs:sequence>
@@ -43,7 +42,7 @@
   </xs:complexType>
   <xs:complexType name="Food">
     <xs:attribute blend:FormatParameters="2,4" name="Name" type="xs:string" />
-    <xs:attribute blend:FormatParameters="3" name="Cost" type="xs:double" />
+    <xs:attribute blend:FormatParameters="3" name="Price" type="xs:double" />
   </xs:complexType>
   <xs:complexType name="ParticipantContainers">
     <xs:sequence>
@@ -55,7 +54,7 @@
       <xs:element name="Participant" type="tns:Participant" />
       <xs:element name="Food" type="tns:Food1" />
     </xs:sequence>
-    <xs:attribute blend:FormatParameters="2" name="FoodCount" type="xs:double" />
+    <xs:attribute name="FoodCount" type="xs:double" />
     <xs:attribute blend:Format="Price" name="TotalCost" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="Participant">
@@ -68,6 +67,6 @@
   </xs:complexType>
   <xs:complexType name="FoodItem">
     <xs:attribute name="Name" type="xs:string" />
-    <xs:attribute blend:Format="Price" name="Cost" type="xs:string" />
+    <xs:attribute blend:Format="Price" name="Price" type="xs:string" />
   </xs:complexType>
 </xs:schema>

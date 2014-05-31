@@ -70,7 +70,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Text="{Binding Food.Name}"
                                                    Margin="10"/>
-                                        <TextBlock Text="{Binding Food.Cost}"
+                                        <TextBlock Text="{Binding Food.Price}"
                                                    Margin="10"/>
                                         <TextBlock Text="{Binding ParticipantCount}"
                                                    Margin="10"/>

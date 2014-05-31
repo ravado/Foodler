@@ -95,10 +95,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\ActionCommand.cs" />
+    <Compile Include="Common\Contracts\IFood.cs" />
     <Compile Include="Common\Contracts\IParticipant.cs" />
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="Common\TransfareManager.cs" />
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Participant.cs" />
     <Compile Include="Pages\AddFoodPage.xaml.cs">
@@ -123,7 +125,6 @@
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\AddFoodViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
-    <Compile Include="ViewModels\Items\FoodViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>

@@ -9,7 +9,7 @@ namespace Foodler.ViewModels.Items
     {
         private decimal _totalCost;
         public IParticipant Participant { get; set; }
-        public IEnumerable<FoodViewModel> Food { get; set; }
+        public IEnumerable<IFood> Food { get; set; }
 
         public int FoodCount
         {
@@ -28,7 +28,7 @@ namespace Foodler.ViewModels.Items
 
         public ParticipantContainerViewModel() {}
 
-        public ParticipantContainerViewModel(IParticipant participant, IEnumerable<FoodViewModel> food)
+        public ParticipantContainerViewModel(IParticipant participant, IEnumerable<IFood> food)
         {
             Participant = participant;
             Food = food;

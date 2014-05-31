@@ -1,15 +1,48 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Foodler.Common.Contracts;
 
 namespace Foodler.Models
 {
-    public class Food
+    public class Food : BaseModel, IFood
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public decimal Price { get; set; }
+        #region Fields
+
+        private Guid _id;
+        private string _name;
+        private decimal _price;
+
+        #endregion
+
+        #region Properties
+
+        public Guid Id
+        {
+            get { return _id; }
+            set
+            {
+                _id = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public decimal Price
+        {
+            get { return _price; }
+            set
+            {
+                _price = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        #endregion
     }
 }

@@ -70,7 +70,6 @@
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
                 <ListBox
-                    
                     Grid.Row="1"
                     Name="ListChosenParticipants"
                     ItemsSource="{Binding ChosenParticipants}"
@@ -84,9 +83,10 @@
                         <DataTemplate>
                             <StackPanel>
                                 <Button
+                                    Name="RemoveSelectedParticipantBtn"
                                     FontSize="12"
                                     Padding="5"
-                                    Command="{Binding RemoveParticipantCommand}"
+                                    Click="RemoveSelectedParticipantBtn_OnClick"
                                     VerticalAlignment="Center"
                                     Content="{Binding Name}"/>
                             </StackPanel>

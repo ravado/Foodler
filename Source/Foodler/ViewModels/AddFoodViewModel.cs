@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Foodler.Common.Contracts;
+using Foodler.Models;
 using Foodler.ViewModels.Common;
 using Foodler.ViewModels.Items;
 
@@ -12,8 +13,9 @@ namespace Foodler.ViewModels
 {
     public class AddFoodViewModel : BaseViewModel
     {
-        private FoodViewModel _food;
-        public FoodViewModel Food {
+        private IFood _food;
+        public IFood Food
+        {
             get { return _food; }
             set
             {
@@ -29,10 +31,10 @@ namespace Foodler.ViewModels
         {
             Participants = new ObservableCollection<IParticipant>();
             SelectedParticipants = new ObservableCollection<IParticipant>();
-            Food = new FoodViewModel();
+            Food = new Food();
         }
 
-        public void Initialize(IEnumerable<IParticipant> participants, FoodViewModel food)
+        public void Initialize(IEnumerable<IParticipant> participants, IFood food)
         {
             if (food != null)
                 Food = food;

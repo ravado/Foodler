@@ -53,18 +53,12 @@ namespace Foodler.ViewModels
             var cost = 0.0m;
             if (FoodContainers != null)
             {
-                cost += FoodContainers.Where(food => food.Food != null).Sum(food => food.Food.Cost);
+                cost += FoodContainers.Where(food => food.Food != null).Sum(food => food.Food.Price);
             }
             FoodTotalCost = cost;
         }
 
         #region Callbacks
-
-        private void OnRemoveParticipant(IParticipant participantViewModel)
-        {
-            //var selected = participantViewModel;
-            //Participants.Remove(selected);
-        }
 
         #endregion
 
@@ -85,7 +79,7 @@ namespace Foodler.ViewModels
             var people = new Dictionary<string, decimal>();
             foreach (var fc in FoodContainers)
             {
-                var cost = fc.Food.Cost;
+                var cost = fc.Food.Price;
                 var equalPrice = cost / fc.ParticipantCount;
                 foreach (var participant in fc.Participants)
                 {
@@ -139,7 +133,10 @@ namespace Foodler.ViewModels
             return null;
         }
 
-
+        /// <summary>
+        /// Just removing participant from list of selected ones
+        /// </summary>
+        /// <param name="participantToRemove">Which participant to remove</param>
         public void RemoveInvolvedParticipantFromList(IParticipant participantToRemove)
         {
             Participants.Remove(participantToRemove);

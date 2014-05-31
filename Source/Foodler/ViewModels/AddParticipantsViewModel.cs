@@ -83,6 +83,16 @@ namespace Foodler.ViewModels
                 }
             }
         }
+
+        /// <summary>
+        /// Just removing participant from list of selected ones
+        /// </summary>
+        /// <param name="participantToRemove">Which participant to remove</param>
+        public void RemoveSelectedParticipantFromList(IParticipant participantToRemove)
+        {
+            ChosenParticipants.Remove(participantToRemove);
+        }
+
         #endregion
 
         #region Private Methods
@@ -91,5 +101,7 @@ namespace Foodler.ViewModels
         #endregion
 
         #endregion
+
+        
     }
 }

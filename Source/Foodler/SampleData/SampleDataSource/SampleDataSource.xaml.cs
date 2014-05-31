@@ -151,25 +151,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
-
-		private bool _Property2 = false;
-
-		public bool Property2
-		{
-			get
-			{
-				return this._Property2;
-			}
-
-			set
-			{
-				if (this._Property2 != value)
-				{
-					this._Property2 = value;
-					this.OnPropertyChanged("Property2");
-				}
-			}
-		}
 	}
 
 	public class AvaibleParticipants : System.Collections.ObjectModel.ObservableCollection<AvaibleParticipantsItem>
@@ -275,24 +256,28 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
-		private double _Cost = 0;
+		private double _Price = 0;
 
-		public double Cost
+		public double Price
 		{
 			get
 			{
-				return this._Cost;
+				return this._Price;
 			}
 
 			set
 			{
-				if (this._Cost != value)
+				if (this._Price != value)
 				{
-					this._Cost = value;
-					this.OnPropertyChanged("Cost");
+					this._Price = value;
+					this.OnPropertyChanged("Price");
 				}
 			}
 		}
+	}
+
+	public class ParticipantContainers : System.Collections.ObjectModel.ObservableCollection<ParticipantContainersItem>
+	{ 
 	}
 
 	public class ParticipantContainersItem : System.ComponentModel.INotifyPropertyChanged
@@ -375,10 +360,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
-	public class ParticipantContainers : System.Collections.ObjectModel.ObservableCollection<ParticipantContainersItem>
-	{ 
-	}
-
 	public class Participant : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -409,6 +390,10 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+	}
+
+	public class Food1 : System.Collections.ObjectModel.ObservableCollection<FoodItem>
+	{ 
 	}
 
 	public class FoodItem : System.ComponentModel.INotifyPropertyChanged
@@ -442,28 +427,24 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
-		private string _Cost = string.Empty;
+		private string _Price = string.Empty;
 
-		public string Cost
+		public string Price
 		{
 			get
 			{
-				return this._Cost;
+				return this._Price;
 			}
 
 			set
 			{
-				if (this._Cost != value)
+				if (this._Price != value)
 				{
-					this._Cost = value;
-					this.OnPropertyChanged("Cost");
+					this._Price = value;
+					this.OnPropertyChanged("Price");
 				}
 			}
 		}
-	}
-
-	public class Food1 : System.Collections.ObjectModel.ObservableCollection<FoodItem>
-	{ 
 	}
 #endif
 }
