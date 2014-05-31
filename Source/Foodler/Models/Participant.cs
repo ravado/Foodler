@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Data.Linq.Mapping;
 using System.Windows.Media.Imaging;
 using Foodler.Common.Contracts;
 
 namespace Foodler.Models
 {
+    [Table]
     public class Participant : BaseModel, IParticipant
     {
         #region Fields
 
         private Guid _id;
         private string _name;
-        private BitmapImage _avatar;
+        private bool _isUserContact;
+        private WriteableBitmap _avatar;
 
         #endregion
 
         #region Properties
-        
+
+        [Column(IsPrimaryKey = true, IsDbGenerated = false, CanBeNull = false)]
         public Guid Id
         {
             get { return _id; }
@@ -25,6 +29,7 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
+        [Column]
         public string Name
         {
             get { return _name; }
@@ -34,7 +39,8 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
-        public BitmapImage Avatar
+        [Column]
+        public WriteableBitmap Avatar
         {
             get { return _avatar; }
             set
@@ -43,15 +49,28 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
+        [Column]
+        public bool IsUserContact
+        {
+            get { return _isUserContact; }
+            set
+            {
+                _isUserContact = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         #endregion
 
+        #region Constructors
+
         public Participant() { }
 
-        public Participant(string name)
-            : this()
+        public Participant(string name) : this()
         {
             Name = name;
         }
+
+        #endregion
     }
 }

@@ -4,6 +4,7 @@ using System.Resources;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
+using Foodler.DB;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Foodler.Resources;
@@ -54,7 +55,19 @@ namespace Foodler
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
+            InitializeDatabase();
+        }
 
+        private void InitializeDatabase()
+        {
+            using (var db = new FoodlerDataContext(FoodlerDataContext.CONNECTION_STRING))
+            {
+                if (db.DatabaseExists() == false)
+                {
+                    //Create the database
+                    db.CreateDatabase();
+                }
+            }
         }
 
         // Code to execute when the application is launching (eg, from Start)
