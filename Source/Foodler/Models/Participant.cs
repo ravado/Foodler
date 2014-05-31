@@ -1,21 +1,25 @@
 ﻿using System;
+using System.Data.Linq.Mapping;
 using System.Windows.Media.Imaging;
 using Foodler.Common.Contracts;
 
 namespace Foodler.Models
 {
+    [Table(Name = "Participants")]
     public class Participant : BaseModel, IParticipant
     {
         #region Fields
 
         private Guid _id;
         private string _name;
-        private BitmapImage _avatar;
+        private bool _isUserContact;
+        private object _avatar;
 
         #endregion
 
         #region Properties
-        
+
+        [Column(IsPrimaryKey = true, IsDbGenerated = true, CanBeNull = false)]
         public Guid Id
         {
             get { return _id; }
@@ -25,6 +29,7 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
+        [Column]
         public string Name
         {
             get { return _name; }
@@ -34,7 +39,8 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
-        public BitmapImage Avatar
+        [Column(DbType = "varbinary")]
+        public object Avatar
         {
             get { return _avatar; }
             set
@@ -43,15 +49,39 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
+        [Column]
+        public bool IsUserContact
+        {
+            get { return _isUserContact; }
+            set
+            {
+                _isUserContact = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         #endregion
 
+        #region Constructors
+
         public Participant() { }
 
-        public Participant(string name)
-            : this()
+        public Participant(Guid id, string name, bool isUserContact = false, WriteableBitmap avatar = null) : this()
         {
+            Id = id;
             Name = name;
+            IsUserContact = isUserContact;
+            Avatar = avatar;
         }
+
+        public Participant(IParticipant participant) : this()
+        {
+            Id = participant.Id;
+            Name = participant.Name;
+            IsUserContact = participant.IsUserContact;
+            Avatar = participant.Avatar;
+        }
+
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.ViewModels.Common;
@@ -96,7 +97,7 @@ namespace Foodler.ViewModels
             }
             foreach (var p in people)
             {
-                ParticipantContainers.Add(new ParticipantContainerViewModel(new Participant(p.Key), null)
+                ParticipantContainers.Add(new ParticipantContainerViewModel(new Participant(Guid.Empty, p.Key), null)
                 {
                     TotalCost = p.Value
                 });
@@ -116,7 +117,7 @@ namespace Foodler.ViewModels
                 Participants.Clear();
                 foreach (var participant in participants)
                 {
-                    Participants.Add(new Participant(participant.Name));
+                    Participants.Add(new Participant(Guid.Empty, participant.Name));
                 }
             }
         }
@@ -128,7 +129,7 @@ namespace Foodler.ViewModels
         public IEnumerable<Participant> GetInvolvedParticipants()
         {
             if (Participants != null)
-                return Participants.Select(p => new Participant(p.Name)).ToList();
+                return Participants.Select(p => new Participant(Guid.Empty, p.Name)).ToList();
 
             return null;
         }

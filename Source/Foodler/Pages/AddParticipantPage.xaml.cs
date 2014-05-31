@@ -1,6 +1,8 @@
 ﻿using System;
 using Foodler.Common;
 using Foodler.Common.Contracts;
+using Foodler.DB;
+using Foodler.Services;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
 using System.Linq;
@@ -19,7 +21,7 @@ namespace Foodler.Pages
         public AddParticipantPage()
         {
             InitializeComponent();
-            ViewModel = new AddParticipantsViewModel();
+            ViewModel = new AddParticipantsViewModel(new ParticipantService());
             DataContext = ViewModel;
         }
 

@@ -1,5 +1,7 @@
-﻿using Foodler.Common.Contracts;
+﻿using System;
+using Foodler.Common.Contracts;
 using Foodler.Models;
+using Foodler.Services;
 using Foodler.ViewModels.Common;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,12 +16,15 @@ namespace Foodler.ViewModels
         public ObservableCollection<IParticipant> AvaibleParticipants { get; set; }
         public ObservableCollection<IParticipant> ChosenParticipants { get; set; }
 
+        public ParticipantService ParticipantService { get; private set; }
+
         #endregion
 
-        public AddParticipantsViewModel()
+        public AddParticipantsViewModel(ParticipantService participantService)
         {
             AvaibleParticipants = new ObservableCollection<IParticipant>();
             ChosenParticipants = new ObservableCollection<IParticipant>();
+            ParticipantService = participantService;
         }
 
         #region Public Methods
@@ -29,19 +34,18 @@ namespace Foodler.ViewModels
         /// </summary>
         public void Initialize()
         {
-            var participants = new List<IParticipant>
-            {
-                new Participant("Ivan"),
-                new Participant("Oleg"),
-                new Participant("Vadim"),
-                new Participant("Julia"),
-                new Participant("Eugene"),
-                new Participant("Anatoliy"),
-                new Participant("Kostya"),
-                new Participant("Marina")
-            };
+            LoadAvaibleParticipants();
+        }
 
-            if (AvaibleParticipants == null) return;
+        /// <summary>
+        /// Load all avaible participants from database
+        /// </summary>
+        public void LoadAvaibleParticipants()
+        {
+            var participants = ParticipantService.GetAllParticipants();
+
+            if (AvaibleParticipants == null)
+                AvaibleParticipants = new ObservableCollection<IParticipant>();
 
             AvaibleParticipants.Clear();
             foreach (var p in participants)
@@ -65,7 +69,7 @@ namespace Foodler.ViewModels
         /// <returns>List of involved participants</returns>
         public IEnumerable<Participant> GetInvolvedParticipants()
         {
-            return ChosenParticipants.Select(p => new Participant(p.Name)).ToList();
+            return ChosenParticipants.Select(p => new Participant(Guid.Empty, p.Name)).ToList();
         }
 
         /// <summary>
@@ -79,7 +83,7 @@ namespace Foodler.ViewModels
                 ChosenParticipants.Clear();
                 foreach (var participant in participants)
                 {
-                    ChosenParticipants.Add(new Participant(participant.Name));
+                    ChosenParticipants.Add(new Participant(Guid.Empty, participant.Name));
                 }
             }
         }
