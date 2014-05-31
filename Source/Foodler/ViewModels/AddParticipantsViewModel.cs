@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows.Input;
+using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.Services;
@@ -11,12 +13,25 @@ namespace Foodler.ViewModels
 {
     public class AddParticipantsViewModel : BaseViewModel
     {
+        #region Fields
+
+        private ICommand _clearAllCommand;
+
+        #endregion
+
         #region Properties
 
         public ObservableCollection<IParticipant> AvaibleParticipants { get; set; }
         public ObservableCollection<IParticipant> ChosenParticipants { get; set; }
-
         public ParticipantService ParticipantService { get; private set; }
+        public ICommand ClearAllCommand
+        {
+            get
+            {
+                _clearAllCommand = _clearAllCommand ?? new ActionCommand(ClearAll);
+                return _clearAllCommand;
+            }
+        }
 
         #endregion
 
@@ -100,6 +115,11 @@ namespace Foodler.ViewModels
         #endregion
 
         #region Private Methods
+
+        private void ClearAll()
+        {
+            ChosenParticipants.Clear();
+        }
 
         #region Callbacks
         #endregion

@@ -41,7 +41,7 @@ namespace Foodler.Pages
 
         #region Callbacks
 
-        private void BtnDone_OnClick(object sender, RoutedEventArgs e)
+        private void AcceptChangesBtn_OnClick(object sender, EventArgs e)
         {
             if (NavigationService.CanGoBack)
             {
@@ -72,5 +72,6 @@ namespace Foodler.Pages
         }
         
         #endregion
+        
     }
 }

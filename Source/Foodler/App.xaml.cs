@@ -1,14 +1,13 @@
-﻿using System;
-using System.Diagnostics;
-using System.Resources;
-using System.Windows;
-using System.Windows.Markup;
-using System.Windows.Navigation;
-using Foodler.DB;
+﻿using Foodler.DB;
+using Foodler.Resources;
 using Foodler.Services;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using Foodler.Resources;
+using System;
+using System.Diagnostics;
+using System.Windows;
+using System.Windows.Markup;
+using System.Windows.Navigation;
 
 namespace Foodler
 {
@@ -135,7 +134,7 @@ namespace Foodler
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
-            RootFrame = new PhoneApplicationFrame();
+            RootFrame = new TransitionFrame(); //new PhoneApplicationFrame();
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures
