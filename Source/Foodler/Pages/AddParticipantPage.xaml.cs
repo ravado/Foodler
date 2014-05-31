@@ -14,6 +14,7 @@ namespace Foodler.Pages
     public partial class AddParticipantPage : PhoneApplicationPage
     {
         private readonly AddParticipantsViewModel _viewModel;
+        
         public AddParticipantPage()
         {
             InitializeComponent();
@@ -29,10 +30,13 @@ namespace Foodler.Pages
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
             _viewModel.Initialize();
-            TransfareManager.SelectedParticipants = null;
+            _viewModel.SetInvolvedParticipants(StateManager.InvolvedParticipants);
+
+            base.OnNavigatedTo(e);
         }
+
+        #region Callbacks
 
         private void BtnDone_OnClick(object sender, RoutedEventArgs e)
         {
@@ -52,8 +56,8 @@ namespace Foodler.Pages
 
         private void ListChosenParticipants_OnTap(object sender, GestureEventArgs e)
         {
-            var myItem = ((ListBox)sender).SelectedItem as ParticipantViewModel;
-            _viewModel.RemoveParticipantFromList(myItem);
         }
+
+        #endregion
     }
 }

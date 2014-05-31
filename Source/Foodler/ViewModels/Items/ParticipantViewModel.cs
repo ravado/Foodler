@@ -30,6 +30,12 @@ namespace Foodler.ViewModels.Items
             RemoveParticipant += removeParticipantHandler;
         }
 
+        public ParticipantViewModel(ParticipantViewModel participant)
+        {
+            Name = participant.Name;
+            RemoveParticipantCommand = new ActionCommand(OnRemoveParticipant);
+        }
+
         public void SubscribeOnDelete(Action<ParticipantViewModel> handler)
         {
             RemoveParticipant += handler;

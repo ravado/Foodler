@@ -126,6 +126,18 @@ namespace Foodler.ViewModels
             }
         }
 
+        /// <summary>
+        /// Getting participants which have already been chosen
+        /// </summary>
+        /// <returns>List of chosen participants</returns>
+        public IEnumerable<Participant> GetInvolvedParticipants()
+        {
+            if (Participants != null)
+                return Participants.Select(p => new Participant(p.Name)).ToList();
+
+            return null;
+        }
+
         #endregion
     }
 }
