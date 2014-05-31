@@ -1,6 +1,7 @@
 ﻿using System;
 using Foodler.Common.Contracts;
 using Foodler.Models;
+using Foodler.Services;
 using Foodler.ViewModels.Common;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,12 +34,16 @@ namespace Foodler.ViewModels
         /// </summary>
         public void Initialize()
         {
-            ParticipantService.ContactsLoaded += ContactsLoaded;
-            ParticipantService.LoadContactsAsync();
+            LoadAvaibleParticipants();
         }
 
-        private void ContactsLoaded(object sender, IEnumerable<IParticipant> participants)
+        /// <summary>
+        /// Load all avaible participants from database
+        /// </summary>
+        public void LoadAvaibleParticipants()
         {
+            var participants = ParticipantService.GetAllParticipants();
+
             if (AvaibleParticipants == null)
                 AvaibleParticipants = new ObservableCollection<IParticipant>();
 

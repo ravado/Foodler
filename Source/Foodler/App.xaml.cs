@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
 using Foodler.DB;
+using Foodler.Services;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Foodler.Resources;
@@ -56,6 +57,13 @@ namespace Foodler
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
             InitializeDatabase();
+            LoadContactsToDatabase();
+        }
+
+        private void LoadContactsToDatabase()
+        {
+            var service = new ParticipantService();
+            service.LoadContactsToDbAsync();
         }
 
         private void InitializeDatabase()

@@ -1,6 +1,8 @@
 ﻿using System;
 using Foodler.Common;
 using Foodler.Common.Contracts;
+using Foodler.DB;
+using Foodler.Services;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
 using System.Linq;

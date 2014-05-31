@@ -19,7 +19,7 @@ namespace Foodler.Models
 
         #region Properties
 
-        [Column(IsPrimaryKey = true, IsDbGenerated = false, CanBeNull = false)]
+        [Column(IsPrimaryKey = true, IsDbGenerated = true, CanBeNull = false)]
         public Guid Id
         {
             get { return _id; }
@@ -39,7 +39,7 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
-        [Column(DbType = "varbinary(max)")]
+        [Column(DbType = "varbinary")]
         public object Avatar
         {
             get { return _avatar; }
@@ -74,7 +74,13 @@ namespace Foodler.Models
             Avatar = avatar;
         }
 
-
+        public Participant(IParticipant participant) : this()
+        {
+            Id = participant.Id;
+            Name = participant.Name;
+            IsUserContact = participant.IsUserContact;
+            Avatar = participant.Avatar;
+        }
 
         #endregion
     }
