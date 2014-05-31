@@ -1,6 +1,6 @@
-﻿using Foodler.Models;
+﻿using Foodler.Common.Contracts;
+using Foodler.Models;
 using Foodler.ViewModels.Common;
-using Foodler.ViewModels.Items;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -11,15 +11,15 @@ namespace Foodler.ViewModels
     {
         #region Properties
 
-        public ObservableCollection<ParticipantViewModel> AvaibleParticipants { get; set; }
-        public ObservableCollection<ParticipantViewModel> ChosenParticipants { get; set; }
+        public ObservableCollection<IParticipant> AvaibleParticipants { get; set; }
+        public ObservableCollection<IParticipant> ChosenParticipants { get; set; }
 
         #endregion
 
         public AddParticipantsViewModel()
         {
-            AvaibleParticipants = new ObservableCollection<ParticipantViewModel>();
-            ChosenParticipants = new ObservableCollection<ParticipantViewModel>();
+            AvaibleParticipants = new ObservableCollection<IParticipant>();
+            ChosenParticipants = new ObservableCollection<IParticipant>();
         }
 
         #region Public Methods
@@ -29,16 +29,16 @@ namespace Foodler.ViewModels
         /// </summary>
         public void Initialize()
         {
-            var participants = new List<ParticipantViewModel>
+            var participants = new List<IParticipant>
             {
-                new ParticipantViewModel("Ivan", OnRemoveParticipant),
-                new ParticipantViewModel("Oleg", OnRemoveParticipant),
-                new ParticipantViewModel("Vadim", OnRemoveParticipant),
-                new ParticipantViewModel("Julia", OnRemoveParticipant),
-                new ParticipantViewModel("Eugene", OnRemoveParticipant),
-                new ParticipantViewModel("Anatoliy", OnRemoveParticipant),
-                new ParticipantViewModel("Kostya", OnRemoveParticipant),
-                new ParticipantViewModel("Marina", OnRemoveParticipant)
+                new Participant("Ivan"),
+                new Participant("Oleg"),
+                new Participant("Vadim"),
+                new Participant("Julia"),
+                new Participant("Eugene"),
+                new Participant("Anatoliy"),
+                new Participant("Kostya"),
+                new Participant("Marina")
             };
 
             if (AvaibleParticipants == null) return;
@@ -54,11 +54,9 @@ namespace Foodler.ViewModels
         /// Add particular participant to list of selected ones
         /// </summary>
         /// <param name="participant">Participant to add</param>
-        public void AddSelectedParticipantToList(ParticipantViewModel participant)
+        public void AddSelectedParticipantToList(IParticipant participant)
         {
-            var p = new ParticipantViewModel(participant);
-            p.SubscribeOnDelete(OnRemoveParticipant);
-            ChosenParticipants.Add(p);
+            ChosenParticipants.Add(participant);
         }
 
         /// <summary>
@@ -81,7 +79,7 @@ namespace Foodler.ViewModels
                 ChosenParticipants.Clear();
                 foreach (var participant in participants)
                 {
-                    ChosenParticipants.Add(new ParticipantViewModel(participant.Name, OnRemoveParticipant));
+                    ChosenParticipants.Add(new Participant(participant.Name));
                 }
             }
         }
@@ -90,14 +88,6 @@ namespace Foodler.ViewModels
         #region Private Methods
 
         #region Callbacks
-        
-        private void OnRemoveParticipant(ParticipantViewModel obj)
-        {
-            var toRemove = ChosenParticipants.LastOrDefault(o => o == obj);
-            if (toRemove != null)
-                ChosenParticipants.Remove(toRemove);
-        }
-
         #endregion
 
         #endregion

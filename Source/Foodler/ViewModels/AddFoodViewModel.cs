@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Foodler.Common.Contracts;
 using Foodler.ViewModels.Common;
 using Foodler.ViewModels.Items;
 
@@ -21,17 +22,17 @@ namespace Foodler.ViewModels
             }
         }
 
-        public ObservableCollection<ParticipantViewModel> Participants { get; set; }
-        public ObservableCollection<ParticipantViewModel> SelectedParticipants { get; set; }
+        public ObservableCollection<IParticipant> Participants { get; set; }
+        public ObservableCollection<IParticipant> SelectedParticipants { get; set; }
         
         public AddFoodViewModel()
         {
-            Participants = new ObservableCollection<ParticipantViewModel>();
-            SelectedParticipants = new ObservableCollection<ParticipantViewModel>();
+            Participants = new ObservableCollection<IParticipant>();
+            SelectedParticipants = new ObservableCollection<IParticipant>();
             Food = new FoodViewModel();
         }
 
-        public void Initialize(IEnumerable<ParticipantViewModel> participants, FoodViewModel food)
+        public void Initialize(IEnumerable<IParticipant> participants, FoodViewModel food)
         {
             if (food != null)
                 Food = food;

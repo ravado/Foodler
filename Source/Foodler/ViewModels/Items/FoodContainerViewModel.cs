@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Foodler.Common.Contracts;
 
 namespace Foodler.ViewModels.Items
 {
     public class FoodContainerViewModel
     {
         public FoodViewModel Food { get; set; }
-        public IEnumerable<ParticipantViewModel> Participants { get; set; }
+        public IEnumerable<IParticipant> Participants { get; set; }
 
         public int ParticipantCount
         {
@@ -15,7 +16,7 @@ namespace Foodler.ViewModels.Items
 
         public FoodContainerViewModel() {}
 
-        public FoodContainerViewModel(FoodViewModel food, IEnumerable<ParticipantViewModel> participants)
+        public FoodContainerViewModel(FoodViewModel food, IEnumerable<IParticipant> participants)
         {
             Food = food;
             Participants = participants;

@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.ViewModels.Common;
 using Foodler.ViewModels.Items;
@@ -11,19 +12,19 @@ namespace Foodler.ViewModels
     {
         #region Fields
 
-        private ParticipantViewModel _selectedParticipant;
+        private IParticipant _selectedParticipant;
         private decimal _foodTotalCost;
 
         #endregion
 
         #region Properties
 
-        public ParticipantViewModel SelectedParticipant
+        public IParticipant SelectedParticipant
         {
             get { return _selectedParticipant; }
             set { _selectedParticipant = value; NotifyPropertyChanged(); }
         }
-        public ObservableCollection<ParticipantViewModel> Participants { get; set; }
+        public ObservableCollection<IParticipant> Participants { get; set; }
         public ObservableCollection<FoodContainerViewModel> FoodContainers { get; set; }
         public ObservableCollection<ParticipantContainerViewModel> ParticipantContainers { get; set; }
         public decimal FoodTotalCost
@@ -40,7 +41,7 @@ namespace Foodler.ViewModels
 
         public MainViewModel()
         {
-            Participants = new ObservableCollection<ParticipantViewModel>();
+            Participants = new ObservableCollection<IParticipant>();
             FoodContainers = new ObservableCollection<FoodContainerViewModel>();
             ParticipantContainers = new ObservableCollection<ParticipantContainerViewModel>();
         }
@@ -58,11 +59,11 @@ namespace Foodler.ViewModels
         }
 
         #region Callbacks
-        
-        private void OnRemoveParticipant(ParticipantViewModel participantViewModel)
+
+        private void OnRemoveParticipant(IParticipant participantViewModel)
         {
-            var selected = participantViewModel;
-            Participants.Remove(selected);
+            //var selected = participantViewModel;
+            //Participants.Remove(selected);
         }
 
         #endregion
@@ -101,7 +102,7 @@ namespace Foodler.ViewModels
             }
             foreach (var p in people)
             {
-                ParticipantContainers.Add(new ParticipantContainerViewModel(new ParticipantViewModel(p.Key, null), null)
+                ParticipantContainers.Add(new ParticipantContainerViewModel(new Participant(p.Key), null)
                 {
                     TotalCost = p.Value
                 });
@@ -114,14 +115,14 @@ namespace Foodler.ViewModels
         /// Set involved into party participants
         /// </summary>
         /// <param name="participants">Involved participants</param>
-        public void SetInvolvedParticipants(IEnumerable<Participant> participants)
+        public void SetInvolvedParticipants(IEnumerable<IParticipant> participants)
         {
             if (Participants != null)
             {
                 Participants.Clear();
                 foreach (var participant in participants)
                 {
-                    Participants.Add(new ParticipantViewModel(participant.Name, OnRemoveParticipant));
+                    Participants.Add(new Participant(participant.Name));
                 }
             }
         }
@@ -136,6 +137,12 @@ namespace Foodler.ViewModels
                 return Participants.Select(p => new Participant(p.Name)).ToList();
 
             return null;
+        }
+
+
+        public void RemoveInvolvedParticipantFromList(IParticipant participantToRemove)
+        {
+            Participants.Remove(participantToRemove);
         }
 
         #endregion

@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Input;
 using Foodler.Common;
+using Foodler.Common.Contracts;
 using Foodler.ViewModels;
 using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
@@ -49,8 +50,8 @@ namespace Foodler.Pages
 
         private void ListAvaibleParticipants_OnTap(object sender, GestureEventArgs e)
         {
-            
-            var myItem = ((LongListSelector)sender).SelectedItem as ParticipantViewModel;
+
+            var myItem = ((LongListSelector)sender).SelectedItem as IParticipant;
             _viewModel.AddSelectedParticipantToList(myItem);
         }
 

@@ -1,5 +1,6 @@
 ﻿using System.Windows.Controls;
 using Foodler.Common;
+using Foodler.Common.Contracts;
 using Foodler.ViewModels;
 using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
@@ -37,16 +38,16 @@ namespace Foodler.Pages
 
         private void NewJokesMultiSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ParticipantViewModel selected;
+            IParticipant selected;
             if (e.AddedItems.Count > 0)
             {
-                selected = e.AddedItems[0] as ParticipantViewModel;
+                selected = e.AddedItems[0] as IParticipant;
                 if(selected != null)
                     _viewModel.SelectedParticipants.Add(selected);
             }
             else
             {
-                selected = e.RemovedItems[0] as ParticipantViewModel;
+                selected = e.RemovedItems[0] as IParticipant;
                 _viewModel.SelectedParticipants.Remove(selected);
             }
         }

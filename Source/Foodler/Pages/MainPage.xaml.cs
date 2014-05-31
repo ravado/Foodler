@@ -3,9 +3,12 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Navigation;
 using Foodler.Common;
+using Foodler.Common.Contracts;
 using Foodler.ViewModels;
+using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
 
 namespace Foodler.Pages
@@ -14,32 +17,13 @@ namespace Foodler.Pages
     {
         public MainViewModel ViewModel { get; private set; }
 
-        // Constructor
         public MainPage()
         {
             InitializeComponent();
             ViewModel = new MainViewModel();
             DataContext = ViewModel;
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
         }
-
-        public string Waiting { get; set; }
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
+        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // get chosen participants from addparticipants page
@@ -68,6 +52,10 @@ namespace Foodler.Pages
             base.OnNavigatedFrom(e);
         }
 
+        #region Private Methods
+        
+        #region Callbacks
+
         private void BtnAddParticipants_OnClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/AddParticipantPage.xaml", UriKind.RelativeOrAbsolute));
@@ -94,6 +82,8 @@ namespace Foodler.Pages
             SwitchPivot(0);
         }
 
+        #endregion
+
         private async void SwitchPivot(int newIndex)
         {
             UnlockMainPivot();
@@ -101,6 +91,7 @@ namespace Foodler.Pages
             MainPivot.SelectedIndex = newIndex;
             LockMainPivot();
         }
+
         private void LockMainPivot()
         {
             if (!MainPivot.IsLocked) MainPivot.IsLocked = true;
@@ -109,6 +100,19 @@ namespace Foodler.Pages
         private void UnlockMainPivot()
         {
             if (MainPivot.IsLocked) MainPivot.IsLocked = false;
+        }
+
+        #endregion
+
+        // remove participants from "participants" pivot
+        private void RemoveInvolvedParticipantBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button != null)
+            {
+                var participantVm = button.DataContext as IParticipant;
+                ViewModel.RemoveInvolvedParticipantFromList(participantVm);
+            }
         }
     }
 }

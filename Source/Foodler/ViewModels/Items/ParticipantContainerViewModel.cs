@@ -1,4 +1,5 @@
-﻿using Foodler.ViewModels.Common;
+﻿using Foodler.Common.Contracts;
+using Foodler.ViewModels.Common;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -7,7 +8,7 @@ namespace Foodler.ViewModels.Items
     public class ParticipantContainerViewModel:BaseViewModel
     {
         private decimal _totalCost;
-        public ParticipantViewModel Participant { get; set; }
+        public IParticipant Participant { get; set; }
         public IEnumerable<FoodViewModel> Food { get; set; }
 
         public int FoodCount
@@ -27,7 +28,7 @@ namespace Foodler.ViewModels.Items
 
         public ParticipantContainerViewModel() {}
 
-        public ParticipantContainerViewModel(ParticipantViewModel participant, IEnumerable<FoodViewModel> food)
+        public ParticipantContainerViewModel(IParticipant participant, IEnumerable<FoodViewModel> food)
         {
             Participant = participant;
             Food = food;
