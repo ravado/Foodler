@@ -7,6 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:appBarUtils="clr-namespace:AppBarUtils;assembly=AppBarUtils"
+    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -25,12 +28,18 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:Pivot Title="FOODLER" Name="MainPivot" IsLocked="True"  Style="{StaticResource PivotStyle}">
+            <phone:Pivot 
+                Title="FOODLER" 
+                Name="MainPivot" 
+                IsLocked="False" 
+                Style="{StaticResource PivotStyle}"
+                SelectionChanged="MainPivot_OnSelectionChanged"
+                >
                 <phone:PivotItem Header="participants">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="3*"></RowDefinition>
-                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <ListBox Name="ListParticipants" ItemsSource="{Binding Participants}">
@@ -52,18 +61,17 @@
                                 </ListBox.ItemTemplate>
                             </ListBox>
                         </Grid>
-                        <StackPanel Grid.Row="1">
+                        <!--<StackPanel Grid.Row="1">
                             <Button Name="BtnAddParticipants" Content="Add Participants" Click="BtnAddParticipants_OnClick"/>
                             <Button Name="BtnGoFoodTab" Content="Next" Click="BtnGoFoodTab_OnClick" />
-                        </StackPanel>
+                        </StackPanel>-->
                     </Grid>
                 </phone:PivotItem>
                 
                 <phone:PivotItem Header="food">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="3*"></RowDefinition>
-                            <RowDefinition Height="1*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <ListBox Grid.Row="0"
                                  Name="ListFood"
@@ -81,10 +89,6 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <StackPanel Grid.Row="1">
-                            <Button Name="BtnAddFood" Content="Add Food" Click="BtnAddFood_OnClick" />
-                            <Button Name="BtnGoSumTab" Content="Next" Click="BtnGoSumTab_OnClick" />
-                        </StackPanel>
                     </Grid>
                 </phone:PivotItem>
                 
@@ -92,7 +96,6 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="5*"></RowDefinition>
-                            <RowDefinition Height="1*"></RowDefinition>
                             <RowDefinition Height="1*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <StackPanel Grid.Row="0">
@@ -111,13 +114,23 @@
                             <TextBlock Text="Total: "/>
                             <TextBlock Text="{Binding FoodTotalCost}"></TextBlock>
                         </StackPanel>
-                        <StackPanel Grid.Row="2">
-                            <Button Name="BtnDone" Content="Done" Click="BtnDone_OnClick" />
-                        </StackPanel>
                     </Grid>
                 </phone:PivotItem>
             </phone:Pivot>
         </Grid>
        </Grid>
-
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton 
+                x:Name="AcceptChangesBtn"
+                IconUri="/Assets/AppBar/add.png" 
+                Text="done" 
+                IsEnabled="True"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/next.png" Text="clear" IsEnabled="True"/>
+            <shell:ApplicationBarIconButton IconUri="/Assets/AppBar/refresh.png" Text="button"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="update contacts" IsEnabled="False"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 </phone:PhoneApplicationPage>

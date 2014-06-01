@@ -39,7 +39,7 @@ namespace Foodler.ViewModels
             if (food != null)
                 Food = food;
 
-            if (Participants != null)
+            if (Participants != null && participants != null)
             {
                 Participants.Clear();
                 foreach (var p in participants)
