@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:SampleData="clr-namespace:Expression.Blend.SampleData.SampleDataSource" xmlns:Primitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:converters="clr-namespace:Foodler.Common.Converters"
     mc:Ignorable="d"
     x:Class="Foodler.App"
     >
@@ -15,6 +16,8 @@
     <Application.Resources>
         <SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/>
         <local:LocalizedStrings xmlns:local="clr-namespace:Foodler" x:Key="LocalizedStrings"/>
+        <converters:BitmapImageConverter x:Key="BitmapImageConverter"/>
+        
         <DataTemplate x:Key="MainPivotHeader">
             <Grid />
         </DataTemplate>

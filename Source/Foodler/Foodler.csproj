@@ -99,6 +99,8 @@
     <Compile Include="Common\Contracts\IFood.cs" />
     <Compile Include="Common\Contracts\IParticipant.cs" />
     <Compile Include="Common\Contracts\IRepository.cs" />
+    <Compile Include="Common\Converters\BitmapImageConverter.cs" />
+    <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="Common\TransfareManager.cs" />
     <Compile Include="DB\FoodlerDataContext.cs" />

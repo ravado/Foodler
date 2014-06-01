@@ -54,10 +54,13 @@
                     Tap="ListAvaibleParticipants_OnTap">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Width="50" Margin="0 0 20 0"
+                                       Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"/>
                                 <TextBlock
                                     VerticalAlignment="Stretch"
                                     Text="{Binding Name}"/>
+                                
                             </StackPanel>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>

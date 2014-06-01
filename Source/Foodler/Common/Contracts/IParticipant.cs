@@ -8,6 +8,6 @@ namespace Foodler.Common.Contracts
         Guid Id { get; set; }
         string Name { get; set; }
         bool IsUserContact { get; set; }
-        object Avatar { get; set; }
+        byte[] Avatar { get; set; }
     }
 }

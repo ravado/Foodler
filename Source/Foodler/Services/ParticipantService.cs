@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.ServiceModel.Channels;
+using System.Windows;
+using System.Windows.Media.Imaging;
+using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.DB;
 using Foodler.Models;
 using Microsoft.Phone.UserData;
+using Microsoft.Xna.Framework.Media;
 
 namespace Foodler.Services
 {
@@ -12,12 +18,12 @@ namespace Foodler.Services
     {
         public EventHandler<IEnumerable<IParticipant>> ContactsLoaded { get; set; }
 
-        public ParticipantService() {}
+        public ParticipantService() { }
 
         public void LoadContactsToDbAsync()
         {
             var cons = new Contacts();
-            
+
             cons.SearchCompleted += ContactsSearchCompleted;
             cons.SearchAsync(String.Empty, FilterKind.None, null);
         }
@@ -29,10 +35,27 @@ namespace Foodler.Services
                 return context.Participants.ToArray();
             }
         }
-        
+
         private void ContactsSearchCompleted(object sender, ContactsSearchEventArgs e)
         {
-            var contacts = e.Results.Select(c => new Participant(Guid.Empty, c.DisplayName, true, null)).ToArray();
+            var contacts = new List<Participant>();
+            var watch = new Stopwatch();
+            Debug.WriteLine("Start searching...");
+            watch.Start();
+            foreach (var c in e.Results)
+            {
+                var participant = new Participant(Guid.Empty, c.DisplayName, true);
+                var pic = c.GetPicture();
+                if (pic != null)
+                {
+                    participant.Avatar = pic.ToBytes();
+                }
+                contacts.Add(participant);
+            }
+            watch.Stop();
+            var str = String.Format("Stop searching. Elapsed: {0}s {1}ms", watch.Elapsed.Seconds, watch.Elapsed.Milliseconds);
+            Debug.WriteLine(str);
+            //var contacts = e.Results.Select(c => new Participant(Guid.Empty, c.DisplayName, true, null)).ToArray();
 
             SyncContacts(contacts);
         }
@@ -51,7 +74,7 @@ namespace Foodler.Services
 
         private void OnContactLoaded(IEnumerable<IParticipant> participants)
         {
-            if(ContactsLoaded != null)
+            if (ContactsLoaded != null)
                 ContactsLoaded(this, participants);
         }
     }

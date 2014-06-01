@@ -13,7 +13,7 @@ namespace Foodler.Models
         private Guid _id;
         private string _name;
         private bool _isUserContact;
-        private object _avatar;
+        private byte[] _avatar;
 
         #endregion
 
@@ -39,8 +39,8 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
-        [Column(DbType = "varbinary")]
-        public object Avatar
+        [Column(DbType = "image")]
+        public byte[] Avatar
         {
             get { return _avatar; }
             set
@@ -66,7 +66,7 @@ namespace Foodler.Models
 
         public Participant() { }
 
-        public Participant(Guid id, string name, bool isUserContact = false, WriteableBitmap avatar = null) : this()
+        public Participant(Guid id, string name, bool isUserContact = false, byte[] avatar = null) : this()
         {
             Id = id;
             Name = name;
