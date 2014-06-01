@@ -100,7 +100,9 @@
     <Compile Include="Common\Contracts\IParticipant.cs" />
     <Compile Include="Common\Contracts\IRepository.cs" />
     <Compile Include="Common\Converters\BitmapImageConverter.cs" />
+    <Compile Include="Common\Converters\UppercaseConverter.cs" />
     <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="Common\TransfareManager.cs" />
     <Compile Include="DB\FoodlerDataContext.cs" />
@@ -181,7 +183,40 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Icon\animals\non-stroked\bird.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\bull.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\cat.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\cow.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\dog.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\duck.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\elephant.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\fish.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\horse.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\ladybug.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\leopard.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\lion.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\lobster.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\rabbit.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\snail.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\turtle.png" />
+    <Content Include="Assets\Icon\animals\stroked\bird.png" />
+    <Content Include="Assets\Icon\animals\stroked\bull.png" />
+    <Content Include="Assets\Icon\animals\stroked\cat.png" />
+    <Content Include="Assets\Icon\animals\stroked\cow.png" />
+    <Content Include="Assets\Icon\animals\stroked\dog.png" />
+    <Content Include="Assets\Icon\animals\stroked\duck.png" />
+    <Content Include="Assets\Icon\animals\stroked\elephant.png" />
+    <Content Include="Assets\Icon\animals\stroked\fish.png" />
+    <Content Include="Assets\Icon\animals\stroked\horse.png" />
+    <Content Include="Assets\Icon\animals\stroked\ladybug.png" />
+    <Content Include="Assets\Icon\animals\stroked\leopard.png" />
+    <Content Include="Assets\Icon\animals\stroked\lion.png" />
+    <Content Include="Assets\Icon\animals\stroked\lobster.png" />
+    <Content Include="Assets\Icon\animals\stroked\rabbit.png" />
+    <Content Include="Assets\Icon\animals\stroked\snail.png" />
+    <Content Include="Assets\Icon\animals\stroked\turtle.png" />
     <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
+    <Content Include="Assets\Icon\mask-icon-white.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -225,6 +260,19 @@
     </Reference>
     <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\bird.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\bull.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cat.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cow.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\dog.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\duck.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\elephant.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\fish.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\horse.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\ladybug.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

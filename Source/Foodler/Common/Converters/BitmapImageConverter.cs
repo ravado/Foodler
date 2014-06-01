@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Data;
+using System.Windows.Media.Imaging;
 
 namespace Foodler.Common.Converters
 {
@@ -11,14 +13,18 @@ namespace Foodler.Common.Converters
             {
                 if (value is byte[])
                 {
-                    return (value as byte[]).ToImage();
+                    if ((value as byte[]).Length > 0)
+                    {
+                        var image = (value as byte[]).ToImage();
+                        return image;
+                    }
                 }
-
-                return null;
-
+                var img = new BitmapImage(new Uri("/Assets/Icon/mask-icon-white.png", UriKind.Relative));
+                return img;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Debug.WriteLine("BitmapImageConvertor: {0}",ex.Message);
                 return null;
             }
         }

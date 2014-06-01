@@ -19,7 +19,26 @@
     shell:SystemTray.IsVisible="True"
     toolkit:TiltEffect.IsTiltEnabled="True">
     
-    
+    <phone:PhoneApplicationPage.Resources>
+        <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
+        <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
+        <Style x:Key="AddrBookJumpListStyle" TargetType="phone:LongListSelector">
+            <Setter Property="GridCellSize"  Value="113,113"/>
+            <Setter Property="LayoutMode" Value="Grid" />
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="113" Height="113" Margin="6" >
+                            <TextBlock Text="{Binding Key}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" FontSize="48" Padding="6"
+                                       Foreground="{Binding Converter={StaticResource ForegroundConverter}}" VerticalAlignment="Center"/>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+    </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
@@ -38,41 +57,27 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="25*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="6*"></RowDefinition>
                     <RowDefinition Height="3*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <phone:LongListSelector
                     Grid.Row="0"
+                    IsGroupingEnabled="True"
+                    HideEmptyGroups="True"
+                    GroupHeaderTemplate="{StaticResource AddrBookGroupHeaderTemplate}"  
+                    LayoutMode="List"
                     Name="ListAvaibleParticipants"
                     BorderThickness="3"
                     Margin="0 10"
                     BorderBrush="White"
                     FontSize="40"
+                    JumpListStyle="{StaticResource AddrBookJumpListStyle}"
                     ItemsSource="{Binding AvaibleParticipants}"
-                    Tap="ListAvaibleParticipants_OnTap">
-                    <phone:LongListSelector.ItemTemplate>
-                        <DataTemplate>
-                            <Grid HorizontalAlignment="Stretch">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="60"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0"
-                                       Width="50"
-                                       HorizontalAlignment="Left"
-                                       Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"/>
-                                <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
-                                    <TextBlock
-                                        HorizontalAlignment="Stretch"
-                                        VerticalAlignment="Stretch"
-                                        Text="{Binding Name}"/>
-                                </StackPanel>
-
-                            </Grid>
-                        </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
+                    Tap="ListAvaibleParticipants_OnTap"
+                    ItemTemplate="{StaticResource AvaibleParticipantItemTemplate}">
+                    
                 </phone:LongListSelector>
                 <ListBox
                     Grid.Row="1"

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using Foodler.Common;
 using Foodler.Common.Contracts;
+using Foodler.Common.Helpers;
 using Foodler.Models;
 using Foodler.Services;
 using Foodler.ViewModels.Common;
@@ -16,12 +18,22 @@ namespace Foodler.ViewModels
         #region Fields
 
         private ICommand _clearAllCommand;
+        private ObservableCollection<AlphaKeyGroup<IParticipant>> _avaibleParticipants;
 
         #endregion
 
         #region Properties
 
-        public ObservableCollection<IParticipant> AvaibleParticipants { get; set; }
+        public ObservableCollection<AlphaKeyGroup<IParticipant>> AvaibleParticipants
+        {
+            get { return _avaibleParticipants; }
+            set
+            {
+                _avaibleParticipants = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public ObservableCollection<IParticipant> ChosenParticipants { get; set; }
         public ParticipantService ParticipantService { get; private set; }
         public ICommand ClearAllCommand
@@ -37,7 +49,7 @@ namespace Foodler.ViewModels
 
         public AddParticipantsViewModel(ParticipantService participantService)
         {
-            AvaibleParticipants = new ObservableCollection<IParticipant>();
+            AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
             ChosenParticipants = new ObservableCollection<IParticipant>();
             ParticipantService = participantService;
         }
@@ -57,16 +69,22 @@ namespace Foodler.ViewModels
         /// </summary>
         public void LoadAvaibleParticipants()
         {
-            var participants = ParticipantService.GetAllParticipants();
+            var participants = ParticipantService.GetAllParticipants().ToArray();
 
             if (AvaibleParticipants == null)
-                AvaibleParticipants = new ObservableCollection<IParticipant>();
-
+                AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
+            
+            var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
+            
             AvaibleParticipants.Clear();
-            foreach (var p in participants)
-            {
-                AvaibleParticipants.Add(p);
-            }
+            AvaibleParticipants =
+                AlphaKeyGroup<IParticipant>.CreateGroups(participants, culture, (item) => item.Name, true);
+
+
+            //foreach (var p in participants)
+            //{
+            //    AvaibleParticipants.Add(p);
+            //}
         }
 
         /// <summary>

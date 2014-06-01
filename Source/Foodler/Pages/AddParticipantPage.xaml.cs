@@ -54,7 +54,11 @@ namespace Foodler.Pages
         {
 
             var myItem = ((LongListSelector)sender).SelectedItem as IParticipant;
-            ViewModel.AddSelectedParticipantToList(myItem);
+            if (myItem != null)
+            {
+                ViewModel.AddSelectedParticipantToList(myItem);    
+            }
+            
         }
 
         private void ListChosenParticipants_OnTap(object sender, GestureEventArgs e)
