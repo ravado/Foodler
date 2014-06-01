@@ -54,14 +54,23 @@
                     Tap="ListAvaibleParticipants_OnTap">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Image Width="50" Margin="0 0 20 0"
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Image Grid.Column="0"
+                                       Width="50"
+                                       HorizontalAlignment="Left"
                                        Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"/>
-                                <TextBlock
-                                    VerticalAlignment="Stretch"
-                                    Text="{Binding Name}"/>
-                                
-                            </StackPanel>
+                                <StackPanel Grid.Column="1" HorizontalAlignment="Stretch">
+                                    <TextBlock
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Text="{Binding Name}"/>
+                                </StackPanel>
+
+                            </Grid>
                         </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
