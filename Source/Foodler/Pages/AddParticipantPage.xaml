@@ -59,8 +59,8 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="6*"></RowDefinition>
-                    <RowDefinition Height="3*"></RowDefinition>
+                    <RowDefinition Height="*" MinHeight="500"></RowDefinition>
+                    <RowDefinition Height="Auto" MaxHeight="200"></RowDefinition>
                 </Grid.RowDefinitions>
                 <phone:LongListSelector
                     Grid.Row="0"
@@ -94,8 +94,14 @@
                             <StackPanel>
                                 <Button
                                     Name="RemoveSelectedParticipantBtn"
-                                    FontSize="12"
+                                    Background="{StaticResource PhoneAccentBrush}"
+                                    Width="215"
+                                    BorderBrush="{StaticResource PhoneContrastForegroundBrush}"
+                                    BorderThickness="2"
+                                    FontSize="20"
                                     Padding="5"
+                                    Margin="5"
+                                    Style="{StaticResource ParticipantSmallButtonStyle}"
                                     Click="RemoveSelectedParticipantBtn_OnClick"
                                     VerticalAlignment="Center"
                                     Content="{Binding Name}"/>
