@@ -115,6 +115,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private AvailableFood _AvailableFood = new AvailableFood();
+
+		public AvailableFood AvailableFood
+		{
+			get
+			{
+				return this._AvailableFood;
+			}
+		}
 	}
 
 	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>
@@ -464,6 +474,23 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+	}
+
+	public class AvailableFoodItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+
+	public class AvailableFood : System.Collections.ObjectModel.ObservableCollection<AvailableFoodItem>
+	{ 
 	}
 #endif
 }

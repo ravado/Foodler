@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
@@ -49,6 +50,15 @@ namespace Foodler.Pages
             {
                 selected = e.RemovedItems[0] as IParticipant;
                 _viewModel.SelectedParticipants.Remove(selected);
+            }
+        }
+
+        private void DoneButtonClick(object sender, EventArgs e)
+        {
+            TransfareManager.FoodContainer = _viewModel.GetFoodContainer();
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
             }
         }
     }

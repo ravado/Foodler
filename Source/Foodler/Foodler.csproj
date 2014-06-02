@@ -119,6 +119,11 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\ParticipantService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -215,6 +220,23 @@
     <Content Include="Assets\Icon\animals\stroked\rabbit.png" />
     <Content Include="Assets\Icon\animals\stroked\snail.png" />
     <Content Include="Assets\Icon\animals\stroked\turtle.png" />
+    <Content Include="Assets\Icon\food\beer.png" />
+    <Content Include="Assets\Icon\food\healthy-food.png" />
+    <Content Include="Assets\Icon\food\fruit.png" />
+    <Content Include="Assets\Icon\food\vine.png" />
+    <Content Include="Assets\Icon\food\champain.png" />
+    <Content Include="Assets\Icon\food\seafood.png" />
+    <Content Include="Assets\Icon\food\sushi.png" />
+    <Content Include="Assets\Icon\food\pizza.png" />
+    <Content Include="Assets\Icon\food\refreshments.png" />
+    <Content Include="Assets\Icon\food\cocktail.png" />
+    <Content Include="Assets\Icon\food\coffe.png" />
+    <Content Include="Assets\Icon\food\cake.png" />
+    <Content Include="Assets\Icon\food\ice-cream.png" />
+    <Content Include="Assets\Icon\food\fast-food.png" />
+    <Content Include="Assets\Icon\food\fries.png" />
+    <Content Include="Assets\Icon\food\snack.png" />
+    <Content Include="Assets\Icon\food\soup.png" />
     <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
     <Content Include="Assets\Icon\mask-icon-white.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
@@ -242,6 +264,10 @@
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

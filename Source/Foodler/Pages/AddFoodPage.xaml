@@ -30,16 +30,41 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="25*"></RowDefinition>
-                <RowDefinition Height="4*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <TextBlock>Food:</TextBlock>
-                <TextBox Name="TextFoodName" InputScope="Text" Text="{Binding Food.Name, Mode=TwoWay}"/>
+                <toolkit:ListPicker Header="Food:" FullModeHeader="Choose your food" ItemsSource="{Binding AvailableFood}" SelectedItem="{Binding Food, Mode=TwoWay}">
+                    
+                    <toolkit:ListPicker.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                        </DataTemplate>
+                    </toolkit:ListPicker.ItemTemplate>
+                    <toolkit:ListPicker.FullModeItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="75"></ColumnDefinition>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Rectangle Fill="{StaticResource PhoneAccentBrush}">
+                                    <Rectangle.OpacityMask>
+                                        <ImageBrush Stretch="Uniform" ImageSource="{Binding Icon}"/>
+                                    </Rectangle.OpacityMask>
+                                </Rectangle>
+                                <!--<Image Grid.Column="0" Height="50" Width="50" VerticalAlignment="Center" Source="{Binding Icon}"/>-->
+                                <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="40" Margin="10"/>
+                            </Grid>
+                        </DataTemplate>
+                    </toolkit:ListPicker.FullModeItemTemplate>
+                </toolkit:ListPicker>
                 <TextBlock>Cost:</TextBlock>
                 <TextBox Name="TextFoodCost" InputScope="Number" Text="{Binding Food.Price, Mode=TwoWay}"/>
                 <TextBlock>Participants:</TextBlock>
-                <toolkit:LongListMultiSelector 
+                
+            </StackPanel>
+            <toolkit:LongListMultiSelector  Grid.Row="1"
                         Name="NewJokesMultiSelector"
                         Margin="0 10"
                         ItemsSource="{Binding Participants}"
@@ -47,19 +72,26 @@
                         SelectionChanged="NewJokesMultiSelector_OnSelectionChanged"
                         LayoutMode="List"
                         EnforceIsSelectionEnabled="True" Foreground="#FFC92525">
-                    <toolkit:LongListMultiSelector.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Background="Transparent">
-                                <TextBlock Text="{Binding Name}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </toolkit:LongListMultiSelector.ItemTemplate>
-                </toolkit:LongListMultiSelector>
-            </StackPanel>
-            <StackPanel Grid.Row="1">
+                <toolkit:LongListMultiSelector.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Background="Transparent">
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </toolkit:LongListMultiSelector.ItemTemplate>
+            </toolkit:LongListMultiSelector>
+            <!--<StackPanel Grid.Row="1">
                 <Button Name="BtnDone" Content="Done" Click="BtnDone_OnClick"/>
-            </StackPanel>
+            </StackPanel>-->
         </Grid>
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton 
+                IconUri="/Toolkit.Content/ApplicationBar.Check.png"
+                Text="done" 
+                IsEnabled="True"
+                Click="DoneButtonClick"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>
