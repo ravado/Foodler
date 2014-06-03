@@ -60,22 +60,25 @@ namespace Foodler.ViewModels
         private void FillFood()
         {
             AvailableFood.Clear();
-            AvailableFood.Add(new Food("Пироженое", GetImage(Images.FoodCake)));
+
+            AvailableFood.Add(new Food("Фаст фуд", GetImage(Images.FoodFastFood)));
+            AvailableFood.Add(new Food("Первые блюда", GetImage(Images.FoodSoup)));
+            AvailableFood.Add(new Food("Суши", GetImage(Images.FoodSushi)));
+            AvailableFood.Add(new Food("Здоровая пища", GetImage(Images.FoodHealthyFood)));
+            AvailableFood.Add(new Food("Пицца", GetImage(Images.FoodPizza)));
+            AvailableFood.Add(new Food("Морепродукты", GetImage(Images.FoodSeafood)));
+            AvailableFood.Add(new Food("Закуски", GetImage(Images.FoodSnack)));
+            
             AvailableFood.Add(new Food("Пиво", GetImage(Images.FoodBeer)));
             AvailableFood.Add(new Food("Шампанское", GetImage(Images.FoodChampain)));
             AvailableFood.Add(new Food("Коктейль", GetImage(Images.FoodCocktail)));
             AvailableFood.Add(new Food("Кофе", GetImage(Images.FoodCoffe)));
-            AvailableFood.Add(new Food("Фаст фуд", GetImage(Images.FoodFastFood)));
-            AvailableFood.Add(new Food("Фрукты", GetImage(Images.FoodFruit)));
-            AvailableFood.Add(new Food("Здоровая пища", GetImage(Images.FoodHealthyFood)));
-            AvailableFood.Add(new Food("Мороженое", GetImage(Images.FoodIceCream)));
-            AvailableFood.Add(new Food("Пицца", GetImage(Images.FoodPizza)));
             AvailableFood.Add(new Food("Напитки", GetImage(Images.FoodRefreshments)));
-            AvailableFood.Add(new Food("Морепродукты", GetImage(Images.FoodSeafood)));
-            AvailableFood.Add(new Food("Закуски", GetImage(Images.FoodSnack)));
-            AvailableFood.Add(new Food("Первые блюда", GetImage(Images.FoodSoup)));
             AvailableFood.Add(new Food("Вино", GetImage(Images.FoodVine)));
-            AvailableFood.Add(new Food("Суши", GetImage(Images.FoodSushi)));
+
+            AvailableFood.Add(new Food("Пироженое", GetImage(Images.FoodCake)));
+            AvailableFood.Add(new Food("Фрукты", GetImage(Images.FoodFruit)));
+            AvailableFood.Add(new Food("Мороженое", GetImage(Images.FoodIceCream)));
         }
 
         public static BitmapImage GetImage(string url)

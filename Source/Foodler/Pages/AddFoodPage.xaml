@@ -34,8 +34,11 @@
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
-                <toolkit:ListPicker Header="Food:" FullModeHeader="Choose your food" ItemsSource="{Binding AvailableFood}" SelectedItem="{Binding Food, Mode=TwoWay}">
-                    
+                <toolkit:ListPicker 
+                    Header="Food:"
+                    FullModeHeader="Choose your food"
+                    ItemsSource="{Binding AvailableFood}"
+                    SelectedItem="{Binding Food, Mode=TwoWay}">
                     <toolkit:ListPicker.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}"></TextBlock>
