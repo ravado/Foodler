@@ -1,15 +1,14 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Input;
-using Foodler.Common;
+﻿using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Common.Helpers;
 using Foodler.Models;
 using Foodler.Services;
 using Foodler.ViewModels.Common;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows.Input;
 
 namespace Foodler.ViewModels
 {
@@ -80,11 +79,6 @@ namespace Foodler.ViewModels
             AvaibleParticipants =
                 AlphaKeyGroup<IParticipant>.CreateGroups(participants, culture, (item) => item.Name, true);
 
-
-            //foreach (var p in participants)
-            //{
-            //    AvaibleParticipants.Add(p);
-            //}
         }
 
         /// <summary>

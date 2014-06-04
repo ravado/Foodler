@@ -1,16 +1,11 @@
-﻿using System;
+﻿using Foodler.Common;
+using Foodler.Common.Contracts;
+using Foodler.Models;
+using Microsoft.Phone.UserData;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.ServiceModel.Channels;
-using System.Windows;
-using System.Windows.Media.Imaging;
-using Foodler.Common;
-using Foodler.Common.Contracts;
-using Foodler.DB;
-using Foodler.Models;
-using Microsoft.Phone.UserData;
-using Microsoft.Xna.Framework.Media;
 
 namespace Foodler.Services
 {

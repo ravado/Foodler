@@ -1,22 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
-using Foodler.Common;
-using Foodler.Common.Contracts;
+﻿using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.Resources;
 using Foodler.ViewModels.Common;
 using Foodler.ViewModels.Items;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Windows.Media.Imaging;
 
 namespace Foodler.ViewModels
 {
     public class AddFoodViewModel : BaseViewModel
     {
+        #region Fields
+        
         private IFood _food;
+        
+        #endregion
+
+        #region Properties
+        
         public IFood Food
         {
             get { return _food; }
@@ -26,12 +29,11 @@ namespace Foodler.ViewModels
                 NotifyPropertyChanged();
             }
         }
-        
         public ObservableCollection<IParticipant> Participants { get; set; }
         public ObservableCollection<IParticipant> SelectedParticipants { get; set; }
         public ObservableCollection<IFood> AvailableFood { get; set; }
-        //public IFood SelectedFood { get; set; }
         
+        #endregion
 
         public AddFoodViewModel()
         {
@@ -81,6 +83,7 @@ namespace Foodler.ViewModels
             AvailableFood.Add(new Food("Мороженое", GetImage(Images.FoodIceCream)));
         }
 
+        //TODO: move to some common place
         public static BitmapImage GetImage(string url)
         {
             return new BitmapImage(new Uri(url, UriKind.Relative));
