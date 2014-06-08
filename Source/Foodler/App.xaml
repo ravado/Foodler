@@ -115,6 +115,36 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!-- Food Picker -->
+        <Style x:Key="FoodPickerStyle" TargetType="toolkit:ListPicker">
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"></TextBlock>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FullModeItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="75"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Rectangle Fill="{StaticResource PhoneAccentBrush}">
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush Stretch="Uniform" ImageSource="{Binding Icon}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="40" Margin="10"/>
+                        </Grid>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
     </Application.Resources>
 
 

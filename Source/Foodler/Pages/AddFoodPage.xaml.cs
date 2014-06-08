@@ -28,14 +28,6 @@ namespace Foodler.Pages
             _viewModel.Initialize(TransfareManager.SelectedParticipants, null);
         }
 
-        private void BtnDone_OnClick(object sender, RoutedEventArgs e)
-        {
-            TransfareManager.FoodContainer = _viewModel.GetFoodContainer();
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-        }
 
         private void NewJokesMultiSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {

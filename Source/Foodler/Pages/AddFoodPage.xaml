@@ -38,54 +38,33 @@
                     Header="Food:"
                     FullModeHeader="Choose your food"
                     ItemsSource="{Binding AvailableFood}"
+                    Style="{StaticResource FoodPickerStyle}"
                     SelectedItem="{Binding Food, Mode=TwoWay}">
-                    <toolkit:ListPicker.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name}"></TextBlock>
-                        </DataTemplate>
-                    </toolkit:ListPicker.ItemTemplate>
-                    <toolkit:ListPicker.FullModeItemTemplate>
-                        <DataTemplate>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="75"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Rectangle Fill="{StaticResource PhoneAccentBrush}">
-                                    <Rectangle.OpacityMask>
-                                        <ImageBrush Stretch="Uniform" ImageSource="{Binding Icon}"/>
-                                    </Rectangle.OpacityMask>
-                                </Rectangle>
-                                <!--<Image Grid.Column="0" Height="50" Width="50" VerticalAlignment="Center" Source="{Binding Icon}"/>-->
-                                <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="40" Margin="10"/>
-                            </Grid>
-                        </DataTemplate>
-                    </toolkit:ListPicker.FullModeItemTemplate>
                 </toolkit:ListPicker>
                 <TextBlock>Cost:</TextBlock>
                 <TextBox Name="TextFoodCost" InputScope="Number" Text="{Binding Food.Price, Mode=TwoWay}"/>
-                <TextBlock>Participants:</TextBlock>
-                
             </StackPanel>
-            <toolkit:LongListMultiSelector  Grid.Row="1"
-                        Name="NewJokesMultiSelector"
-                        Margin="0 10"
-                        ItemsSource="{Binding Participants}"
+            <Grid Grid.Row="1">
+                <StackPanel>
+                    <TextBlock>Participants:</TextBlock>
+                    <toolkit:LongListMultiSelector 
+                            Name="NewJokesMultiSelector"
+                            Margin="0 10"
+                            ItemsSource="{Binding Participants}"
                     
-                        SelectionChanged="NewJokesMultiSelector_OnSelectionChanged"
-                        LayoutMode="List"
-                        EnforceIsSelectionEnabled="True" Foreground="#FFC92525">
-                <toolkit:LongListMultiSelector.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Background="Transparent">
-                            <TextBlock Text="{Binding Name}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </toolkit:LongListMultiSelector.ItemTemplate>
-            </toolkit:LongListMultiSelector>
-            <!--<StackPanel Grid.Row="1">
-                <Button Name="BtnDone" Content="Done" Click="BtnDone_OnClick"/>
-            </StackPanel>-->
+                            SelectionChanged="NewJokesMultiSelector_OnSelectionChanged"
+                            LayoutMode="List"
+                            EnforceIsSelectionEnabled="True" Foreground="#FFC92525">
+                        <toolkit:LongListMultiSelector.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Background="Transparent">
+                                    <TextBlock Text="{Binding Name}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </toolkit:LongListMultiSelector.ItemTemplate>
+                    </toolkit:LongListMultiSelector>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
