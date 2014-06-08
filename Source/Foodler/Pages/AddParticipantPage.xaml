@@ -18,8 +18,32 @@
     Style="{StaticResource NavigationAnimation}"
     shell:SystemTray.IsVisible="True"
     toolkit:TiltEffect.IsTiltEnabled="True">
-    
+
     <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="SelectedParticipantItemTemplate">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0"
+                       Margin="5"
+                       Width="62" Height="62"
+                       HorizontalAlignment="Left"
+                       Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"/>
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Center"
+                           Text="{Binding Name}"/>
+                <Button Grid.Column="2" 
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Width="60"
+                        Height="60"
+                        Style="{StaticResource ButtonStyle1}" Content="x" Click="ButtonBase_OnClick"/>
+            </Grid>
+        </DataTemplate>
         <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
         <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
         <Style x:Key="AddrBookJumpListStyle" TargetType="phone:LongListSelector">
@@ -36,8 +60,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
-        
+
+
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -57,13 +81,14 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="25*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" MinHeight="500"></RowDefinition>
-                    <RowDefinition Height="Auto" MaxHeight="200"></RowDefinition>
-                </Grid.RowDefinitions>
-                <phone:LongListSelector
-                    Grid.Row="0"
+            <phone:Panorama>
+                <phone:Panorama.TitleTemplate>
+                    <DataTemplate>
+                        <TextBlock  Text="{Binding}" FontSize="45" Height="1" Margin="0 20"/>
+                    </DataTemplate>
+                </phone:Panorama.TitleTemplate>
+                <phone:PanoramaItem Header="avaible">
+                    <phone:LongListSelector
                     IsGroupingEnabled="True"
                     HideEmptyGroups="True"
                     GroupHeaderTemplate="{StaticResource AddrBookGroupHeaderTemplate}"  
@@ -77,39 +102,27 @@
                     ItemsSource="{Binding AvaibleParticipants}"
                     Tap="ListAvaibleParticipants_OnTap"
                     ItemTemplate="{StaticResource AvaibleParticipantItemTemplate}">
-                    
-                </phone:LongListSelector>
-                <ListBox
-                    Grid.Row="1"
+
+                    </phone:LongListSelector>
+                </phone:PanoramaItem>
+                
+                <phone:PanoramaItem Header="selected">
+                    <phone:LongListSelector
+                    IsGroupingEnabled="False"
+                    HideEmptyGroups="True" 
+                    LayoutMode="List"
                     Name="ListChosenParticipants"
+                    BorderThickness="3"
+                    Margin="0 10"
+                    BorderBrush="White"
+                    FontSize="40"
+                    JumpListStyle="{StaticResource AddrBookJumpListStyle}"
                     ItemsSource="{Binding ChosenParticipants}"
-                    Tap="ListChosenParticipants_OnTap">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <toolkit:WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Button
-                                    Name="RemoveSelectedParticipantBtn"
-                                    Background="{StaticResource PhoneAccentBrush}"
-                                    Width="215"
-                                    BorderBrush="{StaticResource PhoneContrastForegroundBrush}"
-                                    BorderThickness="2"
-                                    FontSize="20"
-                                    Padding="5"
-                                    Margin="5"
-                                    Style="{StaticResource ParticipantSmallButtonStyle}"
-                                    Click="RemoveSelectedParticipantBtn_OnClick"
-                                    VerticalAlignment="Center"
-                                    Content="{Binding Name}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </Grid>
+                    Tap="RemoveSelectedParticipantBtn_OnTap"
+                    ItemTemplate="{StaticResource SelectedParticipantItemTemplate}" />
+                </phone:PanoramaItem>
+            </phone:Panorama>
+            
         </Grid>
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>

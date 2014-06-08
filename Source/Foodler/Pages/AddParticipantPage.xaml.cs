@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Interactivity;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.DB;
@@ -56,16 +57,13 @@ namespace Foodler.Pages
             var myItem = ((LongListSelector)sender).SelectedItem as IParticipant;
             if (myItem != null)
             {
-                ViewModel.AddSelectedParticipantToList(myItem);    
+                ViewModel.AddSelectedParticipantToList(myItem);
             }
             
         }
 
-        private void ListChosenParticipants_OnTap(object sender, GestureEventArgs e)
-        {
-        }
 
-        private void RemoveSelectedParticipantBtn_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             var button = sender as Button;
             if (button != null)
@@ -73,6 +71,16 @@ namespace Foodler.Pages
                 var participantVm = button.DataContext as IParticipant;
                 ViewModel.RemoveSelectedParticipantFromList(participantVm);
             }
+        }
+
+        private void RemoveSelectedParticipantBtn_OnTap(object sender, GestureEventArgs e)
+        {
+           
+        }
+
+        private void RemoveSelectedParticipantBtn_OnClick(object sender, RoutedEventArgs e)
+        {
+           
         }
         
         #endregion
