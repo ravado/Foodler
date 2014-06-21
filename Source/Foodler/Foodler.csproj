@@ -215,6 +215,7 @@
     <Content Include="Assets\Icon\animals\stroked\rabbit.png" />
     <Content Include="Assets\Icon\animals\stroked\snail.png" />
     <Content Include="Assets\Icon\animals\stroked\turtle.png" />
+    <Content Include="Assets\Icon\cancel-icon-white.png" />
     <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
     <Content Include="Assets\Icon\mask-icon-white.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">

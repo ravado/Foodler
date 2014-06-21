@@ -39,11 +39,16 @@
                            VerticalAlignment="Center"
                            Text="{Binding Name}"/>
                 <Button Grid.Column="2" 
-                        VerticalAlignment="Center"
+                        Margin="0 10 0 0"
+                        BorderThickness="0"
+                        BorderBrush="{StaticResource PhoneAccentBrush}"
+                        Background="{StaticResource PhoneAccentBrush}"
                         HorizontalAlignment="Center"
-                        Width="60"
-                        Height="60"
-                        Style="{StaticResource ButtonStyle1}" Content="x" Click="ButtonBase_OnClick"/>
+                        Width="62"
+                        Height="62"
+                        Style="{StaticResource RoundButton}" Click="ButtonBase_OnClick">
+                    <ImageBrush ImageSource="/Assets/Icon/cancel-icon-white.png" Stretch="Fill"/>
+                </Button>
             </Grid>
         </DataTemplate>
         <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
@@ -89,7 +94,8 @@
                         <TextBlock  Text="{Binding}" FontSize="14" Height="0" Margin="0"/>
                     </DataTemplate>
                 </phone:Panorama.TitleTemplate>
-                <phone:PanoramaItem Header="available">
+                <phone:PanoramaItem 
+                    Header="available">
                     <toolkit:LongListMultiSelector
                         IsGroupingEnabled="True"
                         HideEmptyGroups="True"
