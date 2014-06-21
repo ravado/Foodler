@@ -118,22 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnimalsNonStroked" xml:space="preserve">
-    <value>/Assets/Icon/Animals/NonStroked/bird.png
-/Assets/Icon/Animals/NonStroked/bull.png
-/Assets/Icon/Animals/NonStroked/cat.png
-/Assets/Icon/Animals/NonStroked/cow.png
-/Assets/Icon/Animals/NonStroked/dog.png
-/Assets/Icon/Animals/NonStroked/duck.png
-/Assets/Icon/Animals/NonStroked/elephant.png
-/Assets/Icon/Animals/NonStroked/fish.png
-/Assets/Icon/Animals/NonStroked/horse.png
-/Assets/Icon/Animals/NonStroked/ladybug.png
-/Assets/Icon/Animals/NonStroked/leopard.png
-/Assets/Icon/Animals/NonStroked/lion.png
-/Assets/Icon/Animals/NonStroked/lobster.png
-/Assets/Icon/Animals/NonStroked/rabbit.png
-/Assets/Icon/Animals/NonStroked/snail.png
-/Assets/Icon/Animals/NonStroked/turtle.png</value>
+    <value>Assets/Icon/Animals/NonStroked/bird.png
+Assets/Icon/Animals/NonStroked/bull.png
+Assets/Icon/Animals/NonStroked/cat.png
+Assets/Icon/Animals/NonStroked/cow.png
+Assets/Icon/Animals/NonStroked/dog.png
+Assets/Icon/Animals/NonStroked/duck.png
+Assets/Icon/Animals/NonStroked/elephant.png
+Assets/Icon/Animals/NonStroked/fish.png
+Assets/Icon/Animals/NonStroked/horse.png
+Assets/Icon/Animals/NonStroked/ladybug.png
+Assets/Icon/Animals/NonStroked/leopard.png
+Assets/Icon/Animals/NonStroked/lion.png
+Assets/Icon/Animals/NonStroked/lobster.png
+Assets/Icon/Animals/NonStroked/rabbit.png
+Assets/Icon/Animals/NonStroked/snail.png
+Assets/Icon/Animals/NonStroked/turtle.png</value>
   </data>
   <data name="AnimalsStroked" xml:space="preserve">
     <value>/Assets/Icon/Animals/Stroked/bird.png

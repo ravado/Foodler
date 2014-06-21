@@ -13,7 +13,8 @@
       <xs:element name="ChosenParticipants" type="tns:ChosenParticipants" />
       <xs:element name="Food" type="tns:Food" />
       <xs:element name="ParticipantContainers" type="tns:ParticipantContainers" />
-      <xs:element name="AvailableAnonymous" type="tns:AvailableAnonymous" />
+      <xs:element name="AnonymousMaleParticipantList" type="tns:AnonymousMaleParticipantList" />
+      <xs:element name="AnonymousFemaleParticipantList" type="tns:AnonymousFemaleParticipantList" />
     </xs:sequence>
     <xs:attribute blend:Format="Price" name="FoodTotalCost" type="xs:string" />
   </xs:complexType>
@@ -74,13 +75,22 @@
     <xs:attribute name="Name" type="xs:string" />
     <xs:attribute blend:Format="Price" name="Price" type="xs:string" />
   </xs:complexType>
-  <xs:complexType name="AvailableAnonymous">
+  <xs:complexType name="AnonymousMaleParticipantList">
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="AvailableAnonymousItem" type="tns:AvailableAnonymousItem" />
+      <xs:element maxOccurs="unbounded" name="AnonymousMaleParticipantListItem" type="tns:AnonymousMaleParticipantListItem" />
     </xs:sequence>
   </xs:complexType>
-  <xs:complexType name="AvailableAnonymousItem">
+  <xs:complexType name="AnonymousMaleParticipantListItem">
     <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
-    <xs:attribute blend:FormatParameters="Assets\Icon\animals\non-stroked" name="Avatar" type="tns:Basic-Image" />
+    <xs:attribute blend:FormatParameters="Assets\Icon\Animals\NonStroked" name="Avatar" type="tns:Basic-Image" />
+  </xs:complexType>
+  <xs:complexType name="AnonymousFemaleParticipantList">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="AnonymousFemaleParticipantListItem" type="tns:AnonymousFemaleParticipantListItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AnonymousFemaleParticipantListItem">
+    <xs:attribute blend:FormatParameters="Assets\Icon\Animals\NonStroked" name="Avatar" type="tns:Basic-Image" />
+    <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
   </xs:complexType>
 </xs:schema>

@@ -23,6 +23,7 @@ namespace Foodler.ViewModels
         private ObservableCollection<IParticipant> _anonymousMaleParticipantList;
         private ObservableCollection<IParticipant> _anonymousFemaleParticipantList;
 
+        private int _defaultAvatarIndex = 0;
         #endregion
 
         #region Properties
@@ -100,8 +101,15 @@ namespace Foodler.ViewModels
 
         private byte[] GetRandomAvatar()
         {
-            ImageHelper.LoadImageFromPath(UrlsToDefaultAvatars.First());
-            return new byte[0];
+            if (_defaultAvatarIndex >= (UrlsToDefaultAvatars.Count - 1))
+            {
+                _defaultAvatarIndex = 0;
+            }
+
+            var path = UrlsToDefaultAvatars[_defaultAvatarIndex];
+            _defaultAvatarIndex++;
+
+            return ImageHelper.LoadImageFromPath(path);
         }
 
         #endregion

@@ -61,19 +61,19 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /Assets/Icon/Animals/NonStroked/bird.png
-        ////Assets/Icon/Animals/NonStroked/bull.png
-        ////Assets/Icon/Animals/NonStroked/cat.png
-        ////Assets/Icon/Animals/NonStroked/cow.png
-        ////Assets/Icon/Animals/NonStroked/dog.png
-        ////Assets/Icon/Animals/NonStroked/duck.png
-        ////Assets/Icon/Animals/NonStroked/elephant.png
-        ////Assets/Icon/Animals/NonStroked/fish.png
-        ////Assets/Icon/Animals/NonStroked/horse.png
-        ////Assets/Icon/Animals/NonStroked/ladybug.png
-        ////Assets/Icon/Animals/NonStroked/leopard.png
-        ////Assets/Icon/Animals/NonStroked/lion.png
-        /// [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Assets/Icon/Animals/NonStroked/bird.png
+        ///Assets/Icon/Animals/NonStroked/bull.png
+        ///Assets/Icon/Animals/NonStroked/cat.png
+        ///Assets/Icon/Animals/NonStroked/cow.png
+        ///Assets/Icon/Animals/NonStroked/dog.png
+        ///Assets/Icon/Animals/NonStroked/duck.png
+        ///Assets/Icon/Animals/NonStroked/elephant.png
+        ///Assets/Icon/Animals/NonStroked/fish.png
+        ///Assets/Icon/Animals/NonStroked/horse.png
+        ///Assets/Icon/Animals/NonStroked/ladybug.png
+        ///Assets/Icon/Animals/NonStroked/leopard.png
+        ///Assets/Icon/Animals/NonStroked/lion.png
+        ///Assets/Icon/ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AnimalsNonStroked {
             get {

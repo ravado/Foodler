@@ -553,7 +553,7 @@
                             </Grid.ColumnDefinitions>
                             <Image 
                                 Grid.Column="0"
-                                Source="{Binding Avatar}"
+                                Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"
                                 HorizontalAlignment="Left"
                                 Height="75" Width="75"
                                 Margin="5"

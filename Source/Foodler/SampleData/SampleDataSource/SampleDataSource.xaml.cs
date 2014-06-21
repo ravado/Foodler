@@ -97,6 +97,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private AnonymousMaleParticipantList _AnonymousMaleParticipantList = new AnonymousMaleParticipantList();
+
+		public AnonymousMaleParticipantList AnonymousMaleParticipantList
+		{
+			get
+			{
+				return this._AnonymousMaleParticipantList;
+			}
+		}
+
 		private string _FoodTotalCost = string.Empty;
 
 		public string FoodTotalCost
@@ -116,13 +126,13 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
-		private AvailableAnonymous _AvailableAnonymous = new AvailableAnonymous();
+		private AnonymousFemaleParticipantList _AnonymousFemaleParticipantList = new AnonymousFemaleParticipantList();
 
-		public AvailableAnonymous AvailableAnonymous
+		public AnonymousFemaleParticipantList AnonymousFemaleParticipantList
 		{
 			get
 			{
-				return this._AvailableAnonymous;
+				return this._AnonymousFemaleParticipantList;
 			}
 		}
 	}
@@ -476,7 +486,11 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
-	public class AvailableAnonymousItem : System.ComponentModel.INotifyPropertyChanged
+	public class AnonymousMaleParticipantList : System.Collections.ObjectModel.ObservableCollection<AnonymousMaleParticipantListItem>
+	{ 
+	}
+
+	public class AnonymousMaleParticipantListItem : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 
@@ -527,7 +541,58 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
-	public class AvailableAnonymous : System.Collections.ObjectModel.ObservableCollection<AvailableAnonymousItem>
+	public class AnonymousFemaleParticipantListItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+	}
+
+	public class AnonymousFemaleParticipantList : System.Collections.ObjectModel.ObservableCollection<AnonymousFemaleParticipantListItem>
 	{ 
 	}
 #endif
