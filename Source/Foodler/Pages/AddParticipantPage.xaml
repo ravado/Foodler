@@ -24,11 +24,14 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="80"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0"
-                       Margin="5"
-                       Width="62" Height="62"
-                       HorizontalAlignment="Left"
+                <Grid Grid.Column="0"
+                      Background="Gray"
+                      Margin="5"
+                      Width="62" Height="62"
+                      HorizontalAlignment="Left">
+                    <Image 
                        Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"/>
+                </Grid>
                 <TextBlock Grid.Column="1"
                            Width="400"
                            Foreground="{StaticResource PhoneForegroundBrush}"

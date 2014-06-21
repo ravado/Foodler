@@ -23,6 +23,8 @@ namespace Foodler.ViewModels
         private ObservableCollection<IParticipant> _anonymousMaleParticipantList;
         private ObservableCollection<IParticipant> _anonymousFemaleParticipantList;
 
+        private IParticipant _selectedAnonymous;
+        
         private int _defaultAvatarIndex = 0;
         #endregion
 
@@ -44,6 +46,16 @@ namespace Foodler.ViewModels
             set
             {
                 _anonymousFemaleParticipantList = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public IParticipant SelectedAnonymous
+        {
+            get { return _selectedAnonymous; }
+            set
+            {
+                _selectedAnonymous = value;
                 NotifyPropertyChanged();
             }
         }
@@ -88,6 +100,16 @@ namespace Foodler.ViewModels
             {
                 AnonymousFemaleParticipantList.Add(new Participant(Guid.NewGuid(), femaleName, false, GetRandomAvatar()));
             }
+        }
+
+        public void SetSelectedAnonymous(IParticipant participant)
+        {
+            SelectedAnonymous = participant;
+        }
+
+        public IParticipant GetSelectedAnonymous()
+        {
+            return SelectedAnonymous;
         }
 
         #endregion

@@ -1,5 +1,4 @@
 ﻿using Foodler.Common.Contracts;
-using Foodler.Models;
 using Foodler.ViewModels.Items;
 using Microsoft.Phone.Shell;
 using System.Collections.Generic;
@@ -10,6 +9,7 @@ namespace Foodler.Common
     {
         public const string KEY_INVOLVED_PARTICIPANTS = "involved_participants";
         public const string KEY_FOOD_CONTAINER = "food_container";
+        public const string KEY_SELECTED_ANONYMOUS = "selected_anonymous";
 
         public static IEnumerable<IParticipant> InvolvedParticipants
         {
@@ -41,6 +41,22 @@ namespace Foodler.Common
                 return null;
             }
             set { PhoneApplicationService.Current.State[KEY_FOOD_CONTAINER] = value; }
+        }
+
+        public static IParticipant SelectedAnonymous
+        {
+            get
+            {
+                if (PhoneApplicationService.Current.State.ContainsKey(KEY_SELECTED_ANONYMOUS))
+                {
+                    var participantCell = PhoneApplicationService.Current.State[KEY_SELECTED_ANONYMOUS];
+                    if (participantCell is IParticipant)
+                        return participantCell as IParticipant;
+                }
+
+                return null;
+            }
+            set { PhoneApplicationService.Current.State[KEY_SELECTED_ANONYMOUS] = value; }
         }
     }
 }

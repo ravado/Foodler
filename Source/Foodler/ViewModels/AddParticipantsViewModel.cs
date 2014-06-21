@@ -104,7 +104,7 @@ namespace Foodler.ViewModels
         /// <param name="participant">Participant to add</param>
         public void AddSelectedParticipantToList(IParticipant participant)
         {
-            if (!ChosenParticipants.Contains(participant))
+            if (!ChosenParticipants.Contains(participant) && participant != null)
                 ChosenParticipants.Add(participant);
         }
 

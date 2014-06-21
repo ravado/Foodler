@@ -39,8 +39,16 @@ namespace Foodler.Pages
         {
             ResetPageData();
             ViewModel.Initialize();
+            
             ViewModel.SetInvolvedParticipants(StateManager.InvolvedParticipants);
-            MarkSelectedAvailableParticipants(StateManager.InvolvedParticipants);
+            MarkSelectedAvailableParticipants();
+
+            // anonymous can be passed from anonymous page
+            ViewModel.AddSelectedParticipantToList(StateManager.SelectedAnonymous);
+            StateManager.SelectedAnonymous = null;
+
+            
+
             base.OnNavigatedTo(e);
         }
 
@@ -61,11 +69,11 @@ namespace Foodler.Pages
         /// <summary>
         /// Mark all available participants as selected, if they were selected previously
         /// </summary>
-        /// <param name="participants">Involved participants</param>
-        private void MarkSelectedAvailableParticipants(IEnumerable<IParticipant> participants)
+        private void MarkSelectedAvailableParticipants()
         {
             ListAvaibleParticipants.ItemRealized += (sender, args) =>
             {
+                var participants = ViewModel.ChosenParticipants;
                 if (!_updatedAvailableParticipants)
                 {
                     foreach (var participant in participants)
