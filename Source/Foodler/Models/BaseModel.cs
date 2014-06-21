@@ -3,9 +3,11 @@ using System.Runtime.CompilerServices;
 
 namespace Foodler.Models
 {
-    public abstract class BaseModel : INotifyPropertyChanged
+    public class BaseModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public BaseModel() {}
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {

@@ -33,6 +33,8 @@
                        HorizontalAlignment="Left"
                        Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"/>
                 <TextBlock Grid.Column="1"
+                           Width="400"
+                           Foreground="{StaticResource PhoneForegroundBrush}"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Center"
                            Text="{Binding Name}"/>
@@ -72,57 +74,57 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel Grid.Row="0" Margin="10,10,0,10">
             <TextBlock Text="FOODLER" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25*"></RowDefinition>
             </Grid.RowDefinitions>
             <phone:Panorama>
                 <phone:Panorama.TitleTemplate>
                     <DataTemplate>
-                        <TextBlock  Text="{Binding}" FontSize="45" Height="1" Margin="0 20"/>
+                        <TextBlock  Text="{Binding}" FontSize="14" Height="0" Margin="0"/>
                     </DataTemplate>
                 </phone:Panorama.TitleTemplate>
-                <phone:PanoramaItem Header="avaible">
-                    <phone:LongListSelector
-                    IsGroupingEnabled="True"
-                    HideEmptyGroups="True"
-                    GroupHeaderTemplate="{StaticResource AddrBookGroupHeaderTemplate}"  
-                    LayoutMode="List"
-                    Name="ListAvaibleParticipants"
-                    BorderThickness="3"
-                    Margin="0 10"
-                    BorderBrush="White"
-                    FontSize="40"
-                    JumpListStyle="{StaticResource AddrBookJumpListStyle}"
-                    ItemsSource="{Binding AvaibleParticipants}"
-                    Tap="ListAvaibleParticipants_OnTap"
-                    ItemTemplate="{StaticResource AvaibleParticipantItemTemplate}">
+                <phone:PanoramaItem Header="available">
+                    <toolkit:LongListMultiSelector
+                        IsGroupingEnabled="True"
+                        HideEmptyGroups="True"
+                        GroupHeaderTemplate="{StaticResource AddrBookGroupHeaderTemplate}"  
+                        LayoutMode="List"
+                        EnforceIsSelectionEnabled="True"
+                        Name="ListAvaibleParticipants"
+                        BorderThickness="3"
+                        Margin="0 0"
+                        SelectionChanged="ListAvaibleParticipants_OnSelectionChanged"
+                        BorderBrush="White"
+                        FontSize="40"
+                        JumpListStyle="{StaticResource AddrBookJumpListStyle}"
+                        ItemsSource="{Binding AvaibleParticipants}"
+                        Tap="ListAvaibleParticipants_OnTap"
+                        ItemContainerStyle="{StaticResource LongListMultiSelectorItemListStyle}"
+                        ItemTemplate="{StaticResource AvaibleParticipantItemTemplate}">
 
-                    </phone:LongListSelector>
+                    </toolkit:LongListMultiSelector>
                 </phone:PanoramaItem>
-                
+
                 <phone:PanoramaItem Header="selected">
-                    <phone:LongListSelector
-                    IsGroupingEnabled="False"
-                    HideEmptyGroups="True" 
-                    LayoutMode="List"
-                    Name="ListChosenParticipants"
-                    BorderThickness="3"
-                    Margin="0 10"
-                    BorderBrush="White"
-                    FontSize="40"
-                    JumpListStyle="{StaticResource AddrBookJumpListStyle}"
-                    ItemsSource="{Binding ChosenParticipants}"
-                    Tap="RemoveSelectedParticipantBtn_OnTap"
-                    ItemTemplate="{StaticResource SelectedParticipantItemTemplate}" />
+                    <ListBox
+                        toolkit:TiltEffect.SuppressTilt="True"
+                        Name="ListChosenParticipants"
+                        Margin="0 10"
+                        BorderBrush="White"
+                        FontSize="40"
+                        ItemsSource="{Binding ChosenParticipants}"
+                        Tap="RemoveSelectedParticipantBtn_OnTap"
+                        ItemTemplate="{StaticResource SelectedParticipantItemTemplate}">
+                    </ListBox>
                 </phone:PanoramaItem>
             </phone:Panorama>
-            
+
         </Grid>
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>

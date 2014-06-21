@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using Foodler.Common;
@@ -45,6 +47,7 @@ namespace Foodler.ViewModels
             }
         }
 
+        public Action<IParticipant> RemovedParticipant { get; set; }
         #endregion
 
         public AddParticipantsViewModel(ParticipantService participantService)
@@ -52,6 +55,18 @@ namespace Foodler.ViewModels
             AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
             ChosenParticipants = new ObservableCollection<IParticipant>();
             ParticipantService = participantService;
+            ChosenParticipants.CollectionChanged += ChosenParticipantsOnCollectionChanged;
+        }
+
+        private void ChosenParticipantsOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            if (args.Action == NotifyCollectionChangedAction.Remove)
+            {
+                foreach (var p in args.OldItems.OfType<IParticipant>())
+                {
+                    RemovedParticipant(p);
+                }
+            }
         }
 
         #region Public Methods
@@ -62,6 +77,7 @@ namespace Foodler.ViewModels
         public void Initialize()
         {
             LoadAvaibleParticipants();
+            Debug.WriteLine("Loaded participants");
         }
 
         /// <summary>
@@ -73,18 +89,13 @@ namespace Foodler.ViewModels
 
             if (AvaibleParticipants == null)
                 AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
-            
+
             var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
-            
+
             AvaibleParticipants.Clear();
             AvaibleParticipants =
                 AlphaKeyGroup<IParticipant>.CreateGroups(participants, culture, (item) => item.Name, true);
 
-
-            //foreach (var p in participants)
-            //{
-            //    AvaibleParticipants.Add(p);
-            //}
         }
 
         /// <summary>
@@ -93,7 +104,7 @@ namespace Foodler.ViewModels
         /// <param name="participant">Participant to add</param>
         public void AddSelectedParticipantToList(IParticipant participant)
         {
-            if(!ChosenParticipants.Contains(participant))
+            if (!ChosenParticipants.Contains(participant))
                 ChosenParticipants.Add(participant);
         }
 
@@ -103,21 +114,21 @@ namespace Foodler.ViewModels
         /// <returns>List of involved participants</returns>
         public IEnumerable<Participant> GetInvolvedParticipants()
         {
-            return ChosenParticipants.Select(p => new Participant(Guid.Empty, p.Name)).ToList();
+            return ChosenParticipants.Select(p => new Participant(p)).ToList();
         }
 
         /// <summary>
         /// Set involved into party participants
         /// </summary>
         /// <param name="participants">Involved participants</param>
-        public void SetInvolvedParticipants(IEnumerable<Participant> participants)
+        public void SetInvolvedParticipants(IEnumerable<IParticipant> participants)
         {
             if (ChosenParticipants != null)
             {
                 ChosenParticipants.Clear();
                 foreach (var participant in participants)
                 {
-                    ChosenParticipants.Add(new Participant(Guid.Empty, participant.Name));
+                    ChosenParticipants.Add(participant);
                 }
             }
         }
@@ -128,8 +139,22 @@ namespace Foodler.ViewModels
         /// <param name="participantToRemove">Which participant to remove</param>
         public void RemoveSelectedParticipantFromList(IParticipant participantToRemove)
         {
-            ChosenParticipants.Remove(participantToRemove);
+            if (!_isRemoving)
+            {
+                _isRemoving = true;
+                try
+                {
+                    ChosenParticipants.Remove(participantToRemove);
+                }
+                finally
+                {
+                    _isRemoving = false;
+                }
+            }
+
         }
+
+        private bool _isRemoving = false;
 
         #endregion
 
@@ -145,6 +170,6 @@ namespace Foodler.ViewModels
 
         #endregion
 
-        
+
     }
 }
