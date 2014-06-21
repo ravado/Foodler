@@ -7,9 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:appBarUtils="clr-namespace:AppBarUtils;assembly=AppBarUtils"
-    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -136,21 +133,27 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton 
+                x:Name="AddAnonymousBtn"
+                IconUri="/Assets/AppBar/questionmark.png" 
+                Text="anonymous" 
+                Click="AddAnonymousBtn_OnClick"
+                IsEnabled="True"/>
+            <shell:ApplicationBarIconButton 
                 x:Name="AcceptChangesBtn"
                 IconUri="/Assets/AppBar/save.png" 
                 Text="done" 
                 Click="AcceptChangesBtn_OnClick" 
                 IsEnabled="True"/>
-            <shell:ApplicationBarIconButton IconUri="/Toolkit.Content/ApplicationBar.Delete.png" Text="clear" IsEnabled="True"/>
+            <shell:ApplicationBarIconButton 
+                x:Name="ClearAllSelectedBtn"
+                IconUri="/Toolkit.Content/ApplicationBar.Delete.png" 
+                Text="clear" 
+                Click="ClearAllSelectedBtn_OnClick"
+                IsEnabled="True"/>
             <shell:ApplicationBar.MenuItems>
                 <shell:ApplicationBarMenuItem Text="update contacts" IsEnabled="False"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
-    <i:Interaction.Triggers>
-        <appBarUtils:AppBarItemTrigger Id="clear">
-            <i:InvokeCommandAction Command="{Binding ClearAllCommand}"/>
-        </appBarUtils:AppBarItemTrigger>
-    </i:Interaction.Triggers>
 </phone:PhoneApplicationPage>
     

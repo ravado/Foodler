@@ -541,6 +541,35 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <Style x:Key="AnonymousParticipantList" TargetType="ListBox">
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Grid Margin="0 5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image 
+                                Grid.Column="0"
+                                Source="{Binding Avatar}"
+                                HorizontalAlignment="Left"
+                                Height="75" Width="75"
+                                Margin="5"
+                                VerticalAlignment="Center"/>
+                            <TextBlock 
+                                Grid.Column="1"
+                                FontSize="40"
+                                Text="{Binding Name}"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"/>
+                        </Grid>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
     </Application.Resources>
 
 

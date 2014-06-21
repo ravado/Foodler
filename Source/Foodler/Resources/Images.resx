@@ -117,75 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ResourceFlowDirection" xml:space="preserve">
-    <value>LeftToRight</value>
-    <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
+  <data name="AnimalsNonStroked" xml:space="preserve">
+    <value>/Assets/Icon/Animals/NonStroked/bird.png
+/Assets/Icon/Animals/NonStroked/bull.png
+/Assets/Icon/Animals/NonStroked/cat.png
+/Assets/Icon/Animals/NonStroked/cow.png
+/Assets/Icon/Animals/NonStroked/dog.png
+/Assets/Icon/Animals/NonStroked/duck.png
+/Assets/Icon/Animals/NonStroked/elephant.png
+/Assets/Icon/Animals/NonStroked/fish.png
+/Assets/Icon/Animals/NonStroked/horse.png
+/Assets/Icon/Animals/NonStroked/ladybug.png
+/Assets/Icon/Animals/NonStroked/leopard.png
+/Assets/Icon/Animals/NonStroked/lion.png
+/Assets/Icon/Animals/NonStroked/lobster.png
+/Assets/Icon/Animals/NonStroked/rabbit.png
+/Assets/Icon/Animals/NonStroked/snail.png
+/Assets/Icon/Animals/NonStroked/turtle.png</value>
   </data>
-  <data name="ResourceLanguage" xml:space="preserve">
-    <value>en-US</value>
-    <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
-  </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>MY APPLICATION</value>
-  </data>
-  <data name="AppBarButtonText" xml:space="preserve">
-    <value>add</value>
-  </data>
-  <data name="AppBarMenuItemText" xml:space="preserve">
-    <value>Menu Item</value>
-  </data>
-  <data name="MostUsedFemaleNames" xml:space="preserve">
-    <value>Mary
-Patricia
-Nancy
-Laura
-Lisa
-Michelle
-Linda
-Karen
-Sarah
-Barbara
-Betty
-Kimberly
-Elizabeth
-Helen
-Deborah
-Jennifer
-Sandra
-Maria
-Donna
-Susan
-Carol
-Margaret
-Ruth
-Dorothy
-Sharon</value>
-  </data>
-  <data name="MostUsedMaleNames" xml:space="preserve">
-    <value>James
-John
-Robert
-Michael
-Mark
-Jason
-William
-Donald
-Jeff
-David
-George
-Richard
-Kenneth
-Charles
-Steven
-Joseph
-Edward
-Thomas
-Brian
-Christopher
-Ronald
-Daniel
-Anthony
-Paul
-Kevin</value>
+  <data name="AnimalsStroked" xml:space="preserve">
+    <value>/Assets/Icon/Animals/Stroked/bird.png
+/Assets/Icon/Animals/Stroked/bull.png
+/Assets/Icon/Animals/Stroked/cat.png
+/Assets/Icon/Animals/Stroked/cow.png
+/Assets/Icon/Animals/Stroked/dog.png
+/Assets/Icon/Animals/Stroked/duck.png
+/Assets/Icon/Animals/Stroked/elephant.png
+/Assets/Icon/Animals/Stroked/fish.png
+/Assets/Icon/Animals/Stroked/horse.png
+/Assets/Icon/Animals/Stroked/ladybug.png
+/Assets/Icon/Animals/Stroked/leopard.png
+/Assets/Icon/Animals/Stroked/lion.png
+/Assets/Icon/Animals/Stroked/lobster.png
+/Assets/Icon/Animals/Stroked/rabbit.png
+/Assets/Icon/Animals/Stroked/snail.png
+/Assets/Icon/Animals/Stroked/turtle.png</value>
   </data>
 </root>

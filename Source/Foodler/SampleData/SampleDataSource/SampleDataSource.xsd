@@ -13,6 +13,7 @@
       <xs:element name="ChosenParticipants" type="tns:ChosenParticipants" />
       <xs:element name="Food" type="tns:Food" />
       <xs:element name="ParticipantContainers" type="tns:ParticipantContainers" />
+      <xs:element name="AvailableAnonymous" type="tns:AvailableAnonymous" />
     </xs:sequence>
     <xs:attribute blend:Format="Price" name="FoodTotalCost" type="xs:string" />
   </xs:complexType>
@@ -72,5 +73,14 @@
   <xs:complexType name="FoodItem">
     <xs:attribute name="Name" type="xs:string" />
     <xs:attribute blend:Format="Price" name="Price" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="AvailableAnonymous">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="AvailableAnonymousItem" type="tns:AvailableAnonymousItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AvailableAnonymousItem">
+    <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon\animals\non-stroked" name="Avatar" type="tns:Basic-Image" />
   </xs:complexType>
 </xs:schema>

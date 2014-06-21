@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="Common\ActionCommand.cs" />
     <Compile Include="Common\AppBarBuilder.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Contracts\IFood.cs" />
     <Compile Include="Common\Contracts\IParticipant.cs" />
     <Compile Include="Common\Contracts\IRepository.cs" />
@@ -104,12 +105,16 @@
     <Compile Include="Common\Converters\VisibilityConverter.cs" />
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
+    <Compile Include="Common\Helpers\ImageHelper.cs" />
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="DB\FoodlerDataContext.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Participant.cs" />
+    <Compile Include="Pages\AddAnonymousParticipant.xaml.cs">
+      <DependentUpon>AddAnonymousParticipant.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddFoodPage.xaml.cs">
       <DependentUpon>AddFoodPage.xaml</DependentUpon>
     </Compile>
@@ -118,6 +123,11 @@
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\ParticipantService.cs" />
@@ -133,6 +143,7 @@
     <Compile Include="ViewModels\AddParticipantsViewModel.cs" />
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\AddFoodViewModel.cs" />
+    <Compile Include="ViewModels\AddAnonymousParticipantViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -142,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Pages\AddAnonymousParticipant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddFoodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,6 +187,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\AppBar\next.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\questionmark.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\AppBar\refresh.png">
@@ -243,6 +261,10 @@
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

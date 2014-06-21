@@ -115,6 +115,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private AvailableAnonymous _AvailableAnonymous = new AvailableAnonymous();
+
+		public AvailableAnonymous AvailableAnonymous
+		{
+			get
+			{
+				return this._AvailableAnonymous;
+			}
+		}
 	}
 
 	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>
@@ -464,6 +474,61 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+	}
+
+	public class AvailableAnonymousItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+	}
+
+	public class AvailableAnonymous : System.Collections.ObjectModel.ObservableCollection<AvailableAnonymousItem>
+	{ 
 	}
 #endif
 }

@@ -1,23 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Diagnostics;
-using System.Resources;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Interactivity;
-using Foodler.Common;
+﻿using Foodler.Common;
 using Foodler.Common.Contracts;
-using Foodler.DB;
 using Foodler.Services;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
-using System.Linq;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
 using GestureEventArgs = System.Windows.Input.GestureEventArgs;
-using Microsoft.Phone.UserData;
 
 namespace Foodler.Pages
 {
@@ -53,10 +44,19 @@ namespace Foodler.Pages
             base.OnNavigatedTo(e);
         }
 
+        #region Private Methods
+
         private void ResetPageData()
         {
             _updatedAvailableParticipants = false;
         }
+
+        private void UnmarkAllAvaiableParticipants()
+        {
+            ListAvaibleParticipants.SelectedItems.Clear();
+        }
+
+        #endregion
 
         /// <summary>
         /// Mark all available participants as selected, if they were selected previously
@@ -80,13 +80,7 @@ namespace Foodler.Pages
         #region Callbacks
 
         
-        private void AcceptChangesBtn_OnClick(object sender, EventArgs e)
-        {
-            if (NavigationService.CanGoBack)
-            {
-                NavigationService.GoBack();
-            }
-        }
+       
 
         private void ListAvaibleParticipants_OnTap(object sender, GestureEventArgs e)
         {
@@ -158,11 +152,32 @@ namespace Foodler.Pages
             {
                 MessageBox.Show(ex.Message);
             }
-            //var myItem = e.AddedItems as IList<IParticipant>;
-            //if (myItem != null)
-            //{
-            //    ViewModel.AddSelectedParticipantToList(myItem);
-            //}
         }
+
+        #region Application Bar
+
+        private void AcceptChangesBtn_OnClick(object sender, EventArgs e)
+        {
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+        }
+
+        private void AddAnonymousBtn_OnClick(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/AddAnonymousParticipant.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void ClearAllSelectedBtn_OnClick(object sender, EventArgs e)
+        {
+            if (ViewModel.ClearAllCommand.CanExecute(null))
+            {
+                ViewModel.ClearAllCommand.Execute(null);
+                UnmarkAllAvaiableParticipants();
+            }
+        }
+
+        #endregion
     }
 }
