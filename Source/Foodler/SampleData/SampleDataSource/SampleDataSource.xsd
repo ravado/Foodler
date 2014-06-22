@@ -45,6 +45,7 @@
   </xs:complexType>
   <xs:complexType name="ChosenParticipantsItem">
     <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon" name="Avatar" type="tns:Basic-Image" />
   </xs:complexType>
   <xs:complexType name="Food">
     <xs:attribute blend:FormatParameters="2,4" name="Name" type="xs:string" />

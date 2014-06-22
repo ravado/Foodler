@@ -24,14 +24,36 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="80"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0"
-                      Background="{StaticResource PhoneBorderBrush}"
-                      Margin="5"
-                      Width="62" Height="62"
-                      HorizontalAlignment="Left">
-                    <Image 
-                       Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"/>
-                </Grid>
+                <Border 
+                    Grid.Column="0"
+                    CornerRadius="32"
+                    Background="{StaticResource PhoneBorderBrush}"
+                    Width="64" Height="64">
+                    <Grid 
+                        HorizontalAlignment="Left">
+                        <!--<Ellipse Width="30"
+                            Height="30">
+                            <Ellipse.Fill>
+                                <ImageBrush>
+                                    <ImageBrush.ImageSource>
+                                        <BitmapImage  UriSource="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}" />
+                                    </ImageBrush.ImageSource>
+                                </ImageBrush>
+                            </Ellipse.Fill>
+                        </Ellipse>-->
+                        <Image 					
+							Width="64"	
+							Height="64"
+                           Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                    Center="32,32"
+                                    RadiusX="32"
+                                    RadiusY="32" />
+                            </Image.Clip>
+                        </Image>
+                    </Grid>
+                </Border>
                 <TextBlock Grid.Column="1"
                            Width="400"
                            Foreground="{StaticResource PhoneForegroundBrush}"

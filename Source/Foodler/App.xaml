@@ -28,14 +28,25 @@
                     <ColumnDefinition Width="80"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0"
-                      Margin="5"
-                      Width="62" Height="62"
-                      Background="{StaticResource PhoneBorderBrush}">
-                    <Image 
-                        HorizontalAlignment="Left"
-                        Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}"/>
-                </Grid>
+                <Border
+                    Grid.Column="0"
+                    CornerRadius="32"
+                    Margin="5"
+                    Width="64" Height="64"
+                    Background="{StaticResource PhoneBorderBrush}">
+                    <Grid>
+                        <Image 
+                            HorizontalAlignment="Left"
+                            Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                    Center="32,32"
+                                    RadiusX="32"
+                                    RadiusY="32" />
+                            </Image.Clip>
+                        </Image>
+                    </Grid>
+                </Border>
                 <TextBlock Grid.Column="1"
                            HorizontalAlignment="Stretch"
                            VerticalAlignment="Center"
@@ -248,8 +259,14 @@
                                             <CompositeTransform TranslateX="-5"/>
                                         </CheckBox.RenderTransform>
                                     </CheckBox>
-                                    <Grid Grid.Row="1" Grid.Column="0" Width="8" Margin="0 0 0 0" VerticalAlignment="Stretch" 
-                                            Background="{StaticResource PhoneAccentBrush}" />
+                                    <Border
+                                        CornerRadius="10"
+                                        Grid.Row="1" Grid.Column="0"
+                                        Width="8" Height="8" Margin="0"
+                                        VerticalAlignment="Stretch" 
+                                        Background="{StaticResource PhoneAccentBrush}"/>
+                                    <!--<Grid Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="0 0 0 0" VerticalAlignment="Stretch" 
+                                            Background="{StaticResource PhoneAccentBrush}" />-->
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -326,21 +343,23 @@
             </Setter>
         </Style>
         <DataTemplate x:Key="AddrBookGroupHeaderTemplate">
-            <Border Background="Transparent" Padding="5">
+            <!--<Border Background="Transparent" Padding="5">-->
                 <Border Background="{StaticResource PhoneAccentBrush}"
                         BorderBrush="{StaticResource PhoneAccentBrush}"
-                        BorderThickness="2" 
+                        CornerRadius="31"
                         Height="62" Width="62"
-                        Margin="21,0,0,0"
+                        Margin="29,15,0,15"
+                        VerticalAlignment="Top"
                         HorizontalAlignment="Left">
                     <TextBlock Text="{Binding Key}"
                                Foreground="White"
                                FontSize="48"
-                               Padding="6" 
-                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"
-                               HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                               LineHeight="80"
+                               Padding="0" 
+                               VerticalAlignment="Center" HorizontalAlignment="Center"
+                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"/>
                 </Border>
-            </Border>
+            <!--</Border>-->
         </DataTemplate>
         <DataTemplate x:Key="MainPivotHeader">
             <Grid />

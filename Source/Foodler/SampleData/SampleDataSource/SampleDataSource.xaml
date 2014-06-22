@@ -29,16 +29,11 @@
     <SampleData:AvaibleParticipantsItem Name="Argentiero, Luca" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png" />
   </SampleData:SampleDataSource.AvaibleParticipants>
   <SampleData:SampleDataSource.ChosenParticipants>
-    <SampleData:ChosenParticipantsItem Name="Aaberg, Jesper" />
-    <SampleData:ChosenParticipantsItem Name="Adams, Ellen" />
-    <SampleData:ChosenParticipantsItem Name="Adams, Terry" />
-    <SampleData:ChosenParticipantsItem Name="Adams, Terry" />
-    <SampleData:ChosenParticipantsItem Name="Penor, Lori" />
-    <SampleData:ChosenParticipantsItem Name="Pfeiffer, Michael" />
-    <SampleData:ChosenParticipantsItem Name="Philips, Carol" />
-    <SampleData:ChosenParticipantsItem Name="Poe, Toni" />
-    <SampleData:ChosenParticipantsItem Name="Hicks, Cassie" />
-    <SampleData:ChosenParticipantsItem Name="Argentiero, Luca" />
+    <SampleData:ChosenParticipantsItem Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cancel-icon-white.png" />
+    <SampleData:ChosenParticipantsItem Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cancel-icon-white.png" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Ellen" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/kitchen-coctail-icon-white.png" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/mask-icon-white-old.png" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/mask-icon-white.png" />
   </SampleData:SampleDataSource.ChosenParticipants>
   <SampleData:SampleDataSource.Food>
     <SampleData:Food Name="Nam" Price="992" />

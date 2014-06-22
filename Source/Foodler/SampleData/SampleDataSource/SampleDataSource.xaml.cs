@@ -107,6 +107,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private AnonymousFemaleParticipantList _AnonymousFemaleParticipantList = new AnonymousFemaleParticipantList();
+
+		public AnonymousFemaleParticipantList AnonymousFemaleParticipantList
+		{
+			get
+			{
+				return this._AnonymousFemaleParticipantList;
+			}
+		}
+
 		private string _FoodTotalCost = string.Empty;
 
 		public string FoodTotalCost
@@ -123,16 +133,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 					this._FoodTotalCost = value;
 					this.OnPropertyChanged("FoodTotalCost");
 				}
-			}
-		}
-
-		private AnonymousFemaleParticipantList _AnonymousFemaleParticipantList = new AnonymousFemaleParticipantList();
-
-		public AnonymousFemaleParticipantList AnonymousFemaleParticipantList
-		{
-			get
-			{
-				return this._AnonymousFemaleParticipantList;
 			}
 		}
 	}
@@ -259,6 +259,25 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				{
 					this._Name = value;
 					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
 				}
 			}
 		}
@@ -541,6 +560,10 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
+	public class AnonymousFemaleParticipantList : System.Collections.ObjectModel.ObservableCollection<AnonymousFemaleParticipantListItem>
+	{ 
+	}
+
 	public class AnonymousFemaleParticipantListItem : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -590,10 +613,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
-	}
-
-	public class AnonymousFemaleParticipantList : System.Collections.ObjectModel.ObservableCollection<AnonymousFemaleParticipantListItem>
-	{ 
 	}
 #endif
 }
