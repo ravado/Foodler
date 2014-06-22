@@ -214,8 +214,10 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0" HorizontalAlignment="Stretch" toolkitPrimitives:ClipToBounds.IsEnabled="True">
-                                    <ContentPresenter x:Name="Presenter">
+                                <Grid Grid.Column="0" 
+                                      HorizontalAlignment="Stretch"
+                                      toolkitPrimitives:ClipToBounds.IsEnabled="True">
+                                    <ContentPresenter x:Name="Presenter" Margin="-10 0 0 0">
                                         <ContentPresenter.RenderTransform>
                                             <CompositeTransform TranslateX="0"/>
                                         </ContentPresenter.RenderTransform>
@@ -343,23 +345,23 @@
             </Setter>
         </Style>
         <DataTemplate x:Key="AddrBookGroupHeaderTemplate">
-            <!--<Border Background="Transparent" Padding="5">-->
-                <Border Background="{StaticResource PhoneAccentBrush}"
-                        BorderBrush="{StaticResource PhoneAccentBrush}"
-                        CornerRadius="31"
-                        Height="62" Width="62"
-                        Margin="29,15,0,15"
-                        VerticalAlignment="Top"
-                        HorizontalAlignment="Left">
-                    <TextBlock Text="{Binding Key}"
-                               Foreground="White"
-                               FontSize="48"
-                               LineHeight="80"
-                               Padding="0" 
-                               VerticalAlignment="Center" HorizontalAlignment="Center"
-                               FontFamily="{StaticResource PhoneFontFamilySemiLight}"/>
-                </Border>
-            <!--</Border>-->
+            <Border 
+                Background="{StaticResource PhoneAccentBrush}"
+                BorderBrush="{StaticResource PhoneAccentBrush}"
+                CornerRadius="31"
+                Height="62" Width="62"
+                Margin="20,15,0,15"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left">
+                <TextBlock 
+                    Text="{Binding Key}"
+                    Foreground="White"
+                    FontSize="48"
+                    LineHeight="80"
+                    Padding="0" 
+                    VerticalAlignment="Center" HorizontalAlignment="Center"
+                    FontFamily="{StaticResource PhoneFontFamilySemiLight}"/>
+            </Border>
         </DataTemplate>
         <DataTemplate x:Key="MainPivotHeader">
             <Grid />
@@ -604,7 +606,30 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
+        <!-- Headerless Panorama Item -->
+        <Style x:Key="HeaderlessPanoramaItemStyle" TargetType="phone:PanoramaItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="phone:PanoramaItem">
+                        <Grid Background="{TemplateBinding Background}" Margin="12,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <ContentControl x:Name="header" CharacterSpacing="-35" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" FontSize="66" FontFamily="{StaticResource PhoneFontFamilySemiLight}" HorizontalAlignment="Left" Margin="12,-2,0,10">
+                                <ContentControl.RenderTransform>
+                                    <TranslateTransform x:Name="headerTransform"/>
+                                </ContentControl.RenderTransform>
+                            </ContentControl>
+                            <ContentPresenter Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" Grid.Row="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 
 

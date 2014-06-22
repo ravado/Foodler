@@ -31,16 +31,6 @@
                     Width="64" Height="64">
                     <Grid 
                         HorizontalAlignment="Left">
-                        <!--<Ellipse Width="30"
-                            Height="30">
-                            <Ellipse.Fill>
-                                <ImageBrush>
-                                    <ImageBrush.ImageSource>
-                                        <BitmapImage  UriSource="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}" />
-                                    </ImageBrush.ImageSource>
-                                </ImageBrush>
-                            </Ellipse.Fill>
-                        </Ellipse>-->
                         <Image 					
 							Width="64"	
 							Height="64"
@@ -89,8 +79,6 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
-
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -117,7 +105,7 @@
                     </DataTemplate>
                 </phone:Panorama.TitleTemplate>
                 <phone:PanoramaItem 
-                    Header="available">
+                    Header="available" Style="{StaticResource HeaderlessPanoramaItemStyle}">
                     <toolkit:LongListMultiSelector
                         IsGroupingEnabled="True"
                         HideEmptyGroups="True"
@@ -139,7 +127,7 @@
                     </toolkit:LongListMultiSelector>
                 </phone:PanoramaItem>
 
-                <phone:PanoramaItem Header="selected">
+                <phone:PanoramaItem Header="selected" Style="{StaticResource HeaderlessPanoramaItemStyle}">
                     <ListBox
                         toolkit:TiltEffect.SuppressTilt="True"
                         Name="ListChosenParticipants"
