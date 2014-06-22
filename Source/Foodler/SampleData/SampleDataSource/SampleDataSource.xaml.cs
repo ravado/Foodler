@@ -97,6 +97,26 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private AnonymousMaleParticipantList _AnonymousMaleParticipantList = new AnonymousMaleParticipantList();
+
+		public AnonymousMaleParticipantList AnonymousMaleParticipantList
+		{
+			get
+			{
+				return this._AnonymousMaleParticipantList;
+			}
+		}
+
+		private AnonymousFemaleParticipantList _AnonymousFemaleParticipantList = new AnonymousFemaleParticipantList();
+
+		public AnonymousFemaleParticipantList AnonymousFemaleParticipantList
+		{
+			get
+			{
+				return this._AnonymousFemaleParticipantList;
+			}
+		}
+
 		private string _FoodTotalCost = string.Empty;
 
 		public string FoodTotalCost
@@ -239,6 +259,25 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				{
 					this._Name = value;
 					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
 				}
 			}
 		}
@@ -461,6 +500,116 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				{
 					this._Price = value;
 					this.OnPropertyChanged("Price");
+				}
+			}
+		}
+	}
+
+	public class AnonymousMaleParticipantList : System.Collections.ObjectModel.ObservableCollection<AnonymousMaleParticipantListItem>
+	{ 
+	}
+
+	public class AnonymousMaleParticipantListItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+	}
+
+	public class AnonymousFemaleParticipantList : System.Collections.ObjectModel.ObservableCollection<AnonymousFemaleParticipantListItem>
+	{ 
+	}
+
+	public class AnonymousFemaleParticipantListItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
 				}
 			}
 		}

@@ -24,12 +24,12 @@ namespace Foodler.Pages
         {
             base.OnNavigatedTo(e);
             
-            _viewModel.Initialize(TransfareManager.SelectedParticipants, null);
+            _viewModel.Initialize(StateManager.InvolvedParticipants, null);
         }
 
         private void BtnDone_OnClick(object sender, RoutedEventArgs e)
         {
-            TransfareManager.FoodContainer = _viewModel.GetFoodContainer();
+            StateManager.FoodContainer = _viewModel.GetFoodContainer();
             if (NavigationService.CanGoBack)
             {
                 NavigationService.GoBack();

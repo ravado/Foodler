@@ -117,7 +117,7 @@ namespace Foodler.ViewModels
                 Participants.Clear();
                 foreach (var participant in participants)
                 {
-                    Participants.Add(new Participant(Guid.Empty, participant.Name));
+                    Participants.Add(participant);
                 }
             }
         }
@@ -126,10 +126,10 @@ namespace Foodler.ViewModels
         /// Getting participants which have already been chosen
         /// </summary>
         /// <returns>List of chosen participants</returns>
-        public IEnumerable<Participant> GetInvolvedParticipants()
+        public IEnumerable<IParticipant> GetInvolvedParticipants()
         {
             if (Participants != null)
-                return Participants.Select(p => new Participant(Guid.Empty, p.Name)).ToList();
+                return Participants.Select(p => new Participant(p)).ToList();
 
             return null;
         }

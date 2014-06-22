@@ -96,20 +96,25 @@
     </Compile>
     <Compile Include="Common\ActionCommand.cs" />
     <Compile Include="Common\AppBarBuilder.cs" />
+    <Compile Include="Common\Constants.cs" />
     <Compile Include="Common\Contracts\IFood.cs" />
     <Compile Include="Common\Contracts\IParticipant.cs" />
     <Compile Include="Common\Contracts\IRepository.cs" />
     <Compile Include="Common\Converters\BitmapImageConverter.cs" />
     <Compile Include="Common\Converters\UppercaseConverter.cs" />
+    <Compile Include="Common\Converters\VisibilityConverter.cs" />
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
+    <Compile Include="Common\Helpers\ImageHelper.cs" />
     <Compile Include="Common\StateManager.cs" />
-    <Compile Include="Common\TransfareManager.cs" />
     <Compile Include="DB\FoodlerDataContext.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Participant.cs" />
+    <Compile Include="Pages\AddAnonymousParticipant.xaml.cs">
+      <DependentUpon>AddAnonymousParticipant.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AddFoodPage.xaml.cs">
       <DependentUpon>AddFoodPage.xaml</DependentUpon>
     </Compile>
@@ -118,6 +123,11 @@
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
     </Compile>
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\ParticipantService.cs" />
@@ -133,6 +143,7 @@
     <Compile Include="ViewModels\AddParticipantsViewModel.cs" />
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\AddFoodViewModel.cs" />
+    <Compile Include="ViewModels\AddAnonymousParticipantViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -142,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Pages\AddAnonymousParticipant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AddFoodPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -174,6 +189,9 @@
     <Content Include="Assets\AppBar\next.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\AppBar\questionmark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\AppBar\refresh.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -183,40 +201,42 @@
     <Content Include="Assets\ApplicationIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Icon\animals\non-stroked\bird.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\bull.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\cat.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\cow.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\dog.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\duck.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\elephant.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\fish.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\horse.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\ladybug.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\leopard.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\lion.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\lobster.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\rabbit.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\snail.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\turtle.png" />
-    <Content Include="Assets\Icon\animals\stroked\bird.png" />
-    <Content Include="Assets\Icon\animals\stroked\bull.png" />
-    <Content Include="Assets\Icon\animals\stroked\cat.png" />
-    <Content Include="Assets\Icon\animals\stroked\cow.png" />
-    <Content Include="Assets\Icon\animals\stroked\dog.png" />
-    <Content Include="Assets\Icon\animals\stroked\duck.png" />
-    <Content Include="Assets\Icon\animals\stroked\elephant.png" />
-    <Content Include="Assets\Icon\animals\stroked\fish.png" />
-    <Content Include="Assets\Icon\animals\stroked\horse.png" />
-    <Content Include="Assets\Icon\animals\stroked\ladybug.png" />
-    <Content Include="Assets\Icon\animals\stroked\leopard.png" />
-    <Content Include="Assets\Icon\animals\stroked\lion.png" />
-    <Content Include="Assets\Icon\animals\stroked\lobster.png" />
-    <Content Include="Assets\Icon\animals\stroked\rabbit.png" />
-    <Content Include="Assets\Icon\animals\stroked\snail.png" />
-    <Content Include="Assets\Icon\animals\stroked\turtle.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\bird.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\bull.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\cat.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\cow.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\dog.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\duck.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\elephant.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\fish.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\horse.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\ladybug.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\leopard.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\lion.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\lobster.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\rabbit.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\snail.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\turtle.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\bird.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\bull.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\cat.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\cow.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\dog.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\duck.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\elephant.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\fish.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\horse.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\ladybug.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\leopard.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\lion.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\lobster.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\rabbit.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\snail.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\turtle.png" />
+    <Content Include="Assets\Icon\cancel-icon-white.png" />
     <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
     <Content Include="Assets\Icon\mask-icon-white.png" />
+    <Content Include="Assets\Icon\mask.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -243,6 +263,10 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <DesignTimeOnly Include="SampleData\SampleDataSource\SampleDataSource.xsd" />
@@ -263,6 +287,7 @@
   <ItemGroup>
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\bird.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\bull.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cancel-icon-white.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cat.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cow.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\dog.png" />
@@ -270,7 +295,16 @@
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\elephant.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\fish.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\horse.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\kitchen-coctail-icon-white.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\ladybug.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\leopard.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\lion.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\lobster.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\mask-icon-white-old.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\mask-icon-white.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\rabbit.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\snail.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\turtle.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />

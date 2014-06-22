@@ -28,9 +28,9 @@ namespace Foodler.Pages
             if (StateManager.InvolvedParticipants != null)
                 ViewModel.SetInvolvedParticipants(StateManager.InvolvedParticipants);
 
-            if (TransfareManager.FoodContainer != null)
+            if (StateManager.FoodContainer != null)
             {
-                ViewModel.FoodContainers.Add(TransfareManager.FoodContainer);
+                ViewModel.FoodContainers.Add(StateManager.FoodContainer);
             }
 
             base.OnNavigatedTo(e);

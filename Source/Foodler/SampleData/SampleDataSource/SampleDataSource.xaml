@@ -29,16 +29,11 @@
     <SampleData:AvaibleParticipantsItem Name="Argentiero, Luca" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png" />
   </SampleData:SampleDataSource.AvaibleParticipants>
   <SampleData:SampleDataSource.ChosenParticipants>
-    <SampleData:ChosenParticipantsItem Name="Aaberg, Jesper" />
-    <SampleData:ChosenParticipantsItem Name="Adams, Ellen" />
-    <SampleData:ChosenParticipantsItem Name="Adams, Terry" />
-    <SampleData:ChosenParticipantsItem Name="Adams, Terry" />
-    <SampleData:ChosenParticipantsItem Name="Penor, Lori" />
-    <SampleData:ChosenParticipantsItem Name="Pfeiffer, Michael" />
-    <SampleData:ChosenParticipantsItem Name="Philips, Carol" />
-    <SampleData:ChosenParticipantsItem Name="Poe, Toni" />
-    <SampleData:ChosenParticipantsItem Name="Hicks, Cassie" />
-    <SampleData:ChosenParticipantsItem Name="Argentiero, Luca" />
+    <SampleData:ChosenParticipantsItem Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cancel-icon-white.png" />
+    <SampleData:ChosenParticipantsItem Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cancel-icon-white.png" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Ellen" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/kitchen-coctail-icon-white.png" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/mask-icon-white-old.png" />
+    <SampleData:ChosenParticipantsItem Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/mask-icon-white.png" />
   </SampleData:SampleDataSource.ChosenParticipants>
   <SampleData:SampleDataSource.Food>
     <SampleData:Food Name="Nam" Price="992" />
@@ -165,4 +160,38 @@
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
   </SampleData:SampleDataSource.ParticipantContainers>
+  <SampleData:SampleDataSource.AnonymousMaleParticipantList>
+    <SampleData:AnonymousMaleParticipantListItem Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Adams, Ellen" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Penor, Lori" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/dog.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Pfeiffer, Michael" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/duck.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Philips, Carol" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/elephant.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Poe, Toni" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Hicks, Cassie" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/horse.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Argentiero, Luca" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/leopard.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Adams, Ellen" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/lion.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/lobster.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/rabbit.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Penor, Lori" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/snail.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Pfeiffer, Michael" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/turtle.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Philips, Carol" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Poe, Toni" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Hicks, Cassie" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cat.png" />
+    <SampleData:AnonymousMaleParticipantListItem Name="Argentiero, Luca" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png" />
+  </SampleData:SampleDataSource.AnonymousMaleParticipantList>
+  <SampleData:SampleDataSource.AnonymousFemaleParticipantList>
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png" Name="Aaberg, Jesper" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png" Name="Adams, Ellen" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cat.png" Name="Adams, Terry" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png" Name="Adams, Terry" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/dog.png" Name="Penor, Lori" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/duck.png" Name="Pfeiffer, Michael" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/elephant.png" Name="Philips, Carol" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png" Name="Poe, Toni" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/horse.png" Name="Hicks, Cassie" />
+    <SampleData:AnonymousFemaleParticipantListItem Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png" Name="Argentiero, Luca" />
+  </SampleData:SampleDataSource.AnonymousFemaleParticipantList>
 </SampleData:SampleDataSource>
