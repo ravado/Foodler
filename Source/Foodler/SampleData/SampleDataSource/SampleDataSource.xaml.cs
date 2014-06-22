@@ -97,6 +97,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private AvailableFood _AvailableFood = new AvailableFood();
+
+		public AvailableFood AvailableFood
+		{
+			get
+			{
+				return this._AvailableFood;
+			}
+		}
+
 		private string _FoodTotalCost = string.Empty;
 
 		public string FoodTotalCost
@@ -116,13 +126,22 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
-		private AvailableFood _AvailableFood = new AvailableFood();
+		private string _FoodPrice = string.Empty;
 
-		public AvailableFood AvailableFood
+		public string FoodPrice
 		{
 			get
 			{
-				return this._AvailableFood;
+				return this._FoodPrice;
+			}
+
+			set
+			{
+				if (this._FoodPrice != value)
+				{
+					this._FoodPrice = value;
+					this.OnPropertyChanged("FoodPrice");
+				}
 			}
 		}
 	}
@@ -476,6 +495,10 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
+	public class AvailableFood : System.Collections.ObjectModel.ObservableCollection<AvailableFoodItem>
+	{ 
+	}
+
 	public class AvailableFoodItem : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -487,10 +510,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
 			}
 		}
-	}
-
-	public class AvailableFood : System.Collections.ObjectModel.ObservableCollection<AvailableFoodItem>
-	{ 
 	}
 #endif
 }

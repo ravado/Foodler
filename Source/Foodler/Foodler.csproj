@@ -103,6 +103,7 @@
     <Compile Include="Common\Converters\UppercaseConverter.cs" />
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
+    <Compile Include="Common\SettingsManager.cs" />
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="Common\TransfareManager.cs" />
     <Compile Include="DB\FoodlerDataContext.cs" />
@@ -115,6 +116,9 @@
     </Compile>
     <Compile Include="Pages\AddParticipantPage.xaml.cs">
       <DependentUpon>AddParticipantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InputFoodCostPage.xaml.cs">
+      <DependentUpon>InputFoodCostPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -138,6 +142,7 @@
     <Compile Include="ViewModels\AddParticipantsViewModel.cs" />
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\AddFoodViewModel.cs" />
+    <Compile Include="ViewModels\InputFoodCostViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -152,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddParticipantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InputFoodCostPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

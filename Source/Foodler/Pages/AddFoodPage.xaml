@@ -42,7 +42,16 @@
                     SelectedItem="{Binding Food, Mode=TwoWay}">
                 </toolkit:ListPicker>
                 <TextBlock>Cost:</TextBlock>
-                <TextBox Name="TextFoodCost" InputScope="Number" Text="{Binding Food.Price, Mode=TwoWay}"/>
+                <TextBox 
+                    Name="TextFoodCost"
+                    InputScope="Number"
+                    IsReadOnly="True"
+                    TextAlignment="Right"
+                    Padding="10"
+                    FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                    FontWeight="Bold"
+                    GotFocus="TextFoodCost_OnGotFocus"
+                    Text="{Binding Food.Price, Mode=TwoWay}"/>
             </StackPanel>
             <Grid Grid.Row="1">
                 <StackPanel>

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Windows.Controls;
-using Foodler.Common;
+﻿using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
-using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
+using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Navigation;
 
 namespace Foodler.Pages
@@ -25,7 +24,20 @@ namespace Foodler.Pages
         {
             base.OnNavigatedTo(e);
             
-            _viewModel.Initialize(TransfareManager.SelectedParticipants, null);
+
+            _viewModel.Initialize(TransfareManager.SelectedParticipants, null, StateManager.FoodPrice);
+            StateManager.FoodPrice = default(decimal);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            // which page do we go
+            if (e.Content is InputFoodCostPage)
+            {
+                StateManager.FoodPrice = _viewModel.Food.Price;
+            }
+            
+            base.OnNavigatedFrom(e);
         }
 
 
@@ -45,6 +57,8 @@ namespace Foodler.Pages
             }
         }
 
+        #region Callbacks
+
         private void DoneButtonClick(object sender, EventArgs e)
         {
             TransfareManager.FoodContainer = _viewModel.GetFoodContainer();
@@ -53,5 +67,12 @@ namespace Foodler.Pages
                 NavigationService.GoBack();
             }
         }
+        
+        private void TextFoodCost_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/InputFoodCostPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        #endregion
     }
 }

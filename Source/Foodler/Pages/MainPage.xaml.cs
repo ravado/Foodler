@@ -31,6 +31,7 @@ namespace Foodler.Pages
             if (TransfareManager.FoodContainer != null)
             {
                 ViewModel.FoodContainers.Add(TransfareManager.FoodContainer);
+                TransfareManager.FoodContainer = null;
             }
 
             base.OnNavigatedTo(e);

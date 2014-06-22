@@ -16,6 +16,7 @@
       <xs:element name="AvailableFood" type="tns:AvailableFood" />
     </xs:sequence>
     <xs:attribute blend:Format="Price" name="FoodTotalCost" type="xs:string" />
+    <xs:attribute blend:Format="Price" name="FoodPrice" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="Participants">
     <xs:sequence>

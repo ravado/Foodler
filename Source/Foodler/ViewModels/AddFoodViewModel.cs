@@ -44,10 +44,12 @@ namespace Foodler.ViewModels
             Food = AvailableFood[0];
         }
 
-        public void Initialize(IEnumerable<IParticipant> participants, IFood food)
+        public void Initialize(IEnumerable<IParticipant> participants, IFood food, decimal foodPrice = default(decimal))
         {
             if (food != null)
                 Food = food;
+
+            Food.Price = foodPrice;
 
             if (Participants != null && participants != null)
             {
