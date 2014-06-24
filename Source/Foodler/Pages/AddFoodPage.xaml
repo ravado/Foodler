@@ -114,6 +114,10 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="toolkit:LongListMultiSelectorItem">
                         <Grid MinHeight="52">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
                             <Grid.Resources>
                                 <ExponentialEase EasingMode="EaseIn" Exponent="8" x:Key="ExponentialEaseIn"/>
                                 <QuadraticEase EasingMode="EaseOut" x:Key="QuadraticEaseOut"/>
@@ -264,7 +268,7 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <Grid HorizontalAlignment="Stretch">
+                            <Grid Grid.Column="0" HorizontalAlignment="Stretch" Background="Red">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -325,6 +329,21 @@
                                     <!--<Grid Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="0 0 0 0" VerticalAlignment="Stretch" 
                                             Background="{StaticResource PhoneAccentBrush}" />-->
                                 </Grid>
+                            </Grid>
+                            <Grid Grid.Column="1" Background="Transparent">
+                                <StackPanel Orientation="Horizontal" Width="140">
+                                    <Button 
+                                        Style="{StaticResource RoundButton}"
+                                        BorderThickness="0"
+                                        FontSize="30" Margin="-10"
+                                        Width="75" Height="75"/>
+                                    <TextBlock FontSize="25" TextAlignment="Center" VerticalAlignment="Center" Height="30" LineHeight="30" Margin="10">1</TextBlock>
+                                    <Button 
+                                        Style="{StaticResource RoundButton}"
+                                        BorderThickness="0" 
+                                        FontSize="30" Margin="-10" 
+                                        Width="75" Height="75"/>
+                                </StackPanel>
                             </Grid>
                         </Grid>
                     </ControlTemplate>
