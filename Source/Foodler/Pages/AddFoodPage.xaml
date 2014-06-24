@@ -7,6 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:toolkitPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -15,6 +16,262 @@
     Style="{StaticResource NavigationAnimation}"
     shell:SystemTray.IsVisible="True">
 
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="AvaibleFoodParticipantItemTemplate">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    CornerRadius="32"
+                    Margin="5"
+                    Width="64" Height="64"
+                    Background="{StaticResource PhoneBorderBrush}">
+                    <Grid>
+                        <Image 
+                            HorizontalAlignment="Left"
+                            Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                    Center="32,32"
+                                    RadiusX="32"
+                                    RadiusY="32" />
+                            </Image.Clip>
+                        </Image>
+                    </Grid>
+                </Border>
+                <TextBlock Grid.Column="1"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Center"
+                           Text="{Binding Name}"/>
+            </Grid>
+        </DataTemplate>
+        <Style x:Key="LongListMultiSelectorFoodParticipantsItemListStyle" TargetType="toolkit:LongListMultiSelectorItem">
+            <Setter Property="Background" Value="{StaticResource PhoneAccentBrush}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="toolkit:LongListMultiSelectorItem">
+                        <Grid MinHeight="52">
+                            <Grid.Resources>
+                                <ExponentialEase EasingMode="EaseIn" Exponent="8" x:Key="ExponentialEaseIn"/>
+                                <QuadraticEase EasingMode="EaseOut" x:Key="QuadraticEaseOut"/>
+                            </Grid.Resources>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="SelectionEnabledStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition x:Name="ClosedToExposed" 
+    										From="Closed" To="Exposed"
+    										GeneratedDuration="0:0:0.30">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+    												Storyboard.TargetName="OuterHintPanel">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0.0" EasingFunction="{StaticResource QuadraticEaseOut}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.30" Value="1.0" EasingFunction="{StaticResource QuadraticEaseOut}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                        <VisualTransition x:Name="ExposedToClosed" 
+    										From="Exposed" To="Closed"
+    										GeneratedDuration="0:0:0.30">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+    												Storyboard.TargetName="OuterHintPanel">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="1.0" EasingFunction="{StaticResource QuadraticEaseOut}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.30" Value="0.0" EasingFunction="{StaticResource QuadraticEaseOut}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                        <VisualTransition x:Name="ExposedToOpened"
+    										From="Exposed" To="Opened"
+    										GeneratedDuration="0:0:0.30">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+    												Storyboard.TargetName="SelectBox">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="-58" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+    												Storyboard.TargetName="Presenter">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="24" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="86" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" 
+    												Storyboard.TargetName="OuterHintPanel">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="1.0" EasingFunction="{StaticResource QuadraticEaseOut}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.30" Value="0.0" EasingFunction="{StaticResource QuadraticEaseOut}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" 
+    												Storyboard.TargetName="SelectBox">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="Visible"/>
+                                                </ObjectAnimationUsingKeyFrames>-->
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" 
+    												Storyboard.TargetName="OuterHintPanel">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="False"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" 
+    												Storyboard.TargetName="InnerHintPanel">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="False"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                        <VisualTransition x:Name="ClosedToOpened"
+    										From="Closed" To="Opened"
+    										GeneratedDuration="0:0:0.15">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+    												Storyboard.TargetName="SelectBox">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="-58" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="0" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+    												Storyboard.TargetName="Presenter">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="24" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="86" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" 
+    												Storyboard.TargetName="SelectBox">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.0" Value="Visible"/>
+                                                </ObjectAnimationUsingKeyFrames>-->
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" 
+    												Storyboard.TargetName="OuterHintPanel">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="False"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                                <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" 
+    												Storyboard.TargetName="InnerHintPanel">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="False"/>
+                                                </ObjectAnimationUsingKeyFrames>
+                                            </Storyboard>
+                                        </VisualTransition>
+                                        <VisualTransition x:Name="OpenedToClosed"
+    										From="Opened" To="Closed"
+    										GeneratedDuration="0:0:0.15">
+                                            <Storyboard>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+    												Storyboard.TargetName="SelectBox">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="0" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="-58" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+    												Storyboard.TargetName="Presenter">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.0" Value="86" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.15" Value="24" EasingFunction="{StaticResource ExponentialEaseIn}"/>
+                                                </DoubleAnimationUsingKeyFrames>
+                                                <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" 
+    												Storyboard.TargetName="SelectBox">
+                                                    <DiscreteObjectKeyFrame KeyTime="0:0:0.15" Value="Collapsed"/>
+                                                </ObjectAnimationUsingKeyFrames>-->
+                                            </Storyboard>
+                                        </VisualTransition>
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Closed"/>
+                                    <VisualState x:Name="Exposed">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
+    											Storyboard.TargetName="OuterHintPanel"
+    											Duration="0" To="1.0"/>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Opened">
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+    											Storyboard.TargetName="SelectBox"
+    											Duration="0" To="0"/>
+                                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" 
+    											Storyboard.TargetName="Presenter"
+    											Duration="0" To="20"/>
+                                            <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" 
+    											Storyboard.TargetName="SelectBox">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Visible"/>
+                                            </ObjectAnimationUsingKeyFrames>-->
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" 
+    											Storyboard.TargetName="OuterCover">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="Visible"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <DoubleAnimation Storyboard.TargetProperty="(UIElement.Opacity)" 
+    											Storyboard.TargetName="OuterHintPanel"
+    											Duration="0" To="0.0"/>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" 
+    											Storyboard.TargetName="OuterHintPanel">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="False"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.IsHitTestVisible)" 
+    											Storyboard.TargetName="InnerHintPanel">
+                                                <DiscreteObjectKeyFrame KeyTime="0:0:0" Value="False"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0" 
+                                      HorizontalAlignment="Stretch"
+                                      toolkitPrimitives:ClipToBounds.IsEnabled="True">
+                                    <ContentPresenter x:Name="Presenter" Margin="-10 0 0 0">
+                                        <ContentPresenter.RenderTransform>
+                                            <CompositeTransform TranslateX="0"/>
+                                        </ContentPresenter.RenderTransform>
+                                    </ContentPresenter>
+                                </Grid>
+                                <Rectangle x:Name="InnerHintPanel" Grid.Column="0" Width="24"
+    								Height="{TemplateBinding HintPanelHeight}"
+    								HorizontalAlignment="Left"
+    								Fill="Transparent"
+    								StrokeThickness="0">
+                                    <Rectangle.RenderTransform>
+                                        <CompositeTransform TranslateX="24"/>
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                                <ContentControl x:Name="InfoPresenter" Grid.Column="1" 
+    								VerticalAlignment="Top"
+    								Content="{TemplateBinding ContentInfo}"
+    								ContentTemplate="{TemplateBinding ContentInfoTemplate}"/>
+                            </Grid>
+                            <Rectangle x:Name="OuterHintPanel" Width="240"
+    							HorizontalAlignment="Left"
+    							Height="{TemplateBinding HintPanelHeight}"
+    							Fill="{TemplateBinding Background}"
+    							StrokeThickness="0" Opacity="0.0"/>
+                            <Grid x:Name="OuterCover" IsHitTestVisible="True"
+    							Visibility="Collapsed" Background="Transparent">
+                                <Grid HorizontalAlignment="Left"
+                                      VerticalAlignment="Stretch" Margin="0 15"
+                                      Visibility="{Binding IsSelected, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <CheckBox Grid.Row="0" x:Name="SelectBox" VerticalAlignment="Top" Margin="12,-20,5,0" Visibility="Collapsed"
+    								IsChecked="{Binding IsSelected, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}">
+                                        <CheckBox.RenderTransform>
+                                            <CompositeTransform TranslateX="-5"/>
+                                        </CheckBox.RenderTransform>
+                                    </CheckBox>
+                                    <Border
+                                        CornerRadius="10"
+                                        Grid.Row="1" Grid.Column="0"
+                                        Width="8" Height="8" Margin="0"
+                                        VerticalAlignment="Stretch" 
+                                        Background="{StaticResource PhoneAccentBrush}"/>
+                                    <!--<Grid Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="0 0 0 0" VerticalAlignment="Stretch" 
+                                            Background="{StaticResource PhoneAccentBrush}" />-->
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
         <Grid.RowDefinitions>
@@ -60,17 +317,11 @@
                             Name="NewJokesMultiSelector"
                             Margin="0 10"
                             ItemsSource="{Binding Participants}"
-                    
+                            ItemTemplate="{StaticResource AvaibleFoodParticipantItemTemplate}"
+                            ItemContainerStyle="{StaticResource LongListMultiSelectorFoodParticipantsItemListStyle}"
                             SelectionChanged="NewJokesMultiSelector_OnSelectionChanged"
                             LayoutMode="List"
                             EnforceIsSelectionEnabled="True" Foreground="#FFC92525">
-                        <toolkit:LongListMultiSelector.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Background="Transparent">
-                                    <TextBlock Text="{Binding Name}"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </toolkit:LongListMultiSelector.ItemTemplate>
                     </toolkit:LongListMultiSelector>
                 </StackPanel>
             </Grid>

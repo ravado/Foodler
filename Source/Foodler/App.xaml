@@ -15,6 +15,7 @@
     <!--Application Resources-->
     <Application.Resources>
         <converters:BitmapImageConverter x:Key="BitmapImageConverter"/>
+        <converters:VisibilityConverter x:Key="VisibilityConverter"/>
         <converters:UppercaseConverter x:Key="UppercaseConverter"/>
         <SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/>
         <local:LocalizedStrings xmlns:local="clr-namespace:Foodler" x:Key="LocalizedStrings"/>
