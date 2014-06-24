@@ -335,14 +335,28 @@
                                     <Button 
                                         Style="{StaticResource RoundButton}"
                                         BorderThickness="0"
+                                        Background="{StaticResource PhoneAccentBrush}"
                                         FontSize="30" Margin="-10"
-                                        Width="75" Height="75"/>
+                                        Width="75" Height="75">
+                                        <ImageBrush>
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage UriSource="/Assets/Icon/mask-icon-white.png"/>
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Button>
                                     <TextBlock FontSize="25" TextAlignment="Center" VerticalAlignment="Center" Height="30" LineHeight="30" Margin="10">1</TextBlock>
                                     <Button 
                                         Style="{StaticResource RoundButton}"
                                         BorderThickness="0" 
+                                        Background="{StaticResource PhoneAccentBrush}"
                                         FontSize="30" Margin="-10" 
-                                        Width="75" Height="75"/>
+                                        Width="75" Height="75">
+                                        <ImageBrush>
+                                            <ImageBrush.ImageSource>
+                                                <BitmapImage UriSource="/Assets/Icon/mask-icon-white.png"/>
+                                            </ImageBrush.ImageSource>
+                                        </ImageBrush>
+                                    </Button>
                                 </StackPanel>
                             </Grid>
                         </Grid>

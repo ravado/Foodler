@@ -230,6 +230,8 @@
     <Content Include="Assets\Icon\animals\stroked\rabbit.png" />
     <Content Include="Assets\Icon\animals\stroked\snail.png" />
     <Content Include="Assets\Icon\animals\stroked\turtle.png" />
+    <Content Include="Assets\Icon\arrow-down.png" />
+    <Content Include="Assets\Icon\arrow-up.png" />
     <Content Include="Assets\Icon\food\beer.png" />
     <Content Include="Assets\Icon\food\healthy-food.png" />
     <Content Include="Assets\Icon\food\fruit.png" />
