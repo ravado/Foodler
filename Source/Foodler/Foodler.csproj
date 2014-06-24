@@ -100,6 +100,7 @@
     <Compile Include="Common\Contracts\IParticipant.cs" />
     <Compile Include="Common\Contracts\IRepository.cs" />
     <Compile Include="Common\Converters\BitmapImageConverter.cs" />
+    <Compile Include="Common\Converters\InVisibilityConvertor.cs" />
     <Compile Include="Common\Converters\UppercaseConverter.cs" />
     <Compile Include="Common\Converters\VisibilityConvertor.cs" />
     <Compile Include="Common\Extensions.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="ViewModels\InputFoodCostViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
+    <Compile Include="ViewModels\Items\ParticipantViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,7 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
+    toolkit:TiltEffect.IsTiltEnabled="True"
     Style="{StaticResource NavigationAnimation}"
     shell:SystemTray.IsVisible="True">
 
@@ -268,7 +269,7 @@
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <Grid Grid.Column="0" HorizontalAlignment="Stretch" Background="Red">
+                            <Grid Grid.Column="0" HorizontalAlignment="Stretch" Background="Transparent">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
@@ -303,9 +304,9 @@
     							StrokeThickness="0" Opacity="0.0"/>
                             <Grid x:Name="OuterCover" IsHitTestVisible="True"
     							Visibility="Collapsed" Background="Transparent">
-                                <Grid HorizontalAlignment="Left"
-                                      VerticalAlignment="Stretch" Margin="0 15"
-                                      Visibility="{Binding IsSelected, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                <Grid HorizontalAlignment="Left" Background="Transparent"
+                                      VerticalAlignment="Stretch" Margin="0 15">
+                                      <!--Visibility="{Binding IsSelected, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">-->
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="0"/>
                                         <RowDefinition Height="*"/>
@@ -326,38 +327,43 @@
                                         Width="8" Height="8" Margin="0"
                                         VerticalAlignment="Stretch" 
                                         Background="{StaticResource PhoneAccentBrush}"/>
+                                    <StackPanel
+                                        Grid.Row="1" Grid.Column="0"
+                                        Background="Black" Opacity="0.8"
+                                        Visibility="{Binding IsSelected, Converter={StaticResource InVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
                                     <!--<Grid Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="0 0 0 0" VerticalAlignment="Stretch" 
                                             Background="{StaticResource PhoneAccentBrush}" />-->
                                 </Grid>
                             </Grid>
                             <Grid Grid.Column="1" Background="Transparent">
-                                <StackPanel Orientation="Horizontal" Width="140">
+                                <StackPanel Orientation="Horizontal" Width="150">
                                     <Button 
                                         Style="{StaticResource RoundButton}"
                                         BorderThickness="0"
                                         Background="{StaticResource PhoneAccentBrush}"
-                                        FontSize="30" Margin="-10"
-                                        Width="75" Height="75">
-                                        <ImageBrush>
-                                            <ImageBrush.ImageSource>
-                                                <BitmapImage UriSource="/Assets/Icon/mask-icon-white.png"/>
-                                            </ImageBrush.ImageSource>
-                                        </ImageBrush>
+                                        FontSize="30" Margin="-5"
+                                        Width="64" Height="64"
+                                        Command="{Binding IncrementParticipantAteCommand}">
+                                        <ImageBrush ImageSource="/Assets/Icon/arrow-up.png" Stretch="Fill"/>
                                     </Button>
-                                    <TextBlock FontSize="25" TextAlignment="Center" VerticalAlignment="Center" Height="30" LineHeight="30" Margin="10">1</TextBlock>
+                                    <TextBlock 
+                                        FontSize="25"
+                                        TextAlignment="Center" VerticalAlignment="Center"
+                                        Height="30" Width="30" MaxWidth="30" LineHeight="30" Margin="5"
+                                        Text="{Binding ParticipantAteCoefficient, StringFormat='x{0}'}"/>
                                     <Button 
                                         Style="{StaticResource RoundButton}"
                                         BorderThickness="0" 
                                         Background="{StaticResource PhoneAccentBrush}"
-                                        FontSize="30" Margin="-10" 
-                                        Width="75" Height="75">
-                                        <ImageBrush>
-                                            <ImageBrush.ImageSource>
-                                                <BitmapImage UriSource="/Assets/Icon/mask-icon-white.png"/>
-                                            </ImageBrush.ImageSource>
-                                        </ImageBrush>
+                                        FontSize="30" Margin="-5"
+                                        Width="64" Height="64"
+                                        Command="{Binding DecrementParticipantAteCommand}">
+                                        <ImageBrush ImageSource="/Assets/Icon/arrow-down.png" Stretch="Fill"/>
                                     </Button>
                                 </StackPanel>
+                                <StackPanel 
+                                    Background="Black" Opacity="0.8"
+                                    Visibility="{Binding IsSelected, Converter={StaticResource InVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
                             </Grid>
                         </Grid>
                     </ControlTemplate>
@@ -404,19 +410,22 @@
                     Text="{Binding Food.Price, Mode=TwoWay}"/>
             </StackPanel>
             <Grid Grid.Row="1">
-                <StackPanel>
-                    <TextBlock>Participants:</TextBlock>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0">Participants:</TextBlock>
                     <toolkit:LongListMultiSelector 
-                            Name="NewJokesMultiSelector"
-                            Margin="0 10"
-                            ItemsSource="{Binding Participants}"
-                            ItemTemplate="{StaticResource AvaibleFoodParticipantItemTemplate}"
-                            ItemContainerStyle="{StaticResource LongListMultiSelectorFoodParticipantsItemListStyle}"
-                            SelectionChanged="NewJokesMultiSelector_OnSelectionChanged"
-                            LayoutMode="List"
-                            EnforceIsSelectionEnabled="True" Foreground="#FFC92525">
+                        Grid.Row="1"
+                        Name="NewJokesMultiSelector"
+                        Margin="0 10"
+                        ItemsSource="{Binding Participants}"
+                        ItemTemplate="{StaticResource AvaibleFoodParticipantItemTemplate}"
+                        ItemContainerStyle="{StaticResource LongListMultiSelectorFoodParticipantsItemListStyle}"
+                        SelectionChanged="NewJokesMultiSelector_OnSelectionChanged"
+                        LayoutMode="List"
+                        EnforceIsSelectionEnabled="True" Foreground="#FFC92525">
                     </toolkit:LongListMultiSelector>
-                </StackPanel>
             </Grid>
         </Grid>
     </Grid>

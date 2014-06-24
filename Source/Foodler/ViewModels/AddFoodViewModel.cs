@@ -56,7 +56,7 @@ namespace Foodler.ViewModels
                 Participants.Clear();
                 foreach (var p in participants)
                 {
-                    Participants.Add(p);
+                    Participants.Add(new ParticipantViewModel(p));
                 }
             }
         }
