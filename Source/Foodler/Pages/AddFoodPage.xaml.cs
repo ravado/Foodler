@@ -1,4 +1,5 @@
-﻿using Foodler.Common;
+﻿using System.Windows.Input;
+using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
@@ -68,9 +69,16 @@ namespace Foodler.Pages
             }
         }
         
-        private void TextFoodCost_OnGotFocus(object sender, RoutedEventArgs e)
+
+
+        private void TextFoodCost_OnClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/InputFoodCostPage.xaml", UriKind.RelativeOrAbsolute));
+        }
+
+        private void TextFoodName_OnClick(object sender, RoutedEventArgs e)
+        {
+            FoodPicker.Open();
         }
 
         #endregion

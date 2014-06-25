@@ -14,6 +14,7 @@
 
     <!--Application Resources-->
     <Application.Resources>
+        <converters:BitmapImageConverter x:Key="CostWithCurrencyConverter"/>
         <converters:BitmapImageConverter x:Key="BitmapImageConverter"/>
         <converters:VisibilityConverter x:Key="VisibilityConverter"/>
         <converters:InVisibilityConverter x:Key="InVisibilityConverter"/>
@@ -150,11 +151,13 @@
         <!-- Numpad Button Style -->
         <Style x:Key="NumpadButtonStyle" TargetType="Button">
         	<Setter Property="Background" Value="#333"/>
+            
         	<Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}"/>
         	<Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
         	<Setter Property="BorderThickness" Value="0"/>
         	<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
-        	<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
+        	<Setter Property="FontSize" Value="50"/>
+            <Setter Property="FontWeight" Value="Bold"/>
         	<Setter Property="Padding" Value="0"/>
             
             <Setter Property="Margin" Value="-9"/>

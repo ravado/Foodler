@@ -1,4 +1,5 @@
-﻿using Foodler.Common.Contracts;
+﻿using System.Threading;
+using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.Resources;
 using Foodler.ViewModels.Common;
@@ -15,7 +16,7 @@ namespace Foodler.ViewModels
         #region Fields
         
         private IFood _food;
-        
+        private string _currencySymbol;
         #endregion
 
         #region Properties
@@ -29,6 +30,17 @@ namespace Foodler.ViewModels
                 NotifyPropertyChanged();
             }
         }
+
+        public string CurrencySymbol
+        {
+            get { return _currencySymbol; }
+            set
+            {
+                _currencySymbol = value;
+                NotifyPropertyChanged();
+            }
+        }
+        
         public ObservableCollection<IParticipant> Participants { get; set; }
         public ObservableCollection<IParticipant> SelectedParticipants { get; set; }
         public ObservableCollection<IFood> AvailableFood { get; set; }
@@ -59,6 +71,8 @@ namespace Foodler.ViewModels
                     Participants.Add(new ParticipantViewModel(p));
                 }
             }
+
+            CurrencySymbol = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencySymbol;
         }
 
         private void FillFood()

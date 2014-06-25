@@ -101,12 +101,21 @@
                                     RadiusY="32" />
                             </Image.Clip>
                         </Image>
+                        <TextBlock 
+                            Margin="-15 -10"
+                            FontSize="18"
+                            TextAlignment="Right" 
+                            VerticalAlignment="Top" HorizontalAlignment="Right"
+                            Height="30" Width="30" MaxWidth="30" LineHeight="30" 
+                            Text="{Binding ParticipantAteCoefficient, StringFormat='x{0}'}"/>
                     </Grid>
                 </Border>
-                <TextBlock Grid.Column="1"
-                           HorizontalAlignment="Stretch"
-                           VerticalAlignment="Center"
-                           Text="{Binding Name}"/>
+                <TextBlock 
+                    Grid.Column="1"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    FontSize="30"
+                    Text="{Binding Name}"/>
             </Grid>
         </DataTemplate>
         <Style x:Key="LongListMultiSelectorFoodParticipantsItemListStyle" TargetType="toolkit:LongListMultiSelectorItem">
@@ -335,8 +344,9 @@
                                             Background="{StaticResource PhoneAccentBrush}" />-->
                                 </Grid>
                             </Grid>
-                            <Grid Grid.Column="1" Background="Transparent">
-                                <StackPanel Orientation="Horizontal" Width="150">
+                            <Grid Grid.Column="1" Background="Transparent"
+                                  Visibility="{Binding IsSelected, Converter={StaticResource VisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}">
+                                <StackPanel Orientation="Horizontal">
                                     <Button 
                                         Style="{StaticResource RoundButton}"
                                         BorderThickness="0"
@@ -346,11 +356,11 @@
                                         Command="{Binding IncrementParticipantAteCommand}">
                                         <ImageBrush ImageSource="/Assets/Icon/arrow-up.png" Stretch="Fill"/>
                                     </Button>
-                                    <TextBlock 
+                                    <!--<TextBlock 
                                         FontSize="25"
                                         TextAlignment="Center" VerticalAlignment="Center"
                                         Height="30" Width="30" MaxWidth="30" LineHeight="30" Margin="5"
-                                        Text="{Binding ParticipantAteCoefficient, StringFormat='x{0}'}"/>
+                                        Text="{Binding ParticipantAteCoefficient, StringFormat='x{0}'}"/>-->
                                     <Button 
                                         Style="{StaticResource RoundButton}"
                                         BorderThickness="0" 
@@ -362,13 +372,62 @@
                                     </Button>
                                 </StackPanel>
                                 <StackPanel 
-                                    Background="Black" Opacity="0.8"
+                                    Background="Black" Opacity="0.5"
                                     Visibility="{Binding IsSelected, Converter={StaticResource InVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
                             </Grid>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+        </Style>
+        <Style x:Key="PrettyTextBoxes" TargetType="TextBox">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="BorderBrush" Value="{StaticResource PhoneAccentBrush}"/>
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="Padding" Value="5"/>
+        </Style>
+        <Style x:Key="ButtonStyle1" TargetType="Button">
+        	<Setter Property="Background" Value="White"/>
+            <Setter Property="toolkit:TiltEffect.IsTiltEnabled" Value="False"/>
+            <Setter Property="toolkit:TiltEffect.SuppressTilt" Value="False"/>
+        	<Setter Property="BorderBrush" Value="{StaticResource PhoneForegroundBrush}"/>
+        	<Setter Property="Foreground" Value="{StaticResource PhoneForegroundBrush}"/>
+        	<Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}"/>
+        	<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
+        	<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMedium}"/>
+        	<Setter Property="Padding" Value="10 5"/>
+        	<Setter Property="Template">
+        		<Setter.Value>
+        			<ControlTemplate TargetType="Button">
+        				<Grid Background="Transparent">
+        					<VisualStateManager.VisualStateGroups>
+        						<VisualStateGroup x:Name="CommonStates">
+        							<VisualState x:Name="Normal"/>
+        							<VisualState x:Name="MouseOver"/>
+        							<VisualState x:Name="Pressed">
+        								<Storyboard>
+        									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Border.BorderBrush)" Storyboard.TargetName="ButtonBackground">
+        										<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneAccentBrush}"/>
+        									</ObjectAnimationUsingKeyFrames>
+        								</Storyboard>
+        							</VisualState>
+        							<VisualState x:Name="Disabled">
+        								<Storyboard>
+        									<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ButtonBackground">
+        										<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledBrush}"/>
+        									</ObjectAnimationUsingKeyFrames>
+        								</Storyboard>
+        							</VisualState>
+        						</VisualStateGroup>
+        						<VisualStateGroup x:Name="FocusStates"/>
+        					</VisualStateManager.VisualStateGroups>
+        					<Border x:Name="ButtonBackground" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="0" Margin="{StaticResource PhoneTouchTargetOverhang}" Background="White">
+        						<ContentControl x:Name="ContentContainer" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Foreground="#FF787878"/>
+        					</Border>
+        				</Grid>
+        			</ControlTemplate>
+        		</Setter.Value>
+        	</Setter>
         </Style>
     </phone:PhoneApplicationPage.Resources>
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -379,35 +438,63 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+        <StackPanel Grid.Row="0" Margin="0,17,0,28">
             <TextBlock Text="FOODLER" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0" toolkit:TiltEffect.SuppressTilt="True"
+              toolkit:TiltEffect.IsTiltEnabled="False">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0">
                 <toolkit:ListPicker 
+                    Name="FoodPicker"
+                    Visibility="Collapsed"
                     Header="Food:"
                     FullModeHeader="Choose your food"
                     ItemsSource="{Binding AvailableFood}"
                     Style="{StaticResource FoodPickerStyle}"
                     SelectedItem="{Binding Food, Mode=TwoWay}">
                 </toolkit:ListPicker>
-                <TextBlock>Cost:</TextBlock>
-                <TextBox 
-                    Name="TextFoodCost"
-                    InputScope="Number"
-                    IsReadOnly="True"
-                    TextAlignment="Right"
-                    Padding="10"
+
+                <TextBlock>Food:</TextBlock>
+                <Button
+                    Margin="-10 0"
+                    Name="TextFoodName"
+                    BorderThickness="4"
+                    Style="{StaticResource ButtonStyle1}"
                     FontSize="{StaticResource PhoneFontSizeExtraLarge}"
-                    FontWeight="Bold"
-                    GotFocus="TextFoodCost_OnGotFocus"
-                    Text="{Binding Food.Price, Mode=TwoWay}"/>
+                    FontWeight="SemiBold"
+                    HorizontalContentAlignment="Left"
+                    Click="TextFoodName_OnClick"  
+                    Content="{Binding Food.Name}"/>
+                
+                <TextBlock>Price:</TextBlock>
+                <!--<TextBox Text="{Binding Food.Price, Converter={StaticResource CostWithCurrencyConverter}, Mode=TwoWay}"/>-->
+                <Button 
+                    Margin="-10 0"
+                    BorderThickness="4"
+                    Name="TextFoodCost"
+                    HorizontalContentAlignment="Right"
+                    FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                    FontWeight="SemiBold"
+                    Click="TextFoodCost_OnClick"
+                    Content="{Binding}" Style="{StaticResource ButtonStyle1}" Background="Red" BorderBrush="White" Foreground="White">
+                    <Button.ContentTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Food.Price, StringFormat='N2'}"/>
+                                <TextBlock 
+                                    Margin="10 0" 
+                                    FontWeight="ExtraBold"
+                                    Text="{Binding CurrencySymbol}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </Button.ContentTemplate>
+                </Button>
             </StackPanel>
             <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
