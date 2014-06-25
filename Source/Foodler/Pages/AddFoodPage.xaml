@@ -438,7 +438,7 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="0,17,0,28">
+        <StackPanel Grid.Row="0" Margin="0,15,0,10">
             <TextBlock Text="FOODLER" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
@@ -505,7 +505,7 @@
                     <toolkit:LongListMultiSelector 
                         Grid.Row="1"
                         Name="NewJokesMultiSelector"
-                        Margin="0 10"
+                        Margin="0 10 0 0"
                         ItemsSource="{Binding Participants}"
                         ItemTemplate="{StaticResource AvaibleFoodParticipantItemTemplate}"
                         ItemContainerStyle="{StaticResource LongListMultiSelectorFoodParticipantsItemListStyle}"
