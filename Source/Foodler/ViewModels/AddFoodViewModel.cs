@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.Resources;
@@ -8,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
+using Microsoft.Phone.Reactive;
 
 namespace Foodler.ViewModels
 {
@@ -17,6 +19,9 @@ namespace Foodler.ViewModels
         
         private IFood _food;
         private string _currencySymbol;
+        private bool _isParticipantRemoving;
+        private bool _isCanceled;
+
         #endregion
 
         #region Properties
@@ -49,6 +54,7 @@ namespace Foodler.ViewModels
 
         public AddFoodViewModel()
         {
+            _isCanceled = false;
             Participants = new ObservableCollection<IParticipant>();
             SelectedParticipants = new ObservableCollection<IParticipant>();
             AvailableFood = new ObservableCollection<IFood>();
@@ -58,6 +64,15 @@ namespace Foodler.ViewModels
 
         public void Initialize(IEnumerable<IParticipant> participants, FoodContainerViewModel foodContainer, bool ignoreFood = false)
         {
+            if (Participants != null && participants != null)
+            {
+                Participants.Clear();
+                foreach (var p in participants)
+                {
+                    Participants.Add(new ParticipantViewModel(p));
+                }
+            }
+
             if (foodContainer != null)
             {
                 if (foodContainer.Food != null)
@@ -70,28 +85,58 @@ namespace Foodler.ViewModels
                     {
                         Food.Price = foodContainer.Food.Price;
                     }
+
+                    if (foodContainer.Participants != null && Participants != null)
+                    {
+                        // move ate coefficient from selected participants to a list of available
+                        foreach (var par in foodContainer.Participants)
+                        {
+                            var equal = Participants.FirstOrDefault(p => p.Equals(par));
+                            if (equal != null)
+                                equal.ParticipantAteCoefficient = par.ParticipantAteCoefficient;
+                        }
+                    }
                 }
 
                 if (foodContainer.Participants != null)
                 {
+                    var newOnes = foodContainer.Participants.ToArray();
                     SelectedParticipants.Clear();
-                    foreach (var p in foodContainer.Participants)
+                    foreach (var p in newOnes)
                     {
                         SelectedParticipants.Add(new ParticipantViewModel(p));
                     }   
                 }
             }
 
-            if (Participants != null && participants != null)
+            CurrencySymbol = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencySymbol;
+        }
+
+        public void AddSelectedParticipantToList(IParticipant participant)
+        {
+            if (!SelectedParticipants.Contains(participant) && participant != null)
+                SelectedParticipants.Add(participant);
+        }
+
+        public void RemoveSelectedParticipantFromList(IParticipant participantToRemove)
+        {
+            if (!_isParticipantRemoving)
             {
-                Participants.Clear();
-                foreach (var p in participants)
+                _isParticipantRemoving = true;
+                try
                 {
-                    Participants.Add(new ParticipantViewModel(p));
+                    SelectedParticipants.Remove(participantToRemove);
+                }
+                finally
+                {
+                    _isParticipantRemoving = false;
                 }
             }
+        }
 
-            CurrencySymbol = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencySymbol;
+        public void CancelAddingFood()
+        {
+            _isCanceled = true;
         }
 
         private void FillFood()
@@ -126,7 +171,9 @@ namespace Foodler.ViewModels
 
         public FoodContainerViewModel GetFoodContainer()
         {
-            var container = new FoodContainerViewModel(Food, SelectedParticipants);
+            if (_isCanceled) return null;
+
+            var container = new FoodContainerViewModel(Food, new List<IParticipant>(SelectedParticipants));
             return container;
         }
     }

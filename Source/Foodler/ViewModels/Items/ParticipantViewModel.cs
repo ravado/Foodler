@@ -10,17 +10,6 @@ namespace Foodler.ViewModels.Items
         private ICommand _incrementParticipantAteCommand;
         private ICommand _decrementParticipantAteCommand;
 
-        private int _participantAteCoefficient;
-
-        public int ParticipantAteCoefficient
-        {
-            get { return _participantAteCoefficient; }
-            set
-            {
-                _participantAteCoefficient = value;
-                NotifyPropertyChanged();
-            }
-        }
         public ICommand IncrementParticipantAteCommand
         {
             get
@@ -50,6 +39,7 @@ namespace Foodler.ViewModels.Items
             Name = participant.Name;
             Avatar = participant.Avatar;
             IsUserContact = participant.IsUserContact;
+            ParticipantAteCoefficient = participant.ParticipantAteCoefficient;
         }
 
         private void IncrementParticipantAte()

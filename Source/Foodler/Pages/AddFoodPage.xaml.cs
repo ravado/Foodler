@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Windows.Input;
+﻿using System.ComponentModel;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
@@ -11,10 +10,11 @@ using System.Windows.Navigation;
 
 namespace Foodler.Pages
 {
-    public partial class AddFoodPage : PhoneApplicationPage
+    public partial class AddFoodPage
     {
         protected AddFoodViewModel ViewModel { get; set; }
-        private bool _ignoreFood = false;
+        private bool _ignoreFood;
+        private bool _updatedSelectedParticipants; // for update only once
 
         public AddFoodPage()
         {
@@ -23,11 +23,15 @@ namespace Foodler.Pages
             DataContext = ViewModel;
         }
 
+        #region Navigation
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            ViewModel.Initialize(TransfareManager.SelectedParticipants, TransfareManager.FoodContainer, _ignoreFood);
-
             base.OnNavigatedTo(e);
+
+            ResetPageData();
+            ViewModel.Initialize(TransfareManager.SelectedParticipants, TransfareManager.FoodContainer, _ignoreFood);
+            MarkSelectedParticipants();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -38,21 +42,33 @@ namespace Foodler.Pages
             base.OnNavigatedFrom(e);
         }
 
+        #endregion
 
-        private void NewJokesMultiSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        #region Private Methods
+
+        private void ResetPageData()
         {
-            IParticipant selected;
-            if (e.AddedItems.Count > 0)
+            _updatedSelectedParticipants = false;
+            NewJokesMultiSelector.SelectedItems.Clear();
+        }
+
+        /// <summary>
+        /// Mark all selected participants as selected, if they were selected previously
+        /// </summary>
+        private void MarkSelectedParticipants()
+        {
+            NewJokesMultiSelector.ItemRealized += (sender, args) =>
             {
-                selected = e.AddedItems[0] as IParticipant;
-                if(selected != null)
-                    ViewModel.SelectedParticipants.Add(selected);
-            }
-            else
-            {
-                selected = e.RemovedItems[0] as IParticipant;
-                ViewModel.SelectedParticipants.Remove(selected);
-            }
+                var participants = ViewModel.SelectedParticipants;
+                if (!_updatedSelectedParticipants)
+                {
+                    foreach (var participant in participants)
+                    {
+                        NewJokesMultiSelector.SelectedItems.Add(participant);
+                    }
+                    _updatedSelectedParticipants = true;
+                }
+            };
         }
 
         #region Callbacks
@@ -65,8 +81,6 @@ namespace Foodler.Pages
             }
         }
         
-
-
         private void TextFoodCost_OnClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/InputFoodCostPage.xaml", UriKind.RelativeOrAbsolute));
@@ -76,6 +90,42 @@ namespace Foodler.Pages
         {
             FoodPicker.Open();
         }
+
+        private void NewJokesMultiSelector_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                foreach (var added in e.AddedItems)
+                {
+                    var p = added as IParticipant;
+                    if (p != null)
+                    {
+                        ViewModel.AddSelectedParticipantToList(p);
+                    }
+                }
+                foreach (var removed in e.RemovedItems)
+                {
+                    var p = removed as IParticipant;
+                    if (p != null)
+                    {
+                        ViewModel.RemoveSelectedParticipantFromList(p);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        protected override void OnBackKeyPress(CancelEventArgs e)
+        {
+            ViewModel.CancelAddingFood();
+            base.OnBackKeyPress(e);
+        }
+
+        #endregion
 
         #endregion
     }
