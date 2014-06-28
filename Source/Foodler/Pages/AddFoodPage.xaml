@@ -338,7 +338,7 @@
                                         Background="{StaticResource PhoneAccentBrush}"/>
                                     <StackPanel
                                         Grid.Row="1" Grid.Column="0"
-                                        Background="Black" Opacity="0.8"
+                                        Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.8"
                                         Visibility="{Binding IsSelected, Converter={StaticResource InVisibilityConverter}, RelativeSource={RelativeSource TemplatedParent}}"/>
                                     <!--<Grid Grid.Row="1" Grid.Column="0" Width="8" Height="8" Margin="0 0 0 0" VerticalAlignment="Stretch" 
                                             Background="{StaticResource PhoneAccentBrush}" />-->
@@ -422,7 +422,14 @@
         						<VisualStateGroup x:Name="FocusStates"/>
         					</VisualStateManager.VisualStateGroups>
         					<Border x:Name="ButtonBackground" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="0" Margin="{StaticResource PhoneTouchTargetOverhang}" Background="White">
-        						<ContentControl x:Name="ContentContainer" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Foreground="#FF787878"/>
+        						<ContentControl
+                                    x:Name="ContentContainer"
+                                    ContentTemplate="{TemplateBinding ContentTemplate}"
+                                    Content="{TemplateBinding Content}"
+                                    HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    Padding="{TemplateBinding Padding}"
+                                    VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                    Foreground="{TemplateBinding Foreground}"/>
         					</Border>
         				</Grid>
         			</ControlTemplate>
@@ -464,13 +471,16 @@
                 <Button
                     Margin="-10 0"
                     Name="TextFoodName"
+                    Foreground="Black"
                     BorderThickness="4"
                     Style="{StaticResource ButtonStyle1}"
                     FontSize="{StaticResource PhoneFontSizeExtraLarge}"
                     FontWeight="SemiBold"
                     HorizontalContentAlignment="Left"
                     Click="TextFoodName_OnClick"  
-                    Content="{Binding Food.Name}"/>
+                    Content="{Binding Food.Name}"
+                    BorderBrush="{StaticResource PhoneChromeBrush}"
+                    Background="{StaticResource PhoneBackgroundBrush}"/>
                 
                 <TextBlock>Price:</TextBlock>
                 <!--<TextBox Text="{Binding Food.Price, Converter={StaticResource CostWithCurrencyConverter}, Mode=TwoWay}"/>-->
@@ -482,15 +492,20 @@
                     FontSize="{StaticResource PhoneFontSizeExtraLarge}"
                     FontWeight="SemiBold"
                     Click="TextFoodCost_OnClick"
-                    Content="{Binding}" Style="{StaticResource ButtonStyle1}" Background="Red" BorderBrush="White" Foreground="White">
+                    Content="{Binding}" 
+					Style="{StaticResource ButtonStyle1}" 
+					Background="{StaticResource PhoneChromeBrush}"
+					BorderBrush="{StaticResource PhoneChromeBrush}" Foreground="{StaticResource PhoneTextMidContrastBrush}">
                     <Button.ContentTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Food.Price, StringFormat='N2'}"/>
+                                <TextBlock 
+                                    Foreground="Black"
+                                    Text="{Binding Food.Price, StringFormat='N2'}"/>
                                 <TextBlock 
                                     Margin="10 0" 
-                                    FontWeight="ExtraBold"
-                                    Text="{Binding CurrencySymbol}"/>
+                                    FontWeight="Bold"
+                                    Text="{Binding CurrencySymbol}" Foreground="Gray"/>
                             </StackPanel>
                         </DataTemplate>
                     </Button.ContentTemplate>

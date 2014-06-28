@@ -165,7 +165,6 @@
                             FontWeight="Bold"
                             Padding="10"
                             FontSize="{StaticResource PhoneFontSizeExtraLarge}"
-                            
                             TextAlignment="Right" 
                             Style="{StaticResource FoodPriceTextBox}">
                             
