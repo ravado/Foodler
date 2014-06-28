@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Linq;
+using System.Windows.Input;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
@@ -12,32 +13,28 @@ namespace Foodler.Pages
 {
     public partial class AddFoodPage : PhoneApplicationPage
     {
-        private AddFoodViewModel _viewModel;
+        protected AddFoodViewModel ViewModel { get; set; }
+        private bool _ignoreFood = false;
 
         public AddFoodPage()
         {
             InitializeComponent();
-            _viewModel = new AddFoodViewModel();
-            DataContext = _viewModel;
+            ViewModel = new AddFoodViewModel();
+            DataContext = ViewModel;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
-            
+            ViewModel.Initialize(TransfareManager.SelectedParticipants, TransfareManager.FoodContainer, _ignoreFood);
 
-            _viewModel.Initialize(TransfareManager.SelectedParticipants, null, StateManager.FoodPrice);
-            StateManager.FoodPrice = default(decimal);
+            base.OnNavigatedTo(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            // which page do we go
-            if (e.Content is InputFoodCostPage)
-            {
-                StateManager.FoodPrice = _viewModel.Food.Price;
-            }
-            
+            _ignoreFood = e.Content is ListPickerPage;
+            TransfareManager.FoodContainer = ViewModel.GetFoodContainer();
+
             base.OnNavigatedFrom(e);
         }
 
@@ -49,12 +46,12 @@ namespace Foodler.Pages
             {
                 selected = e.AddedItems[0] as IParticipant;
                 if(selected != null)
-                    _viewModel.SelectedParticipants.Add(selected);
+                    ViewModel.SelectedParticipants.Add(selected);
             }
             else
             {
                 selected = e.RemovedItems[0] as IParticipant;
-                _viewModel.SelectedParticipants.Remove(selected);
+                ViewModel.SelectedParticipants.Remove(selected);
             }
         }
 
@@ -62,7 +59,6 @@ namespace Foodler.Pages
 
         private void DoneButtonClick(object sender, EventArgs e)
         {
-            TransfareManager.FoodContainer = _viewModel.GetFoodContainer();
             if (NavigationService.CanGoBack)
             {
                 NavigationService.GoBack();

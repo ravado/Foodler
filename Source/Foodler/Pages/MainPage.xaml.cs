@@ -21,6 +21,8 @@ namespace Foodler.Pages
             ViewModel = new MainViewModel();
             DataContext = ViewModel;
         }
+
+        #region Navigation
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -51,8 +53,10 @@ namespace Foodler.Pages
             base.OnNavigatedFrom(e);
         }
 
+        #endregion
+
         #region Private Methods
-        
+
         #region Callbacks
 
         internal void BtnAddParticipants_OnClick(object sender, EventArgs e)

@@ -56,12 +56,31 @@ namespace Foodler.ViewModels
             Food = AvailableFood[0];
         }
 
-        public void Initialize(IEnumerable<IParticipant> participants, IFood food, decimal foodPrice = default(decimal))
+        public void Initialize(IEnumerable<IParticipant> participants, FoodContainerViewModel foodContainer, bool ignoreFood = false)
         {
-            if (food != null)
-                Food = food;
+            if (foodContainer != null)
+            {
+                if (foodContainer.Food != null)
+                {
+                    if (!ignoreFood) // need because food now gets from list picker page and binds directly
+                    {
+                        Food = foodContainer.Food;
+                    }
+                    else
+                    {
+                        Food.Price = foodContainer.Food.Price;
+                    }
+                }
 
-            Food.Price = foodPrice;
+                if (foodContainer.Participants != null)
+                {
+                    SelectedParticipants.Clear();
+                    foreach (var p in foodContainer.Participants)
+                    {
+                        SelectedParticipants.Add(new ParticipantViewModel(p));
+                    }   
+                }
+            }
 
             if (Participants != null && participants != null)
             {

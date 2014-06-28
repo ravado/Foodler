@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Foodler.Common;
 using Foodler.ViewModels;
+using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
 
 namespace Foodler.Pages
@@ -25,15 +26,22 @@ namespace Foodler.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel.Initialize();
-            ViewModel.SetStartFoodCost(StateManager.FoodPrice);
-            StateManager.FoodPrice = default(decimal);
+            var foodContainer = TransfareManager.FoodContainer;
+            if (foodContainer != null && foodContainer.Food != null)
+            {
+                ViewModel.SetStartFoodCost(foodContainer.Food.Price);
+            }
+            //StateManager.FoodPrice = default(decimal);
 
             base.OnNavigatedTo(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
-            StateManager.FoodPrice = ViewModel.GetFoodPrice();
+            //StateManager.FoodPrice = ViewModel.GetFoodPrice();
+            var foodContainer = TransfareManager.FoodContainer ?? new FoodContainerViewModel();
+            foodContainer.Food.Price = ViewModel.GetFoodPrice();
+
             base.OnNavigatedFrom(e);
         }
 
