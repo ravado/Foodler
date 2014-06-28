@@ -75,9 +75,16 @@ namespace Foodler.Pages
 
         private void DoneButtonClick(object sender, EventArgs e)
         {
-            if (NavigationService.CanGoBack)
+            if (ViewModel.IsValid)
             {
-                NavigationService.GoBack();
+                if (NavigationService.CanGoBack)
+                {
+                    NavigationService.GoBack();
+                }
+            }
+            else
+            {
+                MessageBox.Show("You should enter a valid price, and select at least one participant.", "Invalid Data", MessageBoxButton.OK);
             }
         }
         

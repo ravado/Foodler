@@ -163,6 +163,16 @@ namespace Foodler.ViewModels
             AvailableFood.Add(new Food("Мороженое", GetImage(Images.FoodIceCream)));
         }
 
+        private bool Validate()
+        {
+            var valid = true;
+
+            if (Food.Price <= 0 || SelectedParticipants.Count == 0)
+                valid = false;
+
+            return valid;
+        }
+
         //TODO: move to some common place
         public static BitmapImage GetImage(string url)
         {
@@ -175,6 +185,14 @@ namespace Foodler.ViewModels
 
             var container = new FoodContainerViewModel(Food, new List<IParticipant>(SelectedParticipants));
             return container;
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                return Validate();    
+            }
         }
     }
 }
