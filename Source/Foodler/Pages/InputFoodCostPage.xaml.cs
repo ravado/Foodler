@@ -24,6 +24,7 @@ namespace Foodler.Pages
         //TODO: check the right way to override this methods and position of base call
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            ViewModel.Initialize();
             ViewModel.SetStartFoodCost(StateManager.FoodPrice);
             StateManager.FoodPrice = default(decimal);
 

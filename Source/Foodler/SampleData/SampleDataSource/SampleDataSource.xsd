@@ -17,6 +17,7 @@
     </xs:sequence>
     <xs:attribute blend:Format="Price" name="FoodTotalCost" type="xs:string" />
     <xs:attribute blend:Format="Price" name="FoodPrice" type="xs:string" />
+    <xs:attribute blend:FormatParameters="1,3" name="CurrencySymbol" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="Participants">
     <xs:sequence>

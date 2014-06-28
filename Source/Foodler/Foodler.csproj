@@ -235,6 +235,7 @@
     <Content Include="Assets\Icon\animals\stroked\turtle.png" />
     <Content Include="Assets\Icon\arrow-down.png" />
     <Content Include="Assets\Icon\arrow-up.png" />
+    <Content Include="Assets\Icon\backspace.png" />
     <Content Include="Assets\Icon\food\beer.png" />
     <Content Include="Assets\Icon\food\healthy-food.png" />
     <Content Include="Assets\Icon\food\fruit.png" />
@@ -254,6 +255,7 @@
     <Content Include="Assets\Icon\food\soup.png" />
     <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
     <Content Include="Assets\Icon\mask-icon-white.png" />
+    <Content Include="Assets\Icon\enter-key.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

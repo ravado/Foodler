@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Foodler.Common;
 using Foodler.ViewModels.Common;
 
@@ -9,6 +10,8 @@ namespace Foodler.ViewModels
         #region Fields
 
         private decimal _foodPrice;
+
+        private string _currencySymbol;
 
         #endregion
 
@@ -28,6 +31,16 @@ namespace Foodler.ViewModels
 
         protected decimal InitFoodPrice { get; set; }
 
+        public string CurrencySymbol
+        {
+            get { return _currencySymbol; }
+            set
+            {
+                _currencySymbol = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         #endregion
 
         public InputFoodCostViewModel()
@@ -39,6 +52,7 @@ namespace Foodler.ViewModels
         {
             FoodPrice = 0.0m;
             Canceling = false;
+            CurrencySymbol = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencySymbol;
         }
 
         public decimal GetFoodPrice()

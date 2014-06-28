@@ -144,6 +144,25 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private string _CurrencySymbol = string.Empty;
+
+		public string CurrencySymbol
+		{
+			get
+			{
+				return this._CurrencySymbol;
+			}
+
+			set
+			{
+				if (this._CurrencySymbol != value)
+				{
+					this._CurrencySymbol = value;
+					this.OnPropertyChanged("CurrencySymbol");
+				}
+			}
+		}
 	}
 
 	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>
