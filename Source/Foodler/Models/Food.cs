@@ -64,5 +64,13 @@ namespace Foodler.Models
             Price = price;
             Icon = image;
         }
+
+        public void Reset()
+        {
+            Icon = null;
+            Id = Guid.Empty;
+            Name = String.Empty;
+            Price = 0.0m;
+        }
     }
 }

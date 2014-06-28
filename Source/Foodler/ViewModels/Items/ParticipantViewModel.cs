@@ -9,6 +9,7 @@ namespace Foodler.ViewModels.Items
     {
         private ICommand _incrementParticipantAteCommand;
         private ICommand _decrementParticipantAteCommand;
+        private bool _ateRangeActivated;
 
         public ICommand IncrementParticipantAteCommand
         {
@@ -27,7 +28,15 @@ namespace Foodler.ViewModels.Items
                 return _decrementParticipantAteCommand;
             }
         }
-
+        public bool AteRangeActivated
+        {
+            get { return _ateRangeActivated; }
+            set
+            {
+                _ateRangeActivated = value;
+                NotifyPropertyChanged();
+            }
+        }
         public ParticipantViewModel()
         {
             ParticipantAteCoefficient = 1;

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Windows.Input;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
@@ -21,6 +22,7 @@ namespace Foodler.Pages
             InitializeComponent();
             ViewModel = new AddFoodViewModel();
             DataContext = ViewModel;
+            
         }
 
         #region Navigation
@@ -50,6 +52,7 @@ namespace Foodler.Pages
         {
             _updatedSelectedParticipants = false;
             NewJokesMultiSelector.SelectedItems.Clear();
+            
         }
 
         /// <summary>
@@ -87,7 +90,7 @@ namespace Foodler.Pages
                 MessageBox.Show("You should enter a valid price, and select at least one participant.", "Invalid Data", MessageBoxButton.OK);
             }
         }
-        
+
         private void TextFoodCost_OnClick(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/InputFoodCostPage.xaml", UriKind.RelativeOrAbsolute));
@@ -109,13 +112,24 @@ namespace Foodler.Pages
                     {
                         ViewModel.AddSelectedParticipantToList(p);
                     }
+
+                    if (ViewModel.SelectedParticipants.Count > 0)
+                    {
+                        ActivateAteRangeAppBarButtons();
+                    }
                 }
+
                 foreach (var removed in e.RemovedItems)
                 {
                     var p = removed as IParticipant;
                     if (p != null)
                     {
                         ViewModel.RemoveSelectedParticipantFromList(p);
+                    }
+
+                    if (ViewModel.SelectedParticipants.Count == 0)
+                    {
+                        DeactivateAteRangeAppBarButtons();
                     }
                 }
 
@@ -124,6 +138,31 @@ namespace Foodler.Pages
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void DeactivateAteRangeAppBarButtons()
+        {
+            var btn = GetAteRangeAppBarButton();
+            if (btn != null)
+            {
+                btn.IsEnabled = false;
+            }
+        }
+
+        private void ActivateAteRangeAppBarButtons()
+        {
+            var btn = GetAteRangeAppBarButton();
+            if (btn != null)
+            {
+                btn.IsEnabled = true;
+            }
+        }
+
+        // get "ate range" button from appbar
+        private Microsoft.Phone.Shell.ApplicationBarIconButton GetAteRangeAppBarButton()
+        {
+            var btn = ApplicationBar.Buttons[1] as Microsoft.Phone.Shell.ApplicationBarIconButton;
+            return btn;
         }
 
         protected override void OnBackKeyPress(CancelEventArgs e)
@@ -135,5 +174,33 @@ namespace Foodler.Pages
         #endregion
 
         #endregion
+
+        private void AppBarResetAll_OnClick(object sender, EventArgs e)
+        {
+            ViewModel.Reset();
+            ResetPageData();
+        }
+
+        private void AppBarAddAteRange_OnClick(object sender, EventArgs e)
+        {
+            var btn = GetAteRangeAppBarButton();
+            if (ViewModel.AteRangeActivated)
+            {
+                ViewModel.DeactivateAteRange();
+                if (btn != null)
+                {
+                    btn.IconUri = new Uri("/Assets/AppBar/appbar.user.add.png", UriKind.RelativeOrAbsolute);   
+                }
+            }
+            else
+            {
+                ViewModel.ActivateAteRange();
+                if (btn != null)
+                {
+                    btn.IconUri = new Uri("/Assets/AppBar/appbar.user.minus.png", UriKind.RelativeOrAbsolute);
+                }
+            }
+        }
+
     }
 }

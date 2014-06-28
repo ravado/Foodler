@@ -9,7 +9,6 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
-using Microsoft.Phone.Reactive;
 
 namespace Foodler.ViewModels
 {
@@ -21,6 +20,7 @@ namespace Foodler.ViewModels
         private string _currencySymbol;
         private bool _isParticipantRemoving;
         private bool _isCanceled;
+        private bool _ateRangeActivated;
 
         #endregion
 
@@ -45,7 +45,16 @@ namespace Foodler.ViewModels
                 NotifyPropertyChanged();
             }
         }
-        
+
+        public bool AteRangeActivated
+        {
+            get { return _ateRangeActivated; }
+            set
+            {
+                _ateRangeActivated = value;
+                NotifyPropertyChanged();
+            }
+        }
         public ObservableCollection<IParticipant> Participants { get; set; }
         public ObservableCollection<IParticipant> SelectedParticipants { get; set; }
         public ObservableCollection<IFood> AvailableFood { get; set; }
@@ -107,9 +116,23 @@ namespace Foodler.ViewModels
                         SelectedParticipants.Add(new ParticipantViewModel(p));
                     }   
                 }
+
+                UpdateActivatedAteCoefficientOnParticipants(AteRangeActivated);
             }
 
             CurrencySymbol = Thread.CurrentThread.CurrentCulture.NumberFormat.CurrencySymbol;
+        }
+
+        private void UpdateActivatedAteCoefficientOnParticipants(bool ateRangeActivated)
+        {
+            foreach (var p in SelectedParticipants.Select(sp => sp as ParticipantViewModel))
+            {
+                p.AteRangeActivated = ateRangeActivated;
+            }
+            foreach (var p in Participants.Select(sp => sp as ParticipantViewModel))
+            {
+                p.AteRangeActivated = ateRangeActivated;
+            }
         }
 
         public void AddSelectedParticipantToList(IParticipant participant)
@@ -182,7 +205,16 @@ namespace Foodler.ViewModels
         public FoodContainerViewModel GetFoodContainer()
         {
             if (_isCanceled) return null;
+            var selectedPartisipants = SelectedParticipants;
 
+            // to be ensure that ate coefficient is turned off
+            if (!AteRangeActivated)
+            {
+                foreach (var p in selectedPartisipants)
+                {
+                    p.ParticipantAteCoefficient = 0;
+                }
+            }
             var container = new FoodContainerViewModel(Food, new List<IParticipant>(SelectedParticipants));
             return container;
         }
@@ -193,6 +225,29 @@ namespace Foodler.ViewModels
             {
                 return Validate();    
             }
+        }
+
+        public void Reset()
+        {
+            SelectedParticipants.Clear();
+            foreach (var participant in Participants)
+            {
+                participant.ParticipantAteCoefficient = 0;
+            }
+            Food = AvailableFood[0];
+            Food.Price = 0.0m;
+        }
+
+        public void ActivateAteRange()
+        {
+            AteRangeActivated = true;
+            UpdateActivatedAteCoefficientOnParticipants(AteRangeActivated);
+        }
+
+        public void DeactivateAteRange()
+        {
+            AteRangeActivated = false;
+            UpdateActivatedAteCoefficientOnParticipants(AteRangeActivated);
         }
     }
 }
