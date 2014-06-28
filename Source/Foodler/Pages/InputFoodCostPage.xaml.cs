@@ -1,18 +1,25 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Navigation;
 using Foodler.Common;
 using Foodler.ViewModels;
 using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
+using GestureEventArgs = System.Windows.Input.GestureEventArgs;
 
 namespace Foodler.Pages
 {
     public partial class InputFoodCostPage : PhoneApplicationPage
     {
+        private bool _isEraseButtonHolded;
         protected InputFoodCostViewModel ViewModel { get; private set; }
+
 
         public InputFoodCostPage()
         {
@@ -20,6 +27,7 @@ namespace Foodler.Pages
 
             ViewModel = new InputFoodCostViewModel();
             DataContext = ViewModel;
+            NumpadEraseBtn.ManipulationCompleted += (o, args) => _isEraseButtonHolded = false;
         }
 
         //TODO: check the right way to override this methods and position of base call
@@ -31,7 +39,6 @@ namespace Foodler.Pages
             {
                 ViewModel.SetStartFoodCost(foodContainer.Food.Price);
             }
-            //StateManager.FoodPrice = default(decimal);
 
             base.OnNavigatedTo(e);
         }
@@ -95,12 +102,38 @@ namespace Foodler.Pages
             // accept inserted value and go back to the previous page
             if (NavigationService.CanGoBack)
                 NavigationService.GoBack();
+            Debug.WriteLine("Clicked");
         }
 
         protected override void OnBackKeyPress(CancelEventArgs e)
         {
             ViewModel.Cancel();
             base.OnBackKeyPress(e);
+        }
+
+        private void NumpadEraseBtn_OnHold(object sender, GestureEventArgs e)
+        {
+            _isEraseButtonHolded = true;
+            try
+            {
+                // long erasing -> erase symbol each 150 ms until pressed is over
+                Task.Run(() =>
+                {
+                    while (_isEraseButtonHolded)
+                    {
+                        Dispatcher.BeginInvoke(() => ViewModel.Decrement());
+                        Thread.Sleep(150);
+                        Debug.WriteLine("Still holded");
+                    }    
+                }).ContinueWith(r => Debug.WriteLine("Hold event over, status: {0}", r.Status));
+                
+            }
+            catch (Exception ex)
+            {
+                _isEraseButtonHolded = false;
+                MessageBox.Show(ex.Message);
+            }
+            
         }
     }
 }

@@ -210,7 +210,8 @@
                                 Padding="20"
                                 FontSize="{StaticResource PhoneFontSizeSmall}"
                                 Style="{StaticResource NumpadButtonStyle}"
-                                Click="NumpadEraseBtn_OnClick">
+                                Click="NumpadEraseBtn_OnClick"
+                                Hold="NumpadEraseBtn_OnHold">
                                 <Button.ContentTemplate>
                                     <DataTemplate>
                                         <Border 
