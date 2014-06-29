@@ -40,10 +40,11 @@ namespace Foodler.Pages
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
+            StateManager.InvolvedParticipants = ViewModel.GetInvolvedParticipants();
+
             // which page do we go
             if (e.Content is AddParticipantPage)
             {
-                StateManager.InvolvedParticipants = ViewModel.GetInvolvedParticipants();
             }
             else if (e.Content is AddFoodPage)
             {

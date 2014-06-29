@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel;
-using System.Windows.Input;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
@@ -22,7 +21,6 @@ namespace Foodler.Pages
             InitializeComponent();
             ViewModel = new AddFoodViewModel();
             DataContext = ViewModel;
-            
         }
 
         #region Navigation
@@ -32,7 +30,7 @@ namespace Foodler.Pages
             base.OnNavigatedTo(e);
 
             ResetPageData();
-            ViewModel.Initialize(StateManager.SelectedParticipants, StateManager.FoodContainer, _ignoreFood);
+            ViewModel.Initialize(StateManager.InvolvedParticipants, StateManager.FoodContainer, _ignoreFood);
             MarkSelectedParticipants();
         }
 
