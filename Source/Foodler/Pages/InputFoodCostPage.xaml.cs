@@ -34,7 +34,7 @@ namespace Foodler.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             ViewModel.Initialize();
-            var foodContainer = TransfareManager.FoodContainer;
+            var foodContainer = StateManager.FoodContainer;
             if (foodContainer != null && foodContainer.Food != null)
             {
                 ViewModel.SetStartFoodCost(foodContainer.Food.Price);
@@ -46,7 +46,7 @@ namespace Foodler.Pages
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             //StateManager.FoodPrice = ViewModel.GetFoodPrice();
-            var foodContainer = TransfareManager.FoodContainer ?? new FoodContainerViewModel();
+            var foodContainer = StateManager.FoodContainer ?? new FoodContainerViewModel();
             foodContainer.Food.Price = ViewModel.GetFoodPrice();
 
             base.OnNavigatedFrom(e);

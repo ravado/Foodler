@@ -4,8 +4,6 @@
 
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Foodler.Annotations;
-
 namespace Expression.Blend.SampleData.SampleDataSource
 {
 	using System; 
@@ -562,8 +560,8 @@ namespace Expression.Blend.SampleData.SampleDataSource
     public class AnonymousMaleParticipantListItem : System.ComponentModel.INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
+        public string Avatar { get; set; }
+        public string Name { get; set; }
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChangedEventHandler handler = PropertyChanged;

@@ -32,14 +32,14 @@ namespace Foodler.Pages
             base.OnNavigatedTo(e);
 
             ResetPageData();
-            ViewModel.Initialize(TransfareManager.SelectedParticipants, TransfareManager.FoodContainer, _ignoreFood);
+            ViewModel.Initialize(StateManager.SelectedParticipants, StateManager.FoodContainer, _ignoreFood);
             MarkSelectedParticipants();
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             _ignoreFood = e.Content is ListPickerPage;
-            TransfareManager.FoodContainer = ViewModel.GetFoodContainer();
+            StateManager.FoodContainer = ViewModel.GetFoodContainer();
 
             base.OnNavigatedFrom(e);
         }

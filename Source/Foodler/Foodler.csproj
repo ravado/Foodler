@@ -108,7 +108,6 @@
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
     <Compile Include="Common\Helpers\ImageHelper.cs" />
-    <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\SettingsManager.cs" />
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="DB\FoodlerDataContext.cs" />
@@ -131,11 +130,13 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Resources\Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\SampleDataSource\SampleDataSource.xaml.cs">
+      <DependentUpon>SampleDataSource.xaml</DependentUpon>
     </Compile>
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\ParticipantService.cs" />
@@ -144,9 +145,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="SampleData\SampleDataSource\SampleDataSource.xaml.cs">
-      <DependentUpon>SampleDataSource.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddParticipantsViewModel.cs" />
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
@@ -184,7 +182,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SampleData\SampleDataSource\SampleDataSource.xaml">
-      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
@@ -192,6 +190,9 @@
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SampleData\SampleDataSource\SampleDataSource.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -254,22 +255,6 @@
     <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
     <Content Include="Assets\Icon\mask-icon-white.png" />
     <Content Include="Assets\Icon\mask.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\bird.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\bull.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\cat.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\cow.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\dog.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\duck.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\elephant.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\fish.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\horse.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\ladybug.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\leopard.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\lion.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\lobster.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\rabbit.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\snail.png" />
-    <Content Include="Assets\Icon\animals\non-stroked\turtle.png" />
     <Content Include="Assets\Icon\animals\stroked\bird.png" />
     <Content Include="Assets\Icon\animals\stroked\bull.png" />
     <Content Include="Assets\Icon\animals\stroked\cat.png" />
@@ -339,9 +324,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <DesignTimeOnly Include="SampleData\SampleDataSource\SampleDataSource.xsd" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="AppBarUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
