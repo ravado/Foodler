@@ -153,4 +153,64 @@ Assets/Icon/Animals/NonStroked/turtle.png</value>
 /Assets/Icon/Animals/Stroked/snail.png
 /Assets/Icon/Animals/Stroked/turtle.png</value>
   </data>
+  <data name="FoodBeer" xml:space="preserve">
+    <value>/Assets/Icon/food/beer.png</value>
+  </data>
+  <data name="FoodCake" xml:space="preserve">
+    <value>/Assets/Icon/food/cake.png</value>
+  </data>
+  <data name="FoodChampain" xml:space="preserve">
+    <value>/Assets/Icon/food/champain.png</value>
+  </data>
+  <data name="FoodCocktail" xml:space="preserve">
+    <value>/Assets/Icon/food/cocktail.png</value>
+  </data>
+  <data name="FoodCoffe" xml:space="preserve">
+    <value>/Assets/Icon/food/coffe.png</value>
+  </data>
+  <data name="FoodFastFood" xml:space="preserve">
+    <value>/Assets/Icon/food/fast-food.png</value>
+  </data>
+  <data name="FoodFries" xml:space="preserve">
+    <value>/Assets/Icon/food/fries.png</value>
+  </data>
+  <data name="FoodFruit" xml:space="preserve">
+    <value>/Assets/Icon/food/fruit.png</value>
+  </data>
+  <data name="FoodHealthyFood" xml:space="preserve">
+    <value>/Assets/Icon/food/healthy-food.png</value>
+  </data>
+  <data name="FoodIceCream" xml:space="preserve">
+    <value>/Assets/Icon/food/ice-cream.png</value>
+  </data>
+  <data name="FoodPizza" xml:space="preserve">
+    <value>/Assets/Icon/food/pizza.png</value>
+  </data>
+  <data name="FoodRefreshments" xml:space="preserve">
+    <value>/Assets/Icon/food/refreshments.png</value>
+  </data>
+  <data name="FoodSeafood" xml:space="preserve">
+    <value>/Assets/Icon/food/seafood.png</value>
+  </data>
+  <data name="FoodSnack" xml:space="preserve">
+    <value>/Assets/Icon/food/snack.png</value>
+  </data>
+  <data name="FoodSoup" xml:space="preserve">
+    <value>/Assets/Icon/food/soup.png</value>
+  </data>
+  <data name="FoodSushi" xml:space="preserve">
+    <value>/Assets/Icon/food/sushi.png</value>
+  </data>
+  <data name="FoodVine" xml:space="preserve">
+    <value>/Assets/Icon/food/vine.png</value>
+  </data>
+  <data name="NonStrokedBird" xml:space="preserve">
+    <value>/Assets/Icon/animals/non-stroked/bird.png</value>
+  </data>
+  <data name="NonStrokedCat" xml:space="preserve">
+    <value>/Assets/Icon/animals/non-stroked/cat.png</value>
+  </data>
+  <data name="NonStrokedFish" xml:space="preserve">
+    <value>/Assets/Icon/animals/non-stroked/fish.png</value>
+  </data>
 </root>

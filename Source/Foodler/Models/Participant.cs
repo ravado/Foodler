@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data.Linq.Mapping;
-using System.Windows.Media.Imaging;
 using Foodler.Common.Contracts;
 
 namespace Foodler.Models
@@ -14,6 +13,7 @@ namespace Foodler.Models
         private string _name;
         private bool _isUserContact;
         private byte[] _avatar;
+        private int _participantAteCoefficient;
 
         #endregion
 
@@ -60,6 +60,21 @@ namespace Foodler.Models
             }
         }
 
+        public int ParticipantAteCoefficient
+        {
+            get
+            {
+                if (_participantAteCoefficient <= 0)
+                    _participantAteCoefficient = 1;
+
+                return _participantAteCoefficient; }
+            set
+            {
+                _participantAteCoefficient = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         #endregion
 
         #region Constructors
@@ -100,7 +115,7 @@ namespace Foodler.Models
         public override int GetHashCode()
         {
             var nameHash = (Name == null) ? 0 : Name.GetHashCode();
-            
+
             return Id.GetHashCode() + nameHash;
         }
     }

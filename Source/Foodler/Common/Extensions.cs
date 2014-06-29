@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Media.Imaging;
-
+using ImageExtensions = System.Windows.Media.Imaging.Extensions;
 namespace Foodler.Common
 {
     public static class Extensions
@@ -44,6 +44,21 @@ namespace Foodler.Common
                 {
                     ms.Write(buffer, 0, read);
                 }
+                return ms.ToArray();
+            }
+        }
+
+        public static byte[] ToBytes(this BitmapImage bitmapImage)
+        {
+            using (var ms = new MemoryStream())
+            {
+                
+                var btmMap = new WriteableBitmap
+                    (bitmapImage.DecodePixelWidth, bitmapImage.DecodePixelHeight);
+
+                // write an image into the stream
+                btmMap.SaveJpeg(ms, 64, 64, 0, 100);
+
                 return ms.ToArray();
             }
         }

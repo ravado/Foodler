@@ -4,7 +4,6 @@ using Foodler.Common.Contracts;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
 using System;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -21,6 +20,8 @@ namespace Foodler.Pages
             ViewModel = new MainViewModel();
             DataContext = ViewModel;
         }
+
+        #region Navigation
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -31,6 +32,7 @@ namespace Foodler.Pages
             if (StateManager.FoodContainer != null)
             {
                 ViewModel.FoodContainers.Add(StateManager.FoodContainer);
+                StateManager.FoodContainer = null;
             }
 
             base.OnNavigatedTo(e);
@@ -50,8 +52,10 @@ namespace Foodler.Pages
             base.OnNavigatedFrom(e);
         }
 
+        #endregion
+
         #region Private Methods
-        
+
         #region Callbacks
 
         internal void BtnAddParticipants_OnClick(object sender, EventArgs e)

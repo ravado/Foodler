@@ -61,19 +61,18 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Assets/Icon/Animals/NonStroked/bird.png
-        ///Assets/Icon/Animals/NonStroked/bull.png
-        ///Assets/Icon/Animals/NonStroked/cat.png
-        ///Assets/Icon/Animals/NonStroked/cow.png
-        ///Assets/Icon/Animals/NonStroked/dog.png
-        ///Assets/Icon/Animals/NonStroked/duck.png
-        ///Assets/Icon/Animals/NonStroked/elephant.png
-        ///Assets/Icon/Animals/NonStroked/fish.png
-        ///Assets/Icon/Animals/NonStroked/horse.png
-        ///Assets/Icon/Animals/NonStroked/ladybug.png
-        ///Assets/Icon/Animals/NonStroked/leopard.png
-        ///Assets/Icon/Animals/NonStroked/lion.png
-        ///Assets/Icon/ [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to 
+        ///      Assets/Icon/Animals/NonStroked/bird.png
+        ///      Assets/Icon/Animals/NonStroked/bull.png
+        ///      Assets/Icon/Animals/NonStroked/cat.png
+        ///      Assets/Icon/Animals/NonStroked/cow.png
+        ///      Assets/Icon/Animals/NonStroked/dog.png
+        ///      Assets/Icon/Animals/NonStroked/duck.png
+        ///      Assets/Icon/Animals/NonStroked/elephant.png
+        ///      Assets/Icon/Animals/NonStroked/fish.png
+        ///      Assets/Icon/Animals/NonStroked/horse.png
+        ///      Assets/Icon/Animals/NonStroked/ladybug.png
+        ///      Assets/Icon/Animals/NonStroke [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AnimalsNonStroked {
             get {
@@ -89,16 +88,196 @@ namespace Foodler.Resources {
         ////Assets/Icon/Animals/Stroked/dog.png
         ////Assets/Icon/Animals/Stroked/duck.png
         ////Assets/Icon/Animals/Stroked/elephant.png
-        ////Assets/Icon/Animals/Stroked/fish.png
-        ////Assets/Icon/Animals/Stroked/horse.png
-        ////Assets/Icon/Animals/Stroked/ladybug.png
-        ////Assets/Icon/Animals/Stroked/leopard.png
-        ////Assets/Icon/Animals/Stroked/lion.png
-        ////Assets/Icon/Animals/Stroked/lobster [rest of string was truncated]&quot;;.
+        ///      /Assets/Icon/Animals/Stroked/fish.png
+        ///      /Assets/Icon/Animals/Stroked/horse.png
+        ///      /Assets/Icon/Animals/Stroked/ladybug.png
+        ///      /Assets/Icon/Animals/Stroked/leopard.png
+        ///      /Assets/Icon/Animals/Stroked/lion.png
+        ///       [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AnimalsStroked {
             get {
                 return ResourceManager.GetString("AnimalsStroked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/beer.png.
+        /// </summary>
+        internal static string FoodBeer {
+            get {
+                return ResourceManager.GetString("FoodBeer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/cake.png.
+        /// </summary>
+        internal static string FoodCake {
+            get {
+                return ResourceManager.GetString("FoodCake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/champain.png.
+        /// </summary>
+        internal static string FoodChampain {
+            get {
+                return ResourceManager.GetString("FoodChampain", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/cocktail.png.
+        /// </summary>
+        internal static string FoodCocktail {
+            get {
+                return ResourceManager.GetString("FoodCocktail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/coffe.png.
+        /// </summary>
+        internal static string FoodCoffe {
+            get {
+                return ResourceManager.GetString("FoodCoffe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/fast-food.png.
+        /// </summary>
+        internal static string FoodFastFood {
+            get {
+                return ResourceManager.GetString("FoodFastFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/fries.png.
+        /// </summary>
+        internal static string FoodFries {
+            get {
+                return ResourceManager.GetString("FoodFries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/fruit.png.
+        /// </summary>
+        internal static string FoodFruit {
+            get {
+                return ResourceManager.GetString("FoodFruit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/healthy-food.png.
+        /// </summary>
+        internal static string FoodHealthyFood {
+            get {
+                return ResourceManager.GetString("FoodHealthyFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/ice-cream.png.
+        /// </summary>
+        internal static string FoodIceCream {
+            get {
+                return ResourceManager.GetString("FoodIceCream", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/pizza.png.
+        /// </summary>
+        internal static string FoodPizza {
+            get {
+                return ResourceManager.GetString("FoodPizza", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/refreshments.png.
+        /// </summary>
+        internal static string FoodRefreshments {
+            get {
+                return ResourceManager.GetString("FoodRefreshments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/seafood.png.
+        /// </summary>
+        internal static string FoodSeafood {
+            get {
+                return ResourceManager.GetString("FoodSeafood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/snack.png.
+        /// </summary>
+        internal static string FoodSnack {
+            get {
+                return ResourceManager.GetString("FoodSnack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/soup.png.
+        /// </summary>
+        internal static string FoodSoup {
+            get {
+                return ResourceManager.GetString("FoodSoup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/sushi.png.
+        /// </summary>
+        internal static string FoodSushi {
+            get {
+                return ResourceManager.GetString("FoodSushi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/food/vine.png.
+        /// </summary>
+        internal static string FoodVine {
+            get {
+                return ResourceManager.GetString("FoodVine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/animals/non-stroked/bird.png.
+        /// </summary>
+        internal static string NonStrokedBird {
+            get {
+                return ResourceManager.GetString("NonStrokedBird", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/animals/non-stroked/cat.png.
+        /// </summary>
+        internal static string NonStrokedCat {
+            get {
+                return ResourceManager.GetString("NonStrokedCat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Icon/animals/non-stroked/fish.png.
+        /// </summary>
+        internal static string NonStrokedFish {
+            get {
+                return ResourceManager.GetString("NonStrokedFish", resourceCulture);
             }
         }
     }

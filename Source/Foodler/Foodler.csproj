@@ -101,11 +101,15 @@
     <Compile Include="Common\Contracts\IParticipant.cs" />
     <Compile Include="Common\Contracts\IRepository.cs" />
     <Compile Include="Common\Converters\BitmapImageConverter.cs" />
+    <Compile Include="Common\Converters\CostWithCurrencyConverter.cs" />
+    <Compile Include="Common\Converters\InVisibilityConvertor.cs" />
     <Compile Include="Common\Converters\UppercaseConverter.cs" />
     <Compile Include="Common\Converters\VisibilityConverter.cs" />
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
     <Compile Include="Common\Helpers\ImageHelper.cs" />
+    <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\SettingsManager.cs" />
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="DB\FoodlerDataContext.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -121,9 +125,13 @@
     <Compile Include="Pages\AddParticipantPage.xaml.cs">
       <DependentUpon>AddParticipantPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\InputFoodCostPage.xaml.cs">
+      <DependentUpon>InputFoodCostPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Resources\Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,8 +152,10 @@
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\AddFoodViewModel.cs" />
     <Compile Include="ViewModels\AddAnonymousParticipantViewModel.cs" />
+    <Compile Include="ViewModels\InputFoodCostViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
+    <Compile Include="ViewModels\Items\ParticipantViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +172,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\AddParticipantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InputFoodCostPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +200,9 @@
     <Content Include="Assets\AppBar\add.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\AppBar\appbar.transform.rotate.counterclockwise.png" />
+    <Content Include="Assets\AppBar\appbar.user.add.png" />
+    <Content Include="Assets\AppBar\appbar.user.minus.png" />
     <Content Include="Assets\AppBar\next.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -237,6 +254,61 @@
     <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
     <Content Include="Assets\Icon\mask-icon-white.png" />
     <Content Include="Assets\Icon\mask.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\bird.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\bull.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\cat.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\cow.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\dog.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\duck.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\elephant.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\fish.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\horse.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\ladybug.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\leopard.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\lion.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\lobster.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\rabbit.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\snail.png" />
+    <Content Include="Assets\Icon\animals\non-stroked\turtle.png" />
+    <Content Include="Assets\Icon\animals\stroked\bird.png" />
+    <Content Include="Assets\Icon\animals\stroked\bull.png" />
+    <Content Include="Assets\Icon\animals\stroked\cat.png" />
+    <Content Include="Assets\Icon\animals\stroked\cow.png" />
+    <Content Include="Assets\Icon\animals\stroked\dog.png" />
+    <Content Include="Assets\Icon\animals\stroked\duck.png" />
+    <Content Include="Assets\Icon\animals\stroked\elephant.png" />
+    <Content Include="Assets\Icon\animals\stroked\fish.png" />
+    <Content Include="Assets\Icon\animals\stroked\horse.png" />
+    <Content Include="Assets\Icon\animals\stroked\ladybug.png" />
+    <Content Include="Assets\Icon\animals\stroked\leopard.png" />
+    <Content Include="Assets\Icon\animals\stroked\lion.png" />
+    <Content Include="Assets\Icon\animals\stroked\lobster.png" />
+    <Content Include="Assets\Icon\animals\stroked\rabbit.png" />
+    <Content Include="Assets\Icon\animals\stroked\snail.png" />
+    <Content Include="Assets\Icon\animals\stroked\turtle.png" />
+    <Content Include="Assets\Icon\arrow-down.png" />
+    <Content Include="Assets\Icon\arrow-up.png" />
+    <Content Include="Assets\Icon\backspace.png" />
+    <Content Include="Assets\Icon\food\beer.png" />
+    <Content Include="Assets\Icon\food\healthy-food.png" />
+    <Content Include="Assets\Icon\food\fruit.png" />
+    <Content Include="Assets\Icon\food\vine.png" />
+    <Content Include="Assets\Icon\food\champain.png" />
+    <Content Include="Assets\Icon\food\seafood.png" />
+    <Content Include="Assets\Icon\food\sushi.png" />
+    <Content Include="Assets\Icon\food\pizza.png" />
+    <Content Include="Assets\Icon\food\refreshments.png" />
+    <Content Include="Assets\Icon\food\cocktail.png" />
+    <Content Include="Assets\Icon\food\coffe.png" />
+    <Content Include="Assets\Icon\food\cake.png" />
+    <Content Include="Assets\Icon\food\ice-cream.png" />
+    <Content Include="Assets\Icon\food\fast-food.png" />
+    <Content Include="Assets\Icon\food\fries.png" />
+    <Content Include="Assets\Icon\food\snack.png" />
+    <Content Include="Assets\Icon\food\soup.png" />
+    <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
+    <Content Include="Assets\Icon\mask-icon-white.png" />
+    <Content Include="Assets\Icon\enter-key.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

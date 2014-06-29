@@ -9,5 +9,6 @@ namespace Foodler.Common.Contracts
         string Name { get; set; }
         bool IsUserContact { get; set; }
         byte[] Avatar { get; set; }
+        int ParticipantAteCoefficient { get; set; }
     }
 }

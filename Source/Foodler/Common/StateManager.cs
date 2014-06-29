@@ -10,6 +10,7 @@ namespace Foodler.Common
         public const string KEY_INVOLVED_PARTICIPANTS = "involved_participants";
         public const string KEY_FOOD_CONTAINER = "food_container";
         public const string KEY_SELECTED_ANONYMOUS = "selected_anonymous";
+        public const string KEY_FOOD_PRICE = "food_price";
 
         public static IEnumerable<IParticipant> InvolvedParticipants
         {
@@ -57,6 +58,22 @@ namespace Foodler.Common
                 return null;
             }
             set { PhoneApplicationService.Current.State[KEY_SELECTED_ANONYMOUS] = value; }
+        }
+
+        public static decimal FoodPrice
+        {
+            get
+            {
+                if (PhoneApplicationService.Current.State.ContainsKey(KEY_FOOD_PRICE))
+                {
+                    var foodPriceCell = PhoneApplicationService.Current.State[KEY_FOOD_PRICE];
+                    if (foodPriceCell is decimal)
+                        return (decimal)foodPriceCell;
+                }
+
+                return default(decimal);
+            }
+            set { PhoneApplicationService.Current.State[KEY_FOOD_PRICE] = value; }
         }
     }
 }

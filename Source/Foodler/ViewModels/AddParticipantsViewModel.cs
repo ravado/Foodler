@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
-using System.Windows;
 using System.Windows.Input;
 using Foodler.Common;
 using Foodler.Common.Contracts;
-using Foodler.Common.Helpers;
-using Foodler.Models;
+﻿using Foodler.Common.Helpers;
+﻿using Foodler.Models;
 using Foodler.Services;
 using Foodler.ViewModels.Common;
 using System.Collections.Generic;
@@ -169,7 +168,6 @@ namespace Foodler.ViewModels
         #endregion
 
         #endregion
-
 
     }
 }

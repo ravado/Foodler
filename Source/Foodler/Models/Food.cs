@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Media.Imaging;
 using Foodler.Common.Contracts;
 
 namespace Foodler.Models
@@ -10,6 +11,7 @@ namespace Foodler.Models
         private Guid _id;
         private string _name;
         private decimal _price;
+        private BitmapImage _icon;
 
         #endregion
 
@@ -42,7 +44,33 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
+        public BitmapImage Icon
+        {
+            get { return _icon; }
+            set
+            {
+                _icon = value;
+                NotifyPropertyChanged();
+            }
+        }
 
         #endregion
+
+        public Food(){}
+
+        public Food(string name, BitmapImage image = null, decimal price = 0m)
+        {
+            Name = name;
+            Price = price;
+            Icon = image;
+        }
+
+        public void Reset()
+        {
+            Icon = null;
+            Id = Guid.Empty;
+            Name = String.Empty;
+            Price = 0.0m;
+        }
     }
 }
