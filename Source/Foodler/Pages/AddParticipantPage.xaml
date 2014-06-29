@@ -147,7 +147,7 @@
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton 
                 x:Name="AddAnonymousBtn"
-                IconUri="/Assets/AppBar/questionmark.png" 
+                IconUri="/Assets/AppBar/mask-anonymous.png"
                 Text="anonymous" 
                 Click="AddAnonymousBtn_OnClick"
                 IsEnabled="True"/>

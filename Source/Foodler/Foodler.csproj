@@ -204,6 +204,7 @@
     <Content Include="Assets\AppBar\appbar.transform.rotate.counterclockwise.png" />
     <Content Include="Assets\AppBar\appbar.user.add.png" />
     <Content Include="Assets\AppBar\appbar.user.minus.png" />
+    <Content Include="Assets\AppBar\mask-anonymous.png" />
     <Content Include="Assets\AppBar\next.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -291,8 +292,6 @@
     <Content Include="Assets\Icon\food\fries.png" />
     <Content Include="Assets\Icon\food\snack.png" />
     <Content Include="Assets\Icon\food\soup.png" />
-    <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
-    <Content Include="Assets\Icon\mask-icon-white.png" />
     <Content Include="Assets\Icon\enter-key.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
