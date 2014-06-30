@@ -17,6 +17,7 @@
     toolkit:TiltEffect.IsTiltEnabled="True">
 
     <phone:PhoneApplicationPage.Resources>
+        <!--TODO: get rid of data template dublication-->
         <DataTemplate x:Key="SelectedParticipantItemTemplate">
             <Grid HorizontalAlignment="Stretch">
                 <Grid.ColumnDefinitions>

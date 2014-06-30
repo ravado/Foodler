@@ -19,6 +19,58 @@
     Style="{StaticResource NavigationAnimation}"
     toolkit:TiltEffect.IsTiltEnabled="True">
 
+    <phone:PhoneApplicationPage.Resources>
+
+        <!--TODO: get rid of data template dublication-->
+        <DataTemplate x:Key="SelectedParticipantItemTemplate">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border 
+                    Grid.Column="0"
+                    CornerRadius="32"
+                    Background="{StaticResource PhoneBorderBrush}"
+                    Width="64" Height="64">
+                    <Grid 
+                        HorizontalAlignment="Left">
+                        <Image 					
+							Width="64"	
+							Height="64"
+                           Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                    Center="32,32"
+                                    RadiusX="32"
+                                    RadiusY="32" />
+                            </Image.Clip>
+                        </Image>
+                    </Grid>
+                </Border>
+                <TextBlock Grid.Column="1"
+                           Width="400"
+                           FontSize="{StaticResource PhoneFontSizeLarge}"
+                           Foreground="{StaticResource PhoneForegroundBrush}"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Center"
+                           Text="{Binding Name}"/>
+                <Button Grid.Column="2" 
+                        Margin="0 10 0 0"
+                        BorderThickness="0"
+                        BorderBrush="{StaticResource PhoneAccentBrush}"
+                        Background="{StaticResource PhoneAccentBrush}"
+                        HorizontalAlignment="Center"
+                        Width="62"
+                        Height="62"
+                        Style="{StaticResource RoundButton}" Click="RemoveInvolvedParticipantBtn_OnClick">
+                    <ImageBrush ImageSource="/Assets/Icon/cancel-icon-white.png" Stretch="Fill"/>
+                </Button>
+            </Grid>
+        </DataTemplate>
+    </phone:PhoneApplicationPage.Resources>
+    
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
         <Grid.RowDefinitions>
@@ -41,29 +93,12 @@
                             <RowDefinition Height="Auto"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <ListBox Name="ListParticipants" ItemsSource="{Binding Participants}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock
-                                                Width="375"
-                                                VerticalAlignment="Center"
-                                                FontSize="40"
-                                                Text="{Binding Name}"/>
-                                            <Button
-                                                Name="RemoveInvolvedParticipantBtn"
-                                                Click="RemoveInvolvedParticipantBtn_OnClick"
-                                                VerticalAlignment="Center"
-                                                Content="X"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
+                            <ListBox 
+                                Name="ListParticipants"
+                                ItemsSource="{Binding Participants}"
+                                ItemTemplate="{StaticResource SelectedParticipantItemTemplate}">
                             </ListBox>
                         </Grid>
-                        <!--<StackPanel Grid.Row="1">
-                            <Button Name="BtnAddParticipants" Content="Add Participants" Click="BtnAddParticipants_OnClick"/>
-                            <Button Name="BtnGoFoodTab" Content="Next" Click="BtnGoFoodTab_OnClick" />
-                        </StackPanel>-->
                     </Grid>
                 </phone:PivotItem>
                 

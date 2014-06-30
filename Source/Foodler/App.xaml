@@ -23,6 +23,7 @@
         <SampleData:SampleDataSource x:Key="SampleDataSource" d:IsDataSource="True"/>
         <local:LocalizedStrings xmlns:local="clr-namespace:Foodler" x:Key="LocalizedStrings"/>
         
+
         <!-- Avaible Participant Item Template -->
         <DataTemplate x:Key="AvaibleParticipantItemTemplate">
             <Grid HorizontalAlignment="Stretch">
