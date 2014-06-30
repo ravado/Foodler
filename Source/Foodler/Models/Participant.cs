@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Linq.Mapping;
 using Foodler.Common.Contracts;
 
@@ -14,6 +15,7 @@ namespace Foodler.Models
         private bool _isUserContact;
         private byte[] _avatar;
         private int _participantAteCoefficient;
+        private IList<IFood> _eatenFood;
 
         #endregion
 
@@ -71,6 +73,22 @@ namespace Foodler.Models
             set
             {
                 _participantAteCoefficient = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public IList<IFood> EatenFood
+        {
+            get
+            {
+                if (_participantAteCoefficient <= 0)
+                    _participantAteCoefficient = 1;
+
+                return _eatenFood;
+            }
+            set
+            {
+                _eatenFood = value;
                 NotifyPropertyChanged();
             }
         }

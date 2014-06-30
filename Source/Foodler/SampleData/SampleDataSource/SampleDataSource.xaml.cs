@@ -127,6 +127,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private FoodContainers _FoodContainers = new FoodContainers();
+
+		public FoodContainers FoodContainers
+		{
+			get
+			{
+				return this._FoodContainers;
+			}
+		}
+
 		private string _FoodTotalCost = string.Empty;
 
 		public string FoodTotalCost
@@ -181,16 +191,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 					this._CurrencySymbol = value;
 					this.OnPropertyChanged("CurrencySymbol");
 				}
-			}
-		}
-
-		private FoodContainers _FoodContainers = new FoodContainers();
-
-		public FoodContainers FoodContainers
-		{
-			get
-			{
-				return this._FoodContainers;
 			}
 		}
 	}
@@ -690,6 +690,10 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
+	public class FoodContainers : System.Collections.ObjectModel.ObservableCollection<FoodContainersItem>
+	{ 
+	}
+
 	public class FoodContainersItem : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -699,25 +703,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			if (this.PropertyChanged != null)
 			{
 				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-			}
-		}
-
-		private bool _IsExpanded = false;
-
-		public bool IsExpanded
-		{
-			get
-			{
-				return this._IsExpanded;
-			}
-
-			set
-			{
-				if (this._IsExpanded != value)
-				{
-					this._IsExpanded = value;
-					this.OnPropertyChanged("IsExpanded");
-				}
 			}
 		}
 
@@ -740,6 +725,25 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private bool _IsExpanded = false;
+
+		public bool IsExpanded
+		{
+			get
+			{
+				return this._IsExpanded;
+			}
+
+			set
+			{
+				if (this._IsExpanded != value)
+				{
+					this._IsExpanded = value;
+					this.OnPropertyChanged("IsExpanded");
+				}
+			}
+		}
+
 		private bool _HasNoOptions = false;
 
 		public bool HasNoOptions
@@ -758,10 +762,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
-	}
 
-	public class FoodContainers : System.Collections.ObjectModel.ObservableCollection<FoodContainersItem>
-	{ 
+		private Participants1 _Participants = new Participants1();
+
+		public Participants1 Participants
+		{
+			get
+			{
+				return this._Participants;
+			}
+		}
 	}
 
 	public class Food2 : System.ComponentModel.INotifyPropertyChanged
@@ -773,6 +783,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			if (this.PropertyChanged != null)
 			{
 				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private Eaters _Eaters = new Eaters();
+
+		public Eaters Eaters
+		{
+			get
+			{
+				return this._Eaters;
 			}
 		}
 
@@ -792,16 +812,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 					this._Name = value;
 					this.OnPropertyChanged("Name");
 				}
-			}
-		}
-
-		private Participants1 _Participants = new Participants1();
-
-		public Participants1 Participants
-		{
-			get
-			{
-				return this._Participants;
 			}
 		}
 
@@ -825,7 +835,11 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
-	public class ParticipantsItem1 : System.ComponentModel.INotifyPropertyChanged
+	public class Eaters : System.Collections.ObjectModel.ObservableCollection<EatersItem>
+	{ 
+	}
+
+	public class EatersItem : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 
@@ -871,6 +885,57 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				{
 					this._Avatar = value;
 					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+
+		private string _Price = string.Empty;
+
+		public string Price
+		{
+			get
+			{
+				return this._Price;
+			}
+
+			set
+			{
+				if (this._Price != value)
+				{
+					this._Price = value;
+					this.OnPropertyChanged("Price");
+				}
+			}
+		}
+	}
+
+	public class ParticipantsItem1 : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
 				}
 			}
 		}

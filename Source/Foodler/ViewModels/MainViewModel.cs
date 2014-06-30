@@ -144,5 +144,23 @@ namespace Foodler.ViewModels
         }
 
         #endregion
+
+        internal void AddFoodContainer(FoodContainerViewModel foodContainer)
+        {
+            var eaters = foodContainer.Participants.ToList();
+            var food = foodContainer.Food;
+
+            foreach (var e in eaters)
+            {
+                if (e.EatenFood == null)
+                    e.EatenFood = new List<IFood>();
+
+                if (!e.EatenFood.Contains(food))
+                    e.EatenFood.Add(food);
+            }
+            food.Eaters = eaters;
+
+            FoodContainers.Add(new FoodContainerViewModel(food, eaters));
+        }
     }
 }

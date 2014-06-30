@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 using Foodler.Common.Contracts;
 
@@ -9,6 +10,7 @@ namespace Foodler.Models
         #region Fields
 
         private Guid _id;
+        private IList<IParticipant> _eaters;
         private string _name;
         private decimal _price;
         private BitmapImage _icon;
@@ -26,6 +28,17 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
+
+        public IList<IParticipant> Eaters
+        {
+            get { return _eaters; }
+            set
+            {
+                _eaters = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public string Name
         {
             get { return _name; }

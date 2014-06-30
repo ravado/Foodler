@@ -7,9 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-    xmlns:appBarUtils="clr-namespace:AppBarUtils;assembly=AppBarUtils"
-    xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -72,23 +69,60 @@
 
         <!-- Templates for Food Expander -->
         <DataTemplate x:Key="FoodExpanderHeaderTemplate">
-            <Grid>
+            <Grid Height="100" HorizontalAlignment="Center" Width="450">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Rectangle Fill="{StaticResource PhoneAccentBrush}">
-                    <Rectangle.OpacityMask>
-                        <ImageBrush Stretch="Uniform" ImageSource="{Binding Icon}"/>
-                    </Rectangle.OpacityMask>
-                </Rectangle>
-                <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="40" Margin="10"/>
+                <Border BorderBrush="Red" BorderThickness="0">
+                    <Rectangle Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
+                        <Rectangle.OpacityMask>
+                            <ImageBrush Stretch="Uniform" ImageSource="{Binding Food.Icon}"/>
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                </Border>
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+                        <TextBlock Text="{Binding Food.Name}" FontSize="32"/>
+                        <StackPanel 
+                        Orientation="Horizontal">
+                            <TextBlock			
+                            FontSize="12"
+                            Text="Total participants: "
+                            Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+                            <TextBlock		
+                            FontSize="12"	
+                            FontWeight="Bold"
+                            Text="{Binding Food.Eaters.Count}"
+                            Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <TextBlock 
+                        VerticalAlignment="Center"
+                        Grid.Column="1" 
+                        FontSize="30"
+                        FontWeight="Bold"
+                        Text="{Binding Food.Price, Converter={StaticResource CostWithCurrencyConverter}}"/>
+                </Grid>
+                
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="FoodExpanderTemplate">
-            <TextBlock 
-                Text="{Binding Name}"
-                Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+            <StackPanel Background="SaddleBrown" Visibility="Collapsed" Orientation="Horizontal" Margin="5">
+                <TextBlock			
+					FontSize="12"
+					Text="Total participants: "
+					Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+                <TextBlock		
+					FontSize="12"	
+					FontWeight="Bold"
+					Text="{Binding Food.Eaters.Count}"
+					Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+            </StackPanel>
         </DataTemplate>
         <DataTemplate x:Key="FoodParticipantItemTemplate">
             <TextBlock 
@@ -96,7 +130,7 @@
                 Text="{Binding Name}"/>
         </DataTemplate>
         <DataTemplate x:Key="FoodNonExpandableHeaderTemplate">
-            <TextBlock Text="{Binding Name}"/>
+            <TextBlock Text="{Binding}"/>
         </DataTemplate>
 
         <!-- Templates for Participants Expander -->
@@ -127,17 +161,17 @@
         <DataTemplate x:Key="ParticipantNonExpandableHeaderTemplate">
             <TextBlock Text="{Binding Name}"/>
         </DataTemplate>
-        
+
     </phone:PhoneApplicationPage.Resources>
-    
+
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{Binding Source={StaticResource SampleDataSource}}">
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="0" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="0" Margin="5,0,5,0">
             <phone:Pivot 
                 Title="FOODLER" 
                 Name="MainPivot" 
@@ -160,7 +194,7 @@
                         </Grid>
                     </Grid>
                 </phone:PivotItem>
-                
+
                 <phone:PivotItem Header="food">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -169,22 +203,29 @@
                         <ListBox Grid.Row="0"
                                  Name="ListFood"
                                  ItemsSource="{Binding FoodContainers}">
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding Food.Name}"
-                                                   Margin="10"/>
-                                        <TextBlock Text="{Binding Food.Price}"
-                                                   Margin="10"/>
-                                        <TextBlock Text="{Binding ParticipantCount}"
-                                                   Margin="10"/>
-                                    </StackPanel>
+                                    <toolkit:ExpanderView 
+                                        Header="{Binding}"
+                                        Expander="{Binding}"
+                                        ItemsSource="{Binding Food.Eaters}"
+                                        IsExpanded="{Binding IsExpanded, Mode=TwoWay}"
+                                        Style="{StaticResource ExpanderViewStyle}"
+                                        HeaderTemplate="{StaticResource FoodExpanderHeaderTemplate}" 
+                                        ExpanderTemplate="{StaticResource FoodExpanderTemplate}"
+                                        ItemTemplate="{StaticResource FoodParticipantItemTemplate}"
+                                        NonExpandableHeaderTemplate="{StaticResource FoodNonExpandableHeaderTemplate}"/>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </Grid>
                 </phone:PivotItem>
-                
+
                 <phone:PivotItem Header="sum">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -211,7 +252,7 @@
                 </phone:PivotItem>
             </phone:Pivot>
         </Grid>
-       </Grid>
+    </Grid>
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton 

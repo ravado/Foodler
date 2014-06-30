@@ -41,7 +41,8 @@ namespace Foodler.Pages
 
             if (StateManager.FoodContainer != null)
             {
-                ViewModel.FoodContainers.Add(StateManager.FoodContainer);
+                ViewModel.AddFoodContainer(StateManager.FoodContainer);
+                //ViewModel.FoodContainers.Add(StateManager.FoodContainer);
                 StateManager.FoodContainer = null;
             }
         }
@@ -160,6 +161,10 @@ namespace Foodler.Pages
         }
 
         #endregion
-       
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("GO");
+        }
     }
 }

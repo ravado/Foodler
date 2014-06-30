@@ -64,9 +64,8 @@
                                 <toolkit:ExpanderView 
                                     Header="{Binding Food}"
                                     Expander="{Binding Food}"
-                                    ItemsSource="{Binding Food.Participants}"
+                                    ItemsSource="{Binding Food.Eaters}"
                                     NonExpandableHeader="{Binding Food}"
-                                    IsNonExpandable="{Binding HasNoOptions}" 
                                     IsExpanded="{Binding IsExpanded, Mode=TwoWay}"
                                     Style="{StaticResource ExpanderViewStyle}"
                                     HeaderTemplate="{StaticResource CustomHeaderTemplate}" 

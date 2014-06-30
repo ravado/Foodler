@@ -215,7 +215,33 @@ namespace Foodler.ViewModels
                     p.ParticipantAteCoefficient = 0;
                 }
             }
-            var container = new FoodContainerViewModel(Food, new List<IParticipant>(SelectedParticipants));
+            
+            // cyclic link
+            var eaters = selectedPartisipants.ToList();
+            var food = Food;
+
+            foreach (var e in eaters)
+            {
+                if (e.EatenFood == null)
+                    e.EatenFood = new List<IFood>();
+
+                if(!e.EatenFood.Contains(food))
+                    e.EatenFood.Add(food);
+            }
+            food.Eaters = eaters;
+
+
+            //Food.Eaters = selectedPartisipants;
+            //foreach (var eater in Food.Eaters)
+            //{
+            //    if (eater.EatenFood == null)
+            //        eater.EatenFood = new List<IFood>();
+
+            //    if(!eater.EatenFood.ToList().Contains(Food))
+            //        eater.EatenFood.ToList().Add(Food);
+            //}
+
+            var container = new FoodContainerViewModel(food, new List<IParticipant>(SelectedParticipants));
             return container;
         }
 

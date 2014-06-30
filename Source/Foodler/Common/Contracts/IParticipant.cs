@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Windows.Media.Imaging;
+using System.Collections.Generic;
 
 namespace Foodler.Common.Contracts
 {
@@ -10,5 +10,6 @@ namespace Foodler.Common.Contracts
         bool IsUserContact { get; set; }
         byte[] Avatar { get; set; }
         int ParticipantAteCoefficient { get; set; }
+        IList<IFood> EatenFood { get; set; }
     }
 }

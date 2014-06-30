@@ -1,11 +1,25 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Foodler.Common.Contracts;
+using Foodler.Models;
+using Microsoft.Phone.Reactive;
 
 namespace Foodler.ViewModels.Items
 {
-    public class FoodContainerViewModel
+    public class FoodContainerViewModel:BaseModel
     {
+        private bool _isExpanded;
+
+        public bool IsExpanded
+        {
+            get { return _isExpanded; }
+            set
+            {
+                _isExpanded = value;
+                NotifyPropertyChanged();
+            }
+        }
+
         public IFood Food { get; set; }
         public IEnumerable<IParticipant> Participants { get; set; }
         
