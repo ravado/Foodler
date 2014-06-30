@@ -1,0 +1,89 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Foodler.Pages.PivotPage1"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+	<phone:PhoneApplicationPage.Resources>
+        
+        <DataTemplate x:Key="CustomHeaderTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="{StaticResource PhoneAccentBrush}">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Uniform" ImageSource="{Binding Icon}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="40" Margin="10"/>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CustomExpanderTemplate">
+            <TextBlock 
+                Text="{Binding Name}"
+                Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CustomItemTemplate">
+            <TextBlock 
+                Foreground="{StaticResource PhoneTextMidContrastBrush}"
+                Text="{Binding Name}"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="CustomNonExpandableHeaderTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+
+        
+    </phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{Binding Source={StaticResource SampleDataSource}}">
+        <!--Pivot Control-->
+        <phone:Pivot Title="MY APPLICATION">
+            <!--Pivot item one-->
+            <phone:PivotItem Header="item1">
+                <Grid>
+                    <ListBox
+                        ItemsSource="{Binding FoodContainers}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <toolkit:ExpanderView 
+                                    Header="{Binding Food}"
+                                    Expander="{Binding Food}"
+                                    ItemsSource="{Binding Food.Participants}"
+                                    NonExpandableHeader="{Binding Food}"
+                                    IsNonExpandable="{Binding HasNoOptions}" 
+                                    IsExpanded="{Binding IsExpanded, Mode=TwoWay}"
+                                    Style="{StaticResource ExpanderViewStyle}"
+                                    HeaderTemplate="{StaticResource CustomHeaderTemplate}" 
+                                    ExpanderTemplate="{StaticResource CustomExpanderTemplate}"
+                                    ItemTemplate="{StaticResource CustomItemTemplate}"
+                                    NonExpandableHeaderTemplate="{StaticResource CustomNonExpandableHeaderTemplate}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </phone:PivotItem>
+
+            <!--Pivot item two-->
+            <phone:PivotItem Header="item2">
+                <Grid/>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

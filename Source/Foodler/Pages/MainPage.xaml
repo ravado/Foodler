@@ -69,10 +69,69 @@
                 </Button>
             </Grid>
         </DataTemplate>
+
+        <!-- Templates for Food Expander -->
+        <DataTemplate x:Key="FoodExpanderHeaderTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="{StaticResource PhoneAccentBrush}">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Uniform" ImageSource="{Binding Icon}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="40" Margin="10"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="FoodExpanderTemplate">
+            <TextBlock 
+                Text="{Binding Name}"
+                Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="FoodParticipantItemTemplate">
+            <TextBlock 
+                Foreground="{StaticResource PhoneTextMidContrastBrush}"
+                Text="{Binding Name}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="FoodNonExpandableHeaderTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+
+        <!-- Templates for Participants Expander -->
+        <DataTemplate x:Key="ParticipantExpanderHeaderTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="{StaticResource PhoneAccentBrush}">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Uniform" ImageSource="{Binding Icon}"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <TextBlock Grid.Column="1" Text="{Binding Name}" FontSize="40" Margin="10"/>
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="ParticipantExpanderTemplate">
+            <TextBlock 
+                Text="{Binding Name}"
+                Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ParticipantFoodItemTemplate">
+            <TextBlock 
+                Foreground="{StaticResource PhoneTextMidContrastBrush}"
+                Text="{Binding Name}"/>
+        </DataTemplate>
+        <DataTemplate x:Key="ParticipantNonExpandableHeaderTemplate">
+            <TextBlock Text="{Binding Name}"/>
+        </DataTemplate>
+        
     </phone:PhoneApplicationPage.Resources>
     
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
+    <Grid x:Name="LayoutRoot" Background="Transparent" DataContext="{Binding Source={StaticResource SampleDataSource}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>

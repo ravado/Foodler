@@ -8,11 +8,19 @@ namespace Foodler.ViewModels.Items
     {
         public IFood Food { get; set; }
         public IEnumerable<IParticipant> Participants { get; set; }
-
+        
         public int ParticipantCount
         {
             get { return Participants == null ? 0 : Participants.Count(); }
         }
+
+        //public bool HasNoOptions
+        //{
+        //    get
+        //    {
+        //        if(Food == null || Participants)
+        //    }
+        //}
 
         public FoodContainerViewModel() {}
 

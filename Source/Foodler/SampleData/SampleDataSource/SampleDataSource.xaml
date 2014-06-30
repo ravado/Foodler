@@ -206,4 +206,136 @@
     <SampleData:AvailableFoodItem />
     <SampleData:AvailableFoodItem />
   </SampleData:SampleDataSource.AvailableFood>
+  <SampleData:SampleDataSource.FoodContainers>
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Aenean cras nam" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png" />
+            <SampleData:ParticipantsItem1 Name="Adams, Ellen" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png" />
+            <SampleData:ParticipantsItem1 Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cat.png" />
+            <SampleData:ParticipantsItem1 Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png" />
+            <SampleData:ParticipantsItem1 Name="Penor, Lori" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/dog.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Maecenas praesent" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Pfeiffer, Michael" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/duck.png" />
+            <SampleData:ParticipantsItem1 Name="Philips, Carol" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/elephant.png" />
+            <SampleData:ParticipantsItem1 Name="Poe, Toni" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png" />
+            <SampleData:ParticipantsItem1 Name="Hicks, Cassie" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/horse.png" />
+            <SampleData:ParticipantsItem1 Name="Argentiero, Luca" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Aliquam sed integer" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cat.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Perry, Brian" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/leopard.png" />
+            <SampleData:ParticipantsItem1 Name="Ramos, Luciana" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/lion.png" />
+            <SampleData:ParticipantsItem1 Name="Barber, David" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/lobster.png" />
+            <SampleData:ParticipantsItem1 Name="Jamison, Jay" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/rabbit.png" />
+            <SampleData:ParticipantsItem1 Name="Reid, Miles" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/snail.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Class dis" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Bowen, Eli" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/turtle.png" />
+            <SampleData:ParticipantsItem1 Name="Kane, John" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png" />
+            <SampleData:ParticipantsItem1 Name="Sarin, Raman" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png" />
+            <SampleData:ParticipantsItem1 Name="Sato, Naoki" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cat.png" />
+            <SampleData:ParticipantsItem1 Name="Silva, Alexandre" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Mauris accumsan curae" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/dog.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Cook, Kevin" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/dog.png" />
+            <SampleData:ParticipantsItem1 Name="Li, Yuhong" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/duck.png" />
+            <SampleData:ParticipantsItem1 Name="Strande, Amy" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/elephant.png" />
+            <SampleData:ParticipantsItem1 Name="Makovac, Zrinka" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png" />
+            <SampleData:ParticipantsItem1 Name="Miller, Ben" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/horse.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Duis quisque donec" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/duck.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Orton, Jon" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png" />
+            <SampleData:ParticipantsItem1 Name="Zhang, Larry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/leopard.png" />
+            <SampleData:ParticipantsItem1 Name="Gladkikh, Andrey" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/lion.png" />
+            <SampleData:ParticipantsItem1 Name="Meyer, April" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/lobster.png" />
+            <SampleData:ParticipantsItem1 Name="Clark, Molly" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/rabbit.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Bibendum nunc amet nullam" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/elephant.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Dellamore, Luca" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/snail.png" />
+            <SampleData:ParticipantsItem1 Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/turtle.png" />
+            <SampleData:ParticipantsItem1 Name="Adams, Ellen" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png" />
+            <SampleData:ParticipantsItem1 Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png" />
+            <SampleData:ParticipantsItem1 Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cat.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Dictumst etiam fusce" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Penor, Lori" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png" />
+            <SampleData:ParticipantsItem1 Name="Pfeiffer, Michael" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/dog.png" />
+            <SampleData:ParticipantsItem1 Name="Philips, Carol" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/duck.png" />
+            <SampleData:ParticipantsItem1 Name="Poe, Toni" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/elephant.png" />
+            <SampleData:ParticipantsItem1 Name="Hicks, Cassie" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Lorem vivamus eleifend facilisi" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/horse.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Argentiero, Luca" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/horse.png" />
+            <SampleData:ParticipantsItem1 Name="Perry, Brian" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png" />
+            <SampleData:ParticipantsItem1 Name="Ramos, Luciana" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/leopard.png" />
+            <SampleData:ParticipantsItem1 Name="Barber, David" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/lion.png" />
+            <SampleData:ParticipantsItem1 Name="Jamison, Jay" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/lobster.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+      <SampleData:FoodContainersItem.Food>
+        <SampleData:Food2 Name="Est hac aptent" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png">
+          <SampleData:Food2.Participants>
+            <SampleData:ParticipantsItem1 Name="Reid, Miles" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/rabbit.png" />
+            <SampleData:ParticipantsItem1 Name="Bowen, Eli" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/snail.png" />
+            <SampleData:ParticipantsItem1 Name="Kane, John" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/turtle.png" />
+            <SampleData:ParticipantsItem1 Name="Sarin, Raman" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png" />
+            <SampleData:ParticipantsItem1 Name="Sato, Naoki" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png" />
+          </SampleData:Food2.Participants>
+        </SampleData:Food2>
+      </SampleData:FoodContainersItem.Food>
+    </SampleData:FoodContainersItem>
+  </SampleData:SampleDataSource.FoodContainers>
 </SampleData:SampleDataSource>
