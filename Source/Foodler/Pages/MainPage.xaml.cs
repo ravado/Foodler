@@ -13,18 +13,28 @@ namespace Foodler.Pages
     public partial class MainPage : PhoneApplicationPage
     {
         public MainViewModel ViewModel { get; private set; }
+        protected MainPivotPage PreviousPivotPage { get; set; }
 
         public MainPage()
         {
             InitializeComponent();
+            InitializePage();
+        }
+
+        private void InitializePage()
+        {
             ViewModel = new MainViewModel();
             DataContext = ViewModel;
+            PreviousPivotPage = MainPivotPage.None;
+            SetApplicationBarForPivot();
         }
 
         #region Navigation
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
+
             // get chosen participants from addparticipants page
             if (StateManager.InvolvedParticipants != null)
                 ViewModel.SetInvolvedParticipants(StateManager.InvolvedParticipants);
@@ -34,8 +44,6 @@ namespace Foodler.Pages
                 ViewModel.FoodContainers.Add(StateManager.FoodContainer);
                 StateManager.FoodContainer = null;
             }
-
-            base.OnNavigatedTo(e);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -102,21 +110,31 @@ namespace Foodler.Pages
         private void MainPivot_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Debug.WriteLine("[{0:hh:mm:ss.fff}] Selection Changed To " + MainPivot.SelectedIndex, DateTime.Now);
-            switch (MainPivot.SelectedIndex)
-            {
-                case 0:
-                    ApplicationBar = AppBarBuilder.GetAppBarPivotParticipants(this);
-                    break;
-                case 1:
-                    ApplicationBar = AppBarBuilder.GetAppBarPivotFood(this);
-                    break;
-                case 2:
-                    ApplicationBar = AppBarBuilder.GetAppBarPivotSum(this);
-                    break;
-            }
+            SetApplicationBarForPivot((MainPivotPage)MainPivot.SelectedIndex);
         }
 
         #endregion
+
+        private void SetApplicationBarForPivot(MainPivotPage pivotPage = MainPivotPage.Participants)
+        {
+            if (PreviousPivotPage != pivotPage)
+            {
+                switch (pivotPage)
+                {
+                    case MainPivotPage.Participants:
+                        ApplicationBar = AppBarBuilder.GetAppBarPivotParticipants(this);
+                        break;
+                    case MainPivotPage.Food:
+                        ApplicationBar = AppBarBuilder.GetAppBarPivotFood(this);
+                        break;
+                    case MainPivotPage.Sum:
+                        ApplicationBar = AppBarBuilder.GetAppBarPivotSum(this);
+                        break;
+                }
+            }
+
+            PreviousPivotPage = pivotPage;
+        }
 
         private async void SwitchPivot(int newIndex)
         {

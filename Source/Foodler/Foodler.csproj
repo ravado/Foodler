@@ -105,6 +105,7 @@
     <Compile Include="Common\Converters\InVisibilityConvertor.cs" />
     <Compile Include="Common\Converters\UppercaseConverter.cs" />
     <Compile Include="Common\Converters\VisibilityConverter.cs" />
+    <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
     <Compile Include="Common\Helpers\ImageHelper.cs" />
