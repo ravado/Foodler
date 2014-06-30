@@ -202,9 +202,9 @@
     <Content Include="Assets\AppBar\add.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\AppBar\appbar.transform.rotate.counterclockwise.png" />
-    <Content Include="Assets\AppBar\appbar.user.add.png" />
-    <Content Include="Assets\AppBar\appbar.user.minus.png" />
+    <Content Include="Assets\AppBar\transform-rotate-counterclockwise.png" />
+    <Content Include="Assets\AppBar\user-add.png" />
+    <Content Include="Assets\AppBar\user-minus.png" />
     <Content Include="Assets\AppBar\mask-anonymous.png" />
     <Content Include="Assets\AppBar\next.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -309,11 +309,9 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Delete.png" />
-    <Content Include="Toolkit.Content\ApplicationBar.Select.png" />
+    <Content Include="Assets\AppBar\cancel.png" />
+    <Content Include="Assets\AppBar\check.png" />
+    <Content Include="Assets\AppBar\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\AppResources.resx">

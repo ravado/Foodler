@@ -541,19 +541,19 @@
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton 
                 x:Name="AppBarDone"
-                IconUri="/Toolkit.Content/ApplicationBar.Check.png"
+                IconUri="/Assets/AppBar/check.png"
                 Text="done" 
                 IsEnabled="True"
                 Click="DoneButtonClick"/>
             <shell:ApplicationBarIconButton 
                 x:Name="AppBarAddAteRange"
-                IconUri="/Assets/AppBar/appbar.user.add.png"
+                IconUri="/Assets/AppBar/user-add.png"
                 Text="ate range" 
                 IsEnabled="False"
                 Click="AppBarAddAteRange_OnClick"/>
             <shell:ApplicationBarIconButton 
                 x:Name="AppBarResetAll"
-                IconUri="/Assets/AppBar/appbar.transform.rotate.counterclockwise.png"
+                IconUri="/Assets/AppBar/transform-rotate-counterclockwise.png"
                 Text="reset all" 
                 IsEnabled="True"
                 Click="AppBarResetAll_OnClick" />

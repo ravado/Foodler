@@ -147,20 +147,20 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton 
+                x:Name="AcceptChangesBtn"
+                IconUri="/Assets/AppBar/check.png"
+                Text="done" 
+                Click="AcceptChangesBtn_OnClick" 
+                IsEnabled="True"/>
+            <shell:ApplicationBarIconButton 
                 x:Name="AddAnonymousBtn"
                 IconUri="/Assets/AppBar/mask-anonymous.png"
                 Text="anonymous" 
                 Click="AddAnonymousBtn_OnClick"
                 IsEnabled="True"/>
             <shell:ApplicationBarIconButton 
-                x:Name="AcceptChangesBtn"
-                IconUri="/Assets/AppBar/save.png" 
-                Text="done" 
-                Click="AcceptChangesBtn_OnClick" 
-                IsEnabled="True"/>
-            <shell:ApplicationBarIconButton 
                 x:Name="ClearAllSelectedBtn"
-                IconUri="/Toolkit.Content/ApplicationBar.Delete.png" 
+                IconUri="/Assets/AppBar/delete.png" 
                 Text="clear" 
                 Click="ClearAllSelectedBtn_OnClick"
                 IsEnabled="True"/>
