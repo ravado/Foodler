@@ -116,6 +116,7 @@
     </xs:sequence>
     <xs:attribute name="IsExpanded" type="xs:boolean" />
     <xs:attribute name="HasNoOptions" type="xs:boolean" />
+    <xs:attribute name="EditableModeOn" type="xs:boolean" />
   </xs:complexType>
   <xs:complexType name="Food2">
     <xs:sequence>

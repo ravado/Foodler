@@ -725,6 +725,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private Participants1 _Participants = new Participants1();
+
+		public Participants1 Participants
+		{
+			get
+			{
+				return this._Participants;
+			}
+		}
+
 		private bool _IsExpanded = false;
 
 		public bool IsExpanded
@@ -763,13 +773,22 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
-		private Participants1 _Participants = new Participants1();
+		private bool _EditableModeOn = false;
 
-		public Participants1 Participants
+		public bool EditableModeOn
 		{
 			get
 			{
-				return this._Participants;
+				return this._EditableModeOn;
+			}
+
+			set
+			{
+				if (this._EditableModeOn != value)
+				{
+					this._EditableModeOn = value;
+					this.OnPropertyChanged("EditableModeOn");
+				}
 			}
 		}
 	}
@@ -909,6 +928,10 @@ namespace Expression.Blend.SampleData.SampleDataSource
 		}
 	}
 
+	public class Participants1 : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem1>
+	{ 
+	}
+
 	public class ParticipantsItem1 : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
@@ -939,10 +962,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
-	}
-
-	public class Participants1 : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem1>
-	{ 
 	}
 #endif
 }

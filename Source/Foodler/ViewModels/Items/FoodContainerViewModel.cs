@@ -9,13 +9,24 @@ namespace Foodler.ViewModels.Items
     public class FoodContainerViewModel:BaseModel
     {
         private bool _isExpanded;
-
+        private bool _editableModeOn;
+        
         public bool IsExpanded
         {
             get { return _isExpanded; }
             set
             {
                 _isExpanded = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public bool EditableModeOn
+        {
+            get { return _editableModeOn; }
+            set
+            {
+                _editableModeOn = value;
                 NotifyPropertyChanged();
             }
         }

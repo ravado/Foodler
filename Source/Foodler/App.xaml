@@ -566,7 +566,7 @@
             <Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}"/>
             <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}"/>
             <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}"/>
-            <Setter Property="Padding" Value="10,3,10,5"/>
+            <Setter Property="Padding" Value="10"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
@@ -608,7 +608,7 @@
                                     BorderThickness="{TemplateBinding BorderThickness}"
                                     Background="{TemplateBinding Background}"
                                     CornerRadius="30" 
-                                    Padding="10"
+                                    Padding="{TemplateBinding Padding}"
                                     Margin="{StaticResource PhoneTouchTargetOverhang}">
                                 <Grid x:Name="ContentContainer" 
                                                 OpacityMask="{TemplateBinding Content}"

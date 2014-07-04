@@ -15,6 +15,7 @@ namespace Foodler.ViewModels
 
         private IParticipant _selectedParticipant;
         private decimal _foodTotalCost;
+        private bool _foodEditableModeOn;
 
         #endregion
 
@@ -37,7 +38,22 @@ namespace Foodler.ViewModels
                 NotifyPropertyChanged();
             }
         }
-
+        public bool FoodEditableModeOn
+        {
+            get { return _foodEditableModeOn; }
+            set
+            {
+                _foodEditableModeOn = value;
+                if (FoodContainers != null)
+                {
+                    foreach (var fc in FoodContainers)
+                    {
+                        fc.EditableModeOn = _foodEditableModeOn;
+                    }
+                }
+                NotifyPropertyChanged();
+            }
+        }
         #endregion
 
         public MainViewModel()
@@ -141,6 +157,12 @@ namespace Foodler.ViewModels
         public void RemoveInvolvedParticipantFromList(IParticipant participantToRemove)
         {
             Participants.Remove(participantToRemove);
+        }
+
+        public bool ToggleFoodEditableMode()
+        {
+            FoodEditableModeOn = !FoodEditableModeOn;
+            return FoodEditableModeOn;
         }
 
         #endregion

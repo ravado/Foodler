@@ -187,7 +187,7 @@ namespace Foodler.Pages
                 ViewModel.DeactivateAteRange();
                 if (btn != null)
                 {
-                    btn.IconUri = new Uri("/Assets/AppBar/appbar.user.add.png", UriKind.RelativeOrAbsolute);   
+                    btn.IconUri = new Uri("/Assets/AppBar/user-add.png", UriKind.RelativeOrAbsolute);   
                 }
             }
             else
@@ -195,7 +195,7 @@ namespace Foodler.Pages
                 ViewModel.ActivateAteRange();
                 if (btn != null)
                 {
-                    btn.IconUri = new Uri("/Assets/AppBar/appbar.user.minus.png", UriKind.RelativeOrAbsolute);
+                    btn.IconUri = new Uri("/Assets/AppBar/user-minus.png", UriKind.RelativeOrAbsolute);
                 }
             }
         }

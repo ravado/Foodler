@@ -207,7 +207,7 @@
     <SampleData:AvailableFoodItem />
   </SampleData:SampleDataSource.AvailableFood>
   <SampleData:SampleDataSource.FoodContainers>
-    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True" EditableModeOn="True">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Suspendisse" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png">
           <SampleData:Food2.Eaters>
@@ -223,7 +223,7 @@
         <SampleData:ParticipantsItem1 Name="Aaberg, Jesper" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False" EditableModeOn="False">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Class" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png">
           <SampleData:Food2.Eaters>
@@ -239,7 +239,7 @@
         <SampleData:ParticipantsItem1 Name="Pfeiffer, Michael" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True" EditableModeOn="True">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Curae" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cat.png">
           <SampleData:Food2.Eaters>
@@ -255,7 +255,7 @@
         <SampleData:ParticipantsItem1 Name="Perry, Brian" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False" EditableModeOn="False">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Condimentum" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png">
           <SampleData:Food2.Eaters>
@@ -271,7 +271,7 @@
         <SampleData:ParticipantsItem1 Name="Bowen, Eli" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True" EditableModeOn="True">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Curabitur" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/dog.png">
           <SampleData:Food2.Eaters>
@@ -287,7 +287,7 @@
         <SampleData:ParticipantsItem1 Name="Cook, Kevin" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False" EditableModeOn="False">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Donec" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/duck.png">
           <SampleData:Food2.Eaters>
@@ -303,7 +303,7 @@
         <SampleData:ParticipantsItem1 Name="Orton, Jon" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True" EditableModeOn="True">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Nam" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/elephant.png">
           <SampleData:Food2.Eaters>
@@ -319,7 +319,7 @@
         <SampleData:ParticipantsItem1 Name="Dellamore, Luca" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False" EditableModeOn="False">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Vestibulum" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png">
           <SampleData:Food2.Eaters>
@@ -335,7 +335,7 @@
         <SampleData:ParticipantsItem1 Name="Penor, Lori" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True">
+    <SampleData:FoodContainersItem IsExpanded="True" HasNoOptions="True" EditableModeOn="True">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Sed" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/horse.png">
           <SampleData:Food2.Eaters>
@@ -351,7 +351,7 @@
         <SampleData:ParticipantsItem1 Name="Argentiero, Luca" />
       </SampleData:FoodContainersItem.Participants>
     </SampleData:FoodContainersItem>
-    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False">
+    <SampleData:FoodContainersItem IsExpanded="False" HasNoOptions="False" EditableModeOn="False">
       <SampleData:FoodContainersItem.Food>
         <SampleData:Food2 Name="Dis" Icon="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png">
           <SampleData:Food2.Eaters>

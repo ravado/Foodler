@@ -153,6 +153,18 @@ Assets/Icon/Animals/NonStroked/turtle.png</value>
 /Assets/Icon/Animals/Stroked/snail.png
 /Assets/Icon/Animals/Stroked/turtle.png</value>
   </data>
+  <data name="AppBarAdd" xml:space="preserve">
+    <value>/Assets/AppBar/add.png</value>
+  </data>
+  <data name="AppBarEdit" xml:space="preserve">
+    <value>/Assets/AppBar/edit.png</value>
+  </data>
+  <data name="AppBarNext" xml:space="preserve">
+    <value>/Assets/AppBar/next.png</value>
+  </data>
+  <data name="AppBarRefresh" xml:space="preserve">
+    <value>/Assets/AppBar/refresh.png</value>
+  </data>
   <data name="FoodBeer" xml:space="preserve">
     <value>/Assets/Icon/food/beer.png</value>
   </data>

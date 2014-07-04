@@ -61,18 +61,19 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 
-        ///      Assets/Icon/Animals/NonStroked/bird.png
-        ///      Assets/Icon/Animals/NonStroked/bull.png
-        ///      Assets/Icon/Animals/NonStroked/cat.png
-        ///      Assets/Icon/Animals/NonStroked/cow.png
-        ///      Assets/Icon/Animals/NonStroked/dog.png
-        ///      Assets/Icon/Animals/NonStroked/duck.png
-        ///      Assets/Icon/Animals/NonStroked/elephant.png
-        ///      Assets/Icon/Animals/NonStroked/fish.png
-        ///      Assets/Icon/Animals/NonStroked/horse.png
-        ///      Assets/Icon/Animals/NonStroked/ladybug.png
-        ///      Assets/Icon/Animals/NonStroke [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Assets/Icon/Animals/NonStroked/bird.png
+        ///Assets/Icon/Animals/NonStroked/bull.png
+        ///Assets/Icon/Animals/NonStroked/cat.png
+        ///Assets/Icon/Animals/NonStroked/cow.png
+        ///Assets/Icon/Animals/NonStroked/dog.png
+        ///Assets/Icon/Animals/NonStroked/duck.png
+        ///Assets/Icon/Animals/NonStroked/elephant.png
+        ///Assets/Icon/Animals/NonStroked/fish.png
+        ///Assets/Icon/Animals/NonStroked/horse.png
+        ///Assets/Icon/Animals/NonStroked/ladybug.png
+        ///Assets/Icon/Animals/NonStroked/leopard.png
+        ///Assets/Icon/Animals/NonStroked/lion.png
+        ///Assets/Icon/ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AnimalsNonStroked {
             get {
@@ -88,16 +89,52 @@ namespace Foodler.Resources {
         ////Assets/Icon/Animals/Stroked/dog.png
         ////Assets/Icon/Animals/Stroked/duck.png
         ////Assets/Icon/Animals/Stroked/elephant.png
-        ///      /Assets/Icon/Animals/Stroked/fish.png
-        ///      /Assets/Icon/Animals/Stroked/horse.png
-        ///      /Assets/Icon/Animals/Stroked/ladybug.png
-        ///      /Assets/Icon/Animals/Stroked/leopard.png
-        ///      /Assets/Icon/Animals/Stroked/lion.png
-        ///       [rest of string was truncated]&quot;;.
+        ////Assets/Icon/Animals/Stroked/fish.png
+        ////Assets/Icon/Animals/Stroked/horse.png
+        ////Assets/Icon/Animals/Stroked/ladybug.png
+        ////Assets/Icon/Animals/Stroked/leopard.png
+        ////Assets/Icon/Animals/Stroked/lion.png
+        ////Assets/Icon/Animals/Stroked/lobster [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AnimalsStroked {
             get {
                 return ResourceManager.GetString("AnimalsStroked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/add.png.
+        /// </summary>
+        internal static string AppBarAdd {
+            get {
+                return ResourceManager.GetString("AppBarAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/edit.png.
+        /// </summary>
+        internal static string AppBarEdit {
+            get {
+                return ResourceManager.GetString("AppBarEdit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/next.png.
+        /// </summary>
+        internal static string AppBarNext {
+            get {
+                return ResourceManager.GetString("AppBarNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/refresh.png.
+        /// </summary>
+        internal static string AppBarRefresh {
+            get {
+                return ResourceManager.GetString("AppBarRefresh", resourceCulture);
             }
         }
         

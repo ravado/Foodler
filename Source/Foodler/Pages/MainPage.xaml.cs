@@ -7,6 +7,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using GestureEventArgs = System.Windows.Input.GestureEventArgs;
 
 namespace Foodler.Pages
 {
@@ -165,6 +166,21 @@ namespace Foodler.Pages
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("GO");
+        }
+
+        private void ListFood_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
+
+        private void ListFood_OnTap(object sender, GestureEventArgs e)
+        {
+            MessageBox.Show("GO");
+        }
+
+        internal void BtnToggleFoodEditMode_OnClick(object sender, EventArgs e)
+        {
+            ViewModel.ToggleFoodEditableMode();
         }
     }
 }

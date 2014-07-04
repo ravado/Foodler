@@ -69,7 +69,7 @@
 
         <!-- Templates for Food Expander -->
         <DataTemplate x:Key="FoodExpanderHeaderTemplate">
-            <Grid Height="100" HorizontalAlignment="Center" Width="450">
+            <Grid Height="100" HorizontalAlignment="Left" Width="450">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"></ColumnDefinition>
                     <ColumnDefinition Width="*"></ColumnDefinition>
@@ -88,27 +88,40 @@
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
                         <TextBlock Text="{Binding Food.Name}" FontSize="32"/>
-                        <StackPanel 
-                        Orientation="Horizontal">
-                            <TextBlock			
-                            FontSize="12"
-                            Text="Total participants: "
-                            Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
-                            <TextBlock		
-                            FontSize="12"	
-                            FontWeight="Bold"
-                            Text="{Binding Food.Eaters.Count}"
-                            Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock
+                                    FontSize="14"
+                                    Text="Participants: "
+                                    Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+                                <TextBlock		
+                                    FontSize="14"	
+                                    FontWeight="Bold"
+                                    Text="{Binding Food.Eaters.Count}"
+                                    Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
+                                <TextBlock
+                                    FontSize="14"
+                                    Text="Price: "
+                                    Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+                                <TextBlock		
+                                    FontSize="14"	
+                                    FontWeight="Bold"
+                                    Text="{Binding Food.Price, Converter={StaticResource CostWithCurrencyConverter}}"
+                                    Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
                     <TextBlock 
+                        Visibility="Collapsed"
                         VerticalAlignment="Center"
                         Grid.Column="1" 
                         FontSize="30"
                         FontWeight="Bold"
                         Text="{Binding Food.Price, Converter={StaticResource CostWithCurrencyConverter}}"/>
                 </Grid>
-                
+
             </Grid>
         </DataTemplate>
         <DataTemplate x:Key="FoodExpanderTemplate">
@@ -202,7 +215,8 @@
                         </Grid.RowDefinitions>
                         <ListBox Grid.Row="0"
                                  Name="ListFood"
-                                 ItemsSource="{Binding FoodContainers}">
+                                 ItemsSource="{Binding FoodContainers}"
+                                 SelectionChanged="ListFood_OnSelectionChanged">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="ListBoxItem">
                                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -210,16 +224,49 @@
                             </ListBox.ItemContainerStyle>
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
-                                    <toolkit:ExpanderView 
-                                        Header="{Binding}"
-                                        Expander="{Binding}"
-                                        ItemsSource="{Binding Food.Eaters}"
-                                        IsExpanded="{Binding IsExpanded, Mode=TwoWay}"
-                                        Style="{StaticResource ExpanderViewStyle}"
-                                        HeaderTemplate="{StaticResource FoodExpanderHeaderTemplate}" 
-                                        ExpanderTemplate="{StaticResource FoodExpanderTemplate}"
-                                        ItemTemplate="{StaticResource FoodParticipantItemTemplate}"
-                                        NonExpandableHeaderTemplate="{StaticResource FoodNonExpandableHeaderTemplate}"/>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+                                        <toolkit:ExpanderView 
+                                            Header="{Binding}"
+                                            Expander="{Binding}"
+                                            ItemsSource="{Binding Food.Eaters}"
+                                            IsExpanded="{Binding IsExpanded, Mode=TwoWay}"
+                                            Style="{StaticResource ExpanderViewStyle}"
+                                            NonExpandableHeader="{StaticResource FoodExpanderHeaderTemplate}"
+                                            HeaderTemplate="{StaticResource FoodExpanderHeaderTemplate}" 
+                                            ExpanderTemplate="{StaticResource FoodExpanderTemplate}"
+                                            ItemTemplate="{StaticResource FoodParticipantItemTemplate}"
+                                            NonExpandableHeaderTemplate="{StaticResource FoodNonExpandableHeaderTemplate}"/>
+                                        <StackPanel Visibility="{Binding EditableModeOn, Converter={StaticResource VisibilityConverter}}" Grid.Column="1" Orientation="Horizontal">
+                                            <Button
+                                                Margin="0 10 0 0"
+                                                BorderThickness="0"
+                                                BorderBrush="{StaticResource PhoneAccentBrush}"
+                                                Background="{StaticResource PhoneAccentBrush}"
+                                                HorizontalAlignment="Center"
+                                                Width="62" Height="62"
+                                                Padding="7"
+                                                VerticalAlignment="Top"
+                                                Style="{StaticResource RoundButton}">
+                                                <ImageBrush ImageSource="/Assets/Icon/edit.png" Stretch="Fill"/>
+                                            </Button>
+                                            <Button
+                                                Margin="0 10 -10 0"
+                                                BorderThickness="0"
+                                                Padding="10"
+                                                BorderBrush="{StaticResource PhoneAccentBrush}"
+                                                Background="{StaticResource PhoneAccentBrush}"
+                                                HorizontalAlignment="Center"
+                                                Width="62" Height="62"
+                                                VerticalAlignment="Top"
+                                                Style="{StaticResource RoundButton}">
+                                                <ImageBrush ImageSource="/Assets/Icon/cancel-icon-white.png" Stretch="Fill"/>
+                                            </Button>
+                                        </StackPanel>
+                                    </Grid>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
