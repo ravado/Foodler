@@ -474,6 +474,25 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private bool _IsExpanded = false;
+
+		public bool IsExpanded
+		{
+			get
+			{
+				return this._IsExpanded;
+			}
+
+			set
+			{
+				if (this._IsExpanded != value)
+				{
+					this._IsExpanded = value;
+					this.OnPropertyChanged("IsExpanded");
+				}
+			}
+		}
 	}
 
 	public class Participant : System.ComponentModel.INotifyPropertyChanged
@@ -503,6 +522,35 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				{
 					this._Name = value;
 					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private EatenFood _EatenFood = new EatenFood();
+
+		public EatenFood EatenFood
+		{
+			get
+			{
+				return this._EatenFood;
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
 				}
 			}
 		}
@@ -962,6 +1010,61 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+	}
+
+	public class EatenFoodItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private string _Price = string.Empty;
+
+		public string Price
+		{
+			get
+			{
+				return this._Price;
+			}
+
+			set
+			{
+				if (this._Price != value)
+				{
+					this._Price = value;
+					this.OnPropertyChanged("Price");
+				}
+			}
+		}
+	}
+
+	public class EatenFood : System.Collections.ObjectModel.ObservableCollection<EatenFoodItem>
+	{ 
 	}
 #endif
 }

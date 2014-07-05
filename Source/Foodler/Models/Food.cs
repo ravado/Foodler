@@ -69,9 +69,12 @@ namespace Foodler.Models
 
         #endregion
 
-        public Food(){}
+        public Food()
+        {
+            Id = Guid.NewGuid();
+        }
 
-        public Food(string name, BitmapImage image = null, decimal price = 0m)
+        public Food(string name, BitmapImage image = null, decimal price = 0m) : this()
         {
             Name = name;
             Price = price;

@@ -88,13 +88,14 @@ namespace Foodler.ViewModels
         /// <summary>
         /// Basic initialization
         /// </summary>
-        public void Initialize() {}
+        public void Initialize() { }
 
         /// <summary>
         /// Calc total sum and sum for every party participant
         /// </summary>
         public void SumUp()
         {
+            SumUpNew(); return;
             var people = new Dictionary<string, decimal>();
             foreach (var fc in FoodContainers)
             {
@@ -119,6 +120,21 @@ namespace Foodler.ViewModels
                 {
                     TotalCost = p.Value
                 });
+            }
+
+            UpdateTotalCost();
+        }
+
+        public void SumUpNew()
+        {
+            foreach (var pc in ParticipantContainers)
+            {
+                var foods = pc.Participant.EatenFood;
+                foreach (var food in foods)
+                {
+                    var equalPrice = food.Price/food.Eaters.Count;
+                    pc.TotalCost += equalPrice;
+                }
             }
 
             UpdateTotalCost();
@@ -171,7 +187,7 @@ namespace Foodler.ViewModels
 
         public void AddFoodContainer(FoodContainerViewModel foodContainer)
         {
-            var eaters = foodContainer.Participants.ToList();
+            var eaters = foodContainer.Food.Eaters.ToList();
             var food = foodContainer.Food;
 
             foreach (var e in eaters)
@@ -201,9 +217,41 @@ namespace Foodler.ViewModels
                     }
                 }
             }
+
+            RearangeParticipantContainers();
         }
 
-        public bool IsAllFoodExpanded {
+        private void RearangeParticipantContainers()
+        {
+            // magic logic here, do not touch until real nessecery!
+
+            ParticipantContainers.Clear();
+            var foods = FoodContainers.Select(f => f.Food).ToArray();
+            var eaters = new List<IParticipant>();
+
+            foreach (var e in foods.SelectMany(f => f.Eaters))
+            {
+                if (!eaters.Contains(e))
+                    eaters.Add(e);
+            }
+
+            foreach (var eater in eaters)
+            {
+                foreach (var food in foods)
+                {
+                    if (food.Eaters.Contains(eater))
+                        if (!eater.EatenFood.Contains(food))
+                            eater.EatenFood.Add(food);
+                }
+            }
+
+            foreach (var participant in eaters)
+            {
+                ParticipantContainers.Add(new ParticipantContainerViewModel(participant, participant.EatenFood));
+            }
+        }
+        public bool IsAllFoodExpanded
+        {
             get
             {
                 return FoodContainers.All(fc => fc.IsExpanded);

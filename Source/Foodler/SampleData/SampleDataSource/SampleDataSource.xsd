@@ -67,9 +67,23 @@
     </xs:sequence>
     <xs:attribute name="FoodCount" type="xs:double" />
     <xs:attribute blend:Format="Price" name="TotalCost" type="xs:string" />
+    <xs:attribute name="IsExpanded" type="xs:boolean" />
   </xs:complexType>
   <xs:complexType name="Participant">
+    <xs:sequence>
+      <xs:element name="EatenFood" type="tns:EatenFood" />
+    </xs:sequence>
     <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon\Animals\Stroked" name="Avatar" type="tns:Basic-Image" />
+  </xs:complexType>
+  <xs:complexType name="EatenFood">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="EatenFoodItem" type="tns:EatenFoodItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EatenFoodItem">
+    <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:Format="Price" name="Price" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="Food1">
     <xs:sequence>

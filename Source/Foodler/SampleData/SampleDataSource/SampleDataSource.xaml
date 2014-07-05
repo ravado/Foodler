@@ -39,9 +39,17 @@
     <SampleData:Food Name="Nam" Price="992" />
   </SampleData:SampleDataSource.Food>
   <SampleData:SampleDataSource.ParticipantContainers>
-    <SampleData:ParticipantContainersItem FoodCount="29" TotalCost="$100">
+    <SampleData:ParticipantContainersItem FoodCount="29" TotalCost="$100" IsExpanded="True">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Aaberg, Jesper" />
+        <SampleData:Participant Name="Aaberg, Jesper" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bird.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Aaberg, Jesper" Price="$100" />
+            <SampleData:EatenFoodItem Name="Adams, Ellen" Price="$29.99" />
+            <SampleData:EatenFoodItem Name="Adams, Terry" Price="$249.99" />
+            <SampleData:EatenFoodItem Name="Adams, Terry" Price="$1000" />
+            <SampleData:EatenFoodItem Name="Penor, Lori" Price="$2.99" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Maecenas nam class praesent" Price="$100" />
@@ -51,9 +59,17 @@
         <SampleData:FoodItem Name="Mauris dictumst aliquam" Price="$2.99" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="55" TotalCost="$29.99">
+    <SampleData:ParticipantContainersItem FoodCount="55" TotalCost="$29.99" IsExpanded="False">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Adams, Ellen" />
+        <SampleData:Participant Name="Adams, Ellen" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/bull.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Pfeiffer, Michael" Price="$300" />
+            <SampleData:EatenFoodItem Name="Philips, Carol" Price="$10,999" />
+            <SampleData:EatenFoodItem Name="Poe, Toni" Price="$49.99" />
+            <SampleData:EatenFoodItem Name="Hicks, Cassie" Price="$25.34" />
+            <SampleData:EatenFoodItem Name="Argentiero, Luca" Price="$100" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Integer donec amet etiam" Price="$300" />
@@ -63,9 +79,17 @@
         <SampleData:FoodItem Name="Dis nulla est faucibus" Price="$100" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="60" TotalCost="$249.99">
+    <SampleData:ParticipantContainersItem FoodCount="60" TotalCost="$249.99" IsExpanded="True">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Adams, Terry" />
+        <SampleData:Participant Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cat.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Perry, Brian" Price="$29.99" />
+            <SampleData:EatenFoodItem Name="Ramos, Luciana" Price="$249.99" />
+            <SampleData:EatenFoodItem Name="Barber, David" Price="$1000" />
+            <SampleData:EatenFoodItem Name="Jamison, Jay" Price="$2.99" />
+            <SampleData:EatenFoodItem Name="Reid, Miles" Price="$300" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Congue habitant" Price="$29.99" />
@@ -75,9 +99,17 @@
         <SampleData:FoodItem Name="Leo interdum" Price="$300" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="32" TotalCost="$1000">
+    <SampleData:ParticipantContainersItem FoodCount="32" TotalCost="$1000" IsExpanded="False">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Adams, Terry" />
+        <SampleData:Participant Name="Adams, Terry" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/cow.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Bowen, Eli" Price="$10,999" />
+            <SampleData:EatenFoodItem Name="Kane, John" Price="$49.99" />
+            <SampleData:EatenFoodItem Name="Sarin, Raman" Price="$25.34" />
+            <SampleData:EatenFoodItem Name="Sato, Naoki" Price="$100" />
+            <SampleData:EatenFoodItem Name="Silva, Alexandre" Price="$29.99" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Lobortis nascetur" Price="$10,999" />
@@ -87,9 +119,17 @@
         <SampleData:FoodItem Name="Pulvinar eget" Price="$29.99" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="55" TotalCost="$2.99">
+    <SampleData:ParticipantContainersItem FoodCount="55" TotalCost="$2.99" IsExpanded="True">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Penor, Lori" />
+        <SampleData:Participant Name="Penor, Lori" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/dog.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Cook, Kevin" Price="$249.99" />
+            <SampleData:EatenFoodItem Name="Li, Yuhong" Price="$1000" />
+            <SampleData:EatenFoodItem Name="Strande, Amy" Price="$2.99" />
+            <SampleData:EatenFoodItem Name="Makovac, Zrinka" Price="$300" />
+            <SampleData:EatenFoodItem Name="Miller, Ben" Price="$10,999" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Elit sagittis litora senectus" Price="$249.99" />
@@ -99,9 +139,17 @@
         <SampleData:FoodItem Name="Mattis erat eros" Price="$10,999" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="40" TotalCost="$300">
+    <SampleData:ParticipantContainersItem FoodCount="40" TotalCost="$300" IsExpanded="False">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Pfeiffer, Michael" />
+        <SampleData:Participant Name="Pfeiffer, Michael" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/duck.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Orton, Jon" Price="$49.99" />
+            <SampleData:EatenFoodItem Name="Zhang, Larry" Price="$25.34" />
+            <SampleData:EatenFoodItem Name="Gladkikh, Andrey" Price="$100" />
+            <SampleData:EatenFoodItem Name="Meyer, April" Price="$29.99" />
+            <SampleData:EatenFoodItem Name="Clark, Molly" Price="$249.99" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Felis conubia mauris ipsum" Price="$49.99" />
@@ -111,9 +159,17 @@
         <SampleData:FoodItem Name="Lorem ultrices vehicula" Price="$249.99" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="56" TotalCost="$10,999">
+    <SampleData:ParticipantContainersItem FoodCount="56" TotalCost="$10,999" IsExpanded="True">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Philips, Carol" />
+        <SampleData:Participant Name="Philips, Carol" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/elephant.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Dellamore, Luca" Price="$1000" />
+            <SampleData:EatenFoodItem Name="Aaberg, Jesper" Price="$2.99" />
+            <SampleData:EatenFoodItem Name="Adams, Ellen" Price="$300" />
+            <SampleData:EatenFoodItem Name="Adams, Terry" Price="$10,999" />
+            <SampleData:EatenFoodItem Name="Adams, Terry" Price="$49.99" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Magna montes volutpat" Price="$1000" />
@@ -123,9 +179,17 @@
         <SampleData:FoodItem Name="Platea egestas primis neque" Price="$49.99" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="80" TotalCost="$49.99">
+    <SampleData:ParticipantContainersItem FoodCount="80" TotalCost="$49.99" IsExpanded="False">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Poe, Toni" />
+        <SampleData:Participant Name="Poe, Toni" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/fish.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Penor, Lori" Price="$25.34" />
+            <SampleData:EatenFoodItem Name="Pfeiffer, Michael" Price="$100" />
+            <SampleData:EatenFoodItem Name="Philips, Carol" Price="$29.99" />
+            <SampleData:EatenFoodItem Name="Poe, Toni" Price="$249.99" />
+            <SampleData:EatenFoodItem Name="Hicks, Cassie" Price="$1000" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Nisi nisl maecenas netus" Price="$25.34" />
@@ -135,9 +199,17 @@
         <SampleData:FoodItem Name="Purus accumsan" Price="$1000" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="74" TotalCost="$25.34">
+    <SampleData:ParticipantContainersItem FoodCount="74" TotalCost="$25.34" IsExpanded="True">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Hicks, Cassie" />
+        <SampleData:Participant Name="Hicks, Cassie" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/horse.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Argentiero, Luca" Price="$2.99" />
+            <SampleData:EatenFoodItem Name="Perry, Brian" Price="$300" />
+            <SampleData:EatenFoodItem Name="Ramos, Luciana" Price="$10,999" />
+            <SampleData:EatenFoodItem Name="Barber, David" Price="$49.99" />
+            <SampleData:EatenFoodItem Name="Jamison, Jay" Price="$25.34" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Euismod nam nunc" Price="$2.99" />
@@ -147,9 +219,17 @@
         <SampleData:FoodItem Name="Quam taciti" Price="$25.34" />
       </SampleData:ParticipantContainersItem.Food>
     </SampleData:ParticipantContainersItem>
-    <SampleData:ParticipantContainersItem FoodCount="12" TotalCost="$100">
+    <SampleData:ParticipantContainersItem FoodCount="12" TotalCost="$100" IsExpanded="False">
       <SampleData:ParticipantContainersItem.Participant>
-        <SampleData:Participant Name="Argentiero, Luca" />
+        <SampleData:Participant Name="Argentiero, Luca" Avatar="/Foodler;component/SampleData/SampleDataSource/SampleDataSource_Files/ladybug.png">
+          <SampleData:Participant.EatenFood>
+            <SampleData:EatenFoodItem Name="Reid, Miles" Price="$100" />
+            <SampleData:EatenFoodItem Name="Bowen, Eli" Price="$29.99" />
+            <SampleData:EatenFoodItem Name="Kane, John" Price="$249.99" />
+            <SampleData:EatenFoodItem Name="Sarin, Raman" Price="$1000" />
+            <SampleData:EatenFoodItem Name="Sato, Naoki" Price="$2.99" />
+          </SampleData:Participant.EatenFood>
+        </SampleData:Participant>
       </SampleData:ParticipantContainersItem.Participant>
       <SampleData:ParticipantContainersItem.Food>
         <SampleData:FoodItem Name="Eleifend velit tellus" Price="$100" />
