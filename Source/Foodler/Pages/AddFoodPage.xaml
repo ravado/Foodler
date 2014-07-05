@@ -552,6 +552,11 @@
                 IsEnabled="False"
                 Click="AppBarAddAteRange_OnClick"/>
             <shell:ApplicationBarIconButton 
+                x:Name="AppBarSelectAll"
+                IconUri="/Assets/AppBar/people-multiple.png"
+                Text="select all"
+                Click="AppBarSelectAll_OnClick"/>
+            <shell:ApplicationBarIconButton 
                 x:Name="AppBarResetAll"
                 IconUri="/Assets/AppBar/transform-rotate-counterclockwise.png"
                 Text="reset all" 

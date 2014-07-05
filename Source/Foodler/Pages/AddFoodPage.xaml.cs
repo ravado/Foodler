@@ -200,5 +200,14 @@ namespace Foodler.Pages
             }
         }
 
+        private void AppBarSelectAll_OnClick(object sender, EventArgs e)
+        {
+            NewJokesMultiSelector.SelectedItems.Clear();
+            foreach (var p in ViewModel.Participants)
+            {
+                ViewModel.AddSelectedParticipantToList(p);
+                NewJokesMultiSelector.SelectedItems.Add(p);
+            }
+        }
     }
 }

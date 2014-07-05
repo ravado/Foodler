@@ -206,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\people-multiple.png" />
     <Content Include="Assets\AppBar\add.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -162,6 +162,9 @@ Assets/Icon/Animals/NonStroked/turtle.png</value>
   <data name="AppBarList" xml:space="preserve">
     <value>/Assets/AppBar/list.png</value>
   </data>
+  <data name="AppBarListPeopleMultiply" xml:space="preserve">
+    <value>/Assets/AppBar/people-multiple.png</value>
+  </data>
   <data name="AppBarListReorder" xml:space="preserve">
     <value>/Assets/AppBar/list-reorder.png</value>
   </data>

@@ -130,6 +130,15 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/people-multiple.png.
+        /// </summary>
+        internal static string AppBarListPeopleMultiply {
+            get {
+                return ResourceManager.GetString("AppBarListPeopleMultiply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /Assets/AppBar/list-reorder.png.
         /// </summary>
         internal static string AppBarListReorder {
