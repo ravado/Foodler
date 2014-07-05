@@ -217,5 +217,10 @@ namespace Foodler.ViewModels
                 return FoodContainers.All(fc => !fc.IsExpanded);
             }
         }
+
+        public void RemoveFood(FoodContainerViewModel fc)
+        {
+            FoodContainers.Remove(fc);
+        }
     }
 }

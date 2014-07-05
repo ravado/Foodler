@@ -265,6 +265,7 @@
                                                 HorizontalAlignment="Center"
                                                 Width="62" Height="62"
                                                 VerticalAlignment="Top"
+                                                Click="DeleteFood_OnClick"
                                                 Style="{StaticResource RoundButton}">
                                                 <ImageBrush ImageSource="/Assets/Icon/cancel-icon-white.png" Stretch="Fill"/>
                                             </Button>

@@ -223,5 +223,20 @@ namespace Foodler.Pages
             }
             
         }
+
+        private void DeleteFood_OnClick(object sender, RoutedEventArgs e)
+        {
+            var m = MessageBox.Show("You are about to delete this food with all related data. Are you sure?", "Attention", MessageBoxButton.OKCancel);
+            if (m == MessageBoxResult.OK)
+            {
+                var btn = sender as Button;
+                if (btn != null)
+                {
+                    var fc = btn.DataContext as FoodContainerViewModel;
+
+                    ViewModel.RemoveFood(fc);
+                }
+            }
+        }
     }
 }
