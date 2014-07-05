@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Windows.Media.Imaging;
 using Foodler.Common.Contracts;
 
@@ -96,7 +97,7 @@ namespace Foodler.Models
 
         public bool Equals(Food other)
         {
-            if (other != null && other.Id == Id)
+            if (other != null && other.Name == Name)
                 return true;
 
             return false;
@@ -109,9 +110,7 @@ namespace Foodler.Models
 
         public override int GetHashCode()
         {
-            var nameHash = (Name == null) ? 0 : Name.GetHashCode();
-
-            return Id.GetHashCode() + nameHash;
+            return Name.GetHashCode();
         }
     }
 }
