@@ -21,6 +21,7 @@ namespace Foodler.ViewModels
         private bool _isParticipantRemoving;
         private bool _isCanceled;
         private bool _ateRangeActivated;
+        private FoodContainerViewModel _foodContainer;
 
         #endregion
 
@@ -84,6 +85,7 @@ namespace Foodler.ViewModels
 
             if (foodContainer != null)
             {
+                _foodContainer = foodContainer;
                 if (foodContainer.Food != null)
                 {
                     if (!ignoreFood) // need because food now gets from list picker page and binds directly
@@ -240,8 +242,10 @@ namespace Foodler.ViewModels
             //    if(!eater.EatenFood.ToList().Contains(Food))
             //        eater.EatenFood.ToList().Add(Food);
             //}
+            //var isEditing = _foodContainer != null ? _foodContainer.IsEditing : false;
+            var id = _foodContainer != null ? _foodContainer.Id : Guid.NewGuid();
 
-            var container = new FoodContainerViewModel(food, new List<IParticipant>(SelectedParticipants));
+            var container = new FoodContainerViewModel(id, food, new List<IParticipant>(SelectedParticipants));
             return container;
         }
 

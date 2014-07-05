@@ -5,7 +5,7 @@ using Foodler.Common.Contracts;
 
 namespace Foodler.Models
 {
-    public class Food : BaseModel, IFood
+    public class Food : BaseModel, IFood, IEquatable<Food>
     {
         #region Fields
 
@@ -78,12 +78,37 @@ namespace Foodler.Models
             Icon = image;
         }
 
+        public override string ToString()
+        {
+            return String.Format("{0} {1}", Name, Price);
+        }
+
         public void Reset()
         {
             Icon = null;
             Id = Guid.Empty;
             Name = String.Empty;
             Price = 0.0m;
+        }
+
+        public bool Equals(Food other)
+        {
+            if (other != null && other.Id == Id)
+                return true;
+
+            return false;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return Equals(obj as Food);
+        }
+
+        public override int GetHashCode()
+        {
+            var nameHash = (Name == null) ? 0 : Name.GetHashCode();
+
+            return Id.GetHashCode() + nameHash;
         }
     }
 }

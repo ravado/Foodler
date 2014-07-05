@@ -1,9 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
+using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
 using System;
 using System.Windows;
@@ -36,7 +38,7 @@ namespace Foodler.Pages
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
+            
 
             // get chosen participants from addparticipants page
             if (StateManager.InvolvedParticipants != null)
@@ -203,6 +205,23 @@ namespace Foodler.Pages
         private void ListFood_OnTap(object sender, GestureEventArgs e)
         {
             _autoExpand = false;
+        }
+
+        private void EditFood_OnClick(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            if (btn != null)
+            {
+                var foodContainer = btn.DataContext as FoodContainerViewModel;
+                if (foodContainer != null)
+                {
+                    foodContainer.Participants = new ObservableCollection<IParticipant>(foodContainer.Food.Eaters);
+                    StateManager.FoodContainer = foodContainer;
+                }
+
+                NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+            }
+            
         }
     }
 }

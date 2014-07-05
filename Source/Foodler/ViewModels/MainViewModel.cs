@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.ServiceModel.Channels;
+using System.Windows;
 using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.ViewModels.Common;
@@ -167,7 +169,7 @@ namespace Foodler.ViewModels
 
         #endregion
 
-        internal void AddFoodContainer(FoodContainerViewModel foodContainer)
+        public void AddFoodContainer(FoodContainerViewModel foodContainer)
         {
             var eaters = foodContainer.Participants.ToList();
             var food = foodContainer.Food;
@@ -182,7 +184,23 @@ namespace Foodler.ViewModels
             }
             food.Eaters = eaters;
 
-            FoodContainers.Add(new FoodContainerViewModel(food, eaters));
+            if (!FoodContainers.Contains(foodContainer))
+            {
+                FoodContainers.Add(new FoodContainerViewModel(foodContainer.Id, food, eaters));
+            }
+            else
+            {
+                var foundContainer = FoodContainers.FirstOrDefault(fc => fc.Equals(foodContainer));
+                if (foundContainer != null)
+                {
+                    foundContainer.Food = food;
+                    foodContainer.Participants.Clear();
+                    foreach (var eater in eaters)
+                    {
+                        foodContainer.Participants.Add(eater);
+                    }
+                }
+            }
         }
 
         public bool IsAllFoodExpanded {

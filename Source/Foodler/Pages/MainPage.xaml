@@ -252,6 +252,7 @@
                                                 Width="62" Height="62"
                                                 Padding="7"
                                                 VerticalAlignment="Top"
+                                                Click="EditFood_OnClick"
                                                 Style="{StaticResource RoundButton}">
                                                 <ImageBrush ImageSource="/Assets/Icon/edit.png" Stretch="Fill"/>
                                             </Button>
