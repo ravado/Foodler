@@ -188,4 +188,10 @@ Anthony
 Paul
 Kevin</value>
   </data>
+  <data name="AppBarMainPageFoodTabCollapseBtn" xml:space="preserve">
+    <value>collapse</value>
+  </data>
+  <data name="AppBarMainPageFoodTabExpandBtn" xml:space="preserve">
+    <value>expand</value>
+  </data>
 </root>

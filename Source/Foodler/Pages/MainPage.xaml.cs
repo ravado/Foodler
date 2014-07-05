@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.ViewModels;
@@ -31,7 +33,7 @@ namespace Foodler.Pages
         }
 
         #region Navigation
-        
+
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -124,13 +126,13 @@ namespace Foodler.Pages
                 switch (pivotPage)
                 {
                     case MainPivotPage.Participants:
-                        ApplicationBar = AppBarBuilder.GetAppBarPivotParticipants(this);
+                        ApplicationBar = AppBarBuilder.Participants.GetAppBarPivotParticipants(this);
                         break;
                     case MainPivotPage.Food:
-                        ApplicationBar = AppBarBuilder.GetAppBarPivotFood(this);
+                        ApplicationBar = AppBarBuilder.Food.GetAppBarPivotFood(this);
                         break;
                     case MainPivotPage.Sum:
-                        ApplicationBar = AppBarBuilder.GetAppBarPivotSum(this);
+                        ApplicationBar = AppBarBuilder.Sum.GetAppBarPivotSum(this);
                         break;
                 }
             }
@@ -170,17 +172,37 @@ namespace Foodler.Pages
 
         private void ListFood_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
-        }
 
-        private void ListFood_OnTap(object sender, GestureEventArgs e)
-        {
-            MessageBox.Show("GO");
         }
 
         internal void BtnToggleFoodEditMode_OnClick(object sender, EventArgs e)
         {
-            ViewModel.ToggleFoodEditableMode();
+            _autoExpand = true;
+            ViewModel.ChangeFoodState(!ViewModel.IsExpandAllOn);
+            if (ViewModel.IsExpandAllOn)
+            {
+                //AppBarBuilder.Food.ShowCollapseAll();
+            }
+            //else AppBarBuilder.Food.ShowExpandAll();
+        }
+
+        private void ExpanderView_OnExpanded(object sender, RoutedEventArgs e)
+        {
+            //if (ViewModel.IsAllFoodExpanded)
+            //{
+            //    ViewModel.IsExpandAllOn = true;
+            //}
+            //else if (ViewModel.IsAllFoodCollapsed)
+            //{
+            //    ViewModel.IsExpandAllOn = false;
+            //}
+        }
+
+        private bool _autoExpand;
+
+        private void ListFood_OnTap(object sender, GestureEventArgs e)
+        {
+            _autoExpand = false;
         }
     }
 }

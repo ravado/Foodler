@@ -15,7 +15,7 @@ namespace Foodler.ViewModels
 
         private IParticipant _selectedParticipant;
         private decimal _foodTotalCost;
-        private bool _foodEditableModeOn;
+        private bool _isExpandAllOn;
 
         #endregion
 
@@ -38,17 +38,17 @@ namespace Foodler.ViewModels
                 NotifyPropertyChanged();
             }
         }
-        public bool FoodEditableModeOn
+        public bool IsExpandAllOn
         {
-            get { return _foodEditableModeOn; }
+            get { return _isExpandAllOn; }
             set
             {
-                _foodEditableModeOn = value;
+                _isExpandAllOn = value;
                 if (FoodContainers != null)
                 {
                     foreach (var fc in FoodContainers)
                     {
-                        fc.EditableModeOn = _foodEditableModeOn;
+                        fc.IsExpanded = _isExpandAllOn;
                     }
                 }
                 NotifyPropertyChanged();
@@ -159,10 +159,10 @@ namespace Foodler.ViewModels
             Participants.Remove(participantToRemove);
         }
 
-        public bool ToggleFoodEditableMode()
+        public bool ChangeFoodState(bool expandAll = false)
         {
-            FoodEditableModeOn = !FoodEditableModeOn;
-            return FoodEditableModeOn;
+            IsExpandAllOn = expandAll;
+            return IsExpandAllOn;
         }
 
         #endregion
@@ -183,6 +183,21 @@ namespace Foodler.ViewModels
             food.Eaters = eaters;
 
             FoodContainers.Add(new FoodContainerViewModel(food, eaters));
+        }
+
+        public bool IsAllFoodExpanded {
+            get
+            {
+                return FoodContainers.All(fc => fc.IsExpanded);
+            }
+        }
+
+        public bool IsAllFoodCollapsed
+        {
+            get
+            {
+                return FoodContainers.All(fc => !fc.IsExpanded);
+            }
         }
     }
 }

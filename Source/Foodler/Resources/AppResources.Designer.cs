@@ -70,6 +70,24 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to collapse.
+        /// </summary>
+        public static string AppBarMainPageFoodTabCollapseBtn {
+            get {
+                return ResourceManager.GetString("AppBarMainPageFoodTabCollapseBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to expand.
+        /// </summary>
+        public static string AppBarMainPageFoodTabExpandBtn {
+            get {
+                return ResourceManager.GetString("AppBarMainPageFoodTabExpandBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Menu Item.
         /// </summary>
         public static string AppBarMenuItemText {

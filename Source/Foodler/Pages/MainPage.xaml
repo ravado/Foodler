@@ -215,6 +215,7 @@
                         </Grid.RowDefinitions>
                         <ListBox Grid.Row="0"
                                  Name="ListFood"
+                                 Tap="ListFood_OnTap"
                                  ItemsSource="{Binding FoodContainers}"
                                  SelectionChanged="ListFood_OnSelectionChanged">
                             <ListBox.ItemContainerStyle>
@@ -227,7 +228,7 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"></ColumnDefinition>
-                                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                                            <ColumnDefinition Width="120"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
                                         <toolkit:ExpanderView 
                                             Header="{Binding}"
@@ -239,8 +240,9 @@
                                             HeaderTemplate="{StaticResource FoodExpanderHeaderTemplate}" 
                                             ExpanderTemplate="{StaticResource FoodExpanderTemplate}"
                                             ItemTemplate="{StaticResource FoodParticipantItemTemplate}"
+                                            Expanded="ExpanderView_OnExpanded"
                                             NonExpandableHeaderTemplate="{StaticResource FoodNonExpandableHeaderTemplate}"/>
-                                        <StackPanel Visibility="{Binding EditableModeOn, Converter={StaticResource VisibilityConverter}}" Grid.Column="1" Orientation="Horizontal">
+                                        <StackPanel Visibility="{Binding IsExpanded, Converter={StaticResource VisibilityConverter}}" Grid.Column="1" Orientation="Horizontal">
                                             <Button
                                                 Margin="0 10 0 0"
                                                 BorderThickness="0"

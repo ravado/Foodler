@@ -121,6 +121,24 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/list.png.
+        /// </summary>
+        internal static string AppBarList {
+            get {
+                return ResourceManager.GetString("AppBarList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/list-reorder.png.
+        /// </summary>
+        internal static string AppBarListReorder {
+            get {
+                return ResourceManager.GetString("AppBarListReorder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /Assets/AppBar/next.png.
         /// </summary>
         internal static string AppBarNext {

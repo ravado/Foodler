@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows.Data;
 
 namespace Foodler.Common.Converters
@@ -11,7 +12,7 @@ namespace Foodler.Common.Converters
             {
                 var dec = (decimal) value;
 
-                return String.Format("{0} {1}", dec, culture.NumberFormat.CurrencySymbol);
+                return String.Format("{0:C}", dec);
             }
 
             return null;
