@@ -143,7 +143,7 @@ namespace Foodler.Pages
             var btn = GetAteRangeAppBarButton();
             if (btn != null)
             {
-                btn.IsEnabled = false;
+                //btn.IsEnabled = false;
             }
         }
 
@@ -152,7 +152,7 @@ namespace Foodler.Pages
             var btn = GetAteRangeAppBarButton();
             if (btn != null)
             {
-                btn.IsEnabled = true;
+                //btn.IsEnabled = true;
             }
         }
 

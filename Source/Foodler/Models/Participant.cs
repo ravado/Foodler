@@ -117,6 +117,11 @@ namespace Foodler.Models
 
         #endregion
 
+        public override string ToString()
+        {
+            return String.Format("{0}, ate coeff: {1}", Name, ParticipantAteCoefficient);
+        }
+
         public bool Equals(Participant other)
         {
             if (other != null && other.Id == Id)

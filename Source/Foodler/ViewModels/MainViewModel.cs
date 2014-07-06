@@ -93,6 +93,7 @@ namespace Foodler.ViewModels
         /// <summary>
         /// Calc total sum and sum for every party participant
         /// </summary>
+        [Obsolete("Use SumUpNew() instead")]
         public void SumUp()
         {
             SumUpNew(); return;
@@ -132,8 +133,8 @@ namespace Foodler.ViewModels
                 var foods = pc.Participant.EatenFood;
                 foreach (var food in foods)
                 {
-                    var equalPrice = food.Price/food.Eaters.Count;
-                    pc.TotalCost += equalPrice;
+                    var equalPrice = food.Price/food.Eaters.Sum(p => p.ParticipantAteCoefficient);
+                    pc.TotalCost += equalPrice * food.Eaters.FirstOrDefault(p => p.Equals(pc.Participant)).ParticipantAteCoefficient;
                 }
             }
 

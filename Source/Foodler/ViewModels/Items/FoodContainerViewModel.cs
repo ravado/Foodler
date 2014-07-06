@@ -94,7 +94,10 @@ namespace Foodler.ViewModels.Items
         }
 
         #endregion
-
+        public override string ToString()
+        {
+            return String.Format("Food: {0}, Total Participants: {1}", Food, Participants.Count);
+        }
         #region IEquatable
 
         public bool Equals(FoodContainerViewModel other)
