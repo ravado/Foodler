@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Linq;
 using System.ServiceModel.Channels;
 using System.Windows;
@@ -17,8 +18,11 @@ namespace Foodler.ViewModels
 
         private IParticipant _selectedParticipant;
         private decimal _foodTotalCost;
-        private bool _isExpandAllOn;
-
+        private bool _isExpandAllFoodOn;
+        private bool _isExpandAllSummaryOn;
+        private bool _isAnyParticipant;
+        private bool _isAnyFood;
+        private bool _isAnyFoodAndParticipant;
         #endregion
 
         #region Properties
@@ -40,19 +44,62 @@ namespace Foodler.ViewModels
                 NotifyPropertyChanged();
             }
         }
-        public bool IsExpandAllOn
+        public bool IsExpandAllFoodOn
         {
-            get { return _isExpandAllOn; }
+            get { return _isExpandAllFoodOn; }
             set
             {
-                _isExpandAllOn = value;
+                _isExpandAllFoodOn = value;
                 if (FoodContainers != null)
                 {
                     foreach (var fc in FoodContainers)
                     {
-                        fc.IsExpanded = _isExpandAllOn;
+                        fc.IsExpanded = _isExpandAllFoodOn;
                     }
                 }
+                NotifyPropertyChanged();
+            }
+        }
+        public bool IsExpandAllSummaryOn
+        {
+            get { return _isExpandAllSummaryOn; }
+            set
+            {
+                _isExpandAllSummaryOn = value;
+                if (ParticipantContainers != null)
+                {
+                    foreach (var pc in ParticipantContainers)
+                    {
+                        pc.IsExpanded = _isExpandAllSummaryOn;
+                    }
+                }
+                NotifyPropertyChanged();
+            }
+        }
+        public bool IsAnyParticipant
+        {
+            get { return _isAnyParticipant; }
+            set
+            {
+                _isAnyParticipant = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public bool IsAnyFood
+        {
+            get { return _isAnyFood; }
+            set
+            {
+                _isAnyFood = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public bool IsAnyFoodAndParticipant
+        {
+            get { return _isAnyFoodAndParticipant; }
+            set
+            {
+                _isAnyFoodAndParticipant = value;
                 NotifyPropertyChanged();
             }
         }
@@ -61,8 +108,26 @@ namespace Foodler.ViewModels
         public MainViewModel()
         {
             Participants = new ObservableCollection<IParticipant>();
+            Participants.CollectionChanged += ParticipantsOnCollectionChanged;
             FoodContainers = new ObservableCollection<FoodContainerViewModel>();
+            FoodContainers.CollectionChanged += FoodContainersOnCollectionChanged;
             ParticipantContainers = new ObservableCollection<ParticipantContainerViewModel>();
+            ParticipantContainers.CollectionChanged += ParticipantContainersOnCollectionChanged;
+        }
+
+        private void ParticipantContainersOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        {
+            IsAnyFoodAndParticipant = ParticipantContainers.Count > 0;
+        }
+
+        private void FoodContainersOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        {
+            IsAnyFood = FoodContainers.Count > 0;
+        }
+
+        private void ParticipantsOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
+        {
+            IsAnyParticipant = Participants.Count > 0;
         }
 
         #region Private Methods
@@ -180,8 +245,8 @@ namespace Foodler.ViewModels
 
         public bool ChangeFoodState(bool expandAll = false)
         {
-            IsExpandAllOn = expandAll;
-            return IsExpandAllOn;
+            IsExpandAllFoodOn = expandAll;
+            return IsExpandAllFoodOn;
         }
 
         #endregion
@@ -279,7 +344,15 @@ namespace Foodler.ViewModels
             FoodContainers.Clear();
             ParticipantContainers.Clear();
             FoodTotalCost = 0;
-            IsExpandAllOn = false;
+            IsExpandAllFoodOn = false;
+        }
+
+
+
+        public bool ChangeSumState(bool expandAll)
+        {
+            IsExpandAllSummaryOn = expandAll;
+            return IsExpandAllSummaryOn;
         }
     }
 }

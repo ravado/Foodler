@@ -306,6 +306,9 @@
     <Content Include="Assets\Icon\food\snack.png" />
     <Content Include="Assets\Icon\food\soup.png" />
     <Content Include="Assets\Icon\enter-key.png" />
+    <Content Include="Assets\no-food.png" />
+    <Content Include="Assets\no-participants.png" />
+    <Content Include="Assets\no-summary.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

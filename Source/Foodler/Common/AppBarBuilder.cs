@@ -98,6 +98,12 @@ namespace Foodler.Common
                     btnRestart.Text = "restart";
                     btnRestart.Click += page.BtnDone_OnClick;
                     _sum.Buttons.Add(btnRestart);
+
+                    var btnExpandCollapse =
+                        new ApplicationBarIconButton(new Uri(Images.AppBarListReorder, UriKind.RelativeOrAbsolute));
+                    btnExpandCollapse.Text = "expand all";
+                    btnExpandCollapse.Click += page.BtnExpandCollapseAll_OnClick;
+                    _sum.Buttons.Add(btnExpandCollapse);
                 }
                 return _sum;
             }

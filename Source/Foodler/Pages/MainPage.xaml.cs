@@ -187,8 +187,8 @@ namespace Foodler.Pages
         internal void BtnToggleFoodEditMode_OnClick(object sender, EventArgs e)
         {
             _autoExpand = true;
-            ViewModel.ChangeFoodState(!ViewModel.IsExpandAllOn);
-            if (ViewModel.IsExpandAllOn)
+            ViewModel.ChangeFoodState(!ViewModel.IsExpandAllFoodOn);
+            if (ViewModel.IsExpandAllFoodOn)
             {
                 //AppBarBuilder.Food.ShowCollapseAll();
             }
@@ -244,6 +244,17 @@ namespace Foodler.Pages
                     ViewModel.RemoveFood(fc);
                 }
             }
+        }
+
+        internal void BtnExpandCollapseAll_OnClick(object sender, EventArgs e)
+        {
+            _autoExpand = true;
+            ViewModel.ChangeSumState(!ViewModel.IsExpandAllSummaryOn);
+            if (ViewModel.IsExpandAllFoodOn)
+            {
+                //AppBarBuilder.Food.ShowCollapseAll();
+            }
+            //else AppBarBuilder.Food.ShowExpandAll();
         }
     }
 }

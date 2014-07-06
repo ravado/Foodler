@@ -257,10 +257,18 @@
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
                             <ListBox 
+                                Visibility="{Binding IsAnyParticipant, Converter={StaticResource VisibilityConverter}}"
                                 Name="ListParticipants"
                                 ItemsSource="{Binding Participants}"
                                 ItemTemplate="{StaticResource SelectedParticipantItemTemplate}">
                             </ListBox>
+                            <Rectangle 
+                                Visibility="{Binding IsAnyParticipant, Converter={StaticResource InVisibilityConverter}}"
+                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
+                                <Rectangle.OpacityMask>
+                                    <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-participants.png"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
                         </Grid>
                     </Grid>
                 </phone:PivotItem>
@@ -271,6 +279,7 @@
                             <RowDefinition Height="*"></RowDefinition>
                         </Grid.RowDefinitions>
                         <ListBox Grid.Row="0"
+                                 Visibility="{Binding IsAnyFood, Converter={StaticResource VisibilityConverter}}"
                                  Name="ListFood"
                                  Tap="ListFood_OnTap"
                                  ItemsSource="{Binding FoodContainers}"
@@ -331,6 +340,13 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
+                        <Rectangle 
+                                Visibility="{Binding IsAnyFood, Converter={StaticResource InVisibilityConverter}}"
+                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
+                            <Rectangle.OpacityMask>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-food.png"/>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
                     </Grid>
                 </phone:PivotItem>
 
@@ -341,6 +357,7 @@
                             <RowDefinition Height="80"></RowDefinition>
                         </Grid.RowDefinitions>
                         <ListBox Grid.Row="0"
+                                 Visibility="{Binding IsAnyFoodAndParticipant, Converter={StaticResource VisibilityConverter}}"
                                  Name="ListSum"
                                  Tap="ListFood_OnTap"
                                  ItemsSource="{Binding ParticipantContainers}"
@@ -369,8 +386,16 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
+                        <Rectangle 
+                                Visibility="{Binding IsAnyFoodAndParticipant, Converter={StaticResource InVisibilityConverter}}"
+                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
+                            <Rectangle.OpacityMask>
+                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-summary.png"/>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
                         <Grid Grid.Row="1" >
                             <StackPanel 
+                                Visibility="{Binding IsAnyFoodAndParticipant, Converter={StaticResource VisibilityConverter}}"
                                 Orientation="Horizontal" 
                                 VerticalAlignment="Center" HorizontalAlignment="Right"
                                 Margin="0 0 10 0">
