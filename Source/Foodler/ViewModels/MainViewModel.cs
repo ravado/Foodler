@@ -270,5 +270,15 @@ namespace Foodler.ViewModels
         {
             FoodContainers.Remove(fc);
         }
+
+        public void Reset()
+        {
+            SelectedParticipant = null;
+            Participants.Clear();
+            FoodContainers.Clear();
+            ParticipantContainers.Clear();
+            FoodTotalCost = 0;
+            IsExpandAllOn = false;
+        }
     }
 }

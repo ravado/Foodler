@@ -14,7 +14,7 @@ namespace Foodler.Common
             {
                 if (_food == null)
                 {
-                    var uriKind = UriKind.RelativeOrAbsolute;
+                    const UriKind uriKind = UriKind.RelativeOrAbsolute;
 
                     _food = new ApplicationBar { IsVisible = true, Mode = ApplicationBarMode.Default };
 

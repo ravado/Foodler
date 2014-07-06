@@ -99,7 +99,14 @@ namespace Foodler.Pages
         internal void BtnDone_OnClick(object sender, EventArgs e)
         {
             Debug.WriteLine("[{0:hh:mm:ss.fff}] GoParticipantTab", DateTime.Now);
+            ViewModel.Reset();
+            ResetPageData();
             SwitchPivot(0);
+        }
+
+        private void ResetPageData()
+        {
+            StateManager.ResetAllData();
         }
 
         // remove participants from "participants" pivot

@@ -92,5 +92,14 @@ namespace Foodler.Common
             }
             set { PhoneApplicationService.Current.State[KEY_FOOD_PRICE] = value; }
         }
+
+        internal static void ResetAllData()
+        {
+            FoodPrice = default(decimal);
+            InvolvedParticipants = null;
+            FoodContainer = null;
+            SelectedAnonymous = null;
+            SelectedParticipants = null;
+        }
     }
 }
