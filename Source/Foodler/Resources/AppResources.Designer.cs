@@ -70,7 +70,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to collapse.
+        ///   Looks up a localized string similar to collapse all.
         /// </summary>
         public static string AppBarMainPageFoodTabCollapseBtn {
             get {
@@ -79,7 +79,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to expand.
+        ///   Looks up a localized string similar to expand all.
         /// </summary>
         public static string AppBarMainPageFoodTabExpandBtn {
             get {

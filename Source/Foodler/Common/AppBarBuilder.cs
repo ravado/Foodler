@@ -93,17 +93,17 @@ namespace Foodler.Common
                 {
                     _sum = new ApplicationBar { IsVisible = true, Mode = ApplicationBarMode.Default };
 
-                    var btnRestart =
-                        new ApplicationBarIconButton(new Uri(Images.AppBarRefresh, UriKind.RelativeOrAbsolute));
-                    btnRestart.Text = "restart";
-                    btnRestart.Click += page.BtnDone_OnClick;
-                    _sum.Buttons.Add(btnRestart);
-
-                    var btnExpandCollapse =
+                   var btnExpandCollapse =
                         new ApplicationBarIconButton(new Uri(Images.AppBarListReorder, UriKind.RelativeOrAbsolute));
                     btnExpandCollapse.Text = "expand all";
                     btnExpandCollapse.Click += page.BtnExpandCollapseAll_OnClick;
                     _sum.Buttons.Add(btnExpandCollapse);
+
+                    var btnRestart =
+                       new ApplicationBarIconButton(new Uri(Images.AppBarRefresh, UriKind.RelativeOrAbsolute));
+                    btnRestart.Text = "restart";
+                    btnRestart.Click += page.BtnDone_OnClick;
+                    _sum.Buttons.Add(btnRestart);
                 }
                 return _sum;
             }

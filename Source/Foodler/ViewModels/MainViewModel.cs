@@ -195,6 +195,7 @@ namespace Foodler.ViewModels
         {
             foreach (var pc in ParticipantContainers)
             {
+                pc.TotalCost = 0;
                 var foods = pc.Participant.EatenFood;
                 foreach (var food in foods)
                 {

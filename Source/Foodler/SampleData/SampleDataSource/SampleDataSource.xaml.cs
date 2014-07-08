@@ -193,6 +193,63 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private bool _IsAnyFood = false;
+
+		public bool IsAnyFood
+		{
+			get
+			{
+				return this._IsAnyFood;
+			}
+
+			set
+			{
+				if (this._IsAnyFood != value)
+				{
+					this._IsAnyFood = value;
+					this.OnPropertyChanged("IsAnyFood");
+				}
+			}
+		}
+
+		private bool _IsAnyFoodAndParticipant = false;
+
+		public bool IsAnyFoodAndParticipant
+		{
+			get
+			{
+				return this._IsAnyFoodAndParticipant;
+			}
+
+			set
+			{
+				if (this._IsAnyFoodAndParticipant != value)
+				{
+					this._IsAnyFoodAndParticipant = value;
+					this.OnPropertyChanged("IsAnyFoodAndParticipant");
+				}
+			}
+		}
+
+		private bool _IsAnyParticipant = false;
+
+		public bool IsAnyParticipant
+		{
+			get
+			{
+				return this._IsAnyParticipant;
+			}
+
+			set
+			{
+				if (this._IsAnyParticipant != value)
+				{
+					this._IsAnyParticipant = value;
+					this.OnPropertyChanged("IsAnyParticipant");
+				}
+			}
+		}
 	}
 
 	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>
@@ -507,6 +564,16 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private EatenFood _EatenFood = new EatenFood();
+
+		public EatenFood EatenFood
+		{
+			get
+			{
+				return this._EatenFood;
+			}
+		}
+
 		private string _Name = string.Empty;
 
 		public string Name
@@ -526,16 +593,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
-		private EatenFood _EatenFood = new EatenFood();
-
-		public EatenFood EatenFood
-		{
-			get
-			{
-				return this._EatenFood;
-			}
-		}
-
 		private System.Windows.Media.ImageSource _Avatar = null;
 
 		public System.Windows.Media.ImageSource Avatar
@@ -551,6 +608,61 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				{
 					this._Avatar = value;
 					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+	}
+
+	public class EatenFood : System.Collections.ObjectModel.ObservableCollection<EatenFoodItem>
+	{ 
+	}
+
+	public class EatenFoodItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private string _Price = string.Empty;
+
+		public string Price
+		{
+			get
+			{
+				return this._Price;
+			}
+
+			set
+			{
+				if (this._Price != value)
+				{
+					this._Price = value;
+					this.OnPropertyChanged("Price");
 				}
 			}
 		}
@@ -1010,61 +1122,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
-	}
-
-	public class EatenFoodItem : System.ComponentModel.INotifyPropertyChanged
-	{
-		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-
-		protected virtual void OnPropertyChanged(string propertyName)
-		{
-			if (this.PropertyChanged != null)
-			{
-				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-			}
-		}
-
-		private string _Name = string.Empty;
-
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-
-			set
-			{
-				if (this._Name != value)
-				{
-					this._Name = value;
-					this.OnPropertyChanged("Name");
-				}
-			}
-		}
-
-		private string _Price = string.Empty;
-
-		public string Price
-		{
-			get
-			{
-				return this._Price;
-			}
-
-			set
-			{
-				if (this._Price != value)
-				{
-					this._Price = value;
-					this.OnPropertyChanged("Price");
-				}
-			}
-		}
-	}
-
-	public class EatenFood : System.Collections.ObjectModel.ObservableCollection<EatenFoodItem>
-	{ 
 	}
 #endif
 }

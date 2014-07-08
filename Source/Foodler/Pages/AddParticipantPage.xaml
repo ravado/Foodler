@@ -160,8 +160,8 @@
                 IsEnabled="True"/>
             <shell:ApplicationBarIconButton 
                 x:Name="ClearAllSelectedBtn"
-                IconUri="/Assets/AppBar/delete.png" 
-                Text="clear" 
+                IconUri="/Assets/AppBar/transform-rotate-counterclockwise.png" 
+                Text="unselect all" 
                 Click="ClearAllSelectedBtn_OnClick"
                 IsEnabled="True"/>
             <shell:ApplicationBar.MenuItems>

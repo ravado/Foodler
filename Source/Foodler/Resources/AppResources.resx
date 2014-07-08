@@ -189,9 +189,9 @@ Paul
 Kevin</value>
   </data>
   <data name="AppBarMainPageFoodTabCollapseBtn" xml:space="preserve">
-    <value>collapse</value>
+    <value>collapse all</value>
   </data>
   <data name="AppBarMainPageFoodTabExpandBtn" xml:space="preserve">
-    <value>expand</value>
+    <value>expand all</value>
   </data>
 </root>

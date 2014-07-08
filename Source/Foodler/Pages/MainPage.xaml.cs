@@ -124,6 +124,12 @@ namespace Foodler.Pages
         {
             Debug.WriteLine("[{0:hh:mm:ss.fff}] Selection Changed To " + MainPivot.SelectedIndex, DateTime.Now);
             SetApplicationBarForPivot((MainPivotPage)MainPivot.SelectedIndex);
+            
+            // sum page
+            if (MainPivot.SelectedIndex == 2) 
+            {
+                ViewModel.SumUpNew();
+            }
         }
 
         #endregion
