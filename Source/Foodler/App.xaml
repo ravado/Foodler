@@ -630,7 +630,6 @@
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
                             <Border 
-                                Padding="5"
                                 Grid.Column="0"
                                 CornerRadius="37"
                                 Background="{StaticResource PhoneBorderBrush}"
@@ -638,13 +637,13 @@
                                 <Grid 
                                     HorizontalAlignment="Center">
                                     <Image
-                                        Width="56" Height="56"
+                                        Width="74" Height="74"
                                         Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}">
                                         <Image.Clip>
                                             <EllipseGeometry
-                                                Center="28,28"
-                                                RadiusX="28"
-                                                RadiusY="28" />
+                                                Center="38,38"
+                                                RadiusX="38"
+                                                RadiusY="38" />
                                         </Image.Clip>
                                     </Image>
                                 </Grid>
