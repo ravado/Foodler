@@ -32,6 +32,7 @@ namespace Foodler.Pages
             ResetPageData();
             ViewModel.Initialize(StateManager.InvolvedParticipants, StateManager.FoodContainer, _ignoreFood);
             MarkSelectedParticipants();
+            ApplicationBar = AppBarBuilder.AddFood.GetAppBar(this);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
@@ -74,7 +75,7 @@ namespace Foodler.Pages
 
         #region Callbacks
 
-        private void DoneButtonClick(object sender, EventArgs e)
+        internal void DoneButtonClick(object sender, EventArgs e)
         {
             if (ViewModel.IsValid)
             {
@@ -173,13 +174,13 @@ namespace Foodler.Pages
 
         #endregion
 
-        private void AppBarResetAll_OnClick(object sender, EventArgs e)
+        internal void AppBarResetAll_OnClick(object sender, EventArgs e)
         {
             ViewModel.Reset();
             ResetPageData();
         }
 
-        private void AppBarAddAteRange_OnClick(object sender, EventArgs e)
+        internal void AppBarAddAteRange_OnClick(object sender, EventArgs e)
         {
             var btn = GetAteRangeAppBarButton();
             if (ViewModel.AteRangeActivated)
@@ -200,7 +201,7 @@ namespace Foodler.Pages
             }
         }
 
-        private void AppBarSelectAll_OnClick(object sender, EventArgs e)
+        internal void AppBarSelectAll_OnClick(object sender, EventArgs e)
         {
             NewJokesMultiSelector.SelectedItems.Clear();
             foreach (var p in ViewModel.Participants)

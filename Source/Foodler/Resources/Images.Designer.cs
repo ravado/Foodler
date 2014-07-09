@@ -112,6 +112,42 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/mask-anonymous.png.
+        /// </summary>
+        internal static string AppBarAnonymous {
+            get {
+                return ResourceManager.GetString("AppBarAnonymous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/user-minus.png.
+        /// </summary>
+        internal static string AppBarAteRangeOff {
+            get {
+                return ResourceManager.GetString("AppBarAteRangeOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/user-add.png.
+        /// </summary>
+        internal static string AppBarAteRangeOn {
+            get {
+                return ResourceManager.GetString("AppBarAteRangeOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/check.png.
+        /// </summary>
+        internal static string AppBarDone {
+            get {
+                return ResourceManager.GetString("AppBarDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /Assets/AppBar/edit.png.
         /// </summary>
         internal static string AppBarEdit {
@@ -162,6 +198,24 @@ namespace Foodler.Resources {
         internal static string AppBarRefresh {
             get {
                 return ResourceManager.GetString("AppBarRefresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/transform-rotate-counterclockwise.png.
+        /// </summary>
+        internal static string AppBarReset {
+            get {
+                return ResourceManager.GetString("AppBarReset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/people-multiple.png.
+        /// </summary>
+        internal static string AppBarSelectAll {
+            get {
+                return ResourceManager.GetString("AppBarSelectAll", resourceCulture);
             }
         }
         

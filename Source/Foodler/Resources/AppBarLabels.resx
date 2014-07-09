@@ -117,139 +117,58 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AnimalsNonStroked" xml:space="preserve">
-    <value>Assets/Icon/Animals/NonStroked/bird.png
-Assets/Icon/Animals/NonStroked/bull.png
-Assets/Icon/Animals/NonStroked/cat.png
-Assets/Icon/Animals/NonStroked/cow.png
-Assets/Icon/Animals/NonStroked/dog.png
-Assets/Icon/Animals/NonStroked/duck.png
-Assets/Icon/Animals/NonStroked/elephant.png
-Assets/Icon/Animals/NonStroked/fish.png
-Assets/Icon/Animals/NonStroked/horse.png
-Assets/Icon/Animals/NonStroked/ladybug.png
-Assets/Icon/Animals/NonStroked/leopard.png
-Assets/Icon/Animals/NonStroked/lion.png
-Assets/Icon/Animals/NonStroked/lobster.png
-Assets/Icon/Animals/NonStroked/rabbit.png
-Assets/Icon/Animals/NonStroked/snail.png
-Assets/Icon/Animals/NonStroked/turtle.png</value>
+  <data name="AddFoodPage_AteRangeOff" xml:space="preserve">
+    <value>ate range</value>
   </data>
-  <data name="AnimalsStroked" xml:space="preserve">
-    <value>/Assets/Icon/Animals/Stroked/bird.png
-/Assets/Icon/Animals/Stroked/bull.png
-/Assets/Icon/Animals/Stroked/cat.png
-/Assets/Icon/Animals/Stroked/cow.png
-/Assets/Icon/Animals/Stroked/dog.png
-/Assets/Icon/Animals/Stroked/duck.png
-/Assets/Icon/Animals/Stroked/elephant.png
-/Assets/Icon/Animals/Stroked/fish.png
-/Assets/Icon/Animals/Stroked/horse.png
-/Assets/Icon/Animals/Stroked/ladybug.png
-/Assets/Icon/Animals/Stroked/leopard.png
-/Assets/Icon/Animals/Stroked/lion.png
-/Assets/Icon/Animals/Stroked/lobster.png
-/Assets/Icon/Animals/Stroked/rabbit.png
-/Assets/Icon/Animals/Stroked/snail.png
-/Assets/Icon/Animals/Stroked/turtle.png</value>
+  <data name="AddFoodPage_AteRangeOn" xml:space="preserve">
+    <value>ate range</value>
   </data>
-  <data name="AppBarAdd" xml:space="preserve">
-    <value>/Assets/AppBar/add.png</value>
+  <data name="AddFoodPage_Done" xml:space="preserve">
+    <value>done</value>
   </data>
-  <data name="AppBarAnonymous" xml:space="preserve">
-    <value>/Assets/AppBar/mask-anonymous.png</value>
+  <data name="AddFoodPage_ResetAll" xml:space="preserve">
+    <value>reset all</value>
   </data>
-  <data name="AppBarAteRangeOff" xml:space="preserve">
-    <value>/Assets/AppBar/user-minus.png</value>
+  <data name="AddFoodPage_SelectAll" xml:space="preserve">
+    <value>select all</value>
   </data>
-  <data name="AppBarAteRangeOn" xml:space="preserve">
-    <value>/Assets/AppBar/user-add.png</value>
+  <data name="AddParticipantsPage_AvailableAnonymous" xml:space="preserve">
+    <value>anonymous</value>
   </data>
-  <data name="AppBarDone" xml:space="preserve">
-    <value>/Assets/AppBar/check.png</value>
+  <data name="AddParticipantsPage_AvailableDone" xml:space="preserve">
+    <value>done</value>
   </data>
-  <data name="AppBarEdit" xml:space="preserve">
-    <value>/Assets/AppBar/edit.png</value>
+  <data name="AddParticipantsPage_AvailableUnselectAll" xml:space="preserve">
+    <value>unselect all</value>
   </data>
-  <data name="AppBarList" xml:space="preserve">
-    <value>/Assets/AppBar/list.png</value>
+  <data name="AddParticipantsPage_AvailableUpdateContacts" xml:space="preserve">
+    <value>update contacts</value>
   </data>
-  <data name="AppBarListPeopleMultiply" xml:space="preserve">
-    <value>/Assets/AppBar/people-multiple.png</value>
+  <data name="MainPage_FoodAdd" xml:space="preserve">
+    <value>add</value>
   </data>
-  <data name="AppBarListReorder" xml:space="preserve">
-    <value>/Assets/AppBar/list-reorder.png</value>
+  <data name="MainPage_FoodCollapseAll" xml:space="preserve">
+    <value>collapse all</value>
   </data>
-  <data name="AppBarNext" xml:space="preserve">
-    <value>/Assets/AppBar/next.png</value>
+  <data name="MainPage_FoodExpandAll" xml:space="preserve">
+    <value>expand all</value>
   </data>
-  <data name="AppBarRefresh" xml:space="preserve">
-    <value>/Assets/AppBar/refresh.png</value>
+  <data name="MainPage_FoodNext" xml:space="preserve">
+    <value>next</value>
   </data>
-  <data name="AppBarReset" xml:space="preserve">
-    <value>/Assets/AppBar/transform-rotate-counterclockwise.png</value>
+  <data name="MainPage_ParticipantsAdd" xml:space="preserve">
+    <value>add</value>
   </data>
-  <data name="AppBarSelectAll" xml:space="preserve">
-    <value>/Assets/AppBar/people-multiple.png</value>
+  <data name="MainPage_ParticipantsNext" xml:space="preserve">
+    <value>next</value>
   </data>
-  <data name="FoodBeer" xml:space="preserve">
-    <value>/Assets/Icon/food/beer.png</value>
+  <data name="MainPage_SumCollapseAll" xml:space="preserve">
+    <value>collapse all</value>
   </data>
-  <data name="FoodCake" xml:space="preserve">
-    <value>/Assets/Icon/food/cake.png</value>
+  <data name="MainPage_SumExpandAll" xml:space="preserve">
+    <value>expand all</value>
   </data>
-  <data name="FoodChampain" xml:space="preserve">
-    <value>/Assets/Icon/food/champain.png</value>
-  </data>
-  <data name="FoodCocktail" xml:space="preserve">
-    <value>/Assets/Icon/food/cocktail.png</value>
-  </data>
-  <data name="FoodCoffe" xml:space="preserve">
-    <value>/Assets/Icon/food/coffe.png</value>
-  </data>
-  <data name="FoodFastFood" xml:space="preserve">
-    <value>/Assets/Icon/food/fast-food.png</value>
-  </data>
-  <data name="FoodFries" xml:space="preserve">
-    <value>/Assets/Icon/food/fries.png</value>
-  </data>
-  <data name="FoodFruit" xml:space="preserve">
-    <value>/Assets/Icon/food/fruit.png</value>
-  </data>
-  <data name="FoodHealthyFood" xml:space="preserve">
-    <value>/Assets/Icon/food/healthy-food.png</value>
-  </data>
-  <data name="FoodIceCream" xml:space="preserve">
-    <value>/Assets/Icon/food/ice-cream.png</value>
-  </data>
-  <data name="FoodPizza" xml:space="preserve">
-    <value>/Assets/Icon/food/pizza.png</value>
-  </data>
-  <data name="FoodRefreshments" xml:space="preserve">
-    <value>/Assets/Icon/food/refreshments.png</value>
-  </data>
-  <data name="FoodSeafood" xml:space="preserve">
-    <value>/Assets/Icon/food/seafood.png</value>
-  </data>
-  <data name="FoodSnack" xml:space="preserve">
-    <value>/Assets/Icon/food/snack.png</value>
-  </data>
-  <data name="FoodSoup" xml:space="preserve">
-    <value>/Assets/Icon/food/soup.png</value>
-  </data>
-  <data name="FoodSushi" xml:space="preserve">
-    <value>/Assets/Icon/food/sushi.png</value>
-  </data>
-  <data name="FoodVine" xml:space="preserve">
-    <value>/Assets/Icon/food/vine.png</value>
-  </data>
-  <data name="NonStrokedBird" xml:space="preserve">
-    <value>/Assets/Icon/animals/non-stroked/bird.png</value>
-  </data>
-  <data name="NonStrokedCat" xml:space="preserve">
-    <value>/Assets/Icon/animals/non-stroked/cat.png</value>
-  </data>
-  <data name="NonStrokedFish" xml:space="preserve">
-    <value>/Assets/Icon/animals/non-stroked/fish.png</value>
+  <data name="MainPage_SumRestart" xml:space="preserve">
+    <value>restart</value>
   </data>
 </root>

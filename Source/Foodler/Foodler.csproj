@@ -134,10 +134,20 @@
     <Compile Include="Pages\PivotPage1.xaml.cs">
       <DependentUpon>PivotPage1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\AppBarLabels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppBarLabels.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UILabels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UILabels.resx</DependentUpon>
     </Compile>
     <Compile Include="SampleData\SampleDataSource\SampleDataSource.xaml.cs">
       <DependentUpon>SampleDataSource.xaml</DependentUpon>
@@ -313,6 +323,10 @@
     <Content Include="Assets\AppBar\delete.png" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\AppBarLabels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppBarLabels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
@@ -321,6 +335,10 @@
     <EmbeddedResource Include="Resources\Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UILabels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UILabels.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

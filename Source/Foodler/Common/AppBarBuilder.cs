@@ -19,17 +19,17 @@ namespace Foodler.Common
                     _food = new ApplicationBar { IsVisible = true, Mode = ApplicationBarMode.Default };
 
                     var btnAdd = new ApplicationBarIconButton(new Uri(Images.AppBarAdd, uriKind));
-                    btnAdd.Text = "add";
+                    btnAdd.Text = AppBarLabels.MainPage_FoodAdd;
                     btnAdd.Click += page.BtnAddFood_OnClick;
                     _food.Buttons.Add(btnAdd);
 
                     var btnEdit = new ApplicationBarIconButton(new Uri(Images.AppBarListReorder, uriKind));
-                    btnEdit.Text = AppResources.AppBarMainPageFoodTabExpandBtn;
+                    btnEdit.Text = AppBarLabels.MainPage_FoodExpandAll;
                     btnEdit.Click += page.BtnToggleFoodEditMode_OnClick;
                     _food.Buttons.Add(btnEdit);
 
                     var btnNext = new ApplicationBarIconButton(new Uri(Images.AppBarNext, uriKind));
-                    btnNext.Text = "next";
+                    btnNext.Text = AppBarLabels.MainPage_FoodNext;
                     btnNext.Click += page.BtnGoSumTab_OnClick;
                     _food.Buttons.Add(btnNext);
                 }
@@ -43,7 +43,7 @@ namespace Foodler.Common
                     return;
 
                 btn.IconUri = new Uri(Images.AppBarListReorder, UriKind.RelativeOrAbsolute);
-                btn.Text = AppResources.AppBarMainPageFoodTabExpandBtn;
+                btn.Text = AppBarLabels.MainPage_FoodExpandAll;
             }
 
             public static void ShowCollapseAll()
@@ -54,7 +54,7 @@ namespace Foodler.Common
                     return;
 
                 btn.IconUri = new Uri(Images.AppBarList, UriKind.RelativeOrAbsolute);
-                btn.Text = AppResources.AppBarMainPageFoodTabCollapseBtn;
+                btn.Text = AppBarLabels.MainPage_FoodCollapseAll;
             }
         }
 
@@ -68,13 +68,13 @@ namespace Foodler.Common
                     _participants = new ApplicationBar { IsVisible = true, Mode = ApplicationBarMode.Default };
 
                     var btnAdd = new ApplicationBarIconButton(new Uri(Images.AppBarAdd, UriKind.RelativeOrAbsolute));
-                    btnAdd.Text = "add";
+                    btnAdd.Text = AppBarLabels.MainPage_ParticipantsAdd;
                     btnAdd.Click += page.BtnAddParticipants_OnClick;
                     _participants.Buttons.Add(btnAdd);
 
                     var btnNext =
                         new ApplicationBarIconButton(new Uri(Images.AppBarNext, UriKind.RelativeOrAbsolute));
-                    btnNext.Text = "next";
+                    btnNext.Text = AppBarLabels.MainPage_ParticipantsNext;
                     btnNext.Click += page.BtnGoFoodTab_OnClick;
                     _participants.Buttons.Add(btnNext);
                 }
@@ -95,17 +95,89 @@ namespace Foodler.Common
 
                    var btnExpandCollapse =
                         new ApplicationBarIconButton(new Uri(Images.AppBarListReorder, UriKind.RelativeOrAbsolute));
-                    btnExpandCollapse.Text = "expand all";
+                    btnExpandCollapse.Text = AppBarLabels.MainPage_SumExpandAll;
                     btnExpandCollapse.Click += page.BtnExpandCollapseAll_OnClick;
                     _sum.Buttons.Add(btnExpandCollapse);
 
                     var btnRestart =
                        new ApplicationBarIconButton(new Uri(Images.AppBarRefresh, UriKind.RelativeOrAbsolute));
-                    btnRestart.Text = "restart";
+                    btnRestart.Text = AppBarLabels.MainPage_SumRestart;
                     btnRestart.Click += page.BtnDone_OnClick;
                     _sum.Buttons.Add(btnRestart);
                 }
                 return _sum;
+            }
+        }
+
+        public static class AddParticipants
+        {
+            private static ApplicationBar _addParticipantsBar;
+
+            public static ApplicationBar GetAppBar(AddParticipantPage page)
+            {
+                if (_addParticipantsBar == null)
+                {
+                    _addParticipantsBar = new ApplicationBar { IsVisible = true, Mode = ApplicationBarMode.Default };
+
+                    var btnDone =
+                         new ApplicationBarIconButton(new Uri(Images.AppBarDone, UriKind.RelativeOrAbsolute));
+                    btnDone.Text = AppBarLabels.AddParticipantsPage_AvailableDone;
+                    btnDone.Click += page.AcceptChangesBtn_OnClick;
+                    _addParticipantsBar.Buttons.Add(btnDone);
+
+                    var btnAnonymous =
+                       new ApplicationBarIconButton(new Uri(Images.AppBarAnonymous, UriKind.RelativeOrAbsolute));
+                    btnAnonymous.Text = AppBarLabels.AddParticipantsPage_AvailableAnonymous;
+                    btnAnonymous.Click += page.AddAnonymousBtn_OnClick;
+                    _addParticipantsBar.Buttons.Add(btnAnonymous);
+
+                    var btnResetAll =
+                       new ApplicationBarIconButton(new Uri(Images.AppBarReset, UriKind.RelativeOrAbsolute));
+                    btnResetAll.Text = AppBarLabels.AddParticipantsPage_AvailableUnselectAll;
+                    btnResetAll.Click += page.ClearAllSelectedBtn_OnClick;
+
+                    _addParticipantsBar.Buttons.Add(btnResetAll);
+                }
+                return _addParticipantsBar;
+            }
+        }
+
+        public static class AddFood
+        {
+            private static ApplicationBar _addFoodBar;
+
+            public static ApplicationBar GetAppBar(AddFoodPage page)
+            {
+                if (_addFoodBar == null)
+                {
+                    _addFoodBar = new ApplicationBar { IsVisible = true, Mode = ApplicationBarMode.Default };
+
+                    var btnDone =
+                         new ApplicationBarIconButton(new Uri(Images.AppBarDone, UriKind.RelativeOrAbsolute));
+                    btnDone.Text = AppBarLabels.AddFoodPage_Done;
+                    btnDone.Click += page.DoneButtonClick;
+                    _addFoodBar.Buttons.Add(btnDone);
+
+                    var btnAteRange =
+                       new ApplicationBarIconButton(new Uri(Images.AppBarAteRangeOn, UriKind.RelativeOrAbsolute));
+                    btnAteRange.Text = AppBarLabels.AddFoodPage_AteRangeOn;
+                    btnAteRange.IsEnabled = false;
+                    btnAteRange.Click += page.AppBarAddAteRange_OnClick;
+                    _addFoodBar.Buttons.Add(btnAteRange);
+
+                    var btnSelectAll =
+                       new ApplicationBarIconButton(new Uri(Images.AppBarSelectAll, UriKind.RelativeOrAbsolute));
+                    btnSelectAll.Text = AppBarLabels.AddFoodPage_SelectAll;
+                    btnSelectAll.Click += page.AppBarSelectAll_OnClick;
+                    _addFoodBar.Buttons.Add(btnSelectAll);
+
+                    var btnResetAll =
+                       new ApplicationBarIconButton(new Uri(Images.AppBarReset, UriKind.RelativeOrAbsolute));
+                    btnResetAll.Text = AppBarLabels.AddFoodPage_ResetAll;
+                    btnResetAll.Click += page.AppBarResetAll_OnClick;
+                    _addFoodBar.Buttons.Add(btnResetAll);
+                }
+                return _addFoodBar;
             }
         }
     }

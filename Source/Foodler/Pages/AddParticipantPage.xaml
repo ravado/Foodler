@@ -144,7 +144,7 @@
 
         </Grid>
     </Grid>
-    <phone:PhoneApplicationPage.ApplicationBar>
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>
             <shell:ApplicationBarIconButton 
                 x:Name="AcceptChangesBtn"
@@ -168,6 +168,6 @@
                 <shell:ApplicationBarMenuItem Text="update contacts" IsEnabled="False"/>
             </shell:ApplicationBar.MenuItems>
         </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 </phone:PhoneApplicationPage>
     

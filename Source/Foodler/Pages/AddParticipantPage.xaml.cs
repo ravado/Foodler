@@ -22,6 +22,7 @@ namespace Foodler.Pages
             ViewModel = new AddParticipantsViewModel(new ParticipantService());
             DataContext = ViewModel;
             ViewModel.RemovedParticipant += RemovedParticipant;
+            ApplicationBar = AppBarBuilder.AddParticipants.GetAppBar(this);
         }
 
         private void RemovedParticipant(IParticipant participant)
@@ -164,7 +165,7 @@ namespace Foodler.Pages
 
         #region Application Bar
 
-        private void AcceptChangesBtn_OnClick(object sender, EventArgs e)
+        internal void AcceptChangesBtn_OnClick(object sender, EventArgs e)
         {
             if (NavigationService.CanGoBack)
             {
@@ -172,12 +173,12 @@ namespace Foodler.Pages
             }
         }
 
-        private void AddAnonymousBtn_OnClick(object sender, EventArgs e)
+        internal void AddAnonymousBtn_OnClick(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/AddAnonymousParticipant.xaml", UriKind.RelativeOrAbsolute));
         }
 
-        private void ClearAllSelectedBtn_OnClick(object sender, EventArgs e)
+        internal void ClearAllSelectedBtn_OnClick(object sender, EventArgs e)
         {
             if (ViewModel.ClearAllCommand.CanExecute(null))
             {
