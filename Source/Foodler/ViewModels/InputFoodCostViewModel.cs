@@ -108,5 +108,10 @@ namespace Foodler.ViewModels
             FoodPrice = decimal.Parse(str);
         }
         #endregion
+
+        public override void InitLabels()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

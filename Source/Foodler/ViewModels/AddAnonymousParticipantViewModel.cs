@@ -132,5 +132,10 @@ namespace Foodler.ViewModels
         }
 
         #endregion
+
+        public override void InitLabels()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

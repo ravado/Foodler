@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Linq;
-using System.ServiceModel.Channels;
-using System.Windows;
 using Foodler.Common.Contracts;
 using Foodler.Models;
+using Foodler.Resources;
 using Foodler.ViewModels.Common;
 using Foodler.ViewModels.Items;
 using System.Collections.Generic;
@@ -103,6 +102,15 @@ namespace Foodler.ViewModels
                 NotifyPropertyChanged();
             }
         }
+
+        #region Labels
+        
+        #endregion
+
+        public string ParticipantsTabLabel { get; set; }
+        public string FoodTabLabel { get; set; }
+        public string SummaryTabLabel { get; set; }
+
         #endregion
 
         public MainViewModel()
@@ -114,7 +122,50 @@ namespace Foodler.ViewModels
             ParticipantContainers = new ObservableCollection<ParticipantContainerViewModel>();
             ParticipantContainers.CollectionChanged += ParticipantContainersOnCollectionChanged;
         }
+ 
+        #region Private Methods
 
+        private void UpdateTotalCost()
+        {
+            var cost = 0.0m;
+            if (FoodContainers != null)
+            {
+                cost += FoodContainers.Where(food => food.Food != null).Sum(food => food.Food.Price);
+            }
+            FoodTotalCost = cost;
+        }
+
+        private void RearangeParticipantContainers()
+        {
+            // magic logic here, do not touch until real nessecery!
+
+            ParticipantContainers.Clear();
+            var foods = FoodContainers.Select(f => f.Food).ToArray();
+            var eaters = new List<IParticipant>();
+
+            foreach (var e in foods.SelectMany(f => f.Eaters))
+            {
+                if (!eaters.Contains(e))
+                    eaters.Add(e);
+            }
+
+            foreach (var eater in eaters)
+            {
+                foreach (var food in foods)
+                {
+                    if (food.Eaters.Contains(eater))
+                        if (!eater.EatenFood.Contains(food))
+                            eater.EatenFood.Add(food);
+                }
+            }
+
+            foreach (var participant in eaters)
+            {
+                ParticipantContainers.Add(new ParticipantContainerViewModel(participant, participant.EatenFood));
+            }
+        }
+
+        #region Callbacks
         private void ParticipantContainersOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs notifyCollectionChangedEventArgs)
         {
             IsAnyFoodAndParticipant = ParticipantContainers.Count > 0;
@@ -130,20 +181,6 @@ namespace Foodler.ViewModels
             IsAnyParticipant = Participants.Count > 0;
         }
 
-        #region Private Methods
-
-        private void UpdateTotalCost()
-        {
-            var cost = 0.0m;
-            if (FoodContainers != null)
-            {
-                cost += FoodContainers.Where(food => food.Food != null).Sum(food => food.Food.Price);
-            }
-            FoodTotalCost = cost;
-        }
-
-        #region Callbacks
-
         #endregion
 
         #endregion
@@ -154,6 +191,13 @@ namespace Foodler.ViewModels
         /// Basic initialization
         /// </summary>
         public void Initialize() { }
+        
+        public override void InitLabels()
+        {
+            ParticipantsTabLabel = UILabels.MainPage_ParticipantsTabHeader;
+            SummaryTabLabel = UILabels.MainPage_SummaryTabHeader;
+            FoodTabLabel = UILabels.MainPage_FoodTabHeader;
+        }
 
         /// <summary>
         /// Calc total sum and sum for every party participant
@@ -250,8 +294,6 @@ namespace Foodler.ViewModels
             return IsExpandAllFoodOn;
         }
 
-        #endregion
-
         public void AddFoodContainer(FoodContainerViewModel foodContainer)
         {
             var eaters = foodContainer.Food.Eaters.ToList();
@@ -288,35 +330,6 @@ namespace Foodler.ViewModels
             RearangeParticipantContainers();
         }
 
-        private void RearangeParticipantContainers()
-        {
-            // magic logic here, do not touch until real nessecery!
-
-            ParticipantContainers.Clear();
-            var foods = FoodContainers.Select(f => f.Food).ToArray();
-            var eaters = new List<IParticipant>();
-
-            foreach (var e in foods.SelectMany(f => f.Eaters))
-            {
-                if (!eaters.Contains(e))
-                    eaters.Add(e);
-            }
-
-            foreach (var eater in eaters)
-            {
-                foreach (var food in foods)
-                {
-                    if (food.Eaters.Contains(eater))
-                        if (!eater.EatenFood.Contains(food))
-                            eater.EatenFood.Add(food);
-                }
-            }
-
-            foreach (var participant in eaters)
-            {
-                ParticipantContainers.Add(new ParticipantContainerViewModel(participant, participant.EatenFood));
-            }
-        }
         public bool IsAllFoodExpanded
         {
             get
@@ -348,12 +361,12 @@ namespace Foodler.ViewModels
             IsExpandAllFoodOn = false;
         }
 
-
-
         public bool ChangeSumState(bool expandAll)
         {
             IsExpandAllSummaryOn = expandAll;
             return IsExpandAllSummaryOn;
         }
+
+        #endregion
     }
 }

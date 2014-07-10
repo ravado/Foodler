@@ -279,5 +279,10 @@ namespace Foodler.ViewModels
             AteRangeActivated = false;
             UpdateActivatedAteCoefficientOnParticipants(AteRangeActivated);
         }
+
+        public override void InitLabels()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

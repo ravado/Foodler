@@ -3,9 +3,11 @@ using System.Runtime.CompilerServices;
 
 namespace Foodler.ViewModels.Common
 {
-    public class BaseViewModel:INotifyPropertyChanged
+    public abstract class BaseViewModel:INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public abstract void InitLabels();
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {

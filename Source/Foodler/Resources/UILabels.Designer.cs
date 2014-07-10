@@ -59,5 +59,32 @@ namespace Foodler.Resources {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to food.
+        /// </summary>
+        internal static string MainPage_FoodTabHeader {
+            get {
+                return ResourceManager.GetString("MainPage_FoodTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to participants.
+        /// </summary>
+        internal static string MainPage_ParticipantsTabHeader {
+            get {
+                return ResourceManager.GetString("MainPage_ParticipantsTabHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sum.
+        /// </summary>
+        internal static string MainPage_SummaryTabHeader {
+            get {
+                return ResourceManager.GetString("MainPage_SummaryTabHeader", resourceCulture);
+            }
+        }
     }
 }

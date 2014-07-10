@@ -24,6 +24,9 @@
     <xs:attribute name="IsAnyFood" type="xs:boolean" />
     <xs:attribute name="IsAnyFoodAndParticipant" type="xs:boolean" />
     <xs:attribute name="IsAnyParticipant" type="xs:boolean" />
+    <xs:attribute blend:FormatParameters="1,3" name="ParticipantsTabLabel" type="xs:string" />
+    <xs:attribute blend:FormatParameters="1,3" name="FoodTabLabel" type="xs:string" />
+    <xs:attribute blend:FormatParameters="1,3" name="SummaryTabLabel" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="Participants">
     <xs:sequence>

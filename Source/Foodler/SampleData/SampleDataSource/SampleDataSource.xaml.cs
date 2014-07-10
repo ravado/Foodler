@@ -250,6 +250,63 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private string _ParticipantsTabLabel = string.Empty;
+
+		public string ParticipantsTabLabel
+		{
+			get
+			{
+				return this._ParticipantsTabLabel;
+			}
+
+			set
+			{
+				if (this._ParticipantsTabLabel != value)
+				{
+					this._ParticipantsTabLabel = value;
+					this.OnPropertyChanged("ParticipantsTabLabel");
+				}
+			}
+		}
+
+		private string _FoodTabLabel = string.Empty;
+
+		public string FoodTabLabel
+		{
+			get
+			{
+				return this._FoodTabLabel;
+			}
+
+			set
+			{
+				if (this._FoodTabLabel != value)
+				{
+					this._FoodTabLabel = value;
+					this.OnPropertyChanged("FoodTabLabel");
+				}
+			}
+		}
+
+		private string _SummaryTabLabel = string.Empty;
+
+		public string SummaryTabLabel
+		{
+			get
+			{
+				return this._SummaryTabLabel;
+			}
+
+			set
+			{
+				if (this._SummaryTabLabel != value)
+				{
+					this._SummaryTabLabel = value;
+					this.OnPropertyChanged("SummaryTabLabel");
+				}
+			}
+		}
 	}
 
 	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>

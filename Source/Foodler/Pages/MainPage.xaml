@@ -249,7 +249,7 @@
                 Style="{StaticResource PivotStyle}"
                 SelectionChanged="MainPivot_OnSelectionChanged"
                 >
-                <phone:PivotItem Header="participants">
+                <phone:PivotItem Header="{Binding ParticipantsTabLabel}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
@@ -264,7 +264,7 @@
                             </ListBox>
                             <Rectangle 
                                 Visibility="{Binding IsAnyParticipant, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
+                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
                                 <Rectangle.OpacityMask>
                                     <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-participants.png"/>
                                 </Rectangle.OpacityMask>
@@ -273,7 +273,7 @@
                     </Grid>
                 </phone:PivotItem>
 
-                <phone:PivotItem Header="food">
+                <phone:PivotItem Header="{Binding FoodTabLabel}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
@@ -342,7 +342,7 @@
                         </ListBox>
                         <Rectangle 
                                 Visibility="{Binding IsAnyFood, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
+                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
                             <Rectangle.OpacityMask>
                                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-food.png"/>
                             </Rectangle.OpacityMask>
@@ -350,7 +350,7 @@
                     </Grid>
                 </phone:PivotItem>
 
-                <phone:PivotItem Header="sum">
+                <phone:PivotItem Header="{Binding SummaryTabLabel}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
@@ -388,7 +388,7 @@
                         </ListBox>
                         <Rectangle 
                                 Visibility="{Binding IsAnyFoodAndParticipant, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
+                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
                             <Rectangle.OpacityMask>
                                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-summary.png"/>
                             </Rectangle.OpacityMask>
@@ -403,7 +403,7 @@
                                     Text="Total: "
                                     FontSize="25"
                                     Margin="0 0 0 4"
-                                    Foreground="{StaticResource PhoneBorderBrush}"
+                                    Foreground="{StaticResource PhoneTextMidContrastBrush}"
                                     VerticalAlignment="Bottom"/>
                                 <TextBlock 
                                     Text="{Binding FoodTotalCost, Converter={StaticResource CostWithCurrencyConverter}}"

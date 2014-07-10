@@ -42,5 +42,10 @@ namespace Foodler.ViewModels.Items
             Participant = participant;
             Food = food;
         }
+
+        public override void InitLabels()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
