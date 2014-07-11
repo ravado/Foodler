@@ -59,7 +59,11 @@ namespace Foodler.ViewModels
         public ObservableCollection<IParticipant> Participants { get; set; }
         public ObservableCollection<IParticipant> SelectedParticipants { get; set; }
         public ObservableCollection<IFood> AvailableFood { get; set; }
-        
+
+        public string FoodLabel { get; set; }
+        public string PriceLabel { get; set; }
+        public string ParticipantsLabel { get; set; }
+        public string ChooseYourFoodLabel { get; set; }
         #endregion
 
         public AddFoodViewModel()
@@ -70,6 +74,7 @@ namespace Foodler.ViewModels
             AvailableFood = new ObservableCollection<IFood>();
             FillFood();
             Food = AvailableFood[0];
+            InitLabels();
         }
 
         public void Initialize(IEnumerable<IParticipant> participants, FoodContainerViewModel foodContainer, bool ignoreFood = false)
@@ -280,9 +285,12 @@ namespace Foodler.ViewModels
             UpdateActivatedAteCoefficientOnParticipants(AteRangeActivated);
         }
 
-        public override void InitLabels()
+        public void InitLabels()
         {
-            throw new NotImplementedException();
+            FoodLabel = UILabels.AddFoodPage_FoodTitle;
+            PriceLabel = UILabels.AddFoodPage_PriceTitle;
+            ParticipantsLabel = UILabels.AddFoodPage_ParticipantsTitle;
+            ChooseYourFoodLabel = UILabels.AddFoodPage_ChooseFoodHeader;
         }
     }
 }

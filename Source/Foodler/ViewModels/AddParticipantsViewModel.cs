@@ -6,6 +6,7 @@ using Foodler.Common;
 using Foodler.Common.Contracts;
 ﻿using Foodler.Common.Helpers;
 ﻿using Foodler.Models;
+using Foodler.Resources;
 using Foodler.Services;
 using Foodler.ViewModels.Common;
 using System.Collections.Generic;
@@ -25,6 +26,8 @@ namespace Foodler.ViewModels
 
         #region Properties
 
+        public string AvailableParticipantsLabel { get; set; }
+        public string SelectedParticipantsLabel { get; set; }
         public ObservableCollection<AlphaKeyGroup<IParticipant>> AvaibleParticipants
         {
             get { return _avaibleParticipants; }
@@ -49,7 +52,7 @@ namespace Foodler.ViewModels
         public Action<IParticipant> RemovedParticipant { get; set; }
         #endregion
 
-        public AddParticipantsViewModel(ParticipantService participantService)
+        public AddParticipantsViewModel(ParticipantService participantService) : this()
         {
             AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
             ChosenParticipants = new ObservableCollection<IParticipant>();
@@ -69,6 +72,11 @@ namespace Foodler.ViewModels
         }
 
         #region Public Methods
+
+        public AddParticipantsViewModel()
+        {
+            InitLabels();
+        }
 
         /// <summary>
         /// Basic initialization
@@ -170,9 +178,10 @@ namespace Foodler.ViewModels
         #endregion
 
 
-        public override void InitLabels()
+        public void InitLabels()
         {
-            throw new NotImplementedException();
+            AvailableParticipantsLabel = UILabels.AddParticipantsPage_AvailableTabHeader;
+            SelectedParticipantsLabel = UILabels.AddParticipantsPage_SelectedTabHeader;
         }
     }
 }

@@ -92,7 +92,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock
                                     FontSize="14"
-                                    Text="Participants: "
+                                    Text="{Binding FoodExpanderParticipantsLabel}"
                                     Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
                                 <TextBlock		
                                     FontSize="14"	
@@ -103,7 +103,7 @@
                             <StackPanel Orientation="Horizontal" Margin="10 0 0 0">
                                 <TextBlock
                                     FontSize="14"
-                                    Text="Price: "
+                                    Text="{Binding FoodExpanderPriceLabel}"
                                     Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
                                 <TextBlock		
                                     FontSize="14"	
@@ -124,11 +124,12 @@
 
             </Grid>
         </DataTemplate>
+        
         <DataTemplate x:Key="FoodExpanderTemplate">
             <StackPanel Background="SaddleBrown" Visibility="Collapsed" Orientation="Horizontal" Margin="5">
                 <TextBlock			
 					FontSize="12"
-					Text="Total participants: "
+					Text="{Binding FoodExpanderTotalParticipantsLabel}"
 					Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
                 <TextBlock		
 					FontSize="12"	
@@ -137,6 +138,7 @@
 					Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
             </StackPanel>
         </DataTemplate>
+        
         <DataTemplate x:Key="FoodParticipantItemTemplate">
             <TextBlock 
                 Foreground="{StaticResource PhoneTextMidContrastBrush}"
@@ -182,7 +184,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock
                                     FontSize="14"
-                                    Text="Food eaten: "
+                                    Text="{Binding ParticipantsExpanderTotalEatenLabel}"
                                     Foreground="{StaticResource PhoneTextMidContrastBrush}"/>
                             <TextBlock		
                                     FontSize="14"	
@@ -243,7 +245,7 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="0" Margin="5,0,5,0">
             <phone:Pivot 
-                Title="FOODLER" 
+                Title="{Binding AppTitleLabel}" 
                 Name="MainPivot" 
                 IsLocked="False" 
                 Style="{StaticResource PivotStyle}"
@@ -400,7 +402,7 @@
                                 VerticalAlignment="Center" HorizontalAlignment="Right"
                                 Margin="0 0 10 0">
                                 <TextBlock 
-                                    Text="Total: "
+                                    Text="{Binding TotalSumLabel}"
                                     FontSize="25"
                                     Margin="0 0 0 4"
                                     Foreground="{StaticResource PhoneTextMidContrastBrush}"

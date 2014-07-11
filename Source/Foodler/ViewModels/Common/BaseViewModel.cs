@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Foodler.Resources;
 
 namespace Foodler.ViewModels.Common
 {
@@ -7,7 +8,12 @@ namespace Foodler.ViewModels.Common
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public abstract void InitLabels();
+        public string AppTitleLabel { get; set; }
+
+        protected BaseViewModel()
+        {
+            AppTitleLabel = UILabels.Common_AppName;
+        }
 
         protected void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {

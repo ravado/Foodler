@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Foodler.Common;
+using Foodler.Resources;
 using Foodler.ViewModels.Common;
 
 namespace Foodler.ViewModels
@@ -41,11 +42,13 @@ namespace Foodler.ViewModels
             }
         }
 
+        public string FoodPriceLabel { get; set; }
         #endregion
 
         public InputFoodCostViewModel()
         {
             Canceling = false;
+            InitLabels();
         }
 
         public void Initialize()
@@ -109,9 +112,9 @@ namespace Foodler.ViewModels
         }
         #endregion
 
-        public override void InitLabels()
+        public void InitLabels()
         {
-            throw new NotImplementedException();
+            FoodPriceLabel = UILabels.InputFoodPricePage_FoodPrice;
         }
     }
 }

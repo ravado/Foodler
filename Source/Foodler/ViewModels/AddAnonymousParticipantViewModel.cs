@@ -61,7 +61,8 @@ namespace Foodler.ViewModels
         }
 
         protected List<string> UrlsToDefaultAvatars { get; set; }
-
+        public string MaleLabel { get; set; }
+        public string FemaleLabel { get; set; }
         #endregion
 
         public AddAnonymousParticipantViewModel()
@@ -70,6 +71,7 @@ namespace Foodler.ViewModels
             UrlsToDefaultAvatars = new List<string>();
             AnonymousMaleParticipantList = new ObservableCollection<IParticipant>();
             AnonymousFemaleParticipantList = new ObservableCollection<IParticipant>();
+            InitLabels();
         }
 
 
@@ -133,9 +135,10 @@ namespace Foodler.ViewModels
 
         #endregion
 
-        public override void InitLabels()
+        public void InitLabels()
         {
-            throw new NotImplementedException();
+            MaleLabel = UILabels.AddAnonymousParticipantPage_MaleTabHeader;
+            FemaleLabel = UILabels.AddAnonymousParticipantPageFemaleTabHeader;
         }
     }
 }

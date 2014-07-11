@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using Foodler.Common.Contracts;
 using Foodler.Models;
+using Foodler.Resources;
 using Microsoft.Phone.Reactive;
 
 namespace Foodler.ViewModels.Items
@@ -75,7 +76,10 @@ namespace Foodler.ViewModels.Items
             }
         }
 
-        //public bool IsEditing { get; set; }
+
+        public string FoodExpanderParticipantsLabel { get; set; }
+        public string FoodExpanderPriceLabel { get; set; }
+        public string FoodExpanderTotalParticipantsLabel { get; set; }
         #endregion
 
 
@@ -84,9 +88,10 @@ namespace Foodler.ViewModels.Items
         public FoodContainerViewModel()
         {
             Id = Guid.NewGuid();
+            InitLabels();
         }
 
-        public FoodContainerViewModel(Guid id, IFood food, IEnumerable<IParticipant> participants)
+        public FoodContainerViewModel(Guid id, IFood food, IEnumerable<IParticipant> participants):this()
         {
             Food = food;
             Participants = new ObservableCollection<IParticipant>(participants);
@@ -94,6 +99,14 @@ namespace Foodler.ViewModels.Items
         }
 
         #endregion
+
+        private void InitLabels()
+        {
+            FoodExpanderParticipantsLabel = UILabels.Controls_FoodExpanderParticipants;
+            FoodExpanderPriceLabel = UILabels.Controls_FoodExpanderPrice;
+            FoodExpanderTotalParticipantsLabel = UILabels.Controls_FoodExpanderTotalParticipants;
+        }
+
         public override string ToString()
         {
             return String.Format("Food: {0}, Total Participants: {1}", Food, Participants.Count);

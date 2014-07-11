@@ -31,11 +31,13 @@ namespace Foodler.Pages
             ViewModel = new MainViewModel();
             DataContext = ViewModel;
             PreviousPivotPage = MainPivotPage.None;
+            ViewModel.Initialize();
             SetApplicationBarForPivot();
+
         }
 
         #region Navigation
-
+        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             

@@ -1,4 +1,5 @@
 ﻿using Foodler.Common.Contracts;
+using Foodler.Resources;
 using Foodler.ViewModels.Common;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,17 +36,22 @@ namespace Foodler.ViewModels.Items
             }
         }
 
-        public ParticipantContainerViewModel() {}
+        public string ParticipantsExpanderTotalEatenLabel { get; set; }
 
-        public ParticipantContainerViewModel(IParticipant participant, IEnumerable<IFood> food)
+        public ParticipantContainerViewModel()
+        {
+            InitLabels();
+        }
+
+        public ParticipantContainerViewModel(IParticipant participant, IEnumerable<IFood> food):this()
         {
             Participant = participant;
             Food = food;
         }
 
-        public override void InitLabels()
+        public void InitLabels()
         {
-            throw new System.NotImplementedException();
+            ParticipantsExpanderTotalEatenLabel = UILabels.Controls_ParticipantsExpanderTotalEaten;
         }
     }
 }

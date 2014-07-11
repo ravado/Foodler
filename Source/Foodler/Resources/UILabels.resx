@@ -117,6 +117,48 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddAnonymousParticipantPageFemaleTabHeader" xml:space="preserve">
+    <value>female</value>
+  </data>
+  <data name="AddAnonymousParticipantPage_MaleTabHeader" xml:space="preserve">
+    <value>male</value>
+  </data>
+  <data name="AddFoodPage_ChooseFoodHeader" xml:space="preserve">
+    <value>Choose your food</value>
+  </data>
+  <data name="AddFoodPage_FoodTitle" xml:space="preserve">
+    <value>Food:</value>
+  </data>
+  <data name="AddFoodPage_ParticipantsTitle" xml:space="preserve">
+    <value>Participants:</value>
+  </data>
+  <data name="AddFoodPage_PriceTitle" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="AddParticipantsPage_AvailableTabHeader" xml:space="preserve">
+    <value>available</value>
+  </data>
+  <data name="AddParticipantsPage_SelectedTabHeader" xml:space="preserve">
+    <value>selected</value>
+  </data>
+  <data name="Common_AppName" xml:space="preserve">
+    <value>Foodler</value>
+  </data>
+  <data name="Controls_FoodExpanderParticipants" xml:space="preserve">
+    <value>Participants:</value>
+  </data>
+  <data name="Controls_FoodExpanderPrice" xml:space="preserve">
+    <value>Price: </value>
+  </data>
+  <data name="Controls_FoodExpanderTotalParticipants" xml:space="preserve">
+    <value>TotalParticipants</value>
+  </data>
+  <data name="Controls_ParticipantsExpanderTotalEaten" xml:space="preserve">
+    <value>Food eaten:</value>
+  </data>
+  <data name="InputFoodPricePage_FoodPrice" xml:space="preserve">
+    <value>food price</value>
+  </data>
   <data name="MainPage_FoodTabHeader" xml:space="preserve">
     <value>food</value>
   </data>
@@ -125,5 +167,8 @@
   </data>
   <data name="MainPage_SummaryTabHeader" xml:space="preserve">
     <value>sum</value>
+  </data>
+  <data name="MainPage_TotalSum" xml:space="preserve">
+    <value>Total:</value>
   </data>
 </root>

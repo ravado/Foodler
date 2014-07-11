@@ -105,16 +105,21 @@ namespace Foodler.ViewModels
 
         #region Labels
         
-        #endregion
-
         public string ParticipantsTabLabel { get; set; }
         public string FoodTabLabel { get; set; }
         public string SummaryTabLabel { get; set; }
+
+        
+
+        public string TotalSumLabel { get; set; }
+
+        #endregion
 
         #endregion
 
         public MainViewModel()
         {
+            InitLabels();
             Participants = new ObservableCollection<IParticipant>();
             Participants.CollectionChanged += ParticipantsOnCollectionChanged;
             FoodContainers = new ObservableCollection<FoodContainerViewModel>();
@@ -190,13 +195,17 @@ namespace Foodler.ViewModels
         /// <summary>
         /// Basic initialization
         /// </summary>
-        public void Initialize() { }
+        public void Initialize()
+        {
+            
+        }
         
-        public override void InitLabels()
+        public  void InitLabels()
         {
             ParticipantsTabLabel = UILabels.MainPage_ParticipantsTabHeader;
             SummaryTabLabel = UILabels.MainPage_SummaryTabHeader;
             FoodTabLabel = UILabels.MainPage_FoodTabHeader;
+            TotalSumLabel = UILabels.MainPage_TotalSum;
         }
 
         /// <summary>

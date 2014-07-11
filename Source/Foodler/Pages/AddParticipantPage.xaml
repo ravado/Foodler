@@ -91,7 +91,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="10,10,0,10">
-            <TextBlock Text="FOODLER" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding AppTitleLabel}" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -106,7 +106,7 @@
                     </DataTemplate>
                 </phone:Panorama.TitleTemplate>
                 <phone:PanoramaItem 
-                    Header="available" Style="{StaticResource HeaderlessPanoramaItemStyle}">
+                    Header="{Binding AvailableParticipantsLabel}" Style="{StaticResource HeaderlessPanoramaItemStyle}">
                     <toolkit:LongListMultiSelector
                         IsGroupingEnabled="True"
                         HideEmptyGroups="True"
@@ -128,7 +128,7 @@
                     </toolkit:LongListMultiSelector>
                 </phone:PanoramaItem>
 
-                <phone:PanoramaItem Header="selected" Style="{StaticResource HeaderlessPanoramaItemStyle}">
+                <phone:PanoramaItem Header="{Binding SelectedParticipantsLabel}" Style="{StaticResource HeaderlessPanoramaItemStyle}">
                     <ListBox
                         toolkit:TiltEffect.SuppressTilt="True"
                         Name="ListChosenParticipants"

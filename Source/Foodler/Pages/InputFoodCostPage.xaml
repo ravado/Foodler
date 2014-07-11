@@ -142,11 +142,11 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
             <phone:Pivot 
-                Title="FOODLER" 
+                Title="{Binding AppTitleLabel}" 
                 Name="MainPivot" 
                 IsLocked="False" 
                 Style="{StaticResource PivotStyle}">
-                <phone:PivotItem Header="food price">
+                <phone:PivotItem Header="{Binding FoodPriceLabel}">
                     <Grid
                         toolkit:TiltEffect.SuppressTilt="True"
                         toolkit:TiltEffect.IsTiltEnabled="False"

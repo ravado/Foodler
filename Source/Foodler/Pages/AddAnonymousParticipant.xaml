@@ -25,12 +25,12 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="0" Margin="12,0,12,0">
             <phone:Pivot
-                Title="FOODLER" 
+                Title="{Binding AppTitleLabel}" 
                 Name="MainPivot" 
                 IsLocked="False" 
                 Style="{StaticResource PivotStyle}">
-                
-                <phone:PivotItem Header="male">
+
+                <phone:PivotItem Header="{Binding MaleLabel}">
                     <ListBox
                         x:Name="AvailableAnonymousMaleList"
                         ItemsSource="{Binding AnonymousMaleParticipantList}"
@@ -39,7 +39,7 @@
                         SelectionChanged="AvailableAnonymousList_OnSelectionChanged"/>
                 </phone:PivotItem>
 
-                <phone:PivotItem Header="female">
+                <phone:PivotItem Header="{Binding FemaleLabel}">
                     <ListBox
                         x:Name="AvailableAnonymousFemaleList"
                         ItemsSource="{Binding AnonymousFemaleParticipantList}"

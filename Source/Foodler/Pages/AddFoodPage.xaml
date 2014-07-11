@@ -452,7 +452,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="0,15,0,10">
-            <TextBlock Text="FOODLER" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding AppTitleLabel}" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -466,14 +466,14 @@
                 <toolkit:ListPicker 
                     Name="FoodPicker"
                     Visibility="Collapsed"
-                    Header="Food:"
-                    FullModeHeader="Choose your food"
+                    Header="{Binding FoodLabel}"
+                    FullModeHeader="{Binding ChooseYourFoodLabel}"
                     ItemsSource="{Binding AvailableFood}"
                     Style="{StaticResource FoodPickerStyle}"
                     SelectedItem="{Binding Food, Mode=TwoWay}">
                 </toolkit:ListPicker>
 
-                <TextBlock>Food:</TextBlock>
+                <TextBlock Text="{Binding FoodLabel}"/>
                 <Button
                     Margin="-10 0"
                     Name="TextFoodName"
@@ -488,7 +488,7 @@
                     BorderBrush="{StaticResource PhoneChromeBrush}"
                     Background="{StaticResource PhoneBackgroundBrush}"/>
 
-                <TextBlock>Price:</TextBlock>
+                <TextBlock Text="{Binding PriceLabel}"/>
                 <!--<TextBox Text="{Binding Food.Price, Converter={StaticResource CostWithCurrencyConverter}, Mode=TwoWay}"/>-->
                 <Button 
                     Margin="-10 0"
@@ -524,7 +524,7 @@
                     <RowDefinition Height="Auto"></RowDefinition>
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0">Participants:</TextBlock>
+                <TextBlock Grid.Row="0" Text="{Binding ParticipantsLabel}"/>
                 <toolkit:LongListMultiSelector 
                         Grid.Row="1"
                         Name="NewJokesMultiSelector"
