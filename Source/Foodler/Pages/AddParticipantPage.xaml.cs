@@ -1,4 +1,5 @@
-﻿using Foodler.Common;
+﻿using System.ComponentModel;
+using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Services;
 using Foodler.ViewModels;
@@ -51,6 +52,12 @@ namespace Foodler.Pages
             
 
             base.OnNavigatedTo(e);
+        }
+
+        protected override void OnBackKeyPress(CancelEventArgs e)
+        {
+            ViewModel.CancelAddingParticipants();
+            base.OnBackKeyPress(e);
         }
 
         #region Private Methods

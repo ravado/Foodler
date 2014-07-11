@@ -21,7 +21,7 @@ namespace Foodler.ViewModels
 
         private ICommand _clearAllCommand;
         private ObservableCollection<AlphaKeyGroup<IParticipant>> _avaibleParticipants;
-
+        private bool _isCanceled;
         #endregion
 
         #region Properties
@@ -121,6 +121,8 @@ namespace Foodler.ViewModels
         /// <returns>List of involved participants</returns>
         public IEnumerable<Participant> GetInvolvedParticipants()
         {
+            if (_isCanceled) return null;
+
             return ChosenParticipants.Select(p => new Participant(p)).ToList();
         }
 
@@ -183,5 +185,12 @@ namespace Foodler.ViewModels
             AvailableParticipantsLabel = UILabels.AddParticipantsPage_AvailableTabHeader;
             SelectedParticipantsLabel = UILabels.AddParticipantsPage_SelectedTabHeader;
         }
+
+        public void CancelAddingParticipants()
+        {
+            _isCanceled = true;
+        }
+
+        
     }
 }
