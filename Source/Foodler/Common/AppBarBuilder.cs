@@ -158,12 +158,13 @@ namespace Foodler.Common
                     btnDone.Click += page.DoneButtonClick;
                     _addFoodBar.Buttons.Add(btnDone);
 
-                    var btnAteRange =
-                       new ApplicationBarIconButton(new Uri(Images.AppBarAteRangeOn, UriKind.RelativeOrAbsolute));
-                    btnAteRange.Text = AppBarLabels.AddFoodPage_AteRangeOn;
-                    btnAteRange.IsEnabled = false;
-                    btnAteRange.Click += page.AppBarAddAteRange_OnClick;
-                    _addFoodBar.Buttons.Add(btnAteRange);
+                    //TODO: for the next version
+                    //var btnAteRange =
+                    //   new ApplicationBarIconButton(new Uri(Images.AppBarAteRangeOn, UriKind.RelativeOrAbsolute));
+                    //btnAteRange.Text = AppBarLabels.AddFoodPage_AteRangeOn;
+                    //btnAteRange.IsEnabled = false;
+                    //btnAteRange.Click += page.AppBarAddAteRange_OnClick;
+                    //_addFoodBar.Buttons.Add(btnAteRange);
 
                     var btnSelectAll =
                        new ApplicationBarIconButton(new Uri(Images.AppBarSelectAll, UriKind.RelativeOrAbsolute));
