@@ -156,6 +156,54 @@
   <data name="Controls_ParticipantsExpanderTotalEaten" xml:space="preserve">
     <value>Food eaten:</value>
   </data>
+  <data name="FoodName_Beer" xml:space="preserve">
+    <value>Beer</value>
+  </data>
+  <data name="FoodName_Cake" xml:space="preserve">
+    <value>Cake</value>
+  </data>
+  <data name="FoodName_Champagne" xml:space="preserve">
+    <value>Champagne</value>
+  </data>
+  <data name="FoodName_Cocktail" xml:space="preserve">
+    <value>Cocktail</value>
+  </data>
+  <data name="FoodName_Coffe" xml:space="preserve">
+    <value>Coffe</value>
+  </data>
+  <data name="FoodName_FastFood" xml:space="preserve">
+    <value>Fast food</value>
+  </data>
+  <data name="FoodName_FirstDishes" xml:space="preserve">
+    <value>First dishes</value>
+  </data>
+  <data name="FoodName_Fruit" xml:space="preserve">
+    <value>Fruit</value>
+  </data>
+  <data name="FoodName_HealthyFood" xml:space="preserve">
+    <value>Healthy food</value>
+  </data>
+  <data name="FoodName_IceCream" xml:space="preserve">
+    <value>Ice cream</value>
+  </data>
+  <data name="FoodName_Pizza" xml:space="preserve">
+    <value>Pizza</value>
+  </data>
+  <data name="FoodName_Refreshments" xml:space="preserve">
+    <value>Refreshments</value>
+  </data>
+  <data name="FoodName_Seafood" xml:space="preserve">
+    <value>Seafood</value>
+  </data>
+  <data name="FoodName_Snacks" xml:space="preserve">
+    <value>Snacks</value>
+  </data>
+  <data name="FoodName_Sushi" xml:space="preserve">
+    <value>Sushi</value>
+  </data>
+  <data name="FoodName_Vine" xml:space="preserve">
+    <value>Vine</value>
+  </data>
   <data name="InputFoodPricePage_FoodPrice" xml:space="preserve">
     <value>food price</value>
   </data>

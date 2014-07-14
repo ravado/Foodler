@@ -178,6 +178,150 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Beer.
+        /// </summary>
+        internal static string FoodName_Beer {
+            get {
+                return ResourceManager.GetString("FoodName_Beer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cake.
+        /// </summary>
+        internal static string FoodName_Cake {
+            get {
+                return ResourceManager.GetString("FoodName_Cake", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Champagne.
+        /// </summary>
+        internal static string FoodName_Champagne {
+            get {
+                return ResourceManager.GetString("FoodName_Champagne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cocktail.
+        /// </summary>
+        internal static string FoodName_Cocktail {
+            get {
+                return ResourceManager.GetString("FoodName_Cocktail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Coffe.
+        /// </summary>
+        internal static string FoodName_Coffe {
+            get {
+                return ResourceManager.GetString("FoodName_Coffe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fast food.
+        /// </summary>
+        internal static string FoodName_FastFood {
+            get {
+                return ResourceManager.GetString("FoodName_FastFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First dishes.
+        /// </summary>
+        internal static string FoodName_FirstDishes {
+            get {
+                return ResourceManager.GetString("FoodName_FirstDishes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fruit.
+        /// </summary>
+        internal static string FoodName_Fruit {
+            get {
+                return ResourceManager.GetString("FoodName_Fruit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Healthy food.
+        /// </summary>
+        internal static string FoodName_HealthyFood {
+            get {
+                return ResourceManager.GetString("FoodName_HealthyFood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ice cream.
+        /// </summary>
+        internal static string FoodName_IceCream {
+            get {
+                return ResourceManager.GetString("FoodName_IceCream", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pizza.
+        /// </summary>
+        internal static string FoodName_Pizza {
+            get {
+                return ResourceManager.GetString("FoodName_Pizza", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refreshments.
+        /// </summary>
+        internal static string FoodName_Refreshments {
+            get {
+                return ResourceManager.GetString("FoodName_Refreshments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Seafood.
+        /// </summary>
+        internal static string FoodName_Seafood {
+            get {
+                return ResourceManager.GetString("FoodName_Seafood", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Snacks.
+        /// </summary>
+        internal static string FoodName_Snacks {
+            get {
+                return ResourceManager.GetString("FoodName_Snacks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sushi.
+        /// </summary>
+        internal static string FoodName_Sushi {
+            get {
+                return ResourceManager.GetString("FoodName_Sushi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vine.
+        /// </summary>
+        internal static string FoodName_Vine {
+            get {
+                return ResourceManager.GetString("FoodName_Vine", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to food price.
         /// </summary>
         internal static string InputFoodPricePage_FoodPrice {
