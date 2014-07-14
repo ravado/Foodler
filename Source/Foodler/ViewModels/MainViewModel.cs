@@ -109,7 +109,9 @@ namespace Foodler.ViewModels
         public string FoodTabLabel { get; set; }
         public string SummaryTabLabel { get; set; }
 
-        
+        public string NoParticipantsHintLabel { get; set; }
+        public string NoFoodHintLabel { get; set; }
+        public string NoSummaryHintLabel { get; set; }
 
         public string TotalSumLabel { get; set; }
 
@@ -206,6 +208,10 @@ namespace Foodler.ViewModels
             SummaryTabLabel = UILabels.MainPage_SummaryTabHeader;
             FoodTabLabel = UILabels.MainPage_FoodTabHeader;
             TotalSumLabel = UILabels.MainPage_TotalSum;
+
+            NoFoodHintLabel = UILabels.MainPage_NoFoodHint;
+            NoParticipantsHintLabel = UILabels.MainPage_NoParticipantsHint;
+            NoSummaryHintLabel = UILabels.MainPage_NoSummaryHint;
         }
 
         /// <summary>

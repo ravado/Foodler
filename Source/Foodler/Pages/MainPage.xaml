@@ -264,13 +264,10 @@
                                 ItemsSource="{Binding Participants}"
                                 ItemTemplate="{StaticResource SelectedParticipantItemTemplate}">
                             </ListBox>
-                            <Rectangle 
-                                Visibility="{Binding IsAnyParticipant, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
-                                <Rectangle.OpacityMask>
-                                    <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-participants.png"/>
-                                </Rectangle.OpacityMask>
-                            </Rectangle>
+                            <TextBlock 
+                                Style="{StaticResource HintMessageStyle}"
+                                Text="{Binding NoParticipantsHintLabel}"
+                                Visibility="{Binding IsAnyParticipant, Converter={StaticResource InVisibilityConverter}}"/>
                         </Grid>
                     </Grid>
                 </phone:PivotItem>
@@ -342,13 +339,10 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Rectangle 
-                                Visibility="{Binding IsAnyFood, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
-                            <Rectangle.OpacityMask>
-                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-food.png"/>
-                            </Rectangle.OpacityMask>
-                        </Rectangle>
+                        <TextBlock 
+                                Style="{StaticResource HintMessageStyle}"
+                                Text="{Binding NoFoodHintLabel}"
+                                Visibility="{Binding IsAnyFood, Converter={StaticResource InVisibilityConverter}}"/>
                     </Grid>
                 </phone:PivotItem>
 
@@ -388,13 +382,10 @@
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <Rectangle 
-                                Visibility="{Binding IsAnyFoodAndParticipant, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
-                            <Rectangle.OpacityMask>
-                                <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-summary.png"/>
-                            </Rectangle.OpacityMask>
-                        </Rectangle>
+                        <TextBlock 
+                                Style="{StaticResource HintMessageStyle}"
+                                Text="{Binding NoSummaryHintLabel}"
+                                Visibility="{Binding IsAnyFoodAndParticipant, Converter={StaticResource InVisibilityConverter}}"/>
                         <Grid Grid.Row="1" >
                             <StackPanel 
                                 Visibility="{Binding IsAnyFoodAndParticipant, Converter={StaticResource VisibilityConverter}}"

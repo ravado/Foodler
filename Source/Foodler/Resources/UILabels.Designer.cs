@@ -196,6 +196,33 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There is no food, add some..
+        /// </summary>
+        internal static string MainPage_NoFoodHint {
+            get {
+                return ResourceManager.GetString("MainPage_NoFoodHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are no participants,        ///add some..
+        /// </summary>
+        internal static string MainPage_NoParticipantsHint {
+            get {
+                return ResourceManager.GetString("MainPage_NoParticipantsHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You should add some         ///participants and food first.        ///Come back here after..
+        /// </summary>
+        internal static string MainPage_NoSummaryHint {
+            get {
+                return ResourceManager.GetString("MainPage_NoSummaryHint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to participants.
         /// </summary>
         internal static string MainPage_ParticipantsTabHeader {

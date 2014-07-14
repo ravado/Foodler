@@ -817,6 +817,16 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <!-- Hints Messages -->
+        <Style x:Key="HintMessageStyle" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="FontSize" Value="35"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource PhoneTextMidContrastBrush}"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="FontFamily" Value="/Assets/Fonts/Cuprum-Regular.ttf#Cuprum"></Setter>
+        </Style>
     </Application.Resources>
 
 

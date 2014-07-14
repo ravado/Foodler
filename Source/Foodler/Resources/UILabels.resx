@@ -162,6 +162,15 @@
   <data name="MainPage_FoodTabHeader" xml:space="preserve">
     <value>food</value>
   </data>
+  <data name="MainPage_NoFoodHint" xml:space="preserve">
+    <value>There is no food, add some.</value>
+  </data>
+  <data name="MainPage_NoParticipantsHint" xml:space="preserve">
+    <value>There are no participants,add some.</value>
+  </data>
+  <data name="MainPage_NoSummaryHint" xml:space="preserve">
+    <value>You should add some participants and food first.Come back here after.</value>
+  </data>
   <data name="MainPage_ParticipantsTabHeader" xml:space="preserve">
     <value>participants</value>
   </data>
