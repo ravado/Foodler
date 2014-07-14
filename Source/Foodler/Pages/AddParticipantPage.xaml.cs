@@ -1,12 +1,12 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
-using Foodler.Common;
+﻿using Foodler.Common;
 using Foodler.Common.Contracts;
+using Foodler.Resources;
 using Foodler.Services;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
 using System;
-using System.Collections.Generic;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -176,9 +176,16 @@ namespace Foodler.Pages
 
         internal void AcceptChangesBtn_OnClick(object sender, EventArgs e)
         {
-            if (NavigationService.CanGoBack)
+            if (ViewModel.IsValid)
             {
-                NavigationService.GoBack();
+                if (NavigationService.CanGoBack)
+                {
+                    NavigationService.GoBack();
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.AddParticipantsPage_InvalidDataMessage, Messages.AddParticipantsPage_InvalidDataHeader, MessageBoxButton.OK);
             }
         }
 

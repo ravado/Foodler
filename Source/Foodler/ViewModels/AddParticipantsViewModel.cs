@@ -191,6 +191,18 @@ namespace Foodler.ViewModels
             _isCanceled = true;
         }
 
-        
+
+
+        public bool IsValid { get { return Validate(); }}
+
+        private bool Validate()
+        {
+            if (ChosenParticipants.Count < 2)
+            {
+                return false;
+            }
+
+            return true;
+        }
     }
 }

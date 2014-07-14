@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel;
+using System.ServiceModel.Channels;
 using Foodler.Common;
 using Foodler.Common.Contracts;
+using Foodler.Resources;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
 using System;
@@ -86,7 +88,7 @@ namespace Foodler.Pages
             }
             else
             {
-                MessageBox.Show("You should enter a valid price, and select at least one participant.", "Invalid Data", MessageBoxButton.OK);
+                MessageBox.Show(Messages.AddFoodPage_InvalidDataMessage, Messages.AddFoodPage_InvalidDataHeader, MessageBoxButton.OK);
             }
         }
 
