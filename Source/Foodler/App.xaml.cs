@@ -1,4 +1,8 @@
-﻿using Foodler.DB;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Threading;
+using Foodler.Common;
+using Foodler.DB;
 using Foodler.Resources;
 using Foodler.Services;
 using Microsoft.Phone.Controls;
@@ -100,6 +104,7 @@ namespace Foodler
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            SettingsManager.IncrementAppRun();
         }
 
         // Code to execute if a navigation fails
@@ -115,6 +120,8 @@ namespace Foodler
         // Code to execute on Unhandled Exceptions
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
+            SettingsManager.IncrementAppRun();
+
             if (Debugger.IsAttached)
             {
                 // An unhandled exception has occurred; break into the debugger
