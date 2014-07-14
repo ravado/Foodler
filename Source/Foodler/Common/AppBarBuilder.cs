@@ -115,8 +115,8 @@ namespace Foodler.Common
 
             public static ApplicationBar GetAppBar(AddParticipantPage page)
             {
-                if (_addParticipantsBar == null)
-                {
+                //if (_addParticipantsBar == null) //TODO: figure out how does it influence on button actions
+                //{
                     _addParticipantsBar = new ApplicationBar { IsVisible = true, Mode = ApplicationBarMode.Default };
 
                     var btnDone =
@@ -137,7 +137,7 @@ namespace Foodler.Common
                     btnResetAll.Click += page.ClearAllSelectedBtn_OnClick;
 
                     _addParticipantsBar.Buttons.Add(btnResetAll);
-                }
+                //}
                 return _addParticipantsBar;
             }
         }
@@ -148,8 +148,8 @@ namespace Foodler.Common
 
             public static ApplicationBar GetAppBar(AddFoodPage page)
             {
-                if (_addFoodBar == null)
-                {
+                //if (_addFoodBar == null)
+                //{
                     _addFoodBar = new ApplicationBar { IsVisible = true, Mode = ApplicationBarMode.Default };
 
                     var btnDone =
@@ -176,7 +176,7 @@ namespace Foodler.Common
                     btnResetAll.Text = AppBarLabels.AddFoodPage_ResetAll;
                     btnResetAll.Click += page.AppBarResetAll_OnClick;
                     _addFoodBar.Buttons.Add(btnResetAll);
-                }
+                //}
                 return _addFoodBar;
             }
         }

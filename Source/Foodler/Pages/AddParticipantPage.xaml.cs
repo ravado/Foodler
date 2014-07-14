@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Services;
@@ -19,6 +20,7 @@ namespace Foodler.Pages
         private bool _updatedAvailableParticipants = false;
         public AddParticipantPage()
         {
+            Debug.WriteLine("Add Participants Page Constructing");
             InitializeComponent();
             ViewModel = new AddParticipantsViewModel(new ParticipantService());
             DataContext = ViewModel;
@@ -191,6 +193,7 @@ namespace Foodler.Pages
             {
                 ViewModel.ClearAllCommand.Execute(null);
                 UnmarkAllAvaiableParticipants();
+                
             }
         }
 
