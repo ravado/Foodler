@@ -97,7 +97,7 @@ namespace Foodler.Models
 
         public bool Equals(Food other)
         {
-            if (other != null && other.Name == Name)
+            if (other != null && other.Id == Id)
                 return true;
 
             return false;

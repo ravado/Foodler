@@ -1,5 +1,7 @@
 ﻿using System.Linq;
+using System.ServiceModel.Channels;
 using System.Threading;
+using System.Windows;
 using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.Resources;
@@ -17,6 +19,7 @@ namespace Foodler.ViewModels
         #region Fields
         
         private IFood _food;
+        private FoodItemViewModel _selectedFoodItem;
         private string _currencySymbol;
         private bool _isParticipantRemoving;
         private bool _isCanceled;
@@ -36,7 +39,15 @@ namespace Foodler.ViewModels
                 NotifyPropertyChanged();
             }
         }
-
+        public FoodItemViewModel SelectedFoodItem
+        {
+            get { return _selectedFoodItem; }
+            set
+            {
+                _selectedFoodItem = value;
+                NotifyPropertyChanged();
+            }
+        }
         public string CurrencySymbol
         {
             get { return _currencySymbol; }
@@ -58,7 +69,7 @@ namespace Foodler.ViewModels
         }
         public ObservableCollection<IParticipant> Participants { get; set; }
         public ObservableCollection<IParticipant> SelectedParticipants { get; set; }
-        public ObservableCollection<IFood> AvailableFood { get; set; }
+        public ObservableCollection<FoodItemViewModel> AvailableFood { get; set; }
 
         public string FoodLabel { get; set; }
         public string PriceLabel { get; set; }
@@ -71,9 +82,10 @@ namespace Foodler.ViewModels
             _isCanceled = false;
             Participants = new ObservableCollection<IParticipant>();
             SelectedParticipants = new ObservableCollection<IParticipant>();
-            AvailableFood = new ObservableCollection<IFood>();
+            AvailableFood = new ObservableCollection<FoodItemViewModel>();
             FillFood();
-            Food = AvailableFood[0];
+            Food = new Food();
+            SelectedFoodItem = AvailableFood[0];
             InitLabels();
         }
 
@@ -96,6 +108,7 @@ namespace Foodler.ViewModels
                     if (!ignoreFood) // need because food now gets from list picker page and binds directly
                     {
                         Food = foodContainer.Food;
+                        SelectedFoodItem = AvailableFood.FirstOrDefault(f => f.Name == Food.Name);
                     }
                     else
                     {
@@ -173,24 +186,24 @@ namespace Foodler.ViewModels
         {
             AvailableFood.Clear();
 
-            AvailableFood.Add(new Food("Фаст фуд", GetImage(Images.FoodFastFood)));
-            AvailableFood.Add(new Food("Первые блюда", GetImage(Images.FoodSoup)));
-            AvailableFood.Add(new Food("Суши", GetImage(Images.FoodSushi)));
-            AvailableFood.Add(new Food("Здоровая пища", GetImage(Images.FoodHealthyFood)));
-            AvailableFood.Add(new Food("Пицца", GetImage(Images.FoodPizza)));
-            AvailableFood.Add(new Food("Морепродукты", GetImage(Images.FoodSeafood)));
-            AvailableFood.Add(new Food("Закуски", GetImage(Images.FoodSnack)));
-            
-            AvailableFood.Add(new Food("Пиво", GetImage(Images.FoodBeer)));
-            AvailableFood.Add(new Food("Шампанское", GetImage(Images.FoodChampain)));
-            AvailableFood.Add(new Food("Коктейль", GetImage(Images.FoodCocktail)));
-            AvailableFood.Add(new Food("Кофе", GetImage(Images.FoodCoffe)));
-            AvailableFood.Add(new Food("Напитки", GetImage(Images.FoodRefreshments)));
-            AvailableFood.Add(new Food("Вино", GetImage(Images.FoodVine)));
+            AvailableFood.Add(new FoodItemViewModel("Фаст фуд", GetImage(Images.FoodFastFood)));
+            AvailableFood.Add(new FoodItemViewModel("Первые блюда", GetImage(Images.FoodSoup)));
+            AvailableFood.Add(new FoodItemViewModel("Суши", GetImage(Images.FoodSushi)));
+            AvailableFood.Add(new FoodItemViewModel("Здоровая пища", GetImage(Images.FoodHealthyFood)));
+            AvailableFood.Add(new FoodItemViewModel("Пицца", GetImage(Images.FoodPizza)));
+            AvailableFood.Add(new FoodItemViewModel("Морепродукты", GetImage(Images.FoodSeafood)));
+            AvailableFood.Add(new FoodItemViewModel("Закуски", GetImage(Images.FoodSnack)));
 
-            AvailableFood.Add(new Food("Пироженое", GetImage(Images.FoodCake)));
-            AvailableFood.Add(new Food("Фрукты", GetImage(Images.FoodFruit)));
-            AvailableFood.Add(new Food("Мороженое", GetImage(Images.FoodIceCream)));
+            AvailableFood.Add(new FoodItemViewModel("Пиво", GetImage(Images.FoodBeer)));
+            AvailableFood.Add(new FoodItemViewModel("Шампанское", GetImage(Images.FoodChampain)));
+            AvailableFood.Add(new FoodItemViewModel("Коктейль", GetImage(Images.FoodCocktail)));
+            AvailableFood.Add(new FoodItemViewModel("Кофе", GetImage(Images.FoodCoffe)));
+            AvailableFood.Add(new FoodItemViewModel("Напитки", GetImage(Images.FoodRefreshments)));
+            AvailableFood.Add(new FoodItemViewModel("Вино", GetImage(Images.FoodVine)));
+
+            AvailableFood.Add(new FoodItemViewModel("Пироженое", GetImage(Images.FoodCake)));
+            AvailableFood.Add(new FoodItemViewModel("Фрукты", GetImage(Images.FoodFruit)));
+            AvailableFood.Add(new FoodItemViewModel("Мороженое", GetImage(Images.FoodIceCream)));
         }
 
         private bool Validate()
@@ -225,6 +238,8 @@ namespace Foodler.ViewModels
             
             // cyclic link
             var eaters = selectedPartisipants.ToList();
+            Food.Name = SelectedFoodItem.Name;
+            (Food as Food).Icon = SelectedFoodItem.Icon; //TODO: bad idea
             var food = Food;
 
             foreach (var e in eaters)
@@ -269,7 +284,8 @@ namespace Foodler.ViewModels
             {
                 participant.ParticipantAteCoefficient = 0;
             }
-            Food = AvailableFood[0];
+            Food = new Food();
+            SelectedFoodItem = AvailableFood[0];
             Food.Price = 0.0m;
         }
 

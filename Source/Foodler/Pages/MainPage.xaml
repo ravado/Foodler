@@ -266,7 +266,7 @@
                             </ListBox>
                             <Rectangle 
                                 Visibility="{Binding IsAnyParticipant, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
+                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
                                 <Rectangle.OpacityMask>
                                     <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-participants.png"/>
                                 </Rectangle.OpacityMask>
@@ -344,7 +344,7 @@
                         </ListBox>
                         <Rectangle 
                                 Visibility="{Binding IsAnyFood, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
+                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
                             <Rectangle.OpacityMask>
                                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-food.png"/>
                             </Rectangle.OpacityMask>
@@ -390,7 +390,7 @@
                         </ListBox>
                         <Rectangle 
                                 Visibility="{Binding IsAnyFoodAndParticipant, Converter={StaticResource InVisibilityConverter}}"
-                                Fill="{StaticResource PhoneAccentBrush}" Margin="-15">
+                                Fill="{StaticResource PhoneTextMidContrastBrush}" Margin="-15">
                             <Rectangle.OpacityMask>
                                 <ImageBrush Stretch="Uniform" ImageSource="/Assets/no-summary.png"/>
                             </Rectangle.OpacityMask>

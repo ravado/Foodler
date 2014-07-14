@@ -113,6 +113,8 @@ namespace Foodler.Models
             Name = participant.Name;
             IsUserContact = participant.IsUserContact;
             Avatar = participant.Avatar;
+            ParticipantAteCoefficient = participant.ParticipantAteCoefficient;
+            EatenFood = participant.EatenFood;
         }
 
         #endregion

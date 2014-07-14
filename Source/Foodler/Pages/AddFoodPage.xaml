@@ -470,7 +470,7 @@
                     FullModeHeader="{Binding ChooseYourFoodLabel}"
                     ItemsSource="{Binding AvailableFood}"
                     Style="{StaticResource FoodPickerStyle}"
-                    SelectedItem="{Binding Food, Mode=TwoWay}">
+                    SelectedItem="{Binding SelectedFoodItem, Mode=TwoWay}">
                 </toolkit:ListPicker>
 
                 <TextBlock Text="{Binding FoodLabel}"/>
@@ -484,7 +484,7 @@
                     FontSize="{StaticResource PhoneFontSizeExtraLarge}"
                     HorizontalContentAlignment="Left"
                     Click="TextFoodName_OnClick"  
-                    Content="{Binding Food.Name}"
+                    Content="{Binding SelectedFoodItem.Name}"
                     BorderBrush="{StaticResource PhoneChromeBrush}"
                     Background="{StaticResource PhoneBackgroundBrush}"/>
 

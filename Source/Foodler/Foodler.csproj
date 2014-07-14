@@ -163,6 +163,7 @@
     <Compile Include="ViewModels\AddAnonymousParticipantViewModel.cs" />
     <Compile Include="ViewModels\InputFoodCostViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
+    <Compile Include="ViewModels\Items\FoodItemViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
