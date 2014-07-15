@@ -284,39 +284,26 @@
     <Content Include="Assets\Icon\arrow-down.png" />
     <Content Include="Assets\Icon\arrow-up.png" />
     <Content Include="Assets\Icon\backspace.png" />
-    <Content Include="Assets\Icon\food\beer.png" />
-    <Content Include="Assets\Icon\food\healthy-food.png" />
-    <Content Include="Assets\Icon\food\fruit.png" />
-    <Content Include="Assets\Icon\food\vine.png" />
-    <Content Include="Assets\Icon\food\champain.png" />
-    <Content Include="Assets\Icon\food\seafood.png" />
-    <Content Include="Assets\Icon\food\sushi.png" />
-    <Content Include="Assets\Icon\food\pizza.png" />
-    <Content Include="Assets\Icon\food\refreshments.png" />
-    <Content Include="Assets\Icon\food\cocktail.png" />
-    <Content Include="Assets\Icon\food\coffe.png" />
-    <Content Include="Assets\Icon\food\cake.png" />
-    <Content Include="Assets\Icon\food\ice-cream.png" />
-    <Content Include="Assets\Icon\food\fast-food.png" />
-    <Content Include="Assets\Icon\food\fries.png" />
-    <Content Include="Assets\Icon\food\snack.png" />
-    <Content Include="Assets\Icon\food\soup.png" />
+    <Content Include="Assets\Icon\Food\beer.png" />
+    <Content Include="Assets\Icon\Food\healthy-food.png" />
+    <Content Include="Assets\Icon\Food\fruit.png" />
+    <Content Include="Assets\Icon\Food\vine.png" />
+    <Content Include="Assets\Icon\Food\champain.png" />
+    <Content Include="Assets\Icon\Food\seafood.png" />
+    <Content Include="Assets\Icon\Food\sushi.png" />
+    <Content Include="Assets\Icon\Food\pizza.png" />
+    <Content Include="Assets\Icon\Food\refreshments.png" />
+    <Content Include="Assets\Icon\Food\cocktail.png" />
+    <Content Include="Assets\Icon\Food\coffe.png" />
+    <Content Include="Assets\Icon\Food\cake.png" />
+    <Content Include="Assets\Icon\Food\ice-cream.png" />
+    <Content Include="Assets\Icon\Food\fast-food.png" />
+    <Content Include="Assets\Icon\Food\fries.png" />
+    <Content Include="Assets\Icon\Food\snack.png" />
+    <Content Include="Assets\Icon\Food\soup.png" />
     <Content Include="Assets\Icon\enter-key.png" />
-    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Tiles\IconicTileSmall.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="Assets\Tiles\icon-medium.png" />
+    <Content Include="Assets\Tiles\icon-small.png" />
     <Content Include="Assets\AppBar\cancel.png" />
     <Content Include="Assets\AppBar\check.png" />
     <Content Include="Assets\AppBar\delete.png" />
