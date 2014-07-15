@@ -9,6 +9,7 @@
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:converters="clr-namespace:Foodler.Common.Converters"
     xmlns:toolkitPrimitives="clr-namespace:Microsoft.Phone.Controls.Primitives;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:metrica="clr-namespace:Yandex.Metrica;assembly=Yandex.Metrica"
     mc:Ignorable="d"
     x:Class="Foodler.App"
     >
@@ -827,6 +828,8 @@
             <Setter Property="TextAlignment" Value="Center"></Setter>
             <Setter Property="FontFamily" Value="/Assets/Fonts/Cuprum-Regular.ttf#Cuprum"></Setter>
         </Style>
+
+        <metrica:CounterBootstrapper x:Key="CounterBootstrapper" ApiKey="26659" />
     </Application.Resources>
 
 
