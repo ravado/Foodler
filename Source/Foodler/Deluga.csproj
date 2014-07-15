@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{697048F7-7224-4DB5-BB68-0332AA968B8A}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Deluga</RootNamespace>
+    <AssemblyName>Deluga</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>Foodler_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>Foodler.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <ExpressionBlendVersion>5.0.30924.0</ExpressionBlendVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\ActionCommand.cs" />
+    <Compile Include="Common\AppBarBuilder.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\Contracts\IFood.cs" />
+    <Compile Include="Common\Contracts\IParticipant.cs" />
+    <Compile Include="Common\Contracts\IRepository.cs" />
+    <Compile Include="Common\Converters\BitmapImageConverter.cs" />
+    <Compile Include="Common\Converters\CostWithCurrencyConverter.cs" />
+    <Compile Include="Common\Converters\InVisibilityConvertor.cs" />
+    <Compile Include="Common\Converters\UppercaseConverter.cs" />
+    <Compile Include="Common\Converters\VisibilityConverter.cs" />
+    <Compile Include="Common\Enums.cs" />
+    <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
+    <Compile Include="Common\Helpers\ImageHelper.cs" />
+    <Compile Include="Common\SettingsManager.cs" />
+    <Compile Include="Common\StateManager.cs" />
+    <Compile Include="DB\FoodlerDataContext.cs" />
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Food.cs" />
+    <Compile Include="Models\Participant.cs" />
+    <Compile Include="Pages\AddAnonymousParticipant.xaml.cs">
+      <DependentUpon>AddAnonymousParticipant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddFoodPage.xaml.cs">
+      <DependentUpon>AddFoodPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AddParticipantPage.xaml.cs">
+      <DependentUpon>AddParticipantPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\InputFoodCostPage.xaml.cs">
+      <DependentUpon>InputFoodCostPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\AppBarLabels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppBarLabels.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Images.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Images.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\UILabels.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UILabels.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SampleData\SampleDataSource\SampleDataSource.xaml.cs">
+      <DependentUpon>SampleDataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\ParticipantService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\AddParticipantsViewModel.cs" />
+    <Compile Include="ViewModels\Common\BaseViewModel.cs" />
+    <Compile Include="ViewModels\AddFoodViewModel.cs" />
+    <Compile Include="ViewModels\AddAnonymousParticipantViewModel.cs" />
+    <Compile Include="ViewModels\InputFoodCostViewModel.cs" />
+    <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
+    <Compile Include="ViewModels\Items\FoodItemViewModel.cs" />
+    <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
+    <Compile Include="ViewModels\Items\ParticipantViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="Pages\AddAnonymousParticipant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddFoodPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AddParticipantPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\InputFoodCostPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SampleData\SampleDataSource\SampleDataSource.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SampleData\SampleDataSource\SampleDataSource.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\AppBar\people-multiple.png" />
+    <Content Include="Assets\AppBar\add.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\list.png" />
+    <Content Include="Assets\AppBar\list-reorder.png" />
+    <Content Include="Assets\AppBar\edit.png" />
+    <Content Include="Assets\AppBar\transform-rotate-counterclockwise.png" />
+    <Content Include="Assets\AppBar\user-add.png" />
+    <Content Include="Assets\AppBar\user-minus.png" />
+    <Content Include="Assets\AppBar\mask-anonymous.png" />
+    <Content Include="Assets\AppBar\next.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\questionmark.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\refresh.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\AppBar\save.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Icon\Animals\NonStroked\bird.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\bull.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\cat.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\cow.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\dog.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\duck.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\elephant.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\fish.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\horse.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\ladybug.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\leopard.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\lion.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\lobster.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\rabbit.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\snail.png" />
+    <Content Include="Assets\Icon\Animals\NonStroked\turtle.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\bird.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\bull.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\cat.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\cow.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\dog.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\duck.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\elephant.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\fish.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\horse.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\ladybug.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\leopard.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\lion.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\lobster.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\rabbit.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\snail.png" />
+    <Content Include="Assets\Icon\Animals\Stroked\turtle.png" />
+    <Content Include="Assets\Icon\edit.png" />
+    <Content Include="Assets\Icon\cancel-icon-white.png" />
+    <Content Include="Assets\Icon\kitchen-coctail-icon-white.png" />
+    <Content Include="Assets\Icon\mask-icon-white.png" />
+    <Content Include="Assets\Icon\mask.png" />
+    <Content Include="Assets\Icon\arrow-down.png" />
+    <Content Include="Assets\Icon\arrow-up.png" />
+    <Content Include="Assets\Icon\backspace.png" />
+    <Content Include="Assets\Icon\Food\beer.png" />
+    <Content Include="Assets\Icon\Food\healthy-food.png" />
+    <Content Include="Assets\Icon\Food\fruit.png" />
+    <Content Include="Assets\Icon\Food\vine.png" />
+    <Content Include="Assets\Icon\Food\champain.png" />
+    <Content Include="Assets\Icon\Food\seafood.png" />
+    <Content Include="Assets\Icon\Food\sushi.png" />
+    <Content Include="Assets\Icon\Food\pizza.png" />
+    <Content Include="Assets\Icon\Food\refreshments.png" />
+    <Content Include="Assets\Icon\Food\cocktail.png" />
+    <Content Include="Assets\Icon\Food\coffe.png" />
+    <Content Include="Assets\Icon\Food\cake.png" />
+    <Content Include="Assets\Icon\Food\ice-cream.png" />
+    <Content Include="Assets\Icon\Food\fast-food.png" />
+    <Content Include="Assets\Icon\Food\fries.png" />
+    <Content Include="Assets\Icon\Food\snack.png" />
+    <Content Include="Assets\Icon\Food\soup.png" />
+    <Content Include="Assets\Icon\enter-key.png" />
+    <Content Include="Assets\Tiles\icon-medium.png" />
+    <Content Include="Assets\Tiles\icon-small.png" />
+    <Content Include="Assets\AppBar\cancel.png" />
+    <Content Include="Assets\AppBar\check.png" />
+    <Content Include="Assets\AppBar\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppBarLabels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppBarLabels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Images.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Images.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UILabels.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UILabels.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="AppBarUtils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AppBarUtils.2.4\lib\windowsphone8\AppBarUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Controls, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit">
+      <HintPath>..\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Yandex.Metrica">
+      <HintPath>..\packages\Yandex.Metrica.1.1.5227.137\lib\wp8\Yandex.Metrica.dll</HintPath>
+    </Reference>
+    <Reference Include="Zlib.Portable">
+      <HintPath>..\packages\Zlib.Portable.1.9.2\lib\portable-net4+sl4+wp71+win8\Zlib.Portable.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\bird.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\bull.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cancel-icon-white.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cat.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cow.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\dog.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\duck.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\elephant.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\fish.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\horse.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\kitchen-coctail-icon-white.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\ladybug.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\leopard.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\lion.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\lobster.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\mask-icon-white-old.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\mask-icon-white.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\rabbit.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\snail.png" />
+    <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\turtle.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

@@ -5,7 +5,7 @@
     <Language code="ru-RU" />
     <Language code="uk-UA" />
   </Languages>
-  <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8a}" Title="Foodler" RuntimeType="Silverlight" Version="0.4.0.0" Genre="apps.normal" Author="Foodler author" Description="" Publisher="Foodler" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
+  <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8a}" Title="Deluga" RuntimeType="Silverlight" Version="0.4.0.0" Genre="apps.normal" Author="Foodler author" Description="" Publisher="Foodler" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
     <IconPath IsRelative="true" IsResource="false">Assets\Tiles\icon-small.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
