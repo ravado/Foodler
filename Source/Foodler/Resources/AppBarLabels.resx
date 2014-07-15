@@ -132,6 +132,9 @@
   <data name="AddFoodPage_SelectAll" xml:space="preserve">
     <value>select all</value>
   </data>
+  <data name="AddParticipantsPage_AddMe" xml:space="preserve">
+    <value>add self</value>
+  </data>
   <data name="AddParticipantsPage_AvailableAnonymous" xml:space="preserve">
     <value>anonymous</value>
   </data>

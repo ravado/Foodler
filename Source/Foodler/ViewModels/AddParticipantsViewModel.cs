@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Windows;
 using System.Windows.Input;
 using Foodler.Common;
 using Foodler.Common.Contracts;
@@ -22,6 +23,7 @@ namespace Foodler.ViewModels
         private ICommand _clearAllCommand;
         private ObservableCollection<AlphaKeyGroup<IParticipant>> _avaibleParticipants;
         private bool _isCanceled;
+        private bool _addedSelf;
         #endregion
 
         #region Properties
@@ -203,6 +205,18 @@ namespace Foodler.ViewModels
             }
 
             return true;
+        }
+
+        internal void AddSelf(bool force = false)
+        {
+            if(_addedSelf && !force) return;
+
+            var me = new Participant(Guid.Empty, UILabels.Common_SelfName, false, null);
+            if (!ChosenParticipants.Contains(me))
+            {
+                ChosenParticipants.Add(me);
+                _addedSelf = true;
+            }
         }
     }
 }

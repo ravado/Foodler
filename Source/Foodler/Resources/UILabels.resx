@@ -144,6 +144,9 @@
   <data name="Common_AppName" xml:space="preserve">
     <value>Foodler</value>
   </data>
+  <data name="Common_SelfName" xml:space="preserve">
+    <value>Me</value>
+  </data>
   <data name="Controls_FoodExpanderParticipants" xml:space="preserve">
     <value>Participants:</value>
   </data>

@@ -1,4 +1,5 @@
-﻿using Foodler.Common;
+﻿using System.Linq;
+using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Resources;
 using Foodler.Services;
@@ -10,6 +11,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Microsoft.Phone.UserData;
 using GestureEventArgs = System.Windows.Input.GestureEventArgs;
 
 namespace Foodler.Pages
@@ -51,7 +53,10 @@ namespace Foodler.Pages
             ViewModel.AddSelectedParticipantToList(StateManager.SelectedAnonymous);
             StateManager.SelectedAnonymous = null;
 
-            
+            if (!StateManager.InvolvedParticipants.Any())
+            {
+                ViewModel.AddSelf();
+            }
 
             base.OnNavigatedTo(e);
         }
@@ -205,5 +210,10 @@ namespace Foodler.Pages
         }
 
         #endregion
+
+        internal void AddMeBtn_OnClick(object sender, EventArgs e)
+        {
+            ViewModel.AddSelf(true);
+        }
     }
 }

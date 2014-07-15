@@ -131,6 +131,12 @@ namespace Foodler.Common
                     btnAnonymous.Click += page.AddAnonymousBtn_OnClick;
                     _addParticipantsBar.Buttons.Add(btnAnonymous);
 
+                    var btnAddMe =
+                          new ApplicationBarIconButton(new Uri(Images.AppBarUserAdd, UriKind.RelativeOrAbsolute));
+                    btnAddMe.Text = AppBarLabels.AddParticipantsPage_AddMe;
+                    btnAddMe.Click += page.AddMeBtn_OnClick;
+                    _addParticipantsBar.Buttons.Add(btnAddMe);
+
                     var btnResetAll =
                        new ApplicationBarIconButton(new Uri(Images.AppBarReset, UriKind.RelativeOrAbsolute));
                     btnResetAll.Text = AppBarLabels.AddParticipantsPage_AvailableUnselectAll;

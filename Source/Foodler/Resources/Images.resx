@@ -192,6 +192,9 @@ Assets/Icon/Animals/NonStroked/turtle.png</value>
   <data name="AppBarSelectAll" xml:space="preserve">
     <value>/Assets/AppBar/people-multiple.png</value>
   </data>
+  <data name="AppBarUserAdd" xml:space="preserve">
+    <value>/Assets/AppBar/user-add.png</value>
+  </data>
   <data name="FoodBeer" xml:space="preserve">
     <value>/Assets/Icon/food/beer.png</value>
   </data>

@@ -106,6 +106,15 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to add self.
+        /// </summary>
+        internal static string AddParticipantsPage_AddMe {
+            get {
+                return ResourceManager.GetString("AddParticipantsPage_AddMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to anonymous.
         /// </summary>
         internal static string AddParticipantsPage_AvailableAnonymous {

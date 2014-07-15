@@ -220,6 +220,15 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Assets/AppBar/user-add.png.
+        /// </summary>
+        internal static string AppBarUserAdd {
+            get {
+                return ResourceManager.GetString("AppBarUserAdd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /Assets/Icon/food/beer.png.
         /// </summary>
         internal static string FoodBeer {

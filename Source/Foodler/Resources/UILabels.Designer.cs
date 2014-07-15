@@ -142,6 +142,15 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Me.
+        /// </summary>
+        internal static string Common_SelfName {
+            get {
+                return ResourceManager.GetString("Common_SelfName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Participants:.
         /// </summary>
         internal static string Controls_FoodExpanderParticipants {
