@@ -133,7 +133,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Foodler.
+        ///   Looks up a localized string similar to Deluga.
         /// </summary>
         internal static string Common_AppName {
             get {
