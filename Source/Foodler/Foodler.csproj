@@ -131,6 +131,9 @@
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\TutorialPage.xaml.cs">
+      <DependentUpon>TutorialPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\AppBarLabels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -172,6 +175,7 @@
     <Compile Include="ViewModels\Items\ParticipantContainerViewModel.cs" />
     <Compile Include="ViewModels\Items\ParticipantViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\TutorialViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -198,6 +202,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\TutorialPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SampleData\SampleDataSource\SampleDataSource.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -207,6 +215,15 @@
     <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Tutorials\tutorial-finish.png" />
+    <Content Include="Assets\Tutorials\tutorial-greating.png" />
+    <Content Include="Assets\Tutorials\step1.png" />
+    <Content Include="Assets\Tutorials\step2.png" />
+    <Content Include="Assets\Tutorials\step3.png" />
+    <Content Include="Assets\Tutorials\step4.png" />
+    <Content Include="Assets\Tutorials\step5.png" />
+    <Content Include="Assets\Tutorials\step6.png" />
+    <Content Include="Assets\Tutorials\step7.png" />
     <Content Include="SplashScreenImage.jpg" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
@@ -322,6 +339,7 @@
     <EmbeddedResource Include="Resources\Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.resx">
       <Generator>ResXFileCodeGenerator</Generator>

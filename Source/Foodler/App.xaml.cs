@@ -23,6 +23,8 @@ namespace Foodler
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
+        public static bool FirstRun { get; set; } //TODO: remove it, because it`s for better testing
+
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>
@@ -61,6 +63,7 @@ namespace Foodler
             }
             InitializeDatabase();
             LoadContactsToDatabase();
+            FirstRun = true;
         }
 
         private void LoadContactsToDatabase()
@@ -246,6 +249,11 @@ namespace Foodler
 
                 throw;
             }
+        }
+
+        public class Pages
+        {
+            public const string TUTORIAL = "/Pages/TutorialPage.xaml";
         }
     }
 }

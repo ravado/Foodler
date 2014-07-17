@@ -255,4 +255,15 @@ Assets/Icon/Animals/NonStroked/turtle.png</value>
   <data name="NonStrokedFish" xml:space="preserve">
     <value>/Assets/Icon/animals/non-stroked/fish.png</value>
   </data>
+  <data name="Tutorials" xml:space="preserve">
+    <value>/Assets/Tutorials/tutorial-greating.png
+/Assets/Tutorials/step1.png
+/Assets/Tutorials/step2.png
+/Assets/Tutorials/step3.png
+/Assets/Tutorials/step4.png
+/Assets/Tutorials/step5.png
+/Assets/Tutorials/step6.png
+/Assets/Tutorials/step7.png
+/Assets/Tutorials/tutorial-finish.png</value>
+  </data>
 </root>

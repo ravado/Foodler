@@ -409,6 +409,7 @@
                 </phone:PivotItem>
             </phone:Pivot>
         </Grid>
+        
     </Grid>
     <!--<phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar>

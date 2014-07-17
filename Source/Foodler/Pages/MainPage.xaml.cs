@@ -33,14 +33,17 @@ namespace Foodler.Pages
             PreviousPivotPage = MainPivotPage.None;
             ViewModel.Initialize();
             SetApplicationBarForPivot();
-
         }
 
         #region Navigation
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            if (App.FirstRun)
+            {
+                App.FirstRun = false;
+                NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
+            }
 
             // get chosen participants from addparticipants page
             if (StateManager.InvolvedParticipants != null)

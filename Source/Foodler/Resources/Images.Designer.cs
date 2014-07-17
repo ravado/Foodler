@@ -407,5 +407,22 @@ namespace Foodler.Resources {
                 return ResourceManager.GetString("NonStrokedFish", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Tutorials/tutorial-greating.png
+        ////Assets/Tutorials/step1.png
+        ////Assets/Tutorials/step2.png
+        ////Assets/Tutorials/step3.png
+        ////Assets/Tutorials/step4.png
+        ////Assets/Tutorials/step5.png
+        ////Assets/Tutorials/step6.png
+        ////Assets/Tutorials/step7.png
+        ////Assets/Tutorials/tutorial-finish.png.
+        /// </summary>
+        internal static string Tutorials {
+            get {
+                return ResourceManager.GetString("Tutorials", resourceCulture);
+            }
+        }
     }
 }
