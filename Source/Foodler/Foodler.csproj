@@ -15,8 +15,7 @@
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <SilverlightApplication>true</SilverlightApplication>
-    <SupportedCultures>
-    </SupportedCultures>
+    <SupportedCultures>ru%3buk</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>Foodler_$(Configuration)_$(Platform).xap</XapFilename>
@@ -138,6 +137,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AppBarLabels.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\AppBarLabels.uk.Designer.cs">
+      <DependentUpon>AppBarLabels.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Messages.uk.Designer.cs">
+      <DependentUpon>Messages.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\UILabels.uk.Designer.cs">
+      <DependentUpon>UILabels.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Resources\Images.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -336,6 +350,20 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.ru.resx" />
+    <EmbeddedResource Include="Resources\AppResources.uk.resx" />
+    <EmbeddedResource Include="Resources\AppBarLabels.uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppBarLabels.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UILabels.uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UILabels.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
@@ -348,6 +376,7 @@
     <EmbeddedResource Include="Resources\UILabels.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UILabels.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

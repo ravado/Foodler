@@ -142,6 +142,72 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mary
+        ///Patricia
+        ///Nancy
+        ///Laura
+        ///Lisa
+        ///Michelle
+        ///Linda
+        ///Karen
+        ///Sarah
+        ///Barbara
+        ///Betty
+        ///Kimberly
+        ///Elizabeth
+        ///Helen
+        ///Deborah
+        ///Jennifer
+        ///Sandra
+        ///Maria
+        ///Donna
+        ///Susan
+        ///Carol
+        ///Margaret
+        ///Ruth
+        ///Dorothy
+        ///Sharon.
+        /// </summary>
+        internal static string Common_MostUsedFemaleNames {
+            get {
+                return ResourceManager.GetString("Common_MostUsedFemaleNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to James
+        ///John
+        ///Robert
+        ///Michael
+        ///Mark
+        ///Jason
+        ///William
+        ///Donald
+        ///Jeff
+        ///David
+        ///George
+        ///Richard
+        ///Kenneth
+        ///Charles
+        ///Steven
+        ///Joseph
+        ///Edward
+        ///Thomas
+        ///Brian
+        ///Christopher
+        ///Ronald
+        ///Daniel
+        ///Anthony
+        ///Paul
+        ///Kevin.
+        /// </summary>
+        internal static string Common_MostUsedMaleNames {
+            get {
+                return ResourceManager.GetString("Common_MostUsedMaleNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Me.
         /// </summary>
         internal static string Common_SelfName {

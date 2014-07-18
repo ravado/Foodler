@@ -118,171 +118,151 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AddAnonymousParticipantPageFemaleTabHeader" xml:space="preserve">
-    <value>female</value>
+    <value>жінки</value>
   </data>
   <data name="AddAnonymousParticipantPage_MaleTabHeader" xml:space="preserve">
-    <value>male</value>
+    <value>чоловіки</value>
   </data>
   <data name="AddFoodPage_ChooseFoodHeader" xml:space="preserve">
-    <value>Choose your food</value>
+    <value>Оберіть страву</value>
   </data>
   <data name="AddFoodPage_FoodTitle" xml:space="preserve">
-    <value>Food:</value>
+    <value>Страва:</value>
   </data>
   <data name="AddFoodPage_ParticipantsTitle" xml:space="preserve">
-    <value>Participants:</value>
+    <value>Учасники:</value>
   </data>
   <data name="AddFoodPage_PriceTitle" xml:space="preserve">
-    <value>Price:</value>
+    <value>Ціна:</value>
   </data>
   <data name="AddParticipantsPage_AvailableTabHeader" xml:space="preserve">
-    <value>available</value>
+    <value>доступні</value>
   </data>
   <data name="AddParticipantsPage_SelectedTabHeader" xml:space="preserve">
-    <value>selected</value>
+    <value>обрані</value>
   </data>
   <data name="Common_AppName" xml:space="preserve">
     <value>Deluga</value>
   </data>
   <data name="Common_MostUsedFemaleNames" xml:space="preserve">
-    <value>Mary
-Patricia
-Nancy
-Laura
-Lisa
-Michelle
-Linda
-Karen
-Sarah
-Barbara
-Betty
-Kimberly
-Elizabeth
-Helen
-Deborah
-Jennifer
-Sandra
-Maria
-Donna
-Susan
-Carol
-Margaret
-Ruth
-Dorothy
-Sharon</value>
+    <value>Анастасія
+Аліна
+Дар’я
+Катерина
+Марія
+Наталія
+Софія
+Юлія
+Вікторія
+Єлизавета
+Анна
+Вероніка
+Уляна
+Олександра
+Яна</value>
   </data>
   <data name="Common_MostUsedMaleNames" xml:space="preserve">
-    <value>James
-John
-Robert
-Michael
-Mark
-Jason
-William
-Donald
-Jeff
-David
-George
-Richard
-Kenneth
-Charles
-Steven
-Joseph
-Edward
-Thomas
-Brian
-Christopher
-Ronald
-Daniel
-Anthony
-Paul
-Kevin</value>
+    <value>Олександр
+Данило
+Максим
+Владислав
+Микита
+Артем
+Іван
+Кирило
+Єгор
+Ілля
+Андрій
+Олексій
+Богдан
+Денис
+Дмитро</value>
   </data>
   <data name="Common_SelfName" xml:space="preserve">
-    <value>Me</value>
+    <value>Я</value>
   </data>
   <data name="Controls_FoodExpanderParticipants" xml:space="preserve">
-    <value>Participants:</value>
+    <value>Учасники:</value>
   </data>
   <data name="Controls_FoodExpanderPrice" xml:space="preserve">
-    <value>Price: </value>
+    <value>Ціна:</value>
   </data>
   <data name="Controls_FoodExpanderTotalParticipants" xml:space="preserve">
-    <value>TotalParticipants</value>
+    <value>Всього учасників</value>
   </data>
   <data name="Controls_ParticipantsExpanderTotalEaten" xml:space="preserve">
-    <value>Food eaten:</value>
+    <value>З'їдено страв:</value>
   </data>
   <data name="FoodName_Beer" xml:space="preserve">
-    <value>Beer</value>
+    <value>Пиво</value>
   </data>
   <data name="FoodName_Cake" xml:space="preserve">
-    <value>Cake</value>
+    <value>Тістечко</value>
   </data>
   <data name="FoodName_Champagne" xml:space="preserve">
-    <value>Champagne</value>
+    <value>Шампанське</value>
   </data>
   <data name="FoodName_Cocktail" xml:space="preserve">
-    <value>Cocktail</value>
+    <value>Коктейль</value>
   </data>
   <data name="FoodName_Coffe" xml:space="preserve">
-    <value>Coffe</value>
+    <value>Кава</value>
   </data>
   <data name="FoodName_FastFood" xml:space="preserve">
-    <value>Fast food</value>
+    <value>Фастфуд</value>
   </data>
   <data name="FoodName_FirstDishes" xml:space="preserve">
-    <value>First dishes</value>
+    <value>Перші страви</value>
   </data>
   <data name="FoodName_Fruit" xml:space="preserve">
-    <value>Fruit</value>
+    <value>Фрукти</value>
   </data>
   <data name="FoodName_HealthyFood" xml:space="preserve">
-    <value>Healthy food</value>
+    <value>Здорова їжа</value>
   </data>
   <data name="FoodName_IceCream" xml:space="preserve">
-    <value>Ice cream</value>
+    <value>Морозиво</value>
   </data>
   <data name="FoodName_Pizza" xml:space="preserve">
-    <value>Pizza</value>
+    <value>Піца</value>
   </data>
   <data name="FoodName_Refreshments" xml:space="preserve">
-    <value>Refreshments</value>
+    <value>Охолоджуючі напої</value>
   </data>
   <data name="FoodName_Seafood" xml:space="preserve">
-    <value>Seafood</value>
+    <value>Морепродукти</value>
   </data>
   <data name="FoodName_Snacks" xml:space="preserve">
-    <value>Snacks</value>
+    <value>Закуски</value>
   </data>
   <data name="FoodName_Sushi" xml:space="preserve">
-    <value>Sushi</value>
+    <value>Суші</value>
   </data>
   <data name="FoodName_Vine" xml:space="preserve">
-    <value>Vine</value>
+    <value>Вино</value>
   </data>
   <data name="InputFoodPricePage_FoodPrice" xml:space="preserve">
-    <value>food price</value>
+    <value>ціна страви</value>
   </data>
   <data name="MainPage_FoodTabHeader" xml:space="preserve">
-    <value>food</value>
+    <value>страви</value>
   </data>
   <data name="MainPage_NoFoodHint" xml:space="preserve">
-    <value>There is no food, add some.</value>
+    <value>Не обрано жодної страви, додайте її.</value>
   </data>
   <data name="MainPage_NoParticipantsHint" xml:space="preserve">
-    <value>There are no participants,add some.</value>
+    <value>Не обрано учасників,додайте їх.</value>
   </data>
   <data name="MainPage_NoSummaryHint" xml:space="preserve">
-    <value>You should add some participants and food first.Come back here after.</value>
+    <value>Ви маєте додати учасників та страви для початку.Повертайтеся після цього.</value>
   </data>
   <data name="MainPage_ParticipantsTabHeader" xml:space="preserve">
-    <value>participants</value>
+    <value>учасники</value>
   </data>
   <data name="MainPage_SummaryTabHeader" xml:space="preserve">
-    <value>sum</value>
+    <value>підсумок</value>
   </data>
   <data name="MainPage_TotalSum" xml:space="preserve">
-    <value>Total:</value>
+    <value>Всього:</value>
   </data>
 </root>

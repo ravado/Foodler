@@ -5,6 +5,8 @@
     <Language code="ru-RU" />
     <Language code="uk-UA" />
     <Language code="en" />
+    <Language code="ru" />
+    <Language code="uk" />
   </Languages>
   <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8a}" Title="Deluga" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Ivan Cherednychok" Description="" Publisher="Ivan Cherednychok" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
     <IconPath IsRelative="true" IsResource="false">Assets\Tiles\icon-small.png</IconPath>
@@ -29,16 +31,11 @@
           <Count>0</Count>
           <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-medium.png</BackgroundImageURI>
           <Title>Deluga</Title>
-          <BackContent>
-          </BackContent>
-          <BackBackgroundImageURI>
-          </BackBackgroundImageURI>
-          <BackTitle>
-          </BackTitle>
-          <DeviceLockImageURI>
-          </DeviceLockImageURI>
-          <HasLarge>
-          </HasLarge>
+          <BackContent></BackContent>
+          <BackBackgroundImageURI></BackBackgroundImageURI>
+          <BackTitle></BackTitle>
+          <DeviceLockImageURI></DeviceLockImageURI>
+          <HasLarge></HasLarge>
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>
