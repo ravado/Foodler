@@ -158,6 +158,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.uk.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\LocalizableImages.ru.Designer.cs">
+      <DependentUpon>LocalizableImages.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\LocalizableImages.uk.Designer.cs">
+      <DependentUpon>LocalizableImages.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\LocalizableImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizableImages.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Messages.ru.Designer.cs">
       <DependentUpon>Messages.ru.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -254,16 +269,37 @@
     <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Tutorials\tutorial-finish.png" />
-    <Content Include="Assets\Tutorials\tutorial-greating.png" />
+    <Content Include="Assets\Tiles\app-tile.png" />
     <Content Include="Assets\Tutorials\step1.png" />
+    <Content Include="Assets\Tutorials\step1.ru.png" />
+    <Content Include="Assets\Tutorials\step1.uk.png" />
     <Content Include="Assets\Tutorials\step2.png" />
+    <Content Include="Assets\Tutorials\step2.ru.png" />
+    <Content Include="Assets\Tutorials\step2.uk.png" />
     <Content Include="Assets\Tutorials\step3.png" />
+    <Content Include="Assets\Tutorials\step3.ru.png" />
+    <Content Include="Assets\Tutorials\step3.uk.png" />
     <Content Include="Assets\Tutorials\step4.png" />
+    <Content Include="Assets\Tutorials\step4.ru.png" />
+    <Content Include="Assets\Tutorials\step4.uk.png" />
     <Content Include="Assets\Tutorials\step5.png" />
+    <Content Include="Assets\Tutorials\step5.ru.png" />
+    <Content Include="Assets\Tutorials\step5.uk.png" />
     <Content Include="Assets\Tutorials\step6.png" />
+    <Content Include="Assets\Tutorials\step6.ru.png" />
+    <Content Include="Assets\Tutorials\step6.uk.png" />
     <Content Include="Assets\Tutorials\step7.png" />
+    <Content Include="Assets\Tutorials\step7.ru.png" />
+    <Content Include="Assets\Tutorials\step7.uk.png" />
+    <Content Include="Assets\Tutorials\tutorial-finish.png" />
+    <Content Include="Assets\Tutorials\tutorial-finish.ru.png" />
+    <Content Include="Assets\Tutorials\tutorial-finish.uk.png" />
+    <Content Include="Assets\Tutorials\tutorial-greating.invariant.png" />
+    <Content Include="Assets\Tutorials\tutorial-greating.png" />
+    <Content Include="Assets\Tutorials\tutorial-greating.ru.png" />
+    <Content Include="Assets\Tutorials\tutorial-greating.uk.png" />
     <Content Include="SplashScreenImage.jpg" />
+    <None Include="Foodler_2014_07_18_22_23_11.sap" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
@@ -391,6 +427,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>AppBarLabels.ru.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LocalizableImages.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizableImages.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LocalizableImages.uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizableImages.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LocalizableImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizableImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Messages.ru.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Messages.ru.Designer.cs</LastGenOutput>
@@ -464,7 +512,9 @@
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\snail.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\turtle.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Assets\Screenshots\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

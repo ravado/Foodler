@@ -27,6 +27,56 @@
             <Grid.Background>
                 <ImageBrush Stretch="Fill" ImageSource="{Binding CurrentTutorial}"/>
             </Grid.Background>
+            
+            
+            <!--<Grid
+                Name="GreatingGrid"
+                Visibility="{Binding TutorialVisibility[0], Converter={StaticResource VisibilityConverter}}">
+                <Grid.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Assets/Tutorials/tutorial-greating.png"/>
+                </Grid.Background>
+                <TextBlock
+                    Style="{StaticResource TutorialMessageStyle}"
+                    VerticalAlignment="Center"
+                    Margin="0 -55 0 0 "
+                    Text="welcome" />
+                <TextBlock 
+                    Style="{StaticResource TutorialMessageStyle}"
+                    VerticalAlignment="Center"
+                    FontSize="22"
+                    Foreground="DarkGray"
+                    Text="tap anywhere on screen to continue" 
+                    Margin="0 10 0  0" />
+            </Grid>
+
+            
+            <Grid
+                Name="Step1Grid"
+                Visibility="{Binding TutorialVisibility[1], Converter={StaticResource VisibilityConverter}}">
+                <Grid.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Assets/Tutorials/step1.png"/>
+                </Grid.Background>
+                <TextBlock
+                    Style="{StaticResource TutorialMessageStyle}"
+                    VerticalAlignment="Center"
+                    Margin="190 125 0 0 "
+                    Text="add few participants" />
+            </Grid>
+
+            
+            <Grid
+                Name="Step2Grid"
+                Visibility="{Binding TutorialVisibility[2], Converter={StaticResource VisibilityConverter}}">
+                <Grid.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Assets/Tutorials/step2.png"/>
+                </Grid.Background>
+                <TextBlock
+                    Style="{StaticResource TutorialMessageStyle}"
+                    VerticalAlignment="Center"
+                    Margin="190 125 0 0 "
+                    Text="add few participants" />
+            </Grid>-->
+
             <ProgressBar
                 VerticalAlignment="Top"
                 Margin="-12 0 -12 0"
