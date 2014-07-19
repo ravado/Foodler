@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Windows.Media.Imaging;
 using Foodler.Common.Contracts;
 
 namespace Foodler.Models
 {
+    [DataContract(IsReference = true)]
     public class Food : BaseModel, IFood, IEquatable<Food>
     {
         #region Fields

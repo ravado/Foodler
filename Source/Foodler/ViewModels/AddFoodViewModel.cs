@@ -108,7 +108,7 @@ namespace Foodler.ViewModels
                     if (!ignoreFood) // need because food now gets from list picker page and binds directly
                     {
                         Food = foodContainer.Food;
-                        SelectedFoodItem = AvailableFood.FirstOrDefault(f => f.Name == Food.Name);
+                        SelectedFoodItem = AvailableFood.FirstOrDefault(f => f.Name == Food.Name) ?? AvailableFood.First();
                     }
                     else
                     {
@@ -187,11 +187,11 @@ namespace Foodler.ViewModels
             AvailableFood.Clear();
 
             //TODO: please do it more optimal
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Pizza, GetImage(Images.FoodPizza)));
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_FastFood, GetImage(Images.FoodFastFood)));
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_FirstDishes, GetImage(Images.FoodSoup)));
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Sushi, GetImage(Images.FoodSushi)));
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_HealthyFood, GetImage(Images.FoodHealthyFood)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Pizza, GetImage(Images.FoodPizza)));
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Seafood, GetImage(Images.FoodSeafood)));
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Snacks, GetImage(Images.FoodSnack)));
 
@@ -205,26 +205,7 @@ namespace Foodler.ViewModels
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Cake, GetImage(Images.FoodCake)));
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Fruit, GetImage(Images.FoodFruit)));
             AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_IceCream, GetImage(Images.FoodIceCream)));
-
-            //TODO: saved for rus localization
-            //AvailableFood.Add(new FoodItemViewModel("Фаст фуд", GetImage(Images.FoodFastFood)));
-            //AvailableFood.Add(new FoodItemViewModel("Первые блюда", GetImage(Images.FoodSoup)));
-            //AvailableFood.Add(new FoodItemViewModel("Суши", GetImage(Images.FoodSushi)));
-            //AvailableFood.Add(new FoodItemViewModel("Здоровая пища", GetImage(Images.FoodHealthyFood)));
-            //AvailableFood.Add(new FoodItemViewModel("Пицца", GetImage(Images.FoodPizza)));
-            //AvailableFood.Add(new FoodItemViewModel("Морепродукты", GetImage(Images.FoodSeafood)));
-            //AvailableFood.Add(new FoodItemViewModel("Закуски", GetImage(Images.FoodSnack)));
-
-            //AvailableFood.Add(new FoodItemViewModel("Пиво", GetImage(Images.FoodBeer)));
-            //AvailableFood.Add(new FoodItemViewModel("Шампанское", GetImage(Images.FoodChampain)));
-            //AvailableFood.Add(new FoodItemViewModel("Коктейль", GetImage(Images.FoodCocktail)));
-            //AvailableFood.Add(new FoodItemViewModel("Кофе", GetImage(Images.FoodCoffe)));
-            //AvailableFood.Add(new FoodItemViewModel("Напитки", GetImage(Images.FoodRefreshments)));
-            //AvailableFood.Add(new FoodItemViewModel("Вино", GetImage(Images.FoodVine)));
-
-            //AvailableFood.Add(new FoodItemViewModel("Пироженое", GetImage(Images.FoodCake)));
-            //AvailableFood.Add(new FoodItemViewModel("Фрукты", GetImage(Images.FoodFruit)));
-            //AvailableFood.Add(new FoodItemViewModel("Мороженое", GetImage(Images.FoodIceCream)));
+            
         }
 
         private bool Validate()
