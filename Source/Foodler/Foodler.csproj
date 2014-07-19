@@ -269,6 +269,30 @@
     <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Screenshots\720p\screen-1.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-2.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-3.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-4.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-5.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-6.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-7.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-8.720p.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-1.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-2.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-3.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-4.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-5.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-6.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-7.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-8.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-1.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-2.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-3.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-4.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-5.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-6.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-7.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-8.wxvga.png" />
     <Content Include="Assets\Tiles\app-tile.png" />
     <Content Include="Assets\Tutorials\step1.png" />
     <Content Include="Assets\Tutorials\step1.ru.png" />
@@ -512,9 +536,7 @@
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\snail.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\turtle.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\Screenshots\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
