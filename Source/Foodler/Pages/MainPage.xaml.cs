@@ -17,6 +17,7 @@ namespace Foodler.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private bool _initialized = false;
         public MainViewModel ViewModel { get; private set; }
         protected MainPivotPage PreviousPivotPage { get; set; }
 
@@ -39,9 +40,9 @@ namespace Foodler.Pages
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (App.FirstRun)
+            if (SettingsManager.IsFirstRun && !_initialized)
             {
-                App.FirstRun = false;
+                _initialized = true;
                 NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
             }
 
