@@ -267,5 +267,10 @@ namespace Foodler.Pages
             }
             //else AppBarBuilder.Food.ShowExpandAll();
         }
+
+        internal void OpenTutorial_Onclick(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
+        }
     }
 }

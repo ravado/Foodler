@@ -165,6 +165,9 @@
   <data name="MainPage_ParticipantsNext" xml:space="preserve">
     <value>далее</value>
   </data>
+  <data name="MainPage_ShowTutorial" xml:space="preserve">
+    <value>помощь</value>
+  </data>
   <data name="MainPage_SumCollapseAll" xml:space="preserve">
     <value>развернуть</value>
   </data>

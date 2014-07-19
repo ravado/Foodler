@@ -1,11 +1,12 @@
 ﻿using System;
+using Foodler.Models;
 using Foodler.Pages;
 using Foodler.Resources;
 using Microsoft.Phone.Shell;
 
 namespace Foodler.Common
 {
-    public static class AppBarBuilder
+    public class AppBarBuilder
     {
         public static class Food
         {
@@ -32,6 +33,8 @@ namespace Foodler.Common
                     btnNext.Text = AppBarLabels.MainPage_FoodNext;
                     btnNext.Click += page.BtnGoSumTab_OnClick;
                     _food.Buttons.Add(btnNext);
+
+                    SetTutorialItem(_food, page.OpenTutorial_Onclick);
                 }
                 return _food;
             }
@@ -77,6 +80,8 @@ namespace Foodler.Common
                     btnNext.Text = AppBarLabels.MainPage_ParticipantsNext;
                     btnNext.Click += page.BtnGoFoodTab_OnClick;
                     _participants.Buttons.Add(btnNext);
+
+                    SetTutorialItem(_participants, page.OpenTutorial_Onclick);
                 }
                 return _participants;
             }
@@ -104,6 +109,8 @@ namespace Foodler.Common
                     btnRestart.Text = AppBarLabels.MainPage_SumRestart;
                     btnRestart.Click += page.BtnDone_OnClick;
                     _sum.Buttons.Add(btnRestart);
+
+                    SetTutorialItem(_sum, page.OpenTutorial_Onclick);
                 }
                 return _sum;
             }
@@ -186,6 +193,13 @@ namespace Foodler.Common
                 //}
                 return _addFoodBar;
             }
+        }
+
+        public static void SetTutorialItem(ApplicationBar appBar, EventHandler clickAction)
+        {
+            var tutorialMenu = new ApplicationBarMenuItem(AppBarLabels.MainPage_ShowTutorial);
+            tutorialMenu.Click += clickAction;
+            appBar.MenuItems.Add(tutorialMenu);
         }
     }
 }
