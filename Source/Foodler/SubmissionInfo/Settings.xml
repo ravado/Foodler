@@ -1,7 +1,6 @@
 <MarketplaceDetails>
-  <SmallAppTile>
-  </SmallAppTile>
-  <ScreenShots>;;;;;;;;</ScreenShots>
-  <ScreenShotsWXGA>;;;;;;;;</ScreenShotsWXGA>
-  <ScreenShots720P>;;;;;;;;</ScreenShots720P>
+  <SmallAppTile>app-tile.png</SmallAppTile>
+  <ScreenShots>screen-1.png;screen-2.png;screen-3.png;screen-4.png;screen-5.png;screen-6.png;screen-7.png;screen-8.png;</ScreenShots>
+  <ScreenShotsWXGA>screen-1.wxvga.png;screen-2.wxvga.png;screen-3.wxvga.png;screen-4.wxvga.png;screen-5.wxvga.png;screen-6.wxvga.png;screen-7.wxvga.png;screen-8.wxvga.png;</ScreenShotsWXGA>
+  <ScreenShots720P>screen-1.720p.png;screen-2.720p.png;screen-3.720p.png;screen-4.720p.png;screen-5.720p.png;screen-6.720p.png;screen-7.720p.png;screen-8.720p.png;</ScreenShots720P>
 </MarketplaceDetails>
