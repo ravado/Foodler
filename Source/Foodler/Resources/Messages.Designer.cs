@@ -70,7 +70,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You should enter a valid price, and select at least one participant..
+        ///   Looks up a localized string similar to You should enter the price, and select at least one participant..
         /// </summary>
         internal static string AddFoodPage_InvalidDataMessage {
             get {

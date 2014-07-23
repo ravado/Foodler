@@ -121,7 +121,7 @@
     <value>Invalid Data</value>
   </data>
   <data name="AddFoodPage_InvalidDataMessage" xml:space="preserve">
-    <value>You should enter a valid price, and select at least one participant.</value>
+    <value>You should enter the price, and select at least one participant.</value>
   </data>
   <data name="AddParticipantsPage_InvalidDataHeader" xml:space="preserve">
     <value>Invalid Data</value>

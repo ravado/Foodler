@@ -191,7 +191,7 @@
     <value>Всього учасників</value>
   </data>
   <data name="Controls_ParticipantsExpanderTotalEaten" xml:space="preserve">
-    <value>З'їдено страв:</value>
+    <value>Замовлено страв:</value>
   </data>
   <data name="FoodName_Beer" xml:space="preserve">
     <value>Пиво</value>
@@ -251,7 +251,7 @@
     <value>Не обрано жодної страви, додайте її.</value>
   </data>
   <data name="MainPage_NoParticipantsHint" xml:space="preserve">
-    <value>Не обрано учасників,додайте їх.</value>
+    <value>Не обрано учасників, додайте їх.</value>
   </data>
   <data name="MainPage_NoSummaryHint" xml:space="preserve">
     <value>Ви маєте додати учасників та страви для початку.Повертайтеся після цього.</value>

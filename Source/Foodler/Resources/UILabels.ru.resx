@@ -130,10 +130,10 @@
     <value>Еда:</value>
   </data>
   <data name="AddFoodPage_ParticipantsTitle" xml:space="preserve">
-    <value>Учасники:</value>
+    <value>Участники:</value>
   </data>
   <data name="AddFoodPage_PriceTitle" xml:space="preserve">
-    <value>Цена:</value>
+    <value>Стоимость:</value>
   </data>
   <data name="AddParticipantsPage_AvailableTabHeader" xml:space="preserve">
     <value>доступные</value>
@@ -219,28 +219,28 @@
     <value>Я</value>
   </data>
   <data name="Controls_FoodExpanderParticipants" xml:space="preserve">
-    <value>Учасники:</value>
+    <value>Участники:</value>
   </data>
   <data name="Controls_FoodExpanderPrice" xml:space="preserve">
-    <value>Цена:</value>
+    <value>Стоимость:</value>
   </data>
   <data name="Controls_FoodExpanderTotalParticipants" xml:space="preserve">
-    <value>Всего учасников:</value>
+    <value>Всего участников:</value>
   </data>
   <data name="Controls_ParticipantsExpanderTotalEaten" xml:space="preserve">
-    <value>Еды сьедено:</value>
+    <value>Заказано блюд:</value>
   </data>
   <data name="FoodName_Beer" xml:space="preserve">
     <value>Пиво</value>
   </data>
   <data name="FoodName_Cake" xml:space="preserve">
-    <value>Пироженое</value>
+    <value>Пирожное</value>
   </data>
   <data name="FoodName_Champagne" xml:space="preserve">
     <value>Шампанское</value>
   </data>
   <data name="FoodName_Cocktail" xml:space="preserve">
-    <value>Коктель</value>
+    <value>Коктейль</value>
   </data>
   <data name="FoodName_Coffe" xml:space="preserve">
     <value>Кофе</value>
@@ -252,7 +252,7 @@
     <value>Первые блюда</value>
   </data>
   <data name="FoodName_Fruit" xml:space="preserve">
-    <value>Фрукти</value>
+    <value>Фрукты</value>
   </data>
   <data name="FoodName_HealthyFood" xml:space="preserve">
     <value>Здоровая пища</value>
@@ -267,7 +267,7 @@
     <value>Напитки</value>
   </data>
   <data name="FoodName_Seafood" xml:space="preserve">
-    <value>Морепродукти</value>
+    <value>Морепродукты</value>
   </data>
   <data name="FoodName_Snacks" xml:space="preserve">
     <value>Закуски</value>
@@ -288,18 +288,18 @@
     <value>Не выбрано ни одного блюда, добавьте их.</value>
   </data>
   <data name="MainPage_NoParticipantsHint" xml:space="preserve">
-    <value>Не выбрано учасников,добавьте их.</value>
+    <value>Не выбрано участников,добавьте их.</value>
   </data>
   <data name="MainPage_NoSummaryHint" xml:space="preserve">
-    <value>Вам следует добавить учасников и едудля начала.Возвращайтесь после этого.</value>
+    <value>Вам следует добавить участников и еду для начала.Возвращайтесь после этого.</value>
   </data>
   <data name="MainPage_ParticipantsTabHeader" xml:space="preserve">
-    <value>учасники</value>
+    <value>участники</value>
   </data>
   <data name="MainPage_SummaryTabHeader" xml:space="preserve">
     <value>итог</value>
   </data>
   <data name="MainPage_TotalSum" xml:space="preserve">
-    <value>Всего:</value>
+    <value>Итого:</value>
   </data>
 </root>

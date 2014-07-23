@@ -433,7 +433,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You should add some         ///participants and food first.        ///Come back here after..
+        ///   Looks up a localized string similar to You should add some         ///participants and food first.        ///Come back here after you do that..
         /// </summary>
         internal static string MainPage_NoSummaryHint {
             get {

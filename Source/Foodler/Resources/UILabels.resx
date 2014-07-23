@@ -274,7 +274,7 @@ Kevin</value>
     <value>There are no participants,add some.</value>
   </data>
   <data name="MainPage_NoSummaryHint" xml:space="preserve">
-    <value>You should add some participants and food first.Come back here after.</value>
+    <value>You should add some participants and food first.Come back here after you do that.</value>
   </data>
   <data name="MainPage_ParticipantsTabHeader" xml:space="preserve">
     <value>participants</value>

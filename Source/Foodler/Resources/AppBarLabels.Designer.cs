@@ -106,7 +106,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to add self.
+        ///   Looks up a localized string similar to add me.
         /// </summary>
         internal static string AddParticipantsPage_AddMe {
             get {

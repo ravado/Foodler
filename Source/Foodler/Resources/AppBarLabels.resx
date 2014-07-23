@@ -133,7 +133,7 @@
     <value>select all</value>
   </data>
   <data name="AddParticipantsPage_AddMe" xml:space="preserve">
-    <value>add self</value>
+    <value>add me</value>
   </data>
   <data name="AddParticipantsPage_AvailableAnonymous" xml:space="preserve">
     <value>anonymous</value>
