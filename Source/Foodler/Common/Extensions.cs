@@ -62,5 +62,15 @@ namespace Foodler.Common
                 return ms.ToArray();
             }
         }
+
+        /// <summary>
+        /// Make an image object from uri path to image
+        /// </summary>
+        /// <param name="url">Path to image</param>
+        /// <returns>Image object</returns>
+        public static BitmapImage GetImage(this string url)
+        {
+            return new BitmapImage(new Uri(url, UriKind.Relative));
+        }
     }
 }

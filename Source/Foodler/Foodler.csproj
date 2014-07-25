@@ -269,6 +269,12 @@
     <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Mock\avramenko.png" />
+    <Content Include="Assets\Mock\chekh.png" />
+    <Content Include="Assets\Mock\kanunikov.png" />
+    <Content Include="Assets\Mock\matukhno.png" />
+    <Content Include="Assets\Mock\mychailyk.png" />
+    <Content Include="Assets\Mock\telyk.png" />
     <Content Include="Assets\Screenshots\720p\screen-1.720p.png" />
     <Content Include="Assets\Screenshots\720p\screen-2.720p.png" />
     <Content Include="Assets\Screenshots\720p\screen-3.720p.png" />

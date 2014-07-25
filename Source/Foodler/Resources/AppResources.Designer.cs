@@ -61,6 +61,20 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alena Avramenko
+        ///Alexey Kanunikov
+        ///Alina Telyk
+        ///Andrey Chekh
+        ///Andrey Matuhno
+        ///Anna Mykhailyk.
+        /// </summary>
+        public static string MockPeoples {
+            get {
+                return ResourceManager.GetString("MockPeoples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LeftToRight.
         /// </summary>
         public static string ResourceFlowDirection {
