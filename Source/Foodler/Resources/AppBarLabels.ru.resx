@@ -130,10 +130,10 @@
     <value>очистить</value>
   </data>
   <data name="AddFoodPage_SelectAll" xml:space="preserve">
-    <value>выбрать всех</value>
+    <value>все</value>
   </data>
   <data name="AddParticipantsPage_AddMe" xml:space="preserve">
-    <value>добавить себя</value>
+    <value>я</value>
   </data>
   <data name="AddParticipantsPage_AvailableAnonymous" xml:space="preserve">
     <value>анонимы</value>
@@ -142,7 +142,7 @@
     <value>завершить</value>
   </data>
   <data name="AddParticipantsPage_AvailableUnselectAll" xml:space="preserve">
-    <value>очистить всех</value>
+    <value>очистить</value>
   </data>
   <data name="AddParticipantsPage_AvailableUpdateContacts" xml:space="preserve">
     <value>обновить контакты</value>
@@ -166,7 +166,7 @@
     <value>далее</value>
   </data>
   <data name="MainPage_ShowTutorial" xml:space="preserve">
-    <value>помощь</value>
+    <value>как пользоваться?</value>
   </data>
   <data name="MainPage_SumCollapseAll" xml:space="preserve">
     <value>развернуть</value>

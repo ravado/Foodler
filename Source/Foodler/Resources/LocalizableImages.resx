@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Tutorial_AllImages" xml:space="preserve">
-    <value>/Assets/Tutorials/tutorial-greating.png
-/Assets/Tutorials/step1.png
-/Assets/Tutorials/step2.png
-/Assets/Tutorials/step3.png
-/Assets/Tutorials/step4.png
-/Assets/Tutorials/step5.png
-/Assets/Tutorials/step6.png
-/Assets/Tutorials/step7.png
-/Assets/Tutorials/tutorial-finish.png</value>
+    <value>/Assets/Tutorials/en/tutorial-greating.wxga.en.png
+/Assets/Tutorials/en/step1.wxga.en.png
+/Assets/Tutorials/en/step2.wxga.en.png
+/Assets/Tutorials/en/step3.wxga.en.png
+/Assets/Tutorials/en/step4.wxga.en.png
+/Assets/Tutorials/en/step5.wxga.en.png
+/Assets/Tutorials/en/step6.wxga.en.png
+/Assets/Tutorials/en/step7.wxga.en.png
+/Assets/Tutorials/en/tutorial-finish.wxga.en.png</value>
   </data>
 </root>

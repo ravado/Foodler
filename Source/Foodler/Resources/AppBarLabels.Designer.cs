@@ -205,7 +205,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to help.
+        ///   Looks up a localized string similar to how to use?.
         /// </summary>
         internal static string MainPage_ShowTutorial {
             get {

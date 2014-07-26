@@ -61,15 +61,15 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /Assets/Tutorials/tutorial-greating.png
-        ////Assets/Tutorials/step1.png
-        ////Assets/Tutorials/step2.png
-        ////Assets/Tutorials/step3.png
-        ////Assets/Tutorials/step4.png
-        ////Assets/Tutorials/step5.png
-        ////Assets/Tutorials/step6.png
-        ////Assets/Tutorials/step7.png
-        ////Assets/Tutorials/tutorial-finish.png.
+        ///   Looks up a localized string similar to /Assets/Tutorials/en/tutorial-greating.wxga.en.png
+        ////Assets/Tutorials/en/step1.wxga.en.png
+        ////Assets/Tutorials/en/step2.wxga.en.png
+        ////Assets/Tutorials/en/step3.wxga.en.png
+        ////Assets/Tutorials/en/step4.wxga.en.png
+        ////Assets/Tutorials/en/step5.wxga.en.png
+        ////Assets/Tutorials/en/step6.wxga.en.png
+        ////Assets/Tutorials/en/step7.wxga.en.png
+        ////Assets/Tutorials/en/tutorial-finish.wxga.en.png.
         /// </summary>
         internal static string Tutorial_AllImages {
             get {

@@ -133,7 +133,7 @@
     <value>обрати всіх</value>
   </data>
   <data name="AddParticipantsPage_AddMe" xml:space="preserve">
-    <value>додати себе</value>
+    <value>я</value>
   </data>
   <data name="AddParticipantsPage_AvailableAnonymous" xml:space="preserve">
     <value>аноніми</value>
@@ -142,7 +142,7 @@
     <value>завершити</value>
   </data>
   <data name="AddParticipantsPage_AvailableUnselectAll" xml:space="preserve">
-    <value>очистити всіх</value>
+    <value>очистити</value>
   </data>
   <data name="AddParticipantsPage_AvailableUpdateContacts" xml:space="preserve">
     <value>обновити контакти</value>
