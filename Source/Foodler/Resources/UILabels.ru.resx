@@ -279,7 +279,7 @@
     <value>Вино</value>
   </data>
   <data name="InputFoodPricePage_FoodPrice" xml:space="preserve">
-    <value>стоимость еды</value>
+    <value>цена блюда</value>
   </data>
   <data name="MainPage_FoodTabHeader" xml:space="preserve">
     <value>еда</value>

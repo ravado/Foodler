@@ -97,8 +97,8 @@ namespace Foodler.ViewModels
         /// </summary>
         public void LoadAvaibleParticipants()
         {
-            //var participants = ParticipantService.GetAllParticipants().ToArray();
-            var participants = GetAllMockParticipants().ToArray();
+            var participants = ParticipantService.GetAllParticipants().ToArray();
+            //var participants = GetAllMockParticipants().ToArray();
 
             if (AvaibleParticipants == null)
                 AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
