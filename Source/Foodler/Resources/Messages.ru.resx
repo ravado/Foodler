@@ -124,7 +124,7 @@
     <value>Вы должны ввести цену и выбрать хотя бы одного учасника.</value>
   </data>
   <data name="AddParticipantsPage_AnonymousAvailableOnFullVersionMessage" xml:space="preserve">
-    <value>Вы можете добавлять анонимных учасников только в полной версии приложения. Хотите приобрести полную версию?</value>
+    <value>Вы можете добавлять анонимных участников только в полной версии приложения. Хотите приобрести полную версию?</value>
   </data>
   <data name="AddParticipantsPage_InvalidDataHeader" xml:space="preserve">
     <value>Неверные данные</value>
