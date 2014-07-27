@@ -4,6 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Foodler.Common;
 using Foodler.Common.Contracts;
+using Foodler.Resources;
+using Foodler.Services;
 using Foodler.ViewModels;
 using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
@@ -99,15 +101,27 @@ namespace Foodler.Pages
 
         internal void BtnAddFood_OnClick(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+            if (Constants.IS_LIGHT_VERSION && ViewModel.FoodContainers.Count >= Constants.MAX_FOOD_AMOUNT)
+            {
+                VersionFunctionalityService.ShowUnavailableFunctionalityMessage(
+                    String.Format(Messages.MainPage_FoodTabFoodLimitMessage, Constants.MAX_FOOD_AMOUNT));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+            }
         }
 
         internal void BtnDone_OnClick(object sender, EventArgs e)
         {
             Debug.WriteLine("[{0:hh:mm:ss.fff}] GoParticipantTab", DateTime.Now);
-            ViewModel.Reset();
-            ResetPageData();
-            SwitchPivot(0);
+            var mr = MessageBox.Show(Messages.MainPage_SumTabResetMessage, Messages.Common_AttentionHeader, MessageBoxButton.OKCancel);
+            if (mr == MessageBoxResult.OK)
+            {
+                ViewModel.Reset();
+                ResetPageData();
+                SwitchPivot(0);
+            }
         }
 
         private void ResetPageData()

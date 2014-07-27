@@ -123,10 +123,28 @@
   <data name="AddFoodPage_InvalidDataMessage" xml:space="preserve">
     <value>Вы должны ввести цену и выбрать хотя бы одного учасника.</value>
   </data>
+  <data name="AddParticipantsPage_AnonymousAvailableOnFullVersionMessage" xml:space="preserve">
+    <value>Вы можете добавлять анонимных учасников только в полной версии приложения. Хотите приобрести полную версию?</value>
+  </data>
   <data name="AddParticipantsPage_InvalidDataHeader" xml:space="preserve">
     <value>Неверные данные</value>
   </data>
   <data name="AddParticipantsPage_InvalidDataMessage" xml:space="preserve">
     <value>Вы должны выбрать хотя бы двух учасников.</value>
+  </data>
+  <data name="AddParticipantsPage_ParticipantsLimitMessage" xml:space="preserve">
+    <value>В лайт версии вы можете добавлять максимум {0} учасников. Хотите приобрести полную версию</value>
+  </data>
+  <data name="Common_AttentionHeader" xml:space="preserve">
+    <value>Внимание</value>
+  </data>
+  <data name="Common_UnavailableFunctionalityHeader" xml:space="preserve">
+    <value>Недоступно</value>
+  </data>
+  <data name="MainPage_FoodTabFoodLimitMessage" xml:space="preserve">
+    <value>В лайт версии вы можете добавить не больше {0} блюд. Хотите приобрести полную версию без ограничений?</value>
+  </data>
+  <data name="MainPage_SumTabResetMessage" xml:space="preserve">
+    <value>Это удалит все ваши изменения. Продолжить?</value>
   </data>
 </root>

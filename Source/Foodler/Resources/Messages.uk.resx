@@ -123,10 +123,28 @@
   <data name="AddFoodPage_InvalidDataMessage" xml:space="preserve">
     <value>Ви маєте ввести ціну, і обрати хоча б одного учасника.</value>
   </data>
+  <data name="AddParticipantsPage_AnonymousAvailableOnFullVersionMessage" xml:space="preserve">
+    <value>Ви можете додавати анонімних учасників тільки у повній версії додатку. Бажаєте придбати повну версію?</value>
+  </data>
   <data name="AddParticipantsPage_InvalidDataHeader" xml:space="preserve">
     <value>Не вірні дані</value>
   </data>
   <data name="AddParticipantsPage_InvalidDataMessage" xml:space="preserve">
     <value>Ви повинні обрати хоча б двох учасників.</value>
+  </data>
+  <data name="AddParticipantsPage_ParticipantsLimitMessage" xml:space="preserve">
+    <value>В лайт версії ви можете додавати максимум {0} учасників. Бажаєте придбати повну версію без обмежень?</value>
+  </data>
+  <data name="Common_AttentionHeader" xml:space="preserve">
+    <value>Увага</value>
+  </data>
+  <data name="Common_UnavailableFunctionalityHeader" xml:space="preserve">
+    <value>Недоступно</value>
+  </data>
+  <data name="MainPage_FoodTabFoodLimitMessage" xml:space="preserve">
+    <value>В лайт версії ви можете додавати не більше {0} страв. Бажаєте придбати повну версію без обмежень?</value>
+  </data>
+  <data name="MainPage_SumTabResetMessage" xml:space="preserve">
+    <value>Це очистить всі ваші розрахунки. Продовжити?</value>
   </data>
 </root>

@@ -364,6 +364,11 @@ namespace Foodler.ViewModels
         public void RemoveFood(FoodContainerViewModel fc)
         {
             FoodContainers.Remove(fc);
+            var eaten = ParticipantContainers.Where(p => p.Participant.EatenFood.Contains(fc.Food)).ToArray();
+            foreach (var e in eaten)
+            {
+                e.Participant.EatenFood.Remove(fc.Food);
+            }
         }
 
         public void Reset()
