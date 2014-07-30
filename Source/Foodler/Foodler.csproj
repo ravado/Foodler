@@ -328,6 +328,9 @@
     <Content Include="Assets\Tutorials\uk\step7.wxga.uk.png" />
     <Content Include="Assets\Tutorials\uk\tutorial-finish.wxga.uk.png" />
     <Content Include="Assets\Tutorials\uk\tutorial-greating.wxga.uk.png" />
+    <Content Include="Resources\Description.uk.txt" />
+    <Content Include="Resources\Description.txt" />
+    <Content Include="Resources\Description.ru.txt" />
     <Content Include="SplashScreenImage.jpg" />
     <None Include="Foodler_2014_07_18_22_23_11.sap" />
     <None Include="packages.config" />

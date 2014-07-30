@@ -79,7 +79,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can add anonymous only in full version of app. Would you like to get a full version?.
+        ///   Looks up a localized string similar to You can add anonymous only in full version of the app. Would you like to get a full version?.
         /// </summary>
         internal static string AddParticipantsPage_AnonymousAvailableOnFullVersionMessage {
             get {
@@ -106,7 +106,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can add only {0} participants in light version. Would you like to get a full version without any limitation?.
+        ///   Looks up a localized string similar to You can add only {0} participants in the light version. Would you like to get a full version without any limitation?.
         /// </summary>
         internal static string AddParticipantsPage_ParticipantsLimitMessage {
             get {
@@ -133,7 +133,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can add only {0} food items in light version. Would you like to get a full version without any limitation?.
+        ///   Looks up a localized string similar to You can add only {0} food items in the light version. Would you like to get a full version without any limitation?.
         /// </summary>
         internal static string MainPage_FoodTabFoodLimitMessage {
             get {
@@ -142,7 +142,16 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This will reset all your changes. Perform this action?.
+        ///   Looks up a localized string similar to Participants should be added first..
+        /// </summary>
+        internal static string MainPage_NoParticipantsMessage {
+            get {
+                return ResourceManager.GetString("MainPage_NoParticipantsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will reset all your changes. Continue?.
         /// </summary>
         internal static string MainPage_SumTabResetMessage {
             get {

@@ -124,7 +124,7 @@
     <value>You should enter the price, and select at least one participant.</value>
   </data>
   <data name="AddParticipantsPage_AnonymousAvailableOnFullVersionMessage" xml:space="preserve">
-    <value>You can add anonymous only in full version of app. Would you like to get a full version?</value>
+    <value>You can add anonymous only in full version of the app. Would you like to get a full version?</value>
   </data>
   <data name="AddParticipantsPage_InvalidDataHeader" xml:space="preserve">
     <value>Invalid Data</value>
@@ -133,7 +133,7 @@
     <value>You should enter at least two participants.</value>
   </data>
   <data name="AddParticipantsPage_ParticipantsLimitMessage" xml:space="preserve">
-    <value>You can add only {0} participants in light version. Would you like to get a full version without any limitation?</value>
+    <value>You can add only {0} participants in the light version. Would you like to get a full version without any limitation?</value>
   </data>
   <data name="Common_AttentionHeader" xml:space="preserve">
     <value>Attention</value>
@@ -142,9 +142,12 @@
     <value>Unavailable</value>
   </data>
   <data name="MainPage_FoodTabFoodLimitMessage" xml:space="preserve">
-    <value>You can add only {0} food items in light version. Would you like to get a full version without any limitation?</value>
+    <value>You can add only {0} food items in the light version. Would you like to get a full version without any limitation?</value>
+  </data>
+  <data name="MainPage_NoParticipantsMessage" xml:space="preserve">
+    <value>Participants should be added first.</value>
   </data>
   <data name="MainPage_SumTabResetMessage" xml:space="preserve">
-    <value>This will reset all your changes. Perform this action?</value>
+    <value>This will reset all your changes. Continue?</value>
   </data>
 </root>

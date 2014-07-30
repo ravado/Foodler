@@ -95,7 +95,7 @@ namespace Foodler.Pages
         internal void BtnGoSumTab_OnClick(object sender, EventArgs e)
         {
             Debug.WriteLine("[{0:hh:mm:ss.fff}] GoSumTab", DateTime.Now);
-            ViewModel.SumUp();
+            ViewModel.SumUpNew();
             SwitchPivot(2);
         }
 
@@ -106,7 +106,11 @@ namespace Foodler.Pages
                 VersionFunctionalityService.ShowUnavailableFunctionalityMessage(
                     String.Format(Messages.MainPage_FoodTabFoodLimitMessage, Constants.MAX_FOOD_AMOUNT));
             }
-            else
+            else if (ViewModel.Participants.Count == 0)
+            {
+                MessageBox.Show(Messages.MainPage_NoParticipantsMessage, Messages.Common_AttentionHeader,
+                    MessageBoxButton.OK);
+            } else
             {
                 NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
             }
