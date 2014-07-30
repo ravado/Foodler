@@ -145,7 +145,7 @@
     <value>В лайт версії ви можете додавати не більше {0} страв. Бажаєте придбати повну версію без обмежень?</value>
   </data>
   <data name="MainPage_NoParticipantsMessage" xml:space="preserve">
-    <value>Додайте участників спочатку.</value>
+    <value>Додайте учасників спочатку.</value>
   </data>
   <data name="MainPage_SumTabResetMessage" xml:space="preserve">
     <value>Це очистить всі ваші розрахунки. Продовжити?</value>

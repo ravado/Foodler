@@ -6,7 +6,7 @@ namespace Foodler.Common
     public sealed class Constants
     {
         public static string[] SPLITTER_CHARACTER;
-        public const bool IS_LIGHT_VERSION = true;
+        public const bool IS_LIGHT_VERSION = false;
         public const int MAX_PARTICIPANTS_AMOUNT = 3;
         public const int MAX_FOOD_AMOUNT = 5;
 

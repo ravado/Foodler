@@ -237,8 +237,8 @@ namespace Foodler
                 RootFrame.FlowDirection = flow;
 
                 //TODO: here you can change culture if nessery
-                //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("ru");
-                //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru");
+                //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("uk");
+                //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("uk");
             }
             catch
             {

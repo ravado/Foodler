@@ -300,7 +300,11 @@
     <Content Include="Assets\Screenshots\wxvga\screen-6.wxvga.png" />
     <Content Include="Assets\Screenshots\wxvga\screen-7.wxvga.png" />
     <Content Include="Assets\Screenshots\wxvga\screen-8.wxvga.png" />
+    <Content Include="Assets\Tiles\app-tile-lite.png" />
     <Content Include="Assets\Tiles\app-tile.png" />
+    <Content Include="Assets\Tiles\icon-medium.png" />
+    <Content Include="Assets\Tiles\icon-medium-lite.png" />
+    <Content Include="Assets\Tiles\icon-small-lite.png" />
     <Content Include="Assets\Tutorials\en\step1.wxga.en.png" />
     <Content Include="Assets\Tutorials\en\step2.wxga.en.png" />
     <Content Include="Assets\Tutorials\en\step3.wxga.en.png" />
@@ -428,7 +432,6 @@
     <Content Include="Assets\Icon\Food\snack.png" />
     <Content Include="Assets\Icon\Food\soup.png" />
     <Content Include="Assets\Icon\enter-key.png" />
-    <Content Include="Assets\Tiles\icon-medium.png" />
     <Content Include="Assets\Tiles\icon-small.png" />
     <Content Include="Assets\AppBar\cancel.png" />
     <Content Include="Assets\AppBar\check.png" />
