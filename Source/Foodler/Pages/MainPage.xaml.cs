@@ -4,6 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Foodler.Common;
 using Foodler.Common.Contracts;
+using Foodler.Resources;
+using Foodler.Services;
 using Foodler.ViewModels;
 using Foodler.ViewModels.Items;
 using Microsoft.Phone.Controls;
@@ -17,6 +19,7 @@ namespace Foodler.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        private bool _initialized = false;
         public MainViewModel ViewModel { get; private set; }
         protected MainPivotPage PreviousPivotPage { get; set; }
 
@@ -39,9 +42,9 @@ namespace Foodler.Pages
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (App.FirstRun)
+            if (SettingsManager.IsFirstRun && !_initialized)
             {
-                App.FirstRun = false;
+                _initialized = true;
                 NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
             }
 
@@ -92,21 +95,37 @@ namespace Foodler.Pages
         internal void BtnGoSumTab_OnClick(object sender, EventArgs e)
         {
             Debug.WriteLine("[{0:hh:mm:ss.fff}] GoSumTab", DateTime.Now);
-            ViewModel.SumUp();
+            ViewModel.SumUpNew();
             SwitchPivot(2);
         }
 
         internal void BtnAddFood_OnClick(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+            if (Constants.IS_LIGHT_VERSION && ViewModel.FoodContainers.Count >= Constants.MAX_FOOD_AMOUNT)
+            {
+                VersionFunctionalityService.ShowUnavailableFunctionalityMessage(
+                    String.Format(Messages.MainPage_FoodTabFoodLimitMessage, Constants.MAX_FOOD_AMOUNT));
+            }
+            else if (ViewModel.Participants.Count == 0)
+            {
+                MessageBox.Show(Messages.MainPage_NoParticipantsMessage, Messages.Common_AttentionHeader,
+                    MessageBoxButton.OK);
+            } else
+            {
+                NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+            }
         }
 
         internal void BtnDone_OnClick(object sender, EventArgs e)
         {
             Debug.WriteLine("[{0:hh:mm:ss.fff}] GoParticipantTab", DateTime.Now);
-            ViewModel.Reset();
-            ResetPageData();
-            SwitchPivot(0);
+            var mr = MessageBox.Show(Messages.MainPage_SumTabResetMessage, Messages.Common_AttentionHeader, MessageBoxButton.OKCancel);
+            if (mr == MessageBoxResult.OK)
+            {
+                ViewModel.Reset();
+                ResetPageData();
+                SwitchPivot(0);
+            }
         }
 
         private void ResetPageData()
@@ -266,6 +285,11 @@ namespace Foodler.Pages
                 //AppBarBuilder.Food.ShowCollapseAll();
             }
             //else AppBarBuilder.Food.ShowExpandAll();
+        }
+
+        internal void OpenTutorial_Onclick(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
         }
     }
 }

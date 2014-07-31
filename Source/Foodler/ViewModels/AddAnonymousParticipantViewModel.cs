@@ -92,13 +92,13 @@ namespace Foodler.ViewModels
         /// </summary>
         public void LoadAvaibleAnonymousParticipants()
         {
-            var maleNames = AppResources.MostUsedMaleNames.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None);
+            var maleNames = UILabels.Common_MostUsedMaleNames.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None);
             foreach (var maleName in maleNames)
             {
                 AnonymousMaleParticipantList.Add(new Participant(Guid.NewGuid(), maleName, false, GetRandomAvatar()));
             }
 
-            var femaleNames = AppResources.MostUsedFemaleNames.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None);
+            var femaleNames = UILabels.Common_MostUsedFemaleNames.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None);
             foreach (var femaleName in femaleNames)
             {
                 AnonymousFemaleParticipantList.Add(new Participant(Guid.NewGuid(), femaleName, false, GetRandomAvatar()));

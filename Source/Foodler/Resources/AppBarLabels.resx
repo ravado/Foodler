@@ -133,7 +133,7 @@
     <value>select all</value>
   </data>
   <data name="AddParticipantsPage_AddMe" xml:space="preserve">
-    <value>add self</value>
+    <value>add me</value>
   </data>
   <data name="AddParticipantsPage_AvailableAnonymous" xml:space="preserve">
     <value>anonymous</value>
@@ -164,6 +164,9 @@
   </data>
   <data name="MainPage_ParticipantsNext" xml:space="preserve">
     <value>next</value>
+  </data>
+  <data name="MainPage_ShowTutorial" xml:space="preserve">
+    <value>how to use?</value>
   </data>
   <data name="MainPage_SumCollapseAll" xml:space="preserve">
     <value>collapse all</value>

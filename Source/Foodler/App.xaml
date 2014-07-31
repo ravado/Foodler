@@ -829,6 +829,16 @@
             <Setter Property="FontFamily" Value="/Assets/Fonts/Cuprum-Regular.ttf#Cuprum"></Setter>
         </Style>
 
+        <!-- Tutorials Messages -->
+        <Style x:Key="TutorialMessageStyle" TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+            <Setter Property="FontSize" Value="25"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="TextAlignment" Value="Center"></Setter>
+            <Setter Property="FontFamily" Value="/Assets/Fonts/Cuprum-Regular.ttf#Cuprum"></Setter>
+        </Style>
+
         <metrica:CounterBootstrapper x:Key="CounterBootstrapper" ApiKey="26659" />
     </Application.Resources>
 

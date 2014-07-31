@@ -15,8 +15,7 @@
     <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <SilverlightApplication>true</SilverlightApplication>
-    <SupportedCultures>
-    </SupportedCultures>
+    <SupportedCultures>ru%3buk</SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
     <XapFilename>Foodler_$(Configuration)_$(Platform).xap</XapFilename>
@@ -139,6 +138,61 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppBarLabels.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\AppBarLabels.uk.Designer.cs">
+      <DependentUpon>AppBarLabels.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\AppBarLabels.ru.Designer.cs">
+      <DependentUpon>AppBarLabels.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\AppResources.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\AppResources.uk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.uk.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\LocalizableImages.ru.Designer.cs">
+      <DependentUpon>LocalizableImages.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\LocalizableImages.uk.Designer.cs">
+      <DependentUpon>LocalizableImages.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\LocalizableImages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalizableImages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Messages.ru.Designer.cs">
+      <DependentUpon>Messages.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\UILabels.ru.Designer.cs">
+      <DependentUpon>UILabels.ru.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Messages.uk.Designer.cs">
+      <DependentUpon>Messages.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\UILabels.uk.Designer.cs">
+      <DependentUpon>UILabels.uk.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Resources\Images.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -165,6 +219,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\VersionFunctionalityService.cs" />
     <Compile Include="ViewModels\AddParticipantsViewModel.cs" />
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\AddFoodViewModel.cs" />
@@ -215,16 +270,73 @@
     <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Tutorials\tutorial-finish.png" />
-    <Content Include="Assets\Tutorials\tutorial-greating.png" />
-    <Content Include="Assets\Tutorials\step1.png" />
-    <Content Include="Assets\Tutorials\step2.png" />
-    <Content Include="Assets\Tutorials\step3.png" />
-    <Content Include="Assets\Tutorials\step4.png" />
-    <Content Include="Assets\Tutorials\step5.png" />
-    <Content Include="Assets\Tutorials\step6.png" />
-    <Content Include="Assets\Tutorials\step7.png" />
+    <Content Include="Assets\Mock\avramenko.png" />
+    <Content Include="Assets\Mock\chekh.png" />
+    <Content Include="Assets\Mock\kanunikov.png" />
+    <Content Include="Assets\Mock\matukhno.png" />
+    <Content Include="Assets\Mock\mychailyk.png" />
+    <Content Include="Assets\Mock\telyk.png" />
+    <Content Include="Assets\Screenshots\720p\screen-1.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-2.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-3.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-4.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-5.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-6.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-7.720p.png" />
+    <Content Include="Assets\Screenshots\720p\screen-8.720p.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-1.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-2.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-3.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-4.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-5.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-6.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-7.png" />
+    <Content Include="Assets\Screenshots\wvga\screen-8.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-1.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-2.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-3.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-4.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-5.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-6.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-7.wxvga.png" />
+    <Content Include="Assets\Screenshots\wxvga\screen-8.wxvga.png" />
+    <Content Include="Assets\Tiles\app-tile-lite.png" />
+    <Content Include="Assets\Tiles\app-tile.png" />
+    <Content Include="Assets\Tiles\icon-medium.png" />
+    <Content Include="Assets\Tiles\icon-medium-lite.png" />
+    <Content Include="Assets\Tiles\icon-small-lite.png" />
+    <Content Include="Assets\Tutorials\en\step1.wxga.en.png" />
+    <Content Include="Assets\Tutorials\en\step2.wxga.en.png" />
+    <Content Include="Assets\Tutorials\en\step3.wxga.en.png" />
+    <Content Include="Assets\Tutorials\en\step4.wxga.en.png" />
+    <Content Include="Assets\Tutorials\en\step5.wxga.en.png" />
+    <Content Include="Assets\Tutorials\en\step6.wxga.en.png" />
+    <Content Include="Assets\Tutorials\en\step7.wxga.en.png" />
+    <Content Include="Assets\Tutorials\en\tutorial-finish.wxga.en.png" />
+    <Content Include="Assets\Tutorials\en\tutorial-greating.wxga.en.png" />
+    <Content Include="Assets\Tutorials\ru\step1.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\ru\step2.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\ru\step3.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\ru\step4.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\ru\step5.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\ru\step6.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\ru\step7.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\ru\tutorial-finish.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\ru\tutorial-greating.wxga.ru.png" />
+    <Content Include="Assets\Tutorials\uk\step1.wxga.uk.png" />
+    <Content Include="Assets\Tutorials\uk\step2.wxga.uk.png" />
+    <Content Include="Assets\Tutorials\uk\step3.wxga.uk.png" />
+    <Content Include="Assets\Tutorials\uk\step4.wxga.uk.png" />
+    <Content Include="Assets\Tutorials\uk\step5.wxga.uk.png" />
+    <Content Include="Assets\Tutorials\uk\step6.wxga.uk.png" />
+    <Content Include="Assets\Tutorials\uk\step7.wxga.uk.png" />
+    <Content Include="Assets\Tutorials\uk\tutorial-finish.wxga.uk.png" />
+    <Content Include="Assets\Tutorials\uk\tutorial-greating.wxga.uk.png" />
+    <Content Include="Resources\Description.uk.txt" />
+    <Content Include="Resources\Description.txt" />
+    <Content Include="Resources\Description.ru.txt" />
     <Content Include="SplashScreenImage.jpg" />
+    <None Include="Foodler_2014_07_18_22_23_11.sap" />
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml">
@@ -320,7 +432,6 @@
     <Content Include="Assets\Icon\Food\snack.png" />
     <Content Include="Assets\Icon\Food\soup.png" />
     <Content Include="Assets\Icon\enter-key.png" />
-    <Content Include="Assets\Tiles\icon-medium.png" />
     <Content Include="Assets\Tiles\icon-small.png" />
     <Content Include="Assets\AppBar\cancel.png" />
     <Content Include="Assets\AppBar\check.png" />
@@ -336,6 +447,51 @@
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppResources.uk.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppBarLabels.uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppBarLabels.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AppBarLabels.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppBarLabels.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LocalizableImages.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizableImages.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LocalizableImages.uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizableImages.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LocalizableImages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LocalizableImages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UILabels.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UILabels.ru.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Messages.uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\UILabels.uk.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>UILabels.uk.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Images.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Images.Designer.cs</LastGenOutput>
@@ -348,6 +504,7 @@
     <EmbeddedResource Include="Resources\UILabels.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>UILabels.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

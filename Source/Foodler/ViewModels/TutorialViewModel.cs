@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Navigation;
 using Foodler.Common;
@@ -42,7 +43,7 @@ namespace Foodler.ViewModels
 
         public void LoadTutorialImages()
         {
-            TutorialImages = Images.Tutorials.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None).ToList();
+            TutorialImages = LocalizableImages.Tutorial_AllImages.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None).ToList();
         }
 
         public void NextTutorial()

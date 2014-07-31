@@ -2,6 +2,7 @@
 using System.ServiceModel.Channels;
 using System.Threading;
 using System.Windows;
+using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.Resources;
@@ -11,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Media.Imaging;
+using Extensions = Foodler.Common.Extensions;
 
 namespace Foodler.ViewModels
 {
@@ -108,7 +110,7 @@ namespace Foodler.ViewModels
                     if (!ignoreFood) // need because food now gets from list picker page and binds directly
                     {
                         Food = foodContainer.Food;
-                        SelectedFoodItem = AvailableFood.FirstOrDefault(f => f.Name == Food.Name);
+                        SelectedFoodItem = AvailableFood.FirstOrDefault(f => f.Name == Food.Name) ?? AvailableFood.First();
                     }
                     else
                     {
@@ -187,46 +189,28 @@ namespace Foodler.ViewModels
             AvailableFood.Clear();
 
             //TODO: please do it more optimal
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_FastFood, GetImage(Images.FoodFastFood)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_FirstDishes, GetImage(Images.FoodSoup)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Sushi, GetImage(Images.FoodSushi)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_HealthyFood, GetImage(Images.FoodHealthyFood)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Pizza, GetImage(Images.FoodPizza)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Seafood, GetImage(Images.FoodSeafood)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Snacks, GetImage(Images.FoodSnack)));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Pizza, Images.FoodPizza.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_FastFood, Images.FoodFastFood.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_FirstDishes, Images.FoodSoup.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Sushi, Images.FoodSushi.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_HealthyFood, Images.FoodHealthyFood.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Seafood, Images.FoodSeafood.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Snacks, Images.FoodSnack.GetImage()));
 
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Beer, GetImage(Images.FoodBeer)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Champagne, GetImage(Images.FoodChampain)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Cocktail, GetImage(Images.FoodCocktail)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Coffe, GetImage(Images.FoodCoffe)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Refreshments, GetImage(Images.FoodRefreshments)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Vine, GetImage(Images.FoodVine)));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Beer, Images.FoodBeer.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Champagne, Images.FoodChampain.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Cocktail, Images.FoodCocktail.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Coffe, Images.FoodCoffe.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Refreshments, Images.FoodRefreshments.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Vine, Images.FoodVine.GetImage()));
 
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Cake, GetImage(Images.FoodCake)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Fruit, GetImage(Images.FoodFruit)));
-            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_IceCream, GetImage(Images.FoodIceCream)));
-
-            //TODO: saved for rus localization
-            //AvailableFood.Add(new FoodItemViewModel("Фаст фуд", GetImage(Images.FoodFastFood)));
-            //AvailableFood.Add(new FoodItemViewModel("Первые блюда", GetImage(Images.FoodSoup)));
-            //AvailableFood.Add(new FoodItemViewModel("Суши", GetImage(Images.FoodSushi)));
-            //AvailableFood.Add(new FoodItemViewModel("Здоровая пища", GetImage(Images.FoodHealthyFood)));
-            //AvailableFood.Add(new FoodItemViewModel("Пицца", GetImage(Images.FoodPizza)));
-            //AvailableFood.Add(new FoodItemViewModel("Морепродукты", GetImage(Images.FoodSeafood)));
-            //AvailableFood.Add(new FoodItemViewModel("Закуски", GetImage(Images.FoodSnack)));
-
-            //AvailableFood.Add(new FoodItemViewModel("Пиво", GetImage(Images.FoodBeer)));
-            //AvailableFood.Add(new FoodItemViewModel("Шампанское", GetImage(Images.FoodChampain)));
-            //AvailableFood.Add(new FoodItemViewModel("Коктейль", GetImage(Images.FoodCocktail)));
-            //AvailableFood.Add(new FoodItemViewModel("Кофе", GetImage(Images.FoodCoffe)));
-            //AvailableFood.Add(new FoodItemViewModel("Напитки", GetImage(Images.FoodRefreshments)));
-            //AvailableFood.Add(new FoodItemViewModel("Вино", GetImage(Images.FoodVine)));
-
-            //AvailableFood.Add(new FoodItemViewModel("Пироженое", GetImage(Images.FoodCake)));
-            //AvailableFood.Add(new FoodItemViewModel("Фрукты", GetImage(Images.FoodFruit)));
-            //AvailableFood.Add(new FoodItemViewModel("Мороженое", GetImage(Images.FoodIceCream)));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Cake, Images.FoodCake.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_Fruit, Images.FoodFruit.GetImage()));
+            AvailableFood.Add(new FoodItemViewModel(UILabels.FoodName_IceCream, Images.FoodIceCream.GetImage()));
+            
         }
 
+        // ReSharper disable once ReplaceWithSingleAssignment.True
         private bool Validate()
         {
             var valid = true;
@@ -237,11 +221,7 @@ namespace Foodler.ViewModels
             return valid;
         }
 
-        //TODO: move to some common place
-        public static BitmapImage GetImage(string url)
-        {
-            return new BitmapImage(new Uri(url, UriKind.Relative));
-        }
+        
 
         public FoodContainerViewModel GetFoodContainer()
         {

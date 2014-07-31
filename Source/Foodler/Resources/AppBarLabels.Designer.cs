@@ -106,7 +106,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to add self.
+        ///   Looks up a localized string similar to add me.
         /// </summary>
         internal static string AddParticipantsPage_AddMe {
             get {
@@ -201,6 +201,15 @@ namespace Foodler.Resources {
         internal static string MainPage_ParticipantsNext {
             get {
                 return ResourceManager.GetString("MainPage_ParticipantsNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to how to use?.
+        /// </summary>
+        internal static string MainPage_ShowTutorial {
+            get {
+                return ResourceManager.GetString("MainPage_ShowTutorial", resourceCulture);
             }
         }
         

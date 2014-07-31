@@ -117,6 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="MockPeoples" xml:space="preserve">
+    <value>Alena Avramenko
+Alexey Kanunikov
+Alina Telyk
+Andrey Chekh
+Andrey Matuhno
+Anna Mykhailyk</value>
+  </data>
   <data name="ResourceFlowDirection" xml:space="preserve">
     <value>LeftToRight</value>
     <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
@@ -124,74 +132,5 @@
   <data name="ResourceLanguage" xml:space="preserve">
     <value>en-US</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
-  </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>MY APPLICATION</value>
-  </data>
-  <data name="AppBarButtonText" xml:space="preserve">
-    <value>add</value>
-  </data>
-  <data name="AppBarMenuItemText" xml:space="preserve">
-    <value>Menu Item</value>
-  </data>
-  <data name="MostUsedFemaleNames" xml:space="preserve">
-    <value>Mary
-Patricia
-Nancy
-Laura
-Lisa
-Michelle
-Linda
-Karen
-Sarah
-Barbara
-Betty
-Kimberly
-Elizabeth
-Helen
-Deborah
-Jennifer
-Sandra
-Maria
-Donna
-Susan
-Carol
-Margaret
-Ruth
-Dorothy
-Sharon</value>
-  </data>
-  <data name="MostUsedMaleNames" xml:space="preserve">
-    <value>James
-John
-Robert
-Michael
-Mark
-Jason
-William
-Donald
-Jeff
-David
-George
-Richard
-Kenneth
-Charles
-Steven
-Joseph
-Edward
-Thomas
-Brian
-Christopher
-Ronald
-Daniel
-Anthony
-Paul
-Kevin</value>
-  </data>
-  <data name="AppBarMainPageFoodTabCollapseBtn" xml:space="preserve">
-    <value>collapse all</value>
-  </data>
-  <data name="AppBarMainPageFoodTabExpandBtn" xml:space="preserve">
-    <value>expand all</value>
   </data>
 </root>

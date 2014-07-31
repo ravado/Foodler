@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 ﻿using Foodler.Common.Helpers;
@@ -95,6 +98,7 @@ namespace Foodler.ViewModels
         public void LoadAvaibleParticipants()
         {
             var participants = ParticipantService.GetAllParticipants().ToArray();
+            //var participants = GetAllMockParticipants().ToArray();
 
             if (AvaibleParticipants == null)
                 AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
@@ -103,8 +107,23 @@ namespace Foodler.ViewModels
 
             AvaibleParticipants.Clear();
             AvaibleParticipants =
-                AlphaKeyGroup<IParticipant>.CreateGroups(participants, culture, (item) => item.Name, true);
+                AlphaKeyGroup<IParticipant>.CreateGroups(participants, culture, (item) => item.Name, true); //TODO: here you can change filter
 
+        }
+
+        private IEnumerable<IParticipant> GetAllMockParticipants()
+        {
+            var mockPeoples = new List<IParticipant>();
+            var peoples = AppResources.MockPeoples.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None);
+            var images = Images.MockPeoplesAvatars.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None);
+            for (int i = 0; i < images.Count(); i++)
+            {
+                //var im = images[i].GetImage();
+                var myStream = App.GetResourceStream(new Uri(images[i], UriKind.RelativeOrAbsolute));
+                mockPeoples.Add(new Participant(Guid.NewGuid(), peoples[i], true, myStream.Stream.ToBytes()));
+            }
+
+            return mockPeoples;
         }
 
         /// <summary>

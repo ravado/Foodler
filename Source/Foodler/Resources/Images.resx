@@ -246,6 +246,14 @@ Assets/Icon/Animals/NonStroked/turtle.png</value>
   <data name="FoodVine" xml:space="preserve">
     <value>/Assets/Icon/food/vine.png</value>
   </data>
+  <data name="MockPeoplesAvatars" xml:space="preserve">
+    <value>Assets/Mock/avramenko.png
+Assets/Mock/kanunikov.png
+Assets/Mock/telyk.png
+Assets/Mock/chekh.png
+Assets/Mock/matukhno.png
+Assets/Mock/mychailyk.png</value>
+  </data>
   <data name="NonStrokedBird" xml:space="preserve">
     <value>/Assets/Icon/animals/non-stroked/bird.png</value>
   </data>

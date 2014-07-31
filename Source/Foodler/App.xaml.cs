@@ -226,6 +226,7 @@ namespace Foodler
                 // the resource file.
                 RootFrame.Language = XmlLanguage.GetLanguage(AppResources.ResourceLanguage);
 
+                
                 // Set the FlowDirection of all elements under the root frame based
                 // on the ResourceFlowDirection resource string for each
                 // supported language.
@@ -234,6 +235,10 @@ namespace Foodler
                 // the resource file.
                 FlowDirection flow = (FlowDirection)Enum.Parse(typeof(FlowDirection), AppResources.ResourceFlowDirection);
                 RootFrame.FlowDirection = flow;
+
+                //TODO: here you can change culture if nessery
+                //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("uk");
+                //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("uk");
             }
             catch
             {

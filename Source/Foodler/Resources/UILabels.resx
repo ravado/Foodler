@@ -144,6 +144,60 @@
   <data name="Common_AppName" xml:space="preserve">
     <value>Deluga</value>
   </data>
+  <data name="Common_MostUsedFemaleNames" xml:space="preserve">
+    <value>Mary
+Patricia
+Nancy
+Laura
+Lisa
+Michelle
+Linda
+Karen
+Sarah
+Barbara
+Betty
+Kimberly
+Elizabeth
+Helen
+Deborah
+Jennifer
+Sandra
+Maria
+Donna
+Susan
+Carol
+Margaret
+Ruth
+Dorothy
+Sharon</value>
+  </data>
+  <data name="Common_MostUsedMaleNames" xml:space="preserve">
+    <value>James
+John
+Robert
+Michael
+Mark
+Jason
+William
+Donald
+Jeff
+David
+George
+Richard
+Kenneth
+Charles
+Steven
+Joseph
+Edward
+Thomas
+Brian
+Christopher
+Ronald
+Daniel
+Anthony
+Paul
+Kevin</value>
+  </data>
   <data name="Common_SelfName" xml:space="preserve">
     <value>Me</value>
   </data>
@@ -220,7 +274,7 @@
     <value>There are no participants,add some.</value>
   </data>
   <data name="MainPage_NoSummaryHint" xml:space="preserve">
-    <value>You should add some participants and food first.Come back here after.</value>
+    <value>You should add some participants and food first.Come back here after you do that.</value>
   </data>
   <data name="MainPage_ParticipantsTabHeader" xml:space="preserve">
     <value>participants</value>

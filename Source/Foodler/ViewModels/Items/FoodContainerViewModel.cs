@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using Foodler.Common.Contracts;
 using Foodler.Models;
 using Foodler.Resources;
@@ -9,6 +10,8 @@ using Microsoft.Phone.Reactive;
 
 namespace Foodler.ViewModels.Items
 {
+    [KnownType(typeof(Food))]
+    [KnownType(typeof(ParticipantViewModel))]
     public class FoodContainerViewModel:BaseModel, IEquatable<FoodContainerViewModel>
     {
         #region Fields
@@ -41,7 +44,6 @@ namespace Foodler.ViewModels.Items
                 NotifyPropertyChanged();
             }
         }
-
         public IFood Food
         {
             get { return _food; }

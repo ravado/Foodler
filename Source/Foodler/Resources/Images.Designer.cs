@@ -382,6 +382,20 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Assets/Mock/avramenko.png
+        ///Assets/Mock/kanunikov.png
+        ///Assets/Mock/telyk.png
+        ///Assets/Mock/chekh.png
+        ///Assets/Mock/matukhno.png
+        ///Assets/Mock/mychailyk.png.
+        /// </summary>
+        internal static string MockPeoplesAvatars {
+            get {
+                return ResourceManager.GetString("MockPeoplesAvatars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /Assets/Icon/animals/non-stroked/bird.png.
         /// </summary>
         internal static string NonStrokedBird {

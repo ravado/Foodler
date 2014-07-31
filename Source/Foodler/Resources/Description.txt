@@ -1,0 +1,9 @@
+﻿App allows you to share meals price in a restaurant, bar, fast food between people you were with. 
+Simple and clear interface makes it easier and faster than calculating it manually.
+
+Keywords:
+food
+money
+friends
+calculator
+finance

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+  <DefaultLanguage xmlns="" code="en" />
+  <Languages xmlns="">
+    <Language code="ru-RU" />
+    <Language code="uk-UA" />
+    <Language code="en" />
+    <Language code="ru" />
+    <Language code="uk" />
+  </Languages>
+  <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8b}" Title="Deluga Lite" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Ivan Cherednychok" Description="App allows you to share meals price in a restaurant, bar, fast food between people you were with. &#xD;&#xA;Simple and clear interface makes it easier and faster than calculating it manually." Publisher="Ivan Cherednychok" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
+    <IconPath IsRelative="true" IsResource="false">Assets\Tiles\app-tile-lite.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_CONTACTS" />
+      <Capability Name="ID_CAP_IDENTITY_DEVICE" />
+      <Capability Name="ID_CAP_LOCATION" />
+      <Capability Name="ID_CAP_IDENTITY_USER" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="/Pages/MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="FoodlerToken" TaskName="_default">
+        <TemplateFlip>
+          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-small-lite.png</SmallImageURI>
+          <Count>0</Count>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-medium-lite.png</BackgroundImageURI>
+          <Title>
+          </Title>
+          <BackContent>
+          </BackContent>
+          <BackBackgroundImageURI IsRelative="true" IsResource="false">
+          </BackBackgroundImageURI>
+          <BackTitle>
+          </BackTitle>
+          <DeviceLockImageURI IsRelative="true" IsResource="false">
+          </DeviceLockImageURI>
+          <HasLarge>false</HasLarge>
+        </TemplateFlip>
+      </PrimaryToken>
+    </Tokens>
+    <ScreenResolutions>
+      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
+      <ScreenResolution Name="ID_RESOLUTION_WXGA" />
+      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
+    </ScreenResolutions>
+  </App>
+</Deployment>

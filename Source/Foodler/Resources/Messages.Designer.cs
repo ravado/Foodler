@@ -70,11 +70,20 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You should enter a valid price, and select at least one participant..
+        ///   Looks up a localized string similar to You should enter the price, and select at least one participant..
         /// </summary>
         internal static string AddFoodPage_InvalidDataMessage {
             get {
                 return ResourceManager.GetString("AddFoodPage_InvalidDataMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can add anonymous only in full version of the app. Would you like to get a full version?.
+        /// </summary>
+        internal static string AddParticipantsPage_AnonymousAvailableOnFullVersionMessage {
+            get {
+                return ResourceManager.GetString("AddParticipantsPage_AnonymousAvailableOnFullVersionMessage", resourceCulture);
             }
         }
         
@@ -93,6 +102,60 @@ namespace Foodler.Resources {
         internal static string AddParticipantsPage_InvalidDataMessage {
             get {
                 return ResourceManager.GetString("AddParticipantsPage_InvalidDataMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can add only {0} participants in the light version. Would you like to get a full version without any limitation?.
+        /// </summary>
+        internal static string AddParticipantsPage_ParticipantsLimitMessage {
+            get {
+                return ResourceManager.GetString("AddParticipantsPage_ParticipantsLimitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attention.
+        /// </summary>
+        internal static string Common_AttentionHeader {
+            get {
+                return ResourceManager.GetString("Common_AttentionHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unavailable.
+        /// </summary>
+        internal static string Common_UnavailableFunctionalityHeader {
+            get {
+                return ResourceManager.GetString("Common_UnavailableFunctionalityHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can add only {0} food items in the light version. Would you like to get a full version without any limitation?.
+        /// </summary>
+        internal static string MainPage_FoodTabFoodLimitMessage {
+            get {
+                return ResourceManager.GetString("MainPage_FoodTabFoodLimitMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Participants should be added first..
+        /// </summary>
+        internal static string MainPage_NoParticipantsMessage {
+            get {
+                return ResourceManager.GetString("MainPage_NoParticipantsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will reset all your changes. Continue?.
+        /// </summary>
+        internal static string MainPage_SumTabResetMessage {
+            get {
+                return ResourceManager.GetString("MainPage_SumTabResetMessage", resourceCulture);
             }
         }
     }

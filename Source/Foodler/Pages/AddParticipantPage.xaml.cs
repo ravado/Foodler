@@ -11,6 +11,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Microsoft.Phone.Tasks;
 using Microsoft.Phone.UserData;
 using GestureEventArgs = System.Windows.Input.GestureEventArgs;
 
@@ -183,9 +184,17 @@ namespace Foodler.Pages
         {
             if (ViewModel.IsValid)
             {
-                if (NavigationService.CanGoBack)
+                // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+                if (Constants.IS_LIGHT_VERSION && ViewModel.ChosenParticipants.Count > Constants.MAX_PARTICIPANTS_AMOUNT)
                 {
-                    NavigationService.GoBack();
+                    VersionFunctionalityService.ShowUnavailableFunctionalityMessage(String.Format(Messages.AddParticipantsPage_ParticipantsLimitMessage, Constants.MAX_PARTICIPANTS_AMOUNT));
+                }
+                else
+                {
+                    if (NavigationService.CanGoBack)
+                    {
+                        NavigationService.GoBack();
+                    }    
                 }
             }
             else
@@ -196,7 +205,15 @@ namespace Foodler.Pages
 
         internal void AddAnonymousBtn_OnClick(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/AddAnonymousParticipant.xaml", UriKind.RelativeOrAbsolute));
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalse
+            if (Constants.IS_LIGHT_VERSION)
+            {
+                VersionFunctionalityService.ShowUnavailableFunctionalityMessage(Messages.AddParticipantsPage_AnonymousAvailableOnFullVersionMessage);
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Pages/AddAnonymousParticipant.xaml", UriKind.RelativeOrAbsolute));
+            }
         }
 
         internal void ClearAllSelectedBtn_OnClick(object sender, EventArgs e)
