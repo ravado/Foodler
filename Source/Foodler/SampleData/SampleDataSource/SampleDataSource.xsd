@@ -13,8 +13,20 @@
       <xs:element name="ChosenParticipants" type="tns:ChosenParticipants" />
       <xs:element name="Food" type="tns:Food" />
       <xs:element name="ParticipantContainers" type="tns:ParticipantContainers" />
+      <xs:element name="AnonymousMaleParticipantList" type="tns:AnonymousMaleParticipantList" />
+      <xs:element name="AnonymousFemaleParticipantList" type="tns:AnonymousFemaleParticipantList" />
+      <xs:element name="AvailableFood" type="tns:AvailableFood" />
+      <xs:element name="FoodContainers" type="tns:FoodContainers" />
     </xs:sequence>
     <xs:attribute blend:Format="Price" name="FoodTotalCost" type="xs:string" />
+    <xs:attribute blend:Format="Price" name="FoodPrice" type="xs:string" />
+    <xs:attribute blend:FormatParameters="1,3" name="CurrencySymbol" type="xs:string" />
+    <xs:attribute name="IsAnyFood" type="xs:boolean" />
+    <xs:attribute name="IsAnyFoodAndParticipant" type="xs:boolean" />
+    <xs:attribute name="IsAnyParticipant" type="xs:boolean" />
+    <xs:attribute blend:FormatParameters="1,3" name="ParticipantsTabLabel" type="xs:string" />
+    <xs:attribute blend:FormatParameters="1,3" name="FoodTabLabel" type="xs:string" />
+    <xs:attribute blend:FormatParameters="1,3" name="SummaryTabLabel" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="Participants">
     <xs:sequence>
@@ -23,7 +35,6 @@
   </xs:complexType>
   <xs:complexType name="ParticipantsItem">
     <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
-    <xs:attribute name="Property2" type="xs:boolean" />
   </xs:complexType>
   <xs:complexType name="AvaibleParticipants">
     <xs:sequence>
@@ -32,7 +43,11 @@
   </xs:complexType>
   <xs:complexType name="AvaibleParticipantsItem">
     <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon\animals\non-stroked" name="Avatar" type="tns:Basic-Image" />
   </xs:complexType>
+  <xs:simpleType name="Basic-Image">
+    <xs:restriction base="xs:anyURI" />
+  </xs:simpleType>
   <xs:complexType name="ChosenParticipants">
     <xs:sequence>
       <xs:element maxOccurs="unbounded" name="ChosenParticipantsItem" type="tns:ChosenParticipantsItem" />
@@ -40,10 +55,11 @@
   </xs:complexType>
   <xs:complexType name="ChosenParticipantsItem">
     <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon" name="Avatar" type="tns:Basic-Image" />
   </xs:complexType>
   <xs:complexType name="Food">
     <xs:attribute blend:FormatParameters="2,4" name="Name" type="xs:string" />
-    <xs:attribute blend:FormatParameters="3" name="Cost" type="xs:double" />
+    <xs:attribute blend:FormatParameters="3" name="Price" type="xs:double" />
   </xs:complexType>
   <xs:complexType name="ParticipantContainers">
     <xs:sequence>
@@ -55,11 +71,25 @@
       <xs:element name="Participant" type="tns:Participant" />
       <xs:element name="Food" type="tns:Food1" />
     </xs:sequence>
-    <xs:attribute blend:FormatParameters="2" name="FoodCount" type="xs:double" />
+    <xs:attribute name="FoodCount" type="xs:double" />
     <xs:attribute blend:Format="Price" name="TotalCost" type="xs:string" />
+    <xs:attribute name="IsExpanded" type="xs:boolean" />
   </xs:complexType>
   <xs:complexType name="Participant">
+    <xs:sequence>
+      <xs:element name="EatenFood" type="tns:EatenFood" />
+    </xs:sequence>
     <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon\Animals\Stroked" name="Avatar" type="tns:Basic-Image" />
+  </xs:complexType>
+  <xs:complexType name="EatenFood">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="EatenFoodItem" type="tns:EatenFoodItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EatenFoodItem">
+    <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:Format="Price" name="Price" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="Food1">
     <xs:sequence>
@@ -68,6 +98,69 @@
   </xs:complexType>
   <xs:complexType name="FoodItem">
     <xs:attribute name="Name" type="xs:string" />
-    <xs:attribute blend:Format="Price" name="Cost" type="xs:string" />
+    <xs:attribute blend:Format="Price" name="Price" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="AnonymousMaleParticipantList">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="AnonymousMaleParticipantListItem" type="tns:AnonymousMaleParticipantListItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AnonymousMaleParticipantListItem">
+    <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon\Animals\NonStroked" name="Avatar" type="tns:Basic-Image" />
+  </xs:complexType>
+  <xs:complexType name="AnonymousFemaleParticipantList">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="AnonymousFemaleParticipantListItem" type="tns:AnonymousFemaleParticipantListItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AnonymousFemaleParticipantListItem">
+    <xs:attribute blend:FormatParameters="Assets\Icon\Animals\NonStroked" name="Avatar" type="tns:Basic-Image" />
+    <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="AvailableFood">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="AvailableFoodItem" type="tns:AvailableFoodItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AvailableFoodItem" />
+  <xs:complexType name="FoodContainers">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="FoodContainersItem" type="tns:FoodContainersItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FoodContainersItem">
+    <xs:sequence>
+      <xs:element name="Food" type="tns:Food2" />
+      <xs:element name="Participants" type="tns:Participants1" />
+    </xs:sequence>
+    <xs:attribute name="IsExpanded" type="xs:boolean" />
+    <xs:attribute name="HasNoOptions" type="xs:boolean" />
+    <xs:attribute name="EditableModeOn" type="xs:boolean" />
+  </xs:complexType>
+  <xs:complexType name="Food2">
+    <xs:sequence>
+      <xs:element name="Eaters" type="tns:Eaters" />
+    </xs:sequence>
+    <xs:attribute blend:FormatParameters="1,12" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon\Animals\Stroked" name="Icon" type="tns:Basic-Image" />
+  </xs:complexType>
+  <xs:complexType name="Eaters">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="EatersItem" type="tns:EatersItem" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EatersItem">
+    <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
+    <xs:attribute blend:FormatParameters="Assets\Icon\Animals\NonStroked" name="Avatar" type="tns:Basic-Image" />
+    <xs:attribute blend:Format="Price" name="Price" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="Participants1">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" name="ParticipantsItem1" type="tns:ParticipantsItem1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ParticipantsItem1">
+    <xs:attribute blend:Format="Name" name="Name" type="xs:string" />
   </xs:complexType>
 </xs:schema>

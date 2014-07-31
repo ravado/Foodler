@@ -1,12 +1,17 @@
-﻿using System;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Threading;
+using Foodler.Common;
+using Foodler.DB;
+using Foodler.Resources;
+using Foodler.Services;
+using Microsoft.Phone.Controls;
+using Microsoft.Phone.Shell;
+using System;
 using System.Diagnostics;
-using System.Resources;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using Foodler.Resources;
 
 namespace Foodler
 {
@@ -17,6 +22,8 @@ namespace Foodler
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
+
+        public static bool FirstRun { get; set; } //TODO: remove it, because it`s for better testing
 
         /// <summary>
         /// Constructor for the Application object.
@@ -54,7 +61,28 @@ namespace Foodler
                 // and consume battery power when the user is not using the phone.
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
+            InitializeDatabase();
+            LoadContactsToDatabase();
+            FirstRun = true;
+        }
 
+        private void LoadContactsToDatabase()
+        {
+            var service = new ParticipantService();
+            service.LoadContactsToDbAsync();
+        }
+
+        private void InitializeDatabase()
+        {
+            using (var db = new FoodlerDataContext(FoodlerDataContext.CONNECTION_STRING))
+            {
+                db.DeleteDatabase();
+                if (db.DatabaseExists() == false)
+                {
+                    //Create the database
+                    db.CreateDatabase();
+                }
+            }
         }
 
         // Code to execute when the application is launching (eg, from Start)
@@ -79,6 +107,7 @@ namespace Foodler
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
+            SettingsManager.IncrementAppRun();
         }
 
         // Code to execute if a navigation fails
@@ -94,6 +123,8 @@ namespace Foodler
         // Code to execute on Unhandled Exceptions
         private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
         {
+            SettingsManager.IncrementAppRun();
+
             if (Debugger.IsAttached)
             {
                 // An unhandled exception has occurred; break into the debugger
@@ -114,7 +145,7 @@ namespace Foodler
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
-            RootFrame = new PhoneApplicationFrame();
+            RootFrame = new TransitionFrame(); //new PhoneApplicationFrame();
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures
@@ -195,6 +226,7 @@ namespace Foodler
                 // the resource file.
                 RootFrame.Language = XmlLanguage.GetLanguage(AppResources.ResourceLanguage);
 
+                
                 // Set the FlowDirection of all elements under the root frame based
                 // on the ResourceFlowDirection resource string for each
                 // supported language.
@@ -203,6 +235,10 @@ namespace Foodler
                 // the resource file.
                 FlowDirection flow = (FlowDirection)Enum.Parse(typeof(FlowDirection), AppResources.ResourceFlowDirection);
                 RootFrame.FlowDirection = flow;
+
+                //TODO: here you can change culture if nessery
+                //Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("uk");
+                //Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("uk");
             }
             catch
             {
@@ -218,6 +254,11 @@ namespace Foodler
 
                 throw;
             }
+        }
+
+        public class Pages
+        {
+            public const string TUTORIAL = "/Pages/TutorialPage.xaml";
         }
     }
 }

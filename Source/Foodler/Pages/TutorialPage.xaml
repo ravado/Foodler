@@ -1,0 +1,87 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Foodler.Pages.TutorialPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="False"
+    Style="{StaticResource NavigationAnimation}"
+    toolkit:TiltEffect.IsTiltEnabled="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid
+            Name="TutGrid"
+            Tap="TutGrid_OnTap">
+            <Grid.Background>
+                <ImageBrush Stretch="Fill" ImageSource="{Binding CurrentTutorial}"/>
+            </Grid.Background>
+            
+            
+            <!--<Grid
+                Name="GreatingGrid"
+                Visibility="{Binding TutorialVisibility[0], Converter={StaticResource VisibilityConverter}}">
+                <Grid.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Assets/Tutorials/tutorial-greating.png"/>
+                </Grid.Background>
+                <TextBlock
+                    Style="{StaticResource TutorialMessageStyle}"
+                    VerticalAlignment="Center"
+                    Margin="0 -55 0 0 "
+                    Text="welcome" />
+                <TextBlock 
+                    Style="{StaticResource TutorialMessageStyle}"
+                    VerticalAlignment="Center"
+                    FontSize="22"
+                    Foreground="DarkGray"
+                    Text="tap anywhere on screen to continue" 
+                    Margin="0 10 0  0" />
+            </Grid>
+
+            
+            <Grid
+                Name="Step1Grid"
+                Visibility="{Binding TutorialVisibility[1], Converter={StaticResource VisibilityConverter}}">
+                <Grid.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Assets/Tutorials/step1.png"/>
+                </Grid.Background>
+                <TextBlock
+                    Style="{StaticResource TutorialMessageStyle}"
+                    VerticalAlignment="Center"
+                    Margin="190 125 0 0 "
+                    Text="add few participants" />
+            </Grid>
+
+            
+            <Grid
+                Name="Step2Grid"
+                Visibility="{Binding TutorialVisibility[2], Converter={StaticResource VisibilityConverter}}">
+                <Grid.Background>
+                    <ImageBrush Stretch="Fill" ImageSource="/Assets/Tutorials/step2.png"/>
+                </Grid.Background>
+                <TextBlock
+                    Style="{StaticResource TutorialMessageStyle}"
+                    VerticalAlignment="Center"
+                    Margin="190 125 0 0 "
+                    Text="add few participants" />
+            </Grid>-->
+
+            <ProgressBar
+                VerticalAlignment="Top"
+                Margin="-12 0 -12 0"
+                Value="{Binding CurrentIndex}" Maximum="8"/>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

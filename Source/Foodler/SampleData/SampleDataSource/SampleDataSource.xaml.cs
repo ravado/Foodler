@@ -97,6 +97,46 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
+		private AnonymousMaleParticipantList _AnonymousMaleParticipantList = new AnonymousMaleParticipantList();
+
+		public AnonymousMaleParticipantList AnonymousMaleParticipantList
+		{
+			get
+			{
+				return this._AnonymousMaleParticipantList;
+			}
+		}
+
+		private AnonymousFemaleParticipantList _AnonymousFemaleParticipantList = new AnonymousFemaleParticipantList();
+
+		public AnonymousFemaleParticipantList AnonymousFemaleParticipantList
+		{
+			get
+			{
+				return this._AnonymousFemaleParticipantList;
+			}
+		}
+
+		private AvailableFood _AvailableFood = new AvailableFood();
+
+		public AvailableFood AvailableFood
+		{
+			get
+			{
+				return this._AvailableFood;
+			}
+		}
+
+		private FoodContainers _FoodContainers = new FoodContainers();
+
+		public FoodContainers FoodContainers
+		{
+			get
+			{
+				return this._FoodContainers;
+			}
+		}
+
 		private string _FoodTotalCost = string.Empty;
 
 		public string FoodTotalCost
@@ -112,6 +152,158 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				{
 					this._FoodTotalCost = value;
 					this.OnPropertyChanged("FoodTotalCost");
+				}
+			}
+		}
+
+		private string _FoodPrice = string.Empty;
+
+		public string FoodPrice
+		{
+			get
+			{
+				return this._FoodPrice;
+			}
+
+			set
+			{
+				if (this._FoodPrice != value)
+				{
+					this._FoodPrice = value;
+					this.OnPropertyChanged("FoodPrice");
+				}
+			}
+		}
+
+		private string _CurrencySymbol = string.Empty;
+
+		public string CurrencySymbol
+		{
+			get
+			{
+				return this._CurrencySymbol;
+			}
+
+			set
+			{
+				if (this._CurrencySymbol != value)
+				{
+					this._CurrencySymbol = value;
+					this.OnPropertyChanged("CurrencySymbol");
+				}
+			}
+		}
+
+		private bool _IsAnyFood = false;
+
+		public bool IsAnyFood
+		{
+			get
+			{
+				return this._IsAnyFood;
+			}
+
+			set
+			{
+				if (this._IsAnyFood != value)
+				{
+					this._IsAnyFood = value;
+					this.OnPropertyChanged("IsAnyFood");
+				}
+			}
+		}
+
+		private bool _IsAnyFoodAndParticipant = false;
+
+		public bool IsAnyFoodAndParticipant
+		{
+			get
+			{
+				return this._IsAnyFoodAndParticipant;
+			}
+
+			set
+			{
+				if (this._IsAnyFoodAndParticipant != value)
+				{
+					this._IsAnyFoodAndParticipant = value;
+					this.OnPropertyChanged("IsAnyFoodAndParticipant");
+				}
+			}
+		}
+
+		private bool _IsAnyParticipant = false;
+
+		public bool IsAnyParticipant
+		{
+			get
+			{
+				return this._IsAnyParticipant;
+			}
+
+			set
+			{
+				if (this._IsAnyParticipant != value)
+				{
+					this._IsAnyParticipant = value;
+					this.OnPropertyChanged("IsAnyParticipant");
+				}
+			}
+		}
+
+		private string _ParticipantsTabLabel = string.Empty;
+
+		public string ParticipantsTabLabel
+		{
+			get
+			{
+				return this._ParticipantsTabLabel;
+			}
+
+			set
+			{
+				if (this._ParticipantsTabLabel != value)
+				{
+					this._ParticipantsTabLabel = value;
+					this.OnPropertyChanged("ParticipantsTabLabel");
+				}
+			}
+		}
+
+		private string _FoodTabLabel = string.Empty;
+
+		public string FoodTabLabel
+		{
+			get
+			{
+				return this._FoodTabLabel;
+			}
+
+			set
+			{
+				if (this._FoodTabLabel != value)
+				{
+					this._FoodTabLabel = value;
+					this.OnPropertyChanged("FoodTabLabel");
+				}
+			}
+		}
+
+		private string _SummaryTabLabel = string.Empty;
+
+		public string SummaryTabLabel
+		{
+			get
+			{
+				return this._SummaryTabLabel;
+			}
+
+			set
+			{
+				if (this._SummaryTabLabel != value)
+				{
+					this._SummaryTabLabel = value;
+					this.OnPropertyChanged("SummaryTabLabel");
 				}
 			}
 		}
@@ -151,25 +343,6 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
-
-		private bool _Property2 = false;
-
-		public bool Property2
-		{
-			get
-			{
-				return this._Property2;
-			}
-
-			set
-			{
-				if (this._Property2 != value)
-				{
-					this._Property2 = value;
-					this.OnPropertyChanged("Property2");
-				}
-			}
-		}
 	}
 
 	public class AvaibleParticipants : System.Collections.ObjectModel.ObservableCollection<AvaibleParticipantsItem>
@@ -203,6 +376,25 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				{
 					this._Name = value;
 					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
 				}
 			}
 		}
@@ -242,6 +434,25 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
 	}
 
 	public class Food : System.ComponentModel.INotifyPropertyChanged
@@ -275,24 +486,28 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
-		private double _Cost = 0;
+		private double _Price = 0;
 
-		public double Cost
+		public double Price
 		{
 			get
 			{
-				return this._Cost;
+				return this._Price;
 			}
 
 			set
 			{
-				if (this._Cost != value)
+				if (this._Price != value)
 				{
-					this._Cost = value;
-					this.OnPropertyChanged("Cost");
+					this._Price = value;
+					this.OnPropertyChanged("Price");
 				}
 			}
 		}
+	}
+
+	public class ParticipantContainers : System.Collections.ObjectModel.ObservableCollection<ParticipantContainersItem>
+	{ 
 	}
 
 	public class ParticipantContainersItem : System.ComponentModel.INotifyPropertyChanged
@@ -373,13 +588,93 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
-	}
 
-	public class ParticipantContainers : System.Collections.ObjectModel.ObservableCollection<ParticipantContainersItem>
-	{ 
+		private bool _IsExpanded = false;
+
+		public bool IsExpanded
+		{
+			get
+			{
+				return this._IsExpanded;
+			}
+
+			set
+			{
+				if (this._IsExpanded != value)
+				{
+					this._IsExpanded = value;
+					this.OnPropertyChanged("IsExpanded");
+				}
+			}
+		}
 	}
 
 	public class Participant : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private EatenFood _EatenFood = new EatenFood();
+
+		public EatenFood EatenFood
+		{
+			get
+			{
+				return this._EatenFood;
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+	}
+
+	public class EatenFood : System.Collections.ObjectModel.ObservableCollection<EatenFoodItem>
+	{ 
+	}
+
+	public class EatenFoodItem : System.ComponentModel.INotifyPropertyChanged
 	{
 		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
 
@@ -409,6 +704,29 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private string _Price = string.Empty;
+
+		public string Price
+		{
+			get
+			{
+				return this._Price;
+			}
+
+			set
+			{
+				if (this._Price != value)
+				{
+					this._Price = value;
+					this.OnPropertyChanged("Price");
+				}
+			}
+		}
+	}
+
+	public class Food1 : System.Collections.ObjectModel.ObservableCollection<FoodItem>
+	{ 
 	}
 
 	public class FoodItem : System.ComponentModel.INotifyPropertyChanged
@@ -442,28 +760,425 @@ namespace Expression.Blend.SampleData.SampleDataSource
 			}
 		}
 
-		private string _Cost = string.Empty;
+		private string _Price = string.Empty;
 
-		public string Cost
+		public string Price
 		{
 			get
 			{
-				return this._Cost;
+				return this._Price;
 			}
 
 			set
 			{
-				if (this._Cost != value)
+				if (this._Price != value)
 				{
-					this._Cost = value;
-					this.OnPropertyChanged("Cost");
+					this._Price = value;
+					this.OnPropertyChanged("Price");
 				}
 			}
 		}
 	}
 
-	public class Food1 : System.Collections.ObjectModel.ObservableCollection<FoodItem>
+	public class AnonymousMaleParticipantList : System.Collections.ObjectModel.ObservableCollection<AnonymousMaleParticipantListItem>
 	{ 
+	}
+
+	public class AnonymousMaleParticipantListItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+	}
+
+	public class AnonymousFemaleParticipantList : System.Collections.ObjectModel.ObservableCollection<AnonymousFemaleParticipantListItem>
+	{ 
+	}
+
+	public class AnonymousFemaleParticipantListItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+	}
+
+	public class AvailableFood : System.Collections.ObjectModel.ObservableCollection<AvailableFoodItem>
+	{ 
+	}
+
+	public class AvailableFoodItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+
+	public class FoodContainers : System.Collections.ObjectModel.ObservableCollection<FoodContainersItem>
+	{ 
+	}
+
+	public class FoodContainersItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private Food2 _Food = new Food2();
+
+		public Food2 Food
+		{
+			get
+			{
+				return this._Food;
+			}
+
+			set
+			{
+				if (this._Food != value)
+				{
+					this._Food = value;
+					this.OnPropertyChanged("Food");
+				}
+			}
+		}
+
+		private Participants1 _Participants = new Participants1();
+
+		public Participants1 Participants
+		{
+			get
+			{
+				return this._Participants;
+			}
+		}
+
+		private bool _IsExpanded = false;
+
+		public bool IsExpanded
+		{
+			get
+			{
+				return this._IsExpanded;
+			}
+
+			set
+			{
+				if (this._IsExpanded != value)
+				{
+					this._IsExpanded = value;
+					this.OnPropertyChanged("IsExpanded");
+				}
+			}
+		}
+
+		private bool _HasNoOptions = false;
+
+		public bool HasNoOptions
+		{
+			get
+			{
+				return this._HasNoOptions;
+			}
+
+			set
+			{
+				if (this._HasNoOptions != value)
+				{
+					this._HasNoOptions = value;
+					this.OnPropertyChanged("HasNoOptions");
+				}
+			}
+		}
+
+		private bool _EditableModeOn = false;
+
+		public bool EditableModeOn
+		{
+			get
+			{
+				return this._EditableModeOn;
+			}
+
+			set
+			{
+				if (this._EditableModeOn != value)
+				{
+					this._EditableModeOn = value;
+					this.OnPropertyChanged("EditableModeOn");
+				}
+			}
+		}
+	}
+
+	public class Food2 : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private Eaters _Eaters = new Eaters();
+
+		public Eaters Eaters
+		{
+			get
+			{
+				return this._Eaters;
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Icon = null;
+
+		public System.Windows.Media.ImageSource Icon
+		{
+			get
+			{
+				return this._Icon;
+			}
+
+			set
+			{
+				if (this._Icon != value)
+				{
+					this._Icon = value;
+					this.OnPropertyChanged("Icon");
+				}
+			}
+		}
+	}
+
+	public class Eaters : System.Collections.ObjectModel.ObservableCollection<EatersItem>
+	{ 
+	}
+
+	public class EatersItem : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
+
+		private System.Windows.Media.ImageSource _Avatar = null;
+
+		public System.Windows.Media.ImageSource Avatar
+		{
+			get
+			{
+				return this._Avatar;
+			}
+
+			set
+			{
+				if (this._Avatar != value)
+				{
+					this._Avatar = value;
+					this.OnPropertyChanged("Avatar");
+				}
+			}
+		}
+
+		private string _Price = string.Empty;
+
+		public string Price
+		{
+			get
+			{
+				return this._Price;
+			}
+
+			set
+			{
+				if (this._Price != value)
+				{
+					this._Price = value;
+					this.OnPropertyChanged("Price");
+				}
+			}
+		}
+	}
+
+	public class Participants1 : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem1>
+	{ 
+	}
+
+	public class ParticipantsItem1 : System.ComponentModel.INotifyPropertyChanged
+	{
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+
+		protected virtual void OnPropertyChanged(string propertyName)
+		{
+			if (this.PropertyChanged != null)
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+
+		private string _Name = string.Empty;
+
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+
+			set
+			{
+				if (this._Name != value)
+				{
+					this._Name = value;
+					this.OnPropertyChanged("Name");
+				}
+			}
+		}
 	}
 #endif
 }

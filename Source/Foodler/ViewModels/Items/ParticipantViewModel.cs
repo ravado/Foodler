@@ -1,50 +1,66 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Foodler.Common;
+using Foodler.Common.Contracts;
+using Foodler.Models;
 using System.Windows.Input;
-using Foodler.Common;
-using Foodler.ViewModels.Common;
 
 namespace Foodler.ViewModels.Items
 {
-    public class ParticipantViewModel:BaseViewModel
+    public class ParticipantViewModel:Participant
     {
-        private string _name;
+        private ICommand _incrementParticipantAteCommand;
+        private ICommand _decrementParticipantAteCommand;
+        private bool _ateRangeActivated;
 
-        public string Name
+        public ICommand IncrementParticipantAteCommand
         {
-            get { return _name; }
-            set { _name = value; NotifyPropertyChanged(); }
+            get
+            {
+                _incrementParticipantAteCommand = _incrementParticipantAteCommand ?? new ActionCommand(IncrementParticipantAte);
+                return _incrementParticipantAteCommand;
+            }
         }
 
-        public ICommand RemoveParticipantCommand { get; private set; }
-
-        public Action<ParticipantViewModel> RemoveParticipant;
-
-        public ParticipantViewModel(string name, Action<ParticipantViewModel> removeParticipantHandler)
+        public ICommand DecrementParticipantAteCommand
         {
-            Name = name;
-            RemoveParticipantCommand = new ActionCommand(OnRemoveParticipant);
-            RemoveParticipant += removeParticipantHandler;
+            get
+            {
+                _decrementParticipantAteCommand = _decrementParticipantAteCommand ?? new ActionCommand(DecrementParticipantAte);
+                return _decrementParticipantAteCommand;
+            }
+        }
+        public bool AteRangeActivated
+        {
+            get { return _ateRangeActivated; }
+            set
+            {
+                _ateRangeActivated = value;
+                NotifyPropertyChanged();
+            }
+        }
+        public ParticipantViewModel()
+        {
+            ParticipantAteCoefficient = 1;
         }
 
-        public ParticipantViewModel(ParticipantViewModel participant)
+        public ParticipantViewModel(IParticipant participant) : this()
         {
+            Id = participant.Id;
             Name = participant.Name;
-            RemoveParticipantCommand = new ActionCommand(OnRemoveParticipant);
+            Avatar = participant.Avatar;
+            IsUserContact = participant.IsUserContact;
+            ParticipantAteCoefficient = participant.ParticipantAteCoefficient;
         }
 
-        public void SubscribeOnDelete(Action<ParticipantViewModel> handler)
+        private void IncrementParticipantAte()
         {
-            RemoveParticipant += handler;
+            if(ParticipantAteCoefficient < 9)
+                ParticipantAteCoefficient++;
         }
 
-        private void OnRemoveParticipant()
+        private void DecrementParticipantAte()
         {
-            if (RemoveParticipant != null)
-                RemoveParticipant(this);
+            if(ParticipantAteCoefficient > 1)
+                ParticipantAteCoefficient--;
         }
     }
 }

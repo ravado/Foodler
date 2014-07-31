@@ -1,6 +1,18 @@
+﻿using System;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using Foodler.Common;
+using Foodler.Common.Contracts;
+﻿using Foodler.Common.Helpers;
 ﻿using Foodler.Models;
+using Foodler.Resources;
+using Foodler.Services;
 using Foodler.ViewModels.Common;
-using Foodler.ViewModels.Items;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -9,56 +21,119 @@ namespace Foodler.ViewModels
 {
     public class AddParticipantsViewModel : BaseViewModel
     {
-        #region Properties
+        #region Fields
 
-        public ObservableCollection<ParticipantViewModel> AvaibleParticipants { get; set; }
-        public ObservableCollection<ParticipantViewModel> ChosenParticipants { get; set; }
-
+        private ICommand _clearAllCommand;
+        private ObservableCollection<AlphaKeyGroup<IParticipant>> _avaibleParticipants;
+        private bool _isCanceled;
+        private bool _addedSelf;
         #endregion
 
-        public AddParticipantsViewModel()
+        #region Properties
+
+        public string AvailableParticipantsLabel { get; set; }
+        public string SelectedParticipantsLabel { get; set; }
+        public ObservableCollection<AlphaKeyGroup<IParticipant>> AvaibleParticipants
         {
-            AvaibleParticipants = new ObservableCollection<ParticipantViewModel>();
-            ChosenParticipants = new ObservableCollection<ParticipantViewModel>();
+            get { return _avaibleParticipants; }
+            set
+            {
+                _avaibleParticipants = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<IParticipant> ChosenParticipants { get; set; }
+        public ParticipantService ParticipantService { get; private set; }
+        public ICommand ClearAllCommand
+        {
+            get
+            {
+                _clearAllCommand = _clearAllCommand ?? new ActionCommand(ClearAll);
+                return _clearAllCommand;
+            }
+        }
+
+        public Action<IParticipant> RemovedParticipant { get; set; }
+        #endregion
+
+        public AddParticipantsViewModel(ParticipantService participantService) : this()
+        {
+            AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
+            ChosenParticipants = new ObservableCollection<IParticipant>();
+            ParticipantService = participantService;
+            ChosenParticipants.CollectionChanged += ChosenParticipantsOnCollectionChanged;
+        }
+
+        private void ChosenParticipantsOnCollectionChanged(object sender, NotifyCollectionChangedEventArgs args)
+        {
+            if (args.Action == NotifyCollectionChangedAction.Remove)
+            {
+                foreach (var p in args.OldItems.OfType<IParticipant>())
+                {
+                    RemovedParticipant(p);
+                }
+            }
         }
 
         #region Public Methods
+
+        public AddParticipantsViewModel()
+        {
+            InitLabels();
+        }
 
         /// <summary>
         /// Basic initialization
         /// </summary>
         public void Initialize()
         {
-            var participants = new List<ParticipantViewModel>
-            {
-                new ParticipantViewModel("Ivan", OnRemoveParticipant),
-                new ParticipantViewModel("Oleg", OnRemoveParticipant),
-                new ParticipantViewModel("Vadim", OnRemoveParticipant),
-                new ParticipantViewModel("Julia", OnRemoveParticipant),
-                new ParticipantViewModel("Eugene", OnRemoveParticipant),
-                new ParticipantViewModel("Anatoliy", OnRemoveParticipant),
-                new ParticipantViewModel("Kostya", OnRemoveParticipant),
-                new ParticipantViewModel("Marina", OnRemoveParticipant)
-            };
+            LoadAvaibleParticipants();
+            Debug.WriteLine("Loaded participants");
+        }
 
-            if (AvaibleParticipants == null) return;
+        /// <summary>
+        /// Load all avaible participants from database
+        /// </summary>
+        public void LoadAvaibleParticipants()
+        {
+            var participants = ParticipantService.GetAllParticipants().ToArray();
+            //var participants = GetAllMockParticipants().ToArray();
+
+            if (AvaibleParticipants == null)
+                AvaibleParticipants = new ObservableCollection<AlphaKeyGroup<IParticipant>>();
+
+            var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
 
             AvaibleParticipants.Clear();
-            foreach (var p in participants)
+            AvaibleParticipants =
+                AlphaKeyGroup<IParticipant>.CreateGroups(participants, culture, (item) => item.Name, true); //TODO: here you can change filter
+
+        }
+
+        private IEnumerable<IParticipant> GetAllMockParticipants()
+        {
+            var mockPeoples = new List<IParticipant>();
+            var peoples = AppResources.MockPeoples.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None);
+            var images = Images.MockPeoplesAvatars.Split(Constants.SPLITTER_CHARACTER, StringSplitOptions.None);
+            for (int i = 0; i < images.Count(); i++)
             {
-                AvaibleParticipants.Add(p);
+                //var im = images[i].GetImage();
+                var myStream = App.GetResourceStream(new Uri(images[i], UriKind.RelativeOrAbsolute));
+                mockPeoples.Add(new Participant(Guid.NewGuid(), peoples[i], true, myStream.Stream.ToBytes()));
             }
+
+            return mockPeoples;
         }
 
         /// <summary>
         /// Add particular participant to list of selected ones
         /// </summary>
         /// <param name="participant">Participant to add</param>
-        public void AddSelectedParticipantToList(ParticipantViewModel participant)
+        public void AddSelectedParticipantToList(IParticipant participant)
         {
-            var p = new ParticipantViewModel(participant);
-            p.SubscribeOnDelete(OnRemoveParticipant);
-            ChosenParticipants.Add(p);
+            if (!ChosenParticipants.Contains(participant) && participant != null)
+                ChosenParticipants.Add(participant);
         }
 
         /// <summary>
@@ -67,39 +142,100 @@ namespace Foodler.ViewModels
         /// <returns>List of involved participants</returns>
         public IEnumerable<Participant> GetInvolvedParticipants()
         {
-            return ChosenParticipants.Select(p => new Participant(p.Name)).ToList();
+            if (_isCanceled) return null;
+
+            return ChosenParticipants.Select(p => new Participant(p)).ToList();
         }
 
         /// <summary>
         /// Set involved into party participants
         /// </summary>
         /// <param name="participants">Involved participants</param>
-        public void SetInvolvedParticipants(IEnumerable<Participant> participants)
+        public void SetInvolvedParticipants(IEnumerable<IParticipant> participants)
         {
             if (ChosenParticipants != null)
             {
                 ChosenParticipants.Clear();
                 foreach (var participant in participants)
                 {
-                    ChosenParticipants.Add(new ParticipantViewModel(participant.Name, OnRemoveParticipant));
+                    ChosenParticipants.Add(participant);
                 }
             }
         }
+
+        /// <summary>
+        /// Just removing participant from list of selected ones
+        /// </summary>
+        /// <param name="participantToRemove">Which participant to remove</param>
+        public void RemoveSelectedParticipantFromList(IParticipant participantToRemove)
+        {
+            if (!_isRemoving)
+            {
+                _isRemoving = true;
+                try
+                {
+                    ChosenParticipants.Remove(participantToRemove);
+                }
+                finally
+                {
+                    _isRemoving = false;
+                }
+            }
+
+        }
+
+        private bool _isRemoving = false;
+
         #endregion
 
         #region Private Methods
 
-        #region Callbacks
-        
-        private void OnRemoveParticipant(ParticipantViewModel obj)
+        private void ClearAll()
         {
-            var toRemove = ChosenParticipants.LastOrDefault(o => o == obj);
-            if (toRemove != null)
-                ChosenParticipants.Remove(toRemove);
+            ChosenParticipants.Clear();
         }
 
+        #region Callbacks
         #endregion
 
         #endregion
+
+
+        public void InitLabels()
+        {
+            AvailableParticipantsLabel = UILabels.AddParticipantsPage_AvailableTabHeader;
+            SelectedParticipantsLabel = UILabels.AddParticipantsPage_SelectedTabHeader;
+        }
+
+        public void CancelAddingParticipants()
+        {
+            _isCanceled = true;
+        }
+
+
+
+        public bool IsValid { get { return Validate(); }}
+
+        private bool Validate()
+        {
+            if (ChosenParticipants.Count < 2)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        internal void AddSelf(bool force = false)
+        {
+            if(_addedSelf && !force) return;
+
+            var me = new Participant(Guid.Empty, UILabels.Common_SelfName, false, null);
+            if (!ChosenParticipants.Contains(me))
+            {
+                ChosenParticipants.Add(me);
+                _addedSelf = true;
+            }
+        }
     }
 }

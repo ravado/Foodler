@@ -12,19 +12,74 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    Style="{StaticResource NavigationAnimation}"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True">
+
     <phone:PhoneApplicationPage.Resources>
-        <DataTemplate x:Key="ParticipantsItemTemplate">
-            <StackPanel>
-                <TextBlock Text="{Binding Name}"/>
-                <CheckBox IsChecked="{Binding Property2, Mode=TwoWay}"/>
-            </StackPanel>
+        <!--TODO: get rid of data template dublication-->
+        <DataTemplate x:Key="SelectedParticipantItemTemplate">
+            <Grid HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Border 
+                    Grid.Column="0"
+                    CornerRadius="32"
+                    Background="{StaticResource PhoneBorderBrush}"
+                    Width="64" Height="64">
+                    <Grid 
+                        HorizontalAlignment="Left">
+                        <Image 					
+							Width="64"	
+							Height="64"
+                           Source="{Binding Avatar, Converter={StaticResource BitmapImageConverter}}">
+                            <Image.Clip>
+                                <EllipseGeometry
+                                    Center="32,32"
+                                    RadiusX="32"
+                                    RadiusY="32" />
+                            </Image.Clip>
+                        </Image>
+                    </Grid>
+                </Border>
+                <TextBlock Grid.Column="1"
+                           Width="400"
+                           Foreground="{StaticResource PhoneForegroundBrush}"
+                           HorizontalAlignment="Stretch"
+                           VerticalAlignment="Center"
+                           Text="{Binding Name}"/>
+                <Button Grid.Column="2" 
+                        Margin="0 10 0 0"
+                        BorderThickness="0"
+                        BorderBrush="{StaticResource PhoneAccentBrush}"
+                        Background="{StaticResource PhoneAccentBrush}"
+                        HorizontalAlignment="Center"
+                        Width="62"
+                        Height="62"
+                        Style="{StaticResource RoundButton}" Click="ButtonBase_OnClick">
+                    <ImageBrush ImageSource="/Assets/Icon/cancel-icon-white.png" Stretch="Fill"/>
+                </Button>
+            </Grid>
         </DataTemplate>
-        <DataTemplate x:Key="AvaibleParticipantsItemTemplate">
-            <StackPanel>
-                <TextBlock Text="{Binding Name}"/>
-            </StackPanel>
-        </DataTemplate>
+        <phone:JumpListItemBackgroundConverter x:Key="BackgroundConverter"/>
+        <phone:JumpListItemForegroundConverter x:Key="ForegroundConverter"/>
+        <Style x:Key="AddrBookJumpListStyle" TargetType="phone:LongListSelector">
+            <Setter Property="GridCellSize"  Value="113,113"/>
+            <Setter Property="LayoutMode" Value="Grid" />
+            <Setter Property="ItemTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <Border Background="{Binding Converter={StaticResource BackgroundConverter}}" Width="113" Height="113" Margin="6" >
+                            <TextBlock Text="{Binding Key}" FontFamily="{StaticResource PhoneFontFamilySemiBold}" FontSize="48" Padding="6"
+                                       Foreground="{Binding Converter={StaticResource ForegroundConverter}}" VerticalAlignment="Center"/>
+                        </Border>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -35,70 +90,84 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="FOODLER" Style="{StaticResource PhoneTextNormalStyle}"/>
+        <StackPanel Grid.Row="0" Margin="10,10,0,10">
+            <TextBlock Text="{Binding AppTitleLabel}" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25*"></RowDefinition>
-                <RowDefinition Height="4*"></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="6*"></RowDefinition>
-                    <RowDefinition Height="3*"></RowDefinition>
-                </Grid.RowDefinitions>
-                <phone:LongListSelector
-                    Grid.Row="0"
-                    Name="ListAvaibleParticipants"
-                    BorderThickness="3"
-                    Margin="0 10"
-                    BorderBrush="White"
-                    FontSize="40"
-                    ItemsSource="{Binding AvaibleParticipants}"
-                    Tap="ListAvaibleParticipants_OnTap">
-                    <phone:LongListSelector.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock
-                                    VerticalAlignment="Stretch"
-                                    Text="{Binding Name}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
-                </phone:LongListSelector>
-                <ListBox
-                    
-                    Grid.Row="1"
-                    Name="ListChosenParticipants"
-                    ItemsSource="{Binding ChosenParticipants}"
-                    Tap="ListChosenParticipants_OnTap">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <toolkit:WrapPanel/>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <Button
-                                    FontSize="12"
-                                    Padding="5"
-                                    Command="{Binding RemoveParticipantCommand}"
-                                    VerticalAlignment="Center"
-                                    Content="{Binding Name}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </Grid>
-            <StackPanel Grid.Row="1">
-                <Button Name="BtnDone" Content="Done" Click="BtnDone_OnClick" />
-            </StackPanel>
+            <phone:Panorama>
+                <phone:Panorama.TitleTemplate>
+                    <DataTemplate>
+                        <TextBlock  Text="{Binding}" FontSize="14" Height="0" Margin="0"/>
+                    </DataTemplate>
+                </phone:Panorama.TitleTemplate>
+                <phone:PanoramaItem 
+                    Header="{Binding AvailableParticipantsLabel}" Style="{StaticResource HeaderlessPanoramaItemStyle}">
+                    <toolkit:LongListMultiSelector
+                        IsGroupingEnabled="True"
+                        HideEmptyGroups="True"
+                        GroupHeaderTemplate="{StaticResource AddrBookGroupHeaderTemplate}"  
+                        LayoutMode="List"
+                        EnforceIsSelectionEnabled="True"
+                        Name="ListAvaibleParticipants"
+                        BorderThickness="3"
+                        Margin="0 0"
+                        SelectionChanged="ListAvaibleParticipants_OnSelectionChanged"
+                        BorderBrush="White"
+                        FontSize="40"
+                        JumpListStyle="{StaticResource AddrBookJumpListStyle}"
+                        ItemsSource="{Binding AvaibleParticipants}"
+                        Tap="ListAvaibleParticipants_OnTap"
+                        ItemContainerStyle="{StaticResource LongListMultiSelectorItemListStyle}"
+                        ItemTemplate="{StaticResource AvaibleParticipantItemTemplate}">
+
+                    </toolkit:LongListMultiSelector>
+                </phone:PanoramaItem>
+
+                <phone:PanoramaItem Header="{Binding SelectedParticipantsLabel}" Style="{StaticResource HeaderlessPanoramaItemStyle}">
+                    <ListBox
+                        toolkit:TiltEffect.SuppressTilt="True"
+                        Name="ListChosenParticipants"
+                        Margin="0 10"
+                        BorderBrush="White"
+                        FontSize="40"
+                        ItemsSource="{Binding ChosenParticipants}"
+                        Tap="RemoveSelectedParticipantBtn_OnTap"
+                        ItemTemplate="{StaticResource SelectedParticipantItemTemplate}">
+                    </ListBox>
+                </phone:PanoramaItem>
+            </phone:Panorama>
+
         </Grid>
     </Grid>
-
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton 
+                x:Name="AcceptChangesBtn"
+                IconUri="/Assets/AppBar/check.png"
+                Text="done" 
+                Click="AcceptChangesBtn_OnClick" 
+                IsEnabled="True"/>
+            <shell:ApplicationBarIconButton 
+                x:Name="AddAnonymousBtn"
+                IconUri="/Assets/AppBar/mask-anonymous.png"
+                Text="anonymous" 
+                Click="AddAnonymousBtn_OnClick"
+                IsEnabled="True"/>
+            <shell:ApplicationBarIconButton 
+                x:Name="ClearAllSelectedBtn"
+                IconUri="/Assets/AppBar/transform-rotate-counterclockwise.png" 
+                Text="unselect all" 
+                Click="ClearAllSelectedBtn_OnClick"
+                IsEnabled="True"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="update contacts" IsEnabled="False"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
 </phone:PhoneApplicationPage>
     

@@ -1,0 +1,317 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Foodler.Pages.InputFoodCostPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    Style="{StaticResource NavigationAnimation}"
+    shell:SystemTray.IsVisible="True"
+    toolkit:TiltEffect.IsTiltEnabled="True">
+	<phone:PhoneApplicationPage.Resources>
+		<Style x:Key="ContentControlStyle1" TargetType="ContentControl">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="ContentControl">
+						<ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+		<DataTemplate x:Key="DataTemplate1">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock
+                    Grid.Column="0" 
+                    Text="{Binding FoodPrice, Mode=TwoWay, StringFormat='N2'}"
+                    Margin="0"
+                    Padding="0"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    FontSize="{StaticResource PhoneFontSizeExtraLarge}" />
+				<TextBlock 
+                    Grid.Column="1"
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Margin="10 0"
+                    Text="{Binding CurrencySymbol}"
+                    FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                    Foreground="Gray"/>
+			</Grid>
+		</DataTemplate>
+		<Style x:Key="FoodPriceTextBox" TargetType="TextBox">
+			<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilyNormal}"/>
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}"/>
+			<Setter Property="Background" Value="{StaticResource PhoneTextBoxBrush}"/>
+			<Setter Property="Foreground" Value="{StaticResource PhoneTextBoxForegroundBrush}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource PhoneTextBoxBrush}"/>
+			<Setter Property="SelectionBackground" Value="{StaticResource PhoneAccentBrush}"/>
+			<Setter Property="SelectionForeground" Value="{StaticResource PhoneTextBoxSelectionForegroundBrush}"/>
+			<Setter Property="BorderThickness" Value="{StaticResource PhoneBorderThickness}"/>
+			<Setter Property="Padding" Value="2"/>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="TextBox">
+						<Grid Background="Transparent">
+							<VisualStateManager.VisualStateGroups>
+								<VisualStateGroup x:Name="CommonStates">
+									<VisualState x:Name="Normal"/>
+									<VisualState x:Name="MouseOver"/>
+									<VisualState x:Name="Disabled">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="MainBorder">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="MainBorder">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentElement">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneDisabledBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="ReadOnly">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="MainBorder">
+												<DiscreteObjectKeyFrame KeyTime="0">
+													<DiscreteObjectKeyFrame.Value>
+														<Visibility>Collapsed</Visibility>
+													</DiscreteObjectKeyFrame.Value>
+												</DiscreteObjectKeyFrame>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="ReadonlyBorder">
+												<DiscreteObjectKeyFrame KeyTime="0">
+													<DiscreteObjectKeyFrame.Value>
+														<Visibility>Visible</Visibility>
+													</DiscreteObjectKeyFrame.Value>
+												</DiscreteObjectKeyFrame>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="ReadonlyBorder">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneTextBoxBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ReadonlyBorder">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneTextBoxBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentElement">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneTextBoxReadOnlyBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+								</VisualStateGroup>
+								<VisualStateGroup x:Name="FocusStates">
+									<VisualState x:Name="Focused">
+										<Storyboard>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="MainBorder">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneTextBoxEditBackgroundBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+											<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="MainBorder">
+												<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource PhoneTextBoxEditBorderBrush}"/>
+											</ObjectAnimationUsingKeyFrames>
+										</Storyboard>
+									</VisualState>
+									<VisualState x:Name="Unfocused"/>
+								</VisualStateGroup>
+							</VisualStateManager.VisualStateGroups>
+							<Border x:Name="MainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Margin="{StaticResource PhoneTouchTargetOverhang}"/>
+							<Border x:Name="ReadonlyBorder" BorderBrush="{StaticResource PhoneDisabledBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Margin="{StaticResource PhoneTouchTargetOverhang}" Visibility="Collapsed"/>
+							<Border BorderBrush="Transparent" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Margin="{StaticResource PhoneTouchTargetOverhang}">
+								<ContentControl x:Name="ContentElement" BorderThickness="0" HorizontalContentAlignment="Stretch" Margin="{StaticResource PhoneTextBoxInnerMargin}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="Stretch" Style="{StaticResource ContentControlStyle1}" ContentTemplate="{StaticResource DataTemplate1}"/>
+							</Border>
+						</Grid>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</phone:PhoneApplicationPage.Resources>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent" d:DataContext="{Binding Source={StaticResource SampleDataSource}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="0,0,0,0">
+            <phone:Pivot 
+                Title="{Binding AppTitleLabel}" 
+                Name="MainPivot" 
+                IsLocked="False" 
+                Style="{StaticResource PivotStyle}">
+                <phone:PivotItem Header="{Binding FoodPriceLabel}">
+                    <Grid
+                        toolkit:TiltEffect.SuppressTilt="True"
+                        toolkit:TiltEffect.IsTiltEnabled="False"
+                        Margin="-10 0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition MinHeight="115"></RowDefinition>
+                            <RowDefinition Height="490"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBox 
+                            Grid.Row="0"
+                            Name="FoodPriceTextBox"
+                            VerticalAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            HorizontalContentAlignment="Right"
+                            Background="WhiteSmoke"
+                            FontWeight="Bold"
+                            Padding="10"
+                            FontSize="{StaticResource PhoneFontSizeExtraLarge}"
+                            TextAlignment="Right" 
+                            Style="{StaticResource FoodPriceTextBox}">
+                            
+                        </TextBox>
+                        <Grid Grid.Row="0" Background="Transparent"/> <!-- sneaky hack :) -->
+                        <Grid
+                            Margin="0 25 0 0"
+                            Grid.Row="1"
+                            Name="NumpadGrid">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Button 
+                                Grid.Row="0" Grid.Column="0"
+                                Name="Numpad1Btn"
+                                Content="1" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="0" Grid.Column="1"
+                                Name="Numpad2Btn"
+                                Content="2" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="0" Grid.Column="2"
+                                Name="Numpad3Btn"
+                                Content="3" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="0" Grid.Column="3"
+                                Name="NumpadEraseBtn"
+                                Padding="20"
+                                FontSize="{StaticResource PhoneFontSizeSmall}"
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadEraseBtn_OnClick"
+                                Hold="NumpadEraseBtn_OnHold">
+                                <Button.ContentTemplate>
+                                    <DataTemplate>
+                                        <Border 
+                                            x:Name="ButtonBackground"
+                                            Margin="{StaticResource PhoneTouchTargetOverhang}">
+                                            <Grid 
+                                                x:Name="ContentContainer"
+                                                Height="40"
+                                                Width="40"
+                                                Background="{StaticResource PhoneBorderBrush}">
+                                                <Grid.OpacityMask>
+                                                    <ImageBrush Stretch="Uniform" ImageSource="/Assets/Icon/backspace.png"/>
+                                                </Grid.OpacityMask>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
+                            <Button 
+                                Grid.Row="1" Grid.Column="3"
+                                Name="NumpadCancelBtn"
+                                FontSize="{StaticResource PhoneFontSizeSmall}"
+                                Content="cancel" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadCancelBtn_OnClick" 
+                                Foreground="{StaticResource PhoneBorderBrush}"/>
+                            <Button 
+                                Grid.Row="1" Grid.Column="0"
+                                Name="Numpad4Btn"
+                                Content="4" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="1" Grid.Column="1"
+                                Name="Numpad5Btn"
+                                Content="5" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="1" Grid.Column="2"
+                                Name="Numpad6Btn"
+                                Content="6" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="2" Grid.Column="3"
+                                Grid.RowSpan="2"
+                                Name="NumpadEnterBtn"
+                                Background="LightSkyBlue"
+                                Padding="20"
+                                FontSize="{StaticResource PhoneFontSizeSmall}"
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadEnterBtn_OnClick">
+                                <Button.ContentTemplate>
+                                    <DataTemplate>
+                                        <Border x:Name="ButtonBackground" Margin="{StaticResource PhoneTouchTargetOverhang}">
+                                            <Grid x:Name="ContentContainer">
+                                                <Image Stretch="Uniform" Source="/Assets/Icon/enter-key.png"/>
+                                            </Grid>
+                                        </Border>
+                                    </DataTemplate>
+                                </Button.ContentTemplate>
+                            </Button>
+                            <Button 
+                                Grid.Row="2" Grid.Column="0"
+                                Name="Numpad7Btn"
+                                Content="7" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="2" Grid.Column="1"
+                                Name="Numpad8Btn"
+                                Content="8" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="2" Grid.Column="2"
+                                Name="Numpad9Btn"
+                                Content="9" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="3" Grid.Column="2"
+                                Name="NumpadPointBtn"
+                                Content=".00" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            <Button 
+                                Grid.Row="3" Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                Name="Numpad0Btn"
+                                Content="0" 
+                                Style="{StaticResource NumpadButtonStyle}"
+                                Click="NumpadNumericBtn_OnClick"/>
+                            
+                        </Grid>
+                    </Grid>
+                </phone:PivotItem>
+            </phone:Pivot>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
