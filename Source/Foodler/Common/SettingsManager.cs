@@ -7,6 +7,7 @@ namespace Foodler.Common
     {
         private const string FIRST_RUN_KEY = "first_run";
         private const string APP_RUN_COUNT_KEY = "app run count";
+        private const string TUTORIAL_SHOWED_KEY = "tutorial_showed";
         private static IsolatedStorageSettings _appSettings = IsolatedStorageSettings.ApplicationSettings;
 
         public static string DecimalSeparator
@@ -60,6 +61,49 @@ namespace Foodler.Common
                 }
 
                 return true;
+            }
+        }
+
+        public static bool TutorialAlreadyShowed
+        {
+            get
+            {
+                if (_appSettings.Contains(TUTORIAL_SHOWED_KEY)
+                    && (bool)_appSettings[TUTORIAL_SHOWED_KEY])
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            set
+            {
+                if (_appSettings.Contains(TUTORIAL_SHOWED_KEY))
+                {
+                    _appSettings[TUTORIAL_SHOWED_KEY] = value;
+                }
+                else
+                {
+                    _appSettings.Add(TUTORIAL_SHOWED_KEY, value);
+                }
+                _appSettings.Save();
+            }
+        }
+
+        /// <summary>
+        /// Recalculate the state of the tutorial, using for be sure that users who had installed app before will not see tutorial again
+        /// </summary>
+        public static void RecalculateTutorialStatus()
+        {
+            if (!TutorialAlreadyShowed)
+            {
+                // check for those users who had installed the app before tutorial checker was implemented
+                // if app had been opened before, probably user already saw the tutorial
+                if (AppRunCount > 0)
+                {
+                    TutorialAlreadyShowed = true;
+                }
             }
         }
     }

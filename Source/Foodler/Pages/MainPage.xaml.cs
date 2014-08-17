@@ -1,7 +1,5 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Threading;
-using System.Threading.Tasks;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Resources;
@@ -19,7 +17,6 @@ namespace Foodler.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private bool _initialized = false;
         public MainViewModel ViewModel { get; private set; }
         protected MainPivotPage PreviousPivotPage { get; set; }
 
@@ -42,9 +39,8 @@ namespace Foodler.Pages
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (SettingsManager.IsFirstRun && !_initialized)
+            if (!SettingsManager.TutorialAlreadyShowed)
             {
-                _initialized = true;
                 NavigationService.Navigate(new Uri(PageManager.TUTORIAL, UriKind.RelativeOrAbsolute));
             }
 
