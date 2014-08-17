@@ -45,7 +45,7 @@ namespace Foodler.Pages
             if (SettingsManager.IsFirstRun && !_initialized)
             {
                 _initialized = true;
-                NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
+                NavigationService.Navigate(new Uri(PageManager.TUTORIAL, UriKind.RelativeOrAbsolute));
             }
 
             // get chosen participants from addparticipants page
@@ -83,7 +83,7 @@ namespace Foodler.Pages
 
         internal void BtnAddParticipants_OnClick(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/AddParticipantPage.xaml", UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri(PageManager.ADD_PARTICIPANT, UriKind.RelativeOrAbsolute));
         }
 
         internal void BtnGoFoodTab_OnClick(object sender, EventArgs e)
@@ -112,7 +112,7 @@ namespace Foodler.Pages
                     MessageBoxButton.OK);
             } else
             {
-                NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+                NavigationService.Navigate(new Uri(PageManager.ADD_FOOD, UriKind.RelativeOrAbsolute));
             }
         }
 
@@ -256,7 +256,7 @@ namespace Foodler.Pages
                     StateManager.FoodContainer = foodContainer;
                 }
 
-                NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+                NavigationService.Navigate(new Uri(PageManager.ADD_FOOD, UriKind.RelativeOrAbsolute));
             }
             
         }
@@ -289,7 +289,7 @@ namespace Foodler.Pages
 
         internal void OpenTutorial_Onclick(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri(PageManager.TUTORIAL, UriKind.RelativeOrAbsolute));
         }
     }
 }

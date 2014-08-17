@@ -256,9 +256,5 @@ namespace Foodler
             }
         }
 
-        public class Pages
-        {
-            public const string TUTORIAL = "/Pages/TutorialPage.xaml";
-        }
     }
 }

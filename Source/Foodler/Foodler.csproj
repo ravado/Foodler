@@ -115,6 +115,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Food.cs" />
     <Compile Include="Models\Participant.cs" />
+    <Compile Include="Common\PageManager.cs" />
     <Compile Include="Pages\AddAnonymousParticipant.xaml.cs">
       <DependentUpon>AddAnonymousParticipant.xaml</DependentUpon>
     </Compile>
