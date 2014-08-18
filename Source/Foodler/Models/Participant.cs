@@ -6,7 +6,7 @@ using Foodler.Common.Contracts;
 namespace Foodler.Models
 {
     [Table(Name = "Participants")]
-    public class Participant : BaseModel, IParticipant, IEquatable<Participant>
+    public class Participant : BaseModel, IParticipant//, IEquatable<Participant>
     {
         #region Fields
 
@@ -31,7 +31,7 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
-        [Column]
+        [Column(DbType = "nvarchar(200)")]
         public string Name
         {
             get { return _name; }
@@ -41,7 +41,7 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
-        [Column(DbType = "image")]
+        [Column(DbType = "image", CanBeNull = true, UpdateCheck = UpdateCheck.Never)]
         public byte[] Avatar
         {
             get { return _avatar; }
@@ -51,7 +51,7 @@ namespace Foodler.Models
                 NotifyPropertyChanged();
             }
         }
-        [Column]
+        [Column(DbType = "bit")]
         public bool IsUserContact
         {
             get { return _isUserContact; }
@@ -124,24 +124,24 @@ namespace Foodler.Models
             return String.Format("{0}, ate coeff: {1}", Name, ParticipantAteCoefficient);
         }
 
-        public bool Equals(Participant other)
-        {
-            if (other != null && other.Id == Id)
-                return true;
+        //public bool Equals(Participant other)
+        //{
+        //    if (other != null && other.Id == Id)
+        //        return true;
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        public override bool Equals(object obj)
-        {
-            return Equals(obj as Participant);
-        }
+        //public override bool Equals(object obj)
+        //{
+        //    return Equals(obj as Participant);
+        //}
 
-        public override int GetHashCode()
-        {
-            var nameHash = (Name == null) ? 0 : Name.GetHashCode();
+        //public override int GetHashCode()
+        //{
+        //    var nameHash = (Name == null) ? 0 : Name.GetHashCode();
 
-            return Id.GetHashCode() + nameHash;
-        }
+        //    return Id.GetHashCode() + nameHash;
+        //}
     }
 }

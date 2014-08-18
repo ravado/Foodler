@@ -76,7 +76,7 @@ namespace Foodler
         {
             using (var db = new FoodlerDataContext(FoodlerDataContext.CONNECTION_STRING))
             {
-                db.DeleteDatabase();
+                //db.DeleteDatabase();
                 if (db.DatabaseExists() == false)
                 {
                     //Create the database
