@@ -307,6 +307,44 @@ namespace Expression.Blend.SampleData.SampleDataSource
 				}
 			}
 		}
+
+		private string _AboutTabLabel = string.Empty;
+
+		public string AboutTabLabel
+		{
+			get
+			{
+				return this._AboutTabLabel;
+			}
+
+			set
+			{
+				if (this._AboutTabLabel != value)
+				{
+					this._AboutTabLabel = value;
+					this.OnPropertyChanged("AboutTabLabel");
+				}
+			}
+		}
+
+		private string _AppTitleLabel = string.Empty;
+
+		public string AppTitleLabel
+		{
+			get
+			{
+				return this._AppTitleLabel;
+			}
+
+			set
+			{
+				if (this._AppTitleLabel != value)
+				{
+					this._AppTitleLabel = value;
+					this.OnPropertyChanged("AppTitleLabel");
+				}
+			}
+		}
 	}
 
 	public class Participants : System.Collections.ObjectModel.ObservableCollection<ParticipantsItem>

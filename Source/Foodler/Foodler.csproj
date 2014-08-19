@@ -125,6 +125,9 @@
     <Compile Include="Pages\AddParticipantPage.xaml.cs">
       <DependentUpon>AddParticipantPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\InputFoodCostPage.xaml.cs">
       <DependentUpon>InputFoodCostPage.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,7 @@
     <Compile Include="ViewModels\Common\BaseViewModel.cs" />
     <Compile Include="ViewModels\AddFoodViewModel.cs" />
     <Compile Include="ViewModels\AddAnonymousParticipantViewModel.cs" />
+    <Compile Include="ViewModels\AboutViewModel.cs" />
     <Compile Include="ViewModels\InputFoodCostViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodContainerViewModel.cs" />
     <Compile Include="ViewModels\Items\FoodItemViewModel.cs" />
@@ -250,6 +254,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\AboutPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\InputFoodCostPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -268,6 +276,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app-tile-2.png" />
+    <Content Include="app-tile-3.png" />
+    <Content Include="app-tile-Recovered.png" />
+    <Content Include="app-tile.png" />
     <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -306,6 +318,7 @@
     <Content Include="Assets\Tiles\icon-medium.png" />
     <Content Include="Assets\Tiles\icon-medium-lite.png" />
     <Content Include="Assets\Tiles\icon-small-lite.png" />
+    <Content Include="Assets\Tiles\logo-transparent.png" />
     <Content Include="Assets\Tutorials\en\step1.wxga.en.png" />
     <Content Include="Assets\Tutorials\en\step2.wxga.en.png" />
     <Content Include="Assets\Tutorials\en\step3.wxga.en.png" />
@@ -333,6 +346,8 @@
     <Content Include="Assets\Tutorials\uk\step7.wxga.uk.png" />
     <Content Include="Assets\Tutorials\uk\tutorial-finish.wxga.uk.png" />
     <Content Include="Assets\Tutorials\uk\tutorial-greating.wxga.uk.png" />
+    <Content Include="icon-wide-2.png" />
+    <Content Include="icon-wide-Recovered.png" />
     <Content Include="Resources\Description.uk.txt" />
     <Content Include="Resources\Description.txt" />
     <Content Include="Resources\Description.ru.txt" />

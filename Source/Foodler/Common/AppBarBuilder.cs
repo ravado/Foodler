@@ -35,7 +35,7 @@ namespace Foodler.Common
                     btnNext.Click += page.BtnGoSumTab_OnClick;
                     _food.Buttons.Add(btnNext);
 
-                    SetTutorialItem(_food, page.OpenTutorial_Onclick);
+                    SetCommonItems(_food, page.OpenTutorial_Onclick, page.MenuOpenAbout_OnClick);
                 }
                 return _food;
             }
@@ -82,7 +82,7 @@ namespace Foodler.Common
                     btnNext.Click += page.BtnGoFoodTab_OnClick;
                     _participants.Buttons.Add(btnNext);
 
-                    SetTutorialItem(_participants, page.OpenTutorial_Onclick);
+                    SetCommonItems(_participants, page.OpenTutorial_Onclick, page.MenuOpenAbout_OnClick);
                 }
                 return _participants;
             }
@@ -111,7 +111,7 @@ namespace Foodler.Common
                     btnRestart.Click += page.BtnDone_OnClick;
                     _sum.Buttons.Add(btnRestart);
 
-                    SetTutorialItem(_sum, page.OpenTutorial_Onclick);
+                    SetCommonItems(_sum, page.OpenTutorial_Onclick, page.MenuOpenAbout_OnClick);
                 }
                 return _sum;
             }
@@ -196,11 +196,15 @@ namespace Foodler.Common
             }
         }
 
-        public static void SetTutorialItem(ApplicationBar appBar, EventHandler clickAction)
+        public static void SetCommonItems(ApplicationBar appBar, EventHandler tutorialHandler, EventHandler aboutHandler)
         {
             var tutorialMenu = new ApplicationBarMenuItem(AppBarLabels.MainPage_ShowTutorial);
-            tutorialMenu.Click += clickAction;
+            tutorialMenu.Click += tutorialHandler;
             appBar.MenuItems.Add(tutorialMenu);
+
+            var aboutMenu = new ApplicationBarMenuItem(AppBarLabels.MainPage_ShowAbout);
+            aboutMenu.Click += aboutHandler;
+            appBar.MenuItems.Add(aboutMenu);
         }
     }
 }

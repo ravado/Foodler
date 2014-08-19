@@ -7,6 +7,6 @@ namespace Foodler.Common
         public const string ANONYMOUS = "/Pages/AddAnonymousParticipant.xaml";
         public const string ADD_PARTICIPANT = "/Pages/AddParticipantPage.xaml";
         public const string ADD_FOOD = "/Pages/AddFoodPage.xaml";
-
+        public const string ABOUT = "/Pages/AboutPage.xaml";
     }
 }

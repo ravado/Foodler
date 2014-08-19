@@ -112,6 +112,11 @@ namespace Foodler.Pages
             }
         }
 
+        public void MenuOpenAbout_OnClick(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri(PageManager.ABOUT, UriKind.RelativeOrAbsolute));
+        }
+
         internal void BtnDone_OnClick(object sender, EventArgs e)
         {
             Debug.WriteLine("[{0:hh:mm:ss.fff}] GoParticipantTab", DateTime.Now);
