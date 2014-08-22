@@ -208,11 +208,29 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to no.
+        /// </summary>
+        internal static string Common_No {
+            get {
+                return ResourceManager.GetString("Common_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Me.
         /// </summary>
         internal static string Common_SelfName {
             get {
                 return ResourceManager.GetString("Common_SelfName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yes.
+        /// </summary>
+        internal static string Common_Yes {
+            get {
+                return ResourceManager.GetString("Common_Yes", resourceCulture);
             }
         }
         

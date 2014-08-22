@@ -96,6 +96,9 @@
     <Compile Include="Common\ActionCommand.cs" />
     <Compile Include="Common\AppBarBuilder.cs" />
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\Contracts\IApplicationInfo.cs" />
+    <Compile Include="Common\Contracts\IApplicationSettings.cs" />
+    <Compile Include="Common\Contracts\IDeviceInfo.cs" />
     <Compile Include="Common\Contracts\IFood.cs" />
     <Compile Include="Common\Contracts\IParticipant.cs" />
     <Compile Include="Common\Contracts\IRepository.cs" />
@@ -104,6 +107,7 @@
     <Compile Include="Common\Converters\InVisibilityConvertor.cs" />
     <Compile Include="Common\Converters\UppercaseConverter.cs" />
     <Compile Include="Common\Converters\VisibilityConverter.cs" />
+    <Compile Include="Common\DeviceInfo.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
@@ -127,6 +131,9 @@
     </Compile>
     <Compile Include="Pages\AboutPage.xaml.cs">
       <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SplashScreenPage.xaml.cs">
+      <DependentUpon>SplashScreenPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\InputFoodCostPage.xaml.cs">
       <DependentUpon>InputFoodCostPage.xaml</DependentUpon>
@@ -212,6 +219,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UILabels.resx</DependentUpon>
     </Compile>
+    <Compile Include="SampleData\AboutPage\AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SampleData\SampleDataSource\SampleDataSource.xaml.cs">
       <DependentUpon>SampleDataSource.xaml</DependentUpon>
     </Compile>
@@ -258,6 +268,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Pages\SplashScreenPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Pages\InputFoodCostPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -270,16 +284,16 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <DesignTimeOnly Include="SampleData\AboutPage\AboutPage.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+    </DesignTimeOnly>
     <Page Include="SampleData\SampleDataSource\SampleDataSource.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="app-tile-2.png" />
-    <Content Include="app-tile-3.png" />
-    <Content Include="app-tile-Recovered.png" />
-    <Content Include="app-tile.png" />
     <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -313,11 +327,17 @@
     <Content Include="Assets\Screenshots\wxvga\screen-6.wxvga.png" />
     <Content Include="Assets\Screenshots\wxvga\screen-7.wxvga.png" />
     <Content Include="Assets\Screenshots\wxvga\screen-8.wxvga.png" />
+    <Content Include="Assets\splash-screen.jpg" />
+    <Content Include="Assets\splash-screen-lite.jpg" />
     <Content Include="Assets\Tiles\app-tile-lite.png" />
     <Content Include="Assets\Tiles\app-tile.png" />
-    <Content Include="Assets\Tiles\icon-medium.png" />
     <Content Include="Assets\Tiles\icon-medium-lite.png" />
+    <Content Include="Assets\Tiles\icon-medium.png" />
     <Content Include="Assets\Tiles\icon-small-lite.png" />
+    <Content Include="Assets\Tiles\icon-small.png" />
+    <Content Include="Assets\Tiles\icon-wide-lite.png" />
+    <Content Include="Assets\Tiles\icon-wide.png" />
+    <Content Include="Assets\Tiles\logo-transparent-lite.png" />
     <Content Include="Assets\Tiles\logo-transparent.png" />
     <Content Include="Assets\Tutorials\en\step1.wxga.en.png" />
     <Content Include="Assets\Tutorials\en\step2.wxga.en.png" />
@@ -346,11 +366,11 @@
     <Content Include="Assets\Tutorials\uk\step7.wxga.uk.png" />
     <Content Include="Assets\Tutorials\uk\tutorial-finish.wxga.uk.png" />
     <Content Include="Assets\Tutorials\uk\tutorial-greating.wxga.uk.png" />
-    <Content Include="icon-wide-2.png" />
-    <Content Include="icon-wide-Recovered.png" />
     <Content Include="Resources\Description.uk.txt" />
     <Content Include="Resources\Description.txt" />
     <Content Include="Resources\Description.ru.txt" />
+    <Content Include="SampleData\AboutPage\AboutPage_Files\logo-transparent.png" />
+    <Content Include="SplashScreenImageLite.jpg" />
     <Content Include="SplashScreenImage.jpg" />
     <None Include="Foodler_2014_07_18_22_23_11.sap" />
     <None Include="packages.config" />
@@ -448,7 +468,6 @@
     <Content Include="Assets\Icon\Food\snack.png" />
     <Content Include="Assets\Icon\Food\soup.png" />
     <Content Include="Assets\Icon\enter-key.png" />
-    <Content Include="Assets\Tiles\icon-small.png" />
     <Content Include="Assets\AppBar\cancel.png" />
     <Content Include="Assets\AppBar\check.png" />
     <Content Include="Assets\AppBar\delete.png" />
@@ -543,6 +562,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <DesignTimeOnly Include="SampleData\AboutPage\AboutPage.xsd" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\bird.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\bull.png" />
     <Resource Include="SampleData\SampleDataSource\SampleDataSource_Files\cancel-icon-white.png" />

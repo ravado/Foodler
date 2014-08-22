@@ -24,7 +24,7 @@
         <Grid x:Name="ContentPanel" Grid.Row="0" Margin="5,0,5,0" Background="{StaticResource MainColorBrush}">
             <phone:Pivot>
                 <phone:PivotItem Header="{Binding AboutTabLabel}">
-                    <Grid>
+                    <Grid d:DataContext="{Binding Source={StaticResource AboutPage}}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"></RowDefinition>
                             <RowDefinition Height="Auto"></RowDefinition>
@@ -38,12 +38,12 @@
                                 Grid.Row="0"
                                 VerticalAlignment="Stretch"
                                 Orientation="Vertical">
-                                <Image Height="100" Source="/Assets/Tiles/logo-transparent.png" Margin="20 0"></Image>
+                                <Image Height="100" Source="{Binding AboutLogo}" Margin="20 0"></Image>
                                 <TextBlock 
                                     HorizontalAlignment="Center"
                                     Padding="20 5"
                                     FontSize="25"
-                                    Text="Version 1.0.0.0"/>
+                                    Text="{Binding VersionLabel}"/>
                                 <TextBlock
                                     TextWrapping="Wrap"
                                     Margin="0 20 0 0"
@@ -65,13 +65,15 @@
                                     <Button
                                         Name="RateAppButton"
                                         HorizontalAlignment="Stretch"
+                                        Visibility="{Binding RateControlVisible, Converter={StaticResource InVisibilityConverter}}"
                                         VerticalAlignment="Stretch"
-                                        Content="Rate App" Click="RateApp_OnClick"/>
+                                        Content="{Binding RateAppBtnLabel}"
+                                        Command="{Binding ShowRateAppCommand}"/>
                                     <toolkit:Rating 
                                         Name="RatingBar"
-                                        Visibility="Collapsed"
                                         Width="200" 
-                                        Height="40" 
+                                        Height="40"
+                                        Visibility="{Binding RateControlVisible, Converter={StaticResource VisibilityConverter}}"
                                         RatingItemCount="5" 
                                         ReadOnly="False" 
                                         Margin="5"
@@ -83,7 +85,8 @@
                                 
                                 <Button
                                     VerticalAlignment="Bottom"
-                                    Content="Write To Author" Click="WriteEmail_OnClick"/>
+                                    Command="{Binding WriteFeedbackCommand}"
+                                    Content="{Binding WriteEmailBtnLabel}"/>
                                 
                             </StackPanel>
                         </Grid>

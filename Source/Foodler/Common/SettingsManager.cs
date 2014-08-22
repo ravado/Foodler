@@ -1,15 +1,17 @@
 ﻿using System;
 using System.IO.IsolatedStorage;
 using System.Xml;
+using Foodler.Common.Contracts;
 
 namespace Foodler.Common
 {
-    public static class SettingsManager
+    public class SettingsManager : IApplicationSettings, IApplicationInfo
     {
         private const string FIRST_RUN_KEY = "first_run";
+        private const string IS_RATING_SET_KEY = "rating_set";
         private const string APP_RUN_COUNT_KEY = "app run count";
         private const string TUTORIAL_SHOWED_KEY = "tutorial_showed";
-        private static IsolatedStorageSettings _appSettings = IsolatedStorageSettings.ApplicationSettings;
+        private static readonly IsolatedStorageSettings AppSettings = IsolatedStorageSettings.ApplicationSettings;
 
         public static string DecimalSeparator
         {
@@ -22,27 +24,27 @@ namespace Foodler.Common
         public static void IncrementAppRun()
         {
             var run = 0;
-            if (_appSettings.Contains(APP_RUN_COUNT_KEY))
+            if (AppSettings.Contains(APP_RUN_COUNT_KEY))
             {
-                run = (int) _appSettings[APP_RUN_COUNT_KEY];
+                run = (int) AppSettings[APP_RUN_COUNT_KEY];
                 run++;
-                _appSettings[APP_RUN_COUNT_KEY] = run;
+                AppSettings[APP_RUN_COUNT_KEY] = run;
             }
             else
             {
                 run++;
-                _appSettings.Add(APP_RUN_COUNT_KEY, run);
+                AppSettings.Add(APP_RUN_COUNT_KEY, run);
             }
-            _appSettings.Save();
+            AppSettings.Save();
         }
 
-        public static int AppRunCount
+        public int AppRunCount
         {
             get
             {
-                if (_appSettings.Contains(APP_RUN_COUNT_KEY))
+                if (AppSettings.Contains(APP_RUN_COUNT_KEY))
                 {
-                    var count = (int)_appSettings[APP_RUN_COUNT_KEY];
+                    var count = (int)AppSettings[APP_RUN_COUNT_KEY];
                     return count;
                 }
 
@@ -54,9 +56,9 @@ namespace Foodler.Common
         {
             get
             {
-                if (_appSettings.Contains(APP_RUN_COUNT_KEY))
+                if (AppSettings.Contains(APP_RUN_COUNT_KEY))
                 {
-                    var count = (int)_appSettings[APP_RUN_COUNT_KEY];
+                    var count = (int)AppSettings[APP_RUN_COUNT_KEY];
                     if (count > 0)
                         return false;
                 }
@@ -69,8 +71,8 @@ namespace Foodler.Common
         {
             get
             {
-                if (_appSettings.Contains(TUTORIAL_SHOWED_KEY)
-                    && (bool)_appSettings[TUTORIAL_SHOWED_KEY])
+                if (AppSettings.Contains(TUTORIAL_SHOWED_KEY)
+                    && (bool)AppSettings[TUTORIAL_SHOWED_KEY])
                 {
                     return true;
                 }
@@ -80,22 +82,22 @@ namespace Foodler.Common
 
             set
             {
-                if (_appSettings.Contains(TUTORIAL_SHOWED_KEY))
+                if (AppSettings.Contains(TUTORIAL_SHOWED_KEY))
                 {
-                    _appSettings[TUTORIAL_SHOWED_KEY] = value;
+                    AppSettings[TUTORIAL_SHOWED_KEY] = value;
                 }
                 else
                 {
-                    _appSettings.Add(TUTORIAL_SHOWED_KEY, value);
+                    AppSettings.Add(TUTORIAL_SHOWED_KEY, value);
                 }
-                _appSettings.Save();
+                AppSettings.Save();
             }
         }
 
         /// <summary>
         /// Recalculate the state of the tutorial, using for be sure that users who had installed app before will not see tutorial again
         /// </summary>
-        public static void RecalculateTutorialStatus()
+        public void RecalculateTutorialStatus()
         {
             if (!TutorialAlreadyShowed)
             {
@@ -108,12 +110,7 @@ namespace Foodler.Common
             }
         }
 
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public static string GetAppVersion()
+        public string GetAppVersion()
         {
             var xmlReaderSettings = new XmlReaderSettings
             {
@@ -125,6 +122,31 @@ namespace Foodler.Common
                 xmlReader.ReadToDescendant("App");
 
                 return xmlReader.GetAttribute("Version");
+            }
+        }
+
+        public bool IsRatingSet
+        {
+            get
+            {
+                if (AppSettings.Contains(IS_RATING_SET_KEY))
+                {
+                    return (bool) AppSettings[IS_RATING_SET_KEY];
+                }
+
+                return false;
+            }
+            set
+            {
+                if (AppSettings.Contains(IS_RATING_SET_KEY))
+                {
+                    AppSettings[IS_RATING_SET_KEY] = value;
+                }
+                else
+                {
+                    AppSettings.Add(IS_RATING_SET_KEY, value);
+                }
+                AppSettings.Save();
             }
         }
     }

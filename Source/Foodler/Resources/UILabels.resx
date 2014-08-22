@@ -198,8 +198,14 @@ Anthony
 Paul
 Kevin</value>
   </data>
+  <data name="Common_No" xml:space="preserve">
+    <value>no</value>
+  </data>
   <data name="Common_SelfName" xml:space="preserve">
     <value>Me</value>
+  </data>
+  <data name="Common_Yes" xml:space="preserve">
+    <value>yes</value>
   </data>
   <data name="Controls_FoodExpanderParticipants" xml:space="preserve">
     <value>Participants:</value>

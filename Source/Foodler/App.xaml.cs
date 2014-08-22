@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using Foodler.Common;
+using Foodler.Common.Contracts;
 using Foodler.DB;
 using Foodler.Resources;
 using Foodler.Services;
@@ -23,6 +24,10 @@ namespace Foodler
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
+        public static IDeviceInfo DeviceInfo { get; private set; }
+        public static IApplicationInfo ApplicationInfo { get; private set; }
+        public static IApplicationSettings ApplicationSettings { get; private set; }
+
         public static bool FirstRun { get; set; } //TODO: remove it, because it`s for better testing
 
         /// <summary>
@@ -41,6 +46,11 @@ namespace Foodler
 
             // Language display initialization
             InitializeLanguage();
+
+            var settings = new SettingsManager();
+            ApplicationInfo = settings;
+            ApplicationSettings = settings;
+            DeviceInfo = new DeviceInfo();
 
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
@@ -89,7 +99,7 @@ namespace Foodler
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            SettingsManager.RecalculateTutorialStatus();
+            //ApplicationSettings.RecalculateTutorialStatus();
         }
 
         // Code to execute when the application is activated (brought to foreground)

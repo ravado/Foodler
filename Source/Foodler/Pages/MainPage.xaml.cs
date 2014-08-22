@@ -19,6 +19,8 @@ namespace Foodler.Pages
     {
         public MainViewModel ViewModel { get; private set; }
         protected MainPivotPage PreviousPivotPage { get; set; }
+        public IApplicationInfo ApplicationInfo { get; set; }
+        public IApplicationSettings ApplicationSettings { get; set; }
 
         public MainPage()
         {
@@ -33,12 +35,60 @@ namespace Foodler.Pages
             PreviousPivotPage = MainPivotPage.None;
             ViewModel.Initialize();
             SetApplicationBarForPivot();
+
+            // each third run ask user to vote for up if user hasnt vote for app yet
+            if (!App.ApplicationSettings.IsRatingSet
+                && App.ApplicationSettings.AppRunCount%3 == 0)
+            {
+                if (App.DeviceInfo.ConnectionType != ConnectionType.None)
+                {
+                    RunRateAppCheck();
+                }
+            }
+            
+        }
+
+        private void RunRateAppCheck()
+        {
+            var messageBox = new CustomMessageBox()
+            {
+                Caption = "Rate app",
+                Message = "Please rate my app if you like it, to help other to make a desision",
+                ContentTemplate = (DataTemplate)this.Resources["HyperlinkContentTemplate"],
+                DataContext = this,
+                LeftButtonContent = "later",
+            };
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton: // later
+                        
+                        break;
+                    case CustomMessageBoxResult.RightButton: // cancel
+                        
+                        break;
+                    case CustomMessageBoxResult.None:
+                        
+                        break;
+                    default:
+                        break;
+                }
+            };
+
+            messageBox.Show();
         }
 
         #region Navigation
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            // in some cases we dont need ability to get to previous page
+            if (NavigationContext.QueryString.ContainsKey("clearStack"))
+            {
+                NavigationService.RemoveBackEntry();
+            }
+
             if (!SettingsManager.TutorialAlreadyShowed)
             {
                 NavigationService.Navigate(new Uri(PageManager.TUTORIAL, UriKind.RelativeOrAbsolute));
