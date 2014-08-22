@@ -9,7 +9,7 @@
     <Language code="uk" />
   </Languages>
   <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8b}" Title="Deluga Lite" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Ivan Cherednychok" Description="App allows you to share meals price in a restaurant, bar, fast food between people you were with. &#xD;&#xA;Simple and clear interface makes it easier and faster than calculating it manually." Publisher="Ivan Cherednychok" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
-    <IconPath IsRelative="true" IsResource="false">Assets\Tiles\app-tile-lite.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">Assets\Tiles\icon-small-lite.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_CONTACTS" />
@@ -35,9 +35,13 @@
           </BackBackgroundImageURI>
           <BackTitle>
           </BackTitle>
+          <LargeBackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-wide-lite.png</LargeBackgroundImageURI>
+          <LargeBackContent />
+          <LargeBackBackgroundImageURI IsRelative="true" IsResource="false">
+          </LargeBackBackgroundImageURI>
           <DeviceLockImageURI IsRelative="true" IsResource="false">
           </DeviceLockImageURI>
-          <HasLarge>false</HasLarge>
+          <HasLarge>True</HasLarge>
         </TemplateFlip>
       </PrimaryToken>
     </Tokens>
