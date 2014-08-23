@@ -112,6 +112,7 @@
     <Compile Include="Common\Extensions.cs" />
     <Compile Include="Common\Helpers\AlphaKeyGroup.cs" />
     <Compile Include="Common\Helpers\ImageHelper.cs" />
+    <Compile Include="Common\Mailer.cs" />
     <Compile Include="Common\SettingsManager.cs" />
     <Compile Include="Common\StateManager.cs" />
     <Compile Include="DB\FoodlerDataContext.cs" />

@@ -11,6 +11,7 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Microsoft.Phone.Tasks;
 using GestureEventArgs = System.Windows.Input.GestureEventArgs;
 
 namespace Foodler.Pages
@@ -19,8 +20,6 @@ namespace Foodler.Pages
     {
         public MainViewModel ViewModel { get; private set; }
         protected MainPivotPage PreviousPivotPage { get; set; }
-        public IApplicationInfo ApplicationInfo { get; set; }
-        public IApplicationSettings ApplicationSettings { get; set; }
 
         public MainPage()
         {
@@ -35,43 +34,51 @@ namespace Foodler.Pages
             PreviousPivotPage = MainPivotPage.None;
             ViewModel.Initialize();
             SetApplicationBarForPivot();
+        }
 
+        private void InitRateAppRequest()
+        {
             // each third run ask user to vote for up if user hasnt vote for app yet
-            if (!App.ApplicationSettings.IsRatingSet
-                && App.ApplicationSettings.AppRunCount%3 == 0)
+            if (CanAskUserRateApp())
             {
-                if (App.DeviceInfo.ConnectionType != ConnectionType.None)
-                {
-                    RunRateAppCheck();
-                }
+                RunRateAppCheck();
             }
-            
+        }
+
+        private bool CanAskUserRateApp()
+        {
+            var result = false;
+            result = (
+                App.ApplicationSettings.IsRatingSet == false            // set rating
+                && App.ApplicationSettings.AppRunCount > 1              // not first run for sure
+                && App.ApplicationSettings.AppRunCount % 5 == 0         // each third run
+                && App.DeviceInfo.ConnectionType != ConnectionType.None // internet connection available
+                && App.ApplicationSettings.CoolDownElapsed());          // dont bother user for a while (month) after he sent a feedback
+
+            return result;
         }
 
         private void RunRateAppCheck()
         {
             var messageBox = new CustomMessageBox()
             {
-                Caption = "Rate app",
-                Message = "Please rate my app if you like it, to help other to make a desision",
-                ContentTemplate = (DataTemplate)this.Resources["HyperlinkContentTemplate"],
-                DataContext = this,
-                LeftButtonContent = "later",
+                Caption = "Оценка",
+                Message = "Вам нравится приложение?",
+                LeftButtonContent = "да",
+                RightButtonContent = "нет",
             };
             messageBox.Dismissed += (s1, e1) =>
             {
                 switch (e1.Result)
                 {
-                    case CustomMessageBoxResult.LeftButton: // later
-                        
+                    case CustomMessageBoxResult.LeftButton: // yes
+                        InitRateRequest();                        
                         break;
-                    case CustomMessageBoxResult.RightButton: // cancel
-                        
-                        break;
-                    case CustomMessageBoxResult.None:
-                        
+                    case CustomMessageBoxResult.RightButton: // no
+                        InitEmailRequest();
                         break;
                     default:
+                        App.ApplicationSettings.LastCoolDownActivated = DateTime.UtcNow;
                         break;
                 }
             };
@@ -79,6 +86,56 @@ namespace Foodler.Pages
             messageBox.Show();
         }
 
+        private void InitEmailRequest()
+        {
+            var messageBox = new CustomMessageBox()
+            {
+                Caption = "Обратная связь",
+                Message = "Отправьте мне письмо с описанием того что именно Вам не нравится, и возможно уже в следующих версиях Ваше пожелание будет учтено. \nОтправить письмо?",
+                LeftButtonContent = "да",
+                RightButtonContent = "нет",
+            };
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton: // yes
+                        Mailer.PrepareEmail(AboutViewModel.EMAIL_FOR_FEEDBACK, AboutViewModel.FEEDBACK_SUBJECT);
+                        break;
+                }
+                App.ApplicationSettings.LastCoolDownActivated = DateTime.UtcNow;
+            };
+
+            messageBox.Show();
+        }
+
+        private void InitRateRequest()
+        {
+            var messageBox = new CustomMessageBox()
+            {
+                Caption = "Оценка",
+                Message = "Пожайлуста оцените приложение, это не займет много времени. \nПерейти к оценке?",
+                LeftButtonContent = "да",
+                RightButtonContent = "нет",
+            };
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton: // yes
+                        //TODO: duplicate
+                        App.ApplicationSettings.IsRatingSet = true;
+                        var marketplaceReviewTask = new MarketplaceReviewTask();
+                        marketplaceReviewTask.Show();
+                        break;
+                    default:
+                        App.ApplicationSettings.LastCoolDownActivated = DateTime.UtcNow;
+                        break;
+                }
+            };
+
+            messageBox.Show();
+        }
         #region Navigation
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -88,6 +145,8 @@ namespace Foodler.Pages
             {
                 NavigationService.RemoveBackEntry();
             }
+
+            InitRateAppRequest();
 
             if (!SettingsManager.TutorialAlreadyShowed)
             {

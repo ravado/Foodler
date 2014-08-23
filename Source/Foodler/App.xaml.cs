@@ -28,8 +28,6 @@ namespace Foodler
         public static IApplicationInfo ApplicationInfo { get; private set; }
         public static IApplicationSettings ApplicationSettings { get; private set; }
 
-        public static bool FirstRun { get; set; } //TODO: remove it, because it`s for better testing
-
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>
@@ -52,6 +50,8 @@ namespace Foodler
             ApplicationSettings = settings;
             DeviceInfo = new DeviceInfo();
 
+            InitFirstAppRunEver();
+
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
             {
@@ -73,7 +73,12 @@ namespace Foodler
             }
             InitializeDatabase();
             LoadContactsToDatabase();
-            FirstRun = true;
+        }
+
+        private void InitFirstAppRunEver()
+        {
+            if (ApplicationSettings.AppInstalledDate == DateTime.MinValue)
+                ApplicationSettings.AppInstalledDate = DateTime.UtcNow;
         }
 
         private void LoadContactsToDatabase()

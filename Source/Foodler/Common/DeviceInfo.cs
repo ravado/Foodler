@@ -12,11 +12,19 @@ namespace Foodler.Common
 
         public DeviceInfo()
         {
-            ConnectionType = ConnectionType.None;
+            ConnectionType = GetConnectionType();
             NetworkInformation.NetworkStatusChanged += NetworkInformationOnNetworkStatusChanged;
         }
 
         private void NetworkInformationOnNetworkStatusChanged(object sender)
+        {
+            ConnectionType = GetConnectionType();
+            
+            if(ConnectionChanged != null)
+                ConnectionChanged();
+        }
+
+        private ConnectionType GetConnectionType()
         {
             var result = ConnectionType.None;
             switch (NetworkInterface.NetworkInterfaceType)
@@ -32,10 +40,7 @@ namespace Foodler.Common
                     break;
             }
 
-            ConnectionType = result;
-            
-            if(ConnectionChanged != null)
-                ConnectionChanged();
+            return result;
         }
 
         

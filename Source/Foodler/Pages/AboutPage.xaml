@@ -68,7 +68,9 @@
                                         Visibility="{Binding RateControlVisible, Converter={StaticResource InVisibilityConverter}}"
                                         VerticalAlignment="Stretch"
                                         Content="{Binding RateAppBtnLabel}"
-                                        Command="{Binding ShowRateAppCommand}"/>
+                                        Command="{Binding ShowRateAppCommand}">
+                                    </Button>
+                                        
                                     <toolkit:Rating 
                                         Name="RatingBar"
                                         Width="200" 

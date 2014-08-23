@@ -12,8 +12,8 @@ namespace Foodler.ViewModels
 {
     public class AboutViewModel : BaseViewModel
     {
-        private const string EMAIL_FOR_FEEDBACK = "ivan.cherednychok@gmail.com";
-        private const string FEEDBACK_SUBJECT = "Deluga Feedback";
+        public const string EMAIL_FOR_FEEDBACK = "ivan.cherednychok@gmail.com";
+        public const string FEEDBACK_SUBJECT = "Deluga Feedback";
 
         #region Fields
 
@@ -99,8 +99,7 @@ namespace Foodler.ViewModels
 
         public void WriteFeedback()
         {
-            var emailComposeTask = new EmailComposeTask {Subject = FEEDBACK_SUBJECT, To = EMAIL_FOR_FEEDBACK};
-            emailComposeTask.Show();
+            Mailer.PrepareEmail(EMAIL_FOR_FEEDBACK, FEEDBACK_SUBJECT);
         }
 
         public void RateApp(int value)
@@ -108,6 +107,9 @@ namespace Foodler.ViewModels
             //TODO: read this code carefuly, it should be refactored - view mode here know about the view!
             if (value >= 4)
             {
+                //TODO:duplicate
+
+                ApplicationSettings.IsRatingSet = true;
                 var marketplaceReviewTask = new MarketplaceReviewTask();
                 marketplaceReviewTask.Show();
             }

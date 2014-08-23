@@ -11,6 +11,9 @@ namespace Foodler.Common
         private const string IS_RATING_SET_KEY = "rating_set";
         private const string APP_RUN_COUNT_KEY = "app run count";
         private const string TUTORIAL_SHOWED_KEY = "tutorial_showed";
+        private const string LAST_COOL_DOWN_KEY = "last_cool_down";
+        private const string FIRST_APP_RUN_KEY = "first_app_run";
+
         private static readonly IsolatedStorageSettings AppSettings = IsolatedStorageSettings.ApplicationSettings;
 
         public static string DecimalSeparator
@@ -49,6 +52,32 @@ namespace Foodler.Common
                 }
 
                 return 0;
+            }
+        }
+
+        public DateTime AppInstalledDate
+        {
+            get
+            {
+                if (AppSettings.Contains(FIRST_APP_RUN_KEY))
+                {
+                    var date = (DateTime)AppSettings[FIRST_APP_RUN_KEY];
+                    return date;
+                }
+
+                return DateTime.MinValue;
+            }
+            set
+            {
+                if (AppSettings.Contains(FIRST_APP_RUN_KEY))
+                {
+                    AppSettings[FIRST_APP_RUN_KEY] = value;
+                }
+                else
+                {
+                    AppSettings.Add(FIRST_APP_RUN_KEY, value);
+                }
+                AppSettings.Save();
             }
         }
 
@@ -148,6 +177,50 @@ namespace Foodler.Common
                 }
                 AppSettings.Save();
             }
+        }
+
+
+        public DateTime LastCoolDownActivated
+        {
+            get
+            {
+                if (AppSettings.Contains(LAST_COOL_DOWN_KEY))
+                {
+                    var date = (DateTime) AppSettings[LAST_COOL_DOWN_KEY];
+                    return date;
+                }
+
+                return DateTime.MinValue;
+            }
+            set
+            {
+                if (AppSettings.Contains(LAST_COOL_DOWN_KEY))
+                {
+                    AppSettings[LAST_COOL_DOWN_KEY] = value;
+                }
+                else
+                {
+                    AppSettings.Add(LAST_COOL_DOWN_KEY, value);
+                }
+                AppSettings.Save();
+            }
+        }
+
+        public TimeSpan CoolDownInterval
+        {
+            get { return new TimeSpan(1, 0, 0, 0); }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public bool CoolDownElapsed()
+        {
+            if (LastCoolDownActivated >= LastCoolDownActivated.Add(CoolDownInterval))
+                return true;
+
+            return false;
         }
     }
 }
