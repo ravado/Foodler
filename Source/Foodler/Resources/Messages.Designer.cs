@@ -61,6 +61,33 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to If you don&apos;t like something in the app, just write me an email, and help to make this app better. Do you still wanna rate app?.
+        /// </summary>
+        internal static string AboutPage_DontVoteBadlyText {
+            get {
+                return ResourceManager.GetString("AboutPage_DontVoteBadlyText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info.
+        /// </summary>
+        internal static string AboutPage_InfoHeader {
+            get {
+                return ResourceManager.GetString("AboutPage_InfoHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thank you for your vote!.
+        /// </summary>
+        internal static string AboutPage_ThankYouVote {
+            get {
+                return ResourceManager.GetString("AboutPage_ThankYouVote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Data.
         /// </summary>
         internal static string AddFoodPage_InvalidDataHeader {

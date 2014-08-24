@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_DontVoteBadlyText" xml:space="preserve">
+    <value>If you don't like something in the app, just write me an email, and help to make this app better. Do you still wanna rate app?</value>
+  </data>
+  <data name="AboutPage_InfoHeader" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="AboutPage_ThankYouVote" xml:space="preserve">
+    <value>Thank you for your vote!</value>
+  </data>
   <data name="AddFoodPage_InvalidDataHeader" xml:space="preserve">
     <value>Invalid Data</value>
   </data>

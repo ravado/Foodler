@@ -83,16 +83,18 @@ namespace Foodler.ViewModels
         {
             ApplicationSettings = applicationSettings;
             ApplicationInfo = applicationInfo;
-            AboutTabLabel = "about";
-            VersionLabel = String.Format("Version {0}", ApplicationInfo.GetAppVersion());
-            DescriptionLabel = "    App allows you to share meals price in a restaurant, bar, fast food between people you were with. Simple and clear interface makes it easier and faster than calculating it manually.";
-            WriteEmailTextLabel = "    If you have any sagestion, complains or question write me an email :)";
-            RateAppTextLabel = "    Please rate my app if you like it, to help other to make a desision";
-            RateAppBtnLabel = "Rate App";
-            WriteEmailBtnLabel = "Write To Author";
-            DontMakeBadVoteTitleLabel = "Info";
-            DontMakeBadVoteTextLabel = "If you dont like somethig in the app, just write me an email, and help to make this app better. Do you still wanna rate app?";
-            ThankYouVoteLabel = "Thank you for your vote!";
+            AboutTabLabel = UILabels.AboutPage_TabAbout;
+            VersionLabel = String.Format(UILabels.AboutPage_VersionTitle, ApplicationInfo.GetAppVersion());
+            DescriptionLabel = UILabels.AboutPage_Description;
+            WriteEmailTextLabel = UILabels.AboutPage_HaveSuggestion;
+            RateAppTextLabel = UILabels.AboutPage_RateTheAppText;
+            RateAppBtnLabel = UILabels.AboutPage_RateTheAppBtn;
+            WriteEmailBtnLabel = UILabels.AboutPage_ConnectWithAuthorBtn;
+            
+            // messages
+            DontMakeBadVoteTitleLabel = Messages.AboutPage_InfoHeader;
+            DontMakeBadVoteTextLabel = Messages.AboutPage_DontVoteBadlyText;
+            ThankYouVoteLabel = Messages.AboutPage_ThankYouVote;
 
             AboutLogo = Constants.IS_LIGHT_VERSION ? Images.TransparentLogoLite : Images.TransparentLogo;
         }
