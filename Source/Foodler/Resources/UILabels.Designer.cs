@@ -115,7 +115,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version {0}.
+        ///   Looks up a localized string similar to version {0}.
         /// </summary>
         internal static string AboutPage_VersionTitle {
             get {

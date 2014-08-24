@@ -136,7 +136,7 @@
     <value>about</value>
   </data>
   <data name="AboutPage_VersionTitle" xml:space="preserve">
-    <value>Version {0}</value>
+    <value>version {0}</value>
   </data>
   <data name="AddAnonymousParticipantPageFemaleTabHeader" xml:space="preserve">
     <value>female</value>

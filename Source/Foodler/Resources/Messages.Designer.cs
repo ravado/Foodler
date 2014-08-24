@@ -160,6 +160,33 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you like the app?.
+        /// </summary>
+        internal static string MainPage_DoYouLikeApp {
+            get {
+                return ResourceManager.GetString("MainPage_DoYouLikeApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feedback.
+        /// </summary>
+        internal static string MainPage_FeedbackHeader {
+            get {
+                return ResourceManager.GetString("MainPage_FeedbackHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send me an email with a description of what you do not like, and may already be in the next version of your wishes will be taken into account. \ nSend a letter?.
+        /// </summary>
+        internal static string MainPage_FeedbackSendEmail {
+            get {
+                return ResourceManager.GetString("MainPage_FeedbackSendEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You can add only {0} food items in the light version. Would you like to get a full version without any limitation?.
         /// </summary>
         internal static string MainPage_FoodTabFoodLimitMessage {
@@ -174,6 +201,24 @@ namespace Foodler.Resources {
         internal static string MainPage_NoParticipantsMessage {
             get {
                 return ResourceManager.GetString("MainPage_NoParticipantsMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please rate the app, it does not take much time. \ nGo to the assessment?.
+        /// </summary>
+        internal static string MainPage_PleaseRateApp {
+            get {
+                return ResourceManager.GetString("MainPage_PleaseRateApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rating.
+        /// </summary>
+        internal static string MainPage_RateHeader {
+            get {
+                return ResourceManager.GetString("MainPage_RateHeader", resourceCulture);
             }
         }
         

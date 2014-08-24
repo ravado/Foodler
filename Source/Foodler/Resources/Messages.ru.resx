@@ -150,11 +150,26 @@
   <data name="Common_UnavailableFunctionalityHeader" xml:space="preserve">
     <value>Недоступно</value>
   </data>
+  <data name="MainPage_DoYouLikeApp" xml:space="preserve">
+    <value>Вам нравится приложение?</value>
+  </data>
+  <data name="MainPage_FeedbackHeader" xml:space="preserve">
+    <value>Обратная связь</value>
+  </data>
+  <data name="MainPage_FeedbackSendEmail" xml:space="preserve">
+    <value>Отправьте мне письмо с описанием того что именно Вам не нравится, и возможно уже в следующих версиях Ваше пожелание будет учтено. \nОтправить письмо?</value>
+  </data>
   <data name="MainPage_FoodTabFoodLimitMessage" xml:space="preserve">
     <value>В лайт версии вы можете добавить не больше {0} блюд. Хотите приобрести полную версию без ограничений?</value>
   </data>
   <data name="MainPage_NoParticipantsMessage" xml:space="preserve">
     <value>Для начала нужно добавить участников.</value>
+  </data>
+  <data name="MainPage_PleaseRateApp" xml:space="preserve">
+    <value>Пожайлуста оцените приложение, это не займет много времени. \nПерейти к оценке?</value>
+  </data>
+  <data name="MainPage_RateHeader" xml:space="preserve">
+    <value>Оценка</value>
   </data>
   <data name="MainPage_SumTabResetMessage" xml:space="preserve">
     <value>Это удалит все ваши изменения. Продолжить?</value>

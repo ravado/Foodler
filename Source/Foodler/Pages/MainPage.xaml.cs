@@ -62,10 +62,10 @@ namespace Foodler.Pages
         {
             var messageBox = new CustomMessageBox()
             {
-                Caption = "Оценка",
-                Message = "Вам нравится приложение?",
-                LeftButtonContent = "да",
-                RightButtonContent = "нет",
+                Caption = Messages.MainPage_RateHeader,
+                Message = Messages.MainPage_DoYouLikeApp,
+                LeftButtonContent = UILabels.Common_Yes,
+                RightButtonContent = UILabels.Common_No
             };
             messageBox.Dismissed += (s1, e1) =>
             {
@@ -90,10 +90,10 @@ namespace Foodler.Pages
         {
             var messageBox = new CustomMessageBox()
             {
-                Caption = "Обратная связь",
-                Message = "Отправьте мне письмо с описанием того что именно Вам не нравится, и возможно уже в следующих версиях Ваше пожелание будет учтено. \nОтправить письмо?",
-                LeftButtonContent = "да",
-                RightButtonContent = "нет",
+                Caption = Messages.MainPage_FeedbackHeader,
+                Message = Messages.MainPage_FeedbackSendEmail,
+                LeftButtonContent = UILabels.Common_Yes,
+                RightButtonContent = UILabels.Common_No
             };
             messageBox.Dismissed += (s1, e1) =>
             {
@@ -113,10 +113,10 @@ namespace Foodler.Pages
         {
             var messageBox = new CustomMessageBox()
             {
-                Caption = "Оценка",
-                Message = "Пожайлуста оцените приложение, это не займет много времени. \nПерейти к оценке?",
-                LeftButtonContent = "да",
-                RightButtonContent = "нет",
+                Caption = Messages.MainPage_RateHeader,
+                Message = Messages.MainPage_PleaseRateApp,
+                LeftButtonContent = UILabels.Common_Yes,
+                RightButtonContent = UILabels.Common_No
             };
             messageBox.Dismissed += (s1, e1) =>
             {
