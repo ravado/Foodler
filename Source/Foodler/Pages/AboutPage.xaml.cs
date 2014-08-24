@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using Foodler.Common;
 using Foodler.ViewModels;
@@ -36,6 +37,19 @@ namespace Foodler.Pages
             var rating = (sender as Rating);
             if (rating == null) return;
             ViewModel.RateApp((int)rating.Value);
+        }
+
+        protected override void OnBackKeyPress(CancelEventArgs e)
+        {
+            if (ViewModel.RateControlVisible)
+            {
+                ViewModel.RateControlVisible = false;
+                e.Cancel = true;
+            }
+            else
+            {
+                base.OnBackKeyPress(e);    
+            }
         }
     }
 }

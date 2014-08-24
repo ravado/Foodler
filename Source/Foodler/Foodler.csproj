@@ -298,6 +298,8 @@
     <Content Include="Assets\Fonts\Cuprum-Regular.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Icon\heart-outline.png" />
+    <Content Include="Assets\Icon\email.png" />
     <Content Include="Assets\Mock\avramenko.png" />
     <Content Include="Assets\Mock\chekh.png" />
     <Content Include="Assets\Mock\kanunikov.png" />

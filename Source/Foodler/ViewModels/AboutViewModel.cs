@@ -128,6 +128,7 @@ namespace Foodler.ViewModels
                     switch (e1.Result)
                     {
                         case CustomMessageBoxResult.LeftButton:
+                            App.ApplicationSettings.IsRatingSet = true;
                             var marketplaceReviewTask = new MarketplaceReviewTask();
                             marketplaceReviewTask.Show();
                             break;
@@ -140,6 +141,7 @@ namespace Foodler.ViewModels
                         default:
                             break;
                     }
+                    App.ApplicationSettings.LastCoolDownActivated = DateTime.UtcNow;
                 };
 
                 messageBox.Show();
