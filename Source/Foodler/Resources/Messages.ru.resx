@@ -166,7 +166,7 @@
     <value>Для начала нужно добавить участников.</value>
   </data>
   <data name="MainPage_PleaseRateApp" xml:space="preserve">
-    <value>Пожайлуста оцените приложение, это не займет много времени. \nПерейти к оценке?</value>
+    <value>Пожайлуста оцените приложение, это не займет много времени. Перейти к оценке?</value>
   </data>
   <data name="MainPage_RateHeader" xml:space="preserve">
     <value>Оценка</value>

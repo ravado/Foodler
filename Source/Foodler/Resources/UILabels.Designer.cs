@@ -61,7 +61,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Connect with the author.
+        ///   Looks up a localized string similar to Contact with the author.
         /// </summary>
         internal static string AboutPage_ConnectWithAuthorBtn {
             get {
@@ -70,7 +70,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to App allows you to share meals price in a restaurant, bar, fast food between people you were with. Simple and clear interface makes it easier and faster than calculating it manually..
+        ///   Looks up a localized string similar to     App allows you to share meals price in a restaurant, bar, fast food between people you were with. Simple and clear interface makes it easier and faster than calculating it manually..
         /// </summary>
         internal static string AboutPage_Description {
             get {
@@ -79,7 +79,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to    If you have any suggestion, complaint or question write me an email :).
+        ///   Looks up a localized string similar to     If you have any suggestion, complaint or question write me an email :).
         /// </summary>
         internal static string AboutPage_HaveSuggestion {
             get {

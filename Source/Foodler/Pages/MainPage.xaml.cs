@@ -51,13 +51,17 @@ namespace Foodler.Pages
 
         private bool CanAskUserRateApp()
         {
-            var result = false;
-            result = (
+            var result = (
                 App.ApplicationSettings.IsRatingSet == false            // set rating
                 && App.ApplicationSettings.AppRunCount > 1              // not first run for sure
                 && App.ApplicationSettings.AppRunCount % 5 == 0         // each third run
                 && App.DeviceInfo.ConnectionType != ConnectionType.None // internet connection available
                 && App.ApplicationSettings.CoolDownElapsed());          // dont bother user for a while (month) after he sent a feedback
+            
+            //MessageBox.Show(String.Format("Rating set: {0}, Count: {1}, 5:{2}, Connection: {3}, Cooldown: {4}",
+            //    App.ApplicationSettings.IsRatingSet, App.ApplicationSettings.AppRunCount,
+            //    (App.ApplicationSettings.AppRunCount%5 == 0),
+            //    App.DeviceInfo.ConnectionType, App.ApplicationSettings.CoolDownElapsed()));
 
             return result;
         }
