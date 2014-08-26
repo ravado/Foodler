@@ -6,6 +6,7 @@ using Foodler.Common.Contracts;
 using Foodler.DB;
 using Foodler.Resources;
 using Foodler.Services;
+using GoogleAds;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System;
@@ -23,6 +24,10 @@ namespace Foodler
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
+
+        public static bool IsAddShowed { get; set; }
+        public static bool IsAddLoaded { get; set; }
+        public static InterstitialAd FullScreenAd = new InterstitialAd(Constants.ADMOB_FULL_SCREEN_KEY);
 
         public static IDeviceInfo DeviceInfo { get; private set; }
         public static IApplicationInfo ApplicationInfo { get; private set; }
@@ -72,7 +77,32 @@ namespace Foodler
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
             InitializeDatabase();
-            LoadContactsToDatabase();
+
+
+            ThreadPool.QueueUserWorkItem((r) => LoadContactsToDatabase());
+
+            if (Constants.IS_LIGHT_VERSION)
+                ThreadPool.QueueUserWorkItem((r) => InitAdvertising());
+        }
+
+        private void InitAdvertising()
+        {
+            FullScreenAd.ReceivedAd += (sender, args) => { IsAddLoaded = true; };
+            FullScreenAd.FailedToReceiveAd += OnFailedToReceiveAd;
+            var adRequest = new AdRequest();
+            
+            #if DEBUG
+            adRequest.ForceTesting = true;
+            #else
+            adRequest.ForceTesting = false;
+            #endif
+
+            FullScreenAd.LoadAd(adRequest);
+        }
+
+        private void OnFailedToReceiveAd(object sender, AdErrorEventArgs e)
+        {
+            Yandex.Metrica.Counter.ReportEvent("AdMob could not load advertising.");
         }
 
         private void InitFirstAppRunEver()

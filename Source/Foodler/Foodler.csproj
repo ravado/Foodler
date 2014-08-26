@@ -332,13 +332,21 @@
     <Content Include="Assets\Screenshots\wxvga\screen-8.wxvga.png" />
     <Content Include="Assets\splash-screen.jpg" />
     <Content Include="Assets\splash-screen-lite.jpg" />
+    <Content Include="Assets\Tiles\app-tile-lite-transparent.png" />
     <Content Include="Assets\Tiles\app-tile-lite.png" />
+    <Content Include="Assets\Tiles\app-tile-transparent.png" />
     <Content Include="Assets\Tiles\app-tile.png" />
+    <Content Include="Assets\Tiles\icon-medium-lite-transparent.png" />
     <Content Include="Assets\Tiles\icon-medium-lite.png" />
+    <Content Include="Assets\Tiles\icon-medium-transparent.png" />
     <Content Include="Assets\Tiles\icon-medium.png" />
+    <Content Include="Assets\Tiles\icon-small-lite-transparent.png" />
     <Content Include="Assets\Tiles\icon-small-lite.png" />
+    <Content Include="Assets\Tiles\icon-small-transparent.png" />
     <Content Include="Assets\Tiles\icon-small.png" />
+    <Content Include="Assets\Tiles\icon-wide-lite-transparent.png" />
     <Content Include="Assets\Tiles\icon-wide-lite.png" />
+    <Content Include="Assets\Tiles\icon-wide-transparent.png" />
     <Content Include="Assets\Tiles\icon-wide.png" />
     <Content Include="Assets\Tiles\logo-transparent-lite.png" />
     <Content Include="Assets\Tiles\logo-transparent.png" />
@@ -369,6 +377,8 @@
     <Content Include="Assets\Tutorials\uk\step7.wxga.uk.png" />
     <Content Include="Assets\Tutorials\uk\tutorial-finish.wxga.uk.png" />
     <Content Include="Assets\Tutorials\uk\tutorial-greating.wxga.uk.png" />
+    <Content Include="Libraries\AdMob\GoogleAds.dll" />
+    <Content Include="Libraries\AdMob\GoogleAds.XML" />
     <Content Include="Resources\Description.uk.txt" />
     <Content Include="Resources\Description.txt" />
     <Content Include="Resources\Description.ru.txt" />
@@ -550,6 +560,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AppBarUtils.2.4\lib\windowsphone8\AppBarUtils.dll</HintPath>
     </Reference>
+    <Reference Include="GoogleAds, Version=6.5.13.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Expression.Controls, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Expression.Interactions, Version=3.9.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Phone.Controls, Version=8.0.0.0, Culture=neutral, PublicKeyToken=24eec0d8c86cda1e, processorArchitecture=MSIL" />

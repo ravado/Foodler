@@ -199,8 +199,14 @@
 Денис
 Дмитро</value>
   </data>
+  <data name="Common_No" xml:space="preserve">
+    <value>ні</value>
+  </data>
   <data name="Common_SelfName" xml:space="preserve">
     <value>Я</value>
+  </data>
+  <data name="Common_Yes" xml:space="preserve">
+    <value>так</value>
   </data>
   <data name="Controls_FoodExpanderParticipants" xml:space="preserve">
     <value>Учасники:</value>

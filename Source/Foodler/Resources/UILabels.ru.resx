@@ -236,8 +236,14 @@
 Федор
 Юрий</value>
   </data>
+  <data name="Common_No" xml:space="preserve">
+    <value>нет</value>
+  </data>
   <data name="Common_SelfName" xml:space="preserve">
     <value>Я</value>
+  </data>
+  <data name="Common_Yes" xml:space="preserve">
+    <value>да</value>
   </data>
   <data name="Controls_FoodExpanderParticipants" xml:space="preserve">
     <value>Участники:</value>

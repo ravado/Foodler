@@ -1,11 +1,14 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Threading.Tasks;
+using AppBarUtils;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Resources;
 using Foodler.Services;
 using Foodler.ViewModels;
 using Foodler.ViewModels.Items;
+using GoogleAds;
 using Microsoft.Phone.Controls;
 using System;
 using System.Windows;
@@ -18,6 +21,7 @@ namespace Foodler.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        
         public MainViewModel ViewModel { get; private set; }
         protected MainPivotPage PreviousPivotPage { get; set; }
 
@@ -169,6 +173,16 @@ namespace Foodler.Pages
         {
             StateManager.InvolvedParticipants = ViewModel.GetInvolvedParticipants();
 
+            if (CanShowAdvert())
+            {
+                // dont go to next page while ad is displayed, do it after
+                App.FullScreenAd.DismissingOverlay += (sender, args) => base.OnNavigatedFrom(e);
+                App.FullScreenAd.ShowAd();
+                App.IsAddShowed = true;
+                return;
+
+            }
+
             // which page do we go
             if (e.Content is AddParticipantPage)
             {
@@ -178,6 +192,11 @@ namespace Foodler.Pages
             }
 
             base.OnNavigatedFrom(e);
+        }
+
+        private bool CanShowAdvert()
+        {
+           return (!App.IsAddShowed && App.IsAddLoaded && App.ApplicationSettings.AppRunCount > 1);
         }
 
         #endregion
