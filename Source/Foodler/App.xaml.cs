@@ -1,10 +1,13 @@
-﻿using System.Threading;
+﻿using System.IO.IsolatedStorage;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using Foodler.Common;
+using Foodler.Common.Contracts;
 using Foodler.DB;
 using Foodler.Resources;
 using Foodler.Services;
+using GoogleAds;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System;
@@ -23,7 +26,13 @@ namespace Foodler
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
-        public static bool FirstRun { get; set; } //TODO: remove it, because it`s for better testing
+        public static bool IsAddShowed { get; set; }
+        public static bool IsAddLoaded { get; set; }
+        public static InterstitialAd FullScreenAd = new InterstitialAd(Constants.ADMOB_FULL_SCREEN_KEY);
+
+        public static IDeviceInfo DeviceInfo { get; private set; }
+        public static IApplicationInfo ApplicationInfo { get; private set; }
+        public static IApplicationSettings ApplicationSettings { get; private set; }
 
         /// <summary>
         /// Constructor for the Application object.
@@ -42,6 +51,16 @@ namespace Foodler
             // Language display initialization
             InitializeLanguage();
 
+            var settings = new SettingsManager();
+            ApplicationInfo = settings;
+            ApplicationSettings = settings;
+            DeviceInfo = new DeviceInfo();
+
+            InitFirstAppRunEver();
+            //if (IsolatedStorageSettings.ApplicationSettings.Contains(SettingsManager.LAST_COOL_DOWN_KEY))
+            //{
+            //    IsolatedStorageSettings.ApplicationSettings.Remove(SettingsManager.LAST_COOL_DOWN_KEY);
+            //}
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
             {
@@ -62,8 +81,38 @@ namespace Foodler
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
             InitializeDatabase();
-            LoadContactsToDatabase();
-            FirstRun = true;
+
+
+            ThreadPool.QueueUserWorkItem((r) => LoadContactsToDatabase());
+
+            if (Constants.IS_LIGHT_VERSION)
+                ThreadPool.QueueUserWorkItem((r) => InitAdvertising());
+        }
+
+        private void InitAdvertising()
+        {
+            FullScreenAd.ReceivedAd += (sender, args) => { IsAddLoaded = true; };
+            FullScreenAd.FailedToReceiveAd += OnFailedToReceiveAd;
+            var adRequest = new AdRequest();
+            
+            #if DEBUG
+            adRequest.ForceTesting = true;
+            #else
+            adRequest.ForceTesting = false;
+            #endif
+
+            FullScreenAd.LoadAd(adRequest);
+        }
+
+        private void OnFailedToReceiveAd(object sender, AdErrorEventArgs e)
+        {
+            Yandex.Metrica.Counter.ReportEvent("AdMob could not load advertising.");
+        }
+
+        private void InitFirstAppRunEver()
+        {
+            if (ApplicationSettings.AppInstalledDate == DateTime.MinValue)
+                ApplicationSettings.AppInstalledDate = DateTime.UtcNow;
         }
 
         private void LoadContactsToDatabase()
@@ -76,7 +125,7 @@ namespace Foodler
         {
             using (var db = new FoodlerDataContext(FoodlerDataContext.CONNECTION_STRING))
             {
-                db.DeleteDatabase();
+                //db.DeleteDatabase();
                 if (db.DatabaseExists() == false)
                 {
                     //Create the database
@@ -89,6 +138,7 @@ namespace Foodler
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            //ApplicationSettings.RecalculateTutorialStatus();
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -256,9 +306,5 @@ namespace Foodler
             }
         }
 
-        public class Pages
-        {
-            public const string TUTORIAL = "/Pages/TutorialPage.xaml";
-        }
     }
 }

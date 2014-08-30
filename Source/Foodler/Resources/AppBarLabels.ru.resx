@@ -165,6 +165,9 @@
   <data name="MainPage_ParticipantsNext" xml:space="preserve">
     <value>далее</value>
   </data>
+  <data name="MainPage_ShowAbout" xml:space="preserve">
+    <value>о программе</value>
+  </data>
   <data name="MainPage_ShowTutorial" xml:space="preserve">
     <value>как пользоваться?</value>
   </data>

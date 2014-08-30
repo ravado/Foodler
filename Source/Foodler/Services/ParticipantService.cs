@@ -59,7 +59,7 @@ namespace Foodler.Services
         {
             using (var context = GetContext())
             {
-                var contacts = context.Participants.Where(p => p.IsUserContact);
+                var contacts = context.Participants.Where(p => p.IsUserContact).ToList();
                 context.Participants.DeleteAllOnSubmit(contacts);
                 context.Participants.InsertAllOnSubmit(participantFromContacts.Select(p => new Participant(p)));
                 context.SubmitChanges();

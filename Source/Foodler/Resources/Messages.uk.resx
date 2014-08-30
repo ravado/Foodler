@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_DontVoteBadlyText" xml:space="preserve">
+    <value>Якщо вам щось не подобається в додатку, просто напишіть мені про це, і цим Ви допоможете зробити його краще. Ви все ще бажаєте оцінити додаток?</value>
+  </data>
+  <data name="AboutPage_InfoHeader" xml:space="preserve">
+    <value>Інформація</value>
+  </data>
+  <data name="AboutPage_ThankYouVote" xml:space="preserve">
+    <value>Дякую за Ваш голос!</value>
+  </data>
   <data name="AddFoodPage_InvalidDataHeader" xml:space="preserve">
     <value>Не вірні дані</value>
   </data>
@@ -141,11 +150,26 @@
   <data name="Common_UnavailableFunctionalityHeader" xml:space="preserve">
     <value>Недоступно</value>
   </data>
+  <data name="MainPage_DoYouLikeApp" xml:space="preserve">
+    <value>Вам подобається додаток?</value>
+  </data>
+  <data name="MainPage_FeedbackHeader" xml:space="preserve">
+    <value>Зворотній зв'язок</value>
+  </data>
+  <data name="MainPage_FeedbackSendEmail" xml:space="preserve">
+    <value>Надішліть мені листа з описом того що саме Вам не подобається, і можливо вже в наступних версіях Ваше побажання буде враховано. \nВідправити листа?</value>
+  </data>
   <data name="MainPage_FoodTabFoodLimitMessage" xml:space="preserve">
     <value>В лайт версії ви можете додавати не більше {0} страв. Бажаєте придбати повну версію без обмежень?</value>
   </data>
   <data name="MainPage_NoParticipantsMessage" xml:space="preserve">
     <value>Додайте учасників спочатку.</value>
+  </data>
+  <data name="MainPage_PleaseRateApp" xml:space="preserve">
+    <value>Будь ласка оцініть додаток, це не займе багато часу. Перейті до оцінки?</value>
+  </data>
+  <data name="MainPage_RateHeader" xml:space="preserve">
+    <value>Оцінка</value>
   </data>
   <data name="MainPage_SumTabResetMessage" xml:space="preserve">
     <value>Це очистить всі ваші розрахунки. Продовжити?</value>

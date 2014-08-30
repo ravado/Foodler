@@ -212,7 +212,7 @@ namespace Foodler.Pages
             }
             else
             {
-                NavigationService.Navigate(new Uri("/Pages/AddAnonymousParticipant.xaml", UriKind.RelativeOrAbsolute));
+                NavigationService.Navigate(new Uri(PageManager.ANONYMOUS, UriKind.RelativeOrAbsolute));
             }
         }
 

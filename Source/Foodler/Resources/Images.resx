@@ -263,6 +263,18 @@ Assets/Mock/mychailyk.png</value>
   <data name="NonStrokedFish" xml:space="preserve">
     <value>/Assets/Icon/animals/non-stroked/fish.png</value>
   </data>
+  <data name="SplashScreen" xml:space="preserve">
+    <value>/Assets/splash-screen.jpg</value>
+  </data>
+  <data name="SplashScreenLite" xml:space="preserve">
+    <value>/Assets/splash-screen-lite.jpg</value>
+  </data>
+  <data name="TransparentLogo" xml:space="preserve">
+    <value>/Assets/Tiles/logo-transparent.png</value>
+  </data>
+  <data name="TransparentLogoLite" xml:space="preserve">
+    <value>/Assets/Tiles/logo-transparent-lite.png</value>
+  </data>
   <data name="Tutorials" xml:space="preserve">
     <value>/Assets/Tutorials/tutorial-greating.png
 /Assets/Tutorials/step1.png

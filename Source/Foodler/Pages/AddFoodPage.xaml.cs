@@ -94,7 +94,7 @@ namespace Foodler.Pages
 
         private void TextFoodCost_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/InputFoodCostPage.xaml", UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri(PageManager.CALCULATOR, UriKind.RelativeOrAbsolute));
         }
 
         private void TextFoodName_OnClick(object sender, RoutedEventArgs e)

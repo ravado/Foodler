@@ -423,6 +423,42 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to /Assets/splash-screen.jpg.
+        /// </summary>
+        internal static string SplashScreen {
+            get {
+                return ResourceManager.GetString("SplashScreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/splash-screen-lite.jpg.
+        /// </summary>
+        internal static string SplashScreenLite {
+            get {
+                return ResourceManager.GetString("SplashScreenLite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Tiles/logo-transparent.png.
+        /// </summary>
+        internal static string TransparentLogo {
+            get {
+                return ResourceManager.GetString("TransparentLogo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to /Assets/Tiles/logo-transparent-lite.png.
+        /// </summary>
+        internal static string TransparentLogoLite {
+            get {
+                return ResourceManager.GetString("TransparentLogoLite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to /Assets/Tutorials/tutorial-greating.png
         ////Assets/Tutorials/step1.png
         ////Assets/Tutorials/step2.png

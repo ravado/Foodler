@@ -1,25 +1,27 @@
 ﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Threading;
 using System.Threading.Tasks;
+using AppBarUtils;
 using Foodler.Common;
 using Foodler.Common.Contracts;
 using Foodler.Resources;
 using Foodler.Services;
 using Foodler.ViewModels;
 using Foodler.ViewModels.Items;
+using GoogleAds;
 using Microsoft.Phone.Controls;
 using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Microsoft.Phone.Tasks;
 using GestureEventArgs = System.Windows.Input.GestureEventArgs;
 
 namespace Foodler.Pages
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        private bool _initialized = false;
+        
         public MainViewModel ViewModel { get; private set; }
         protected MainPivotPage PreviousPivotPage { get; set; }
 
@@ -38,14 +40,125 @@ namespace Foodler.Pages
             SetApplicationBarForPivot();
         }
 
+        private void InitRateAppRequest()
+        {
+            // each third run ask user to vote for up if user hasnt vote for app yet
+            if (CanAskUserRateApp())
+            {
+                RunRateAppCheck();
+            }
+        }
+
+        private bool CanAskUserRateApp()
+        {
+            var result = (
+                App.ApplicationSettings.IsRatingSet == false            // set rating
+                && App.ApplicationSettings.AppRunCount > 1              // not first run for sure
+                && App.ApplicationSettings.AppRunCount % 5 == 0         // each third run
+                && App.DeviceInfo.ConnectionType != ConnectionType.None // internet connection available
+                && App.ApplicationSettings.CoolDownElapsed());          // dont bother user for a while (month) after he sent a feedback
+            
+            //MessageBox.Show(String.Format("Rating set: {0}, Count: {1}, 5:{2}, Connection: {3}, Cooldown: {4}",
+            //    App.ApplicationSettings.IsRatingSet, App.ApplicationSettings.AppRunCount,
+            //    (App.ApplicationSettings.AppRunCount%5 == 0),
+            //    App.DeviceInfo.ConnectionType, App.ApplicationSettings.CoolDownElapsed()));
+
+            return result;
+        }
+
+        private void RunRateAppCheck()
+        {
+            var messageBox = new CustomMessageBox()
+            {
+                Caption = Messages.MainPage_RateHeader,
+                Message = Messages.MainPage_DoYouLikeApp,
+                LeftButtonContent = UILabels.Common_Yes,
+                RightButtonContent = UILabels.Common_No
+            };
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton: // yes
+                        InitRateRequest();                        
+                        break;
+                    case CustomMessageBoxResult.RightButton: // no
+                        InitEmailRequest();
+                        break;
+                    default:
+                        App.ApplicationSettings.LastCoolDownActivated = DateTime.UtcNow;
+                        break;
+                }
+            };
+
+            messageBox.Show();
+        }
+
+        private void InitEmailRequest()
+        {
+            var messageBox = new CustomMessageBox()
+            {
+                Caption = Messages.MainPage_FeedbackHeader,
+                Message = Messages.MainPage_FeedbackSendEmail,
+                LeftButtonContent = UILabels.Common_Yes,
+                RightButtonContent = UILabels.Common_No
+            };
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton: // yes
+                        Mailer.PrepareEmail(AboutViewModel.EMAIL_FOR_FEEDBACK, AboutViewModel.FEEDBACK_SUBJECT);
+                        break;
+                }
+                App.ApplicationSettings.LastCoolDownActivated = DateTime.UtcNow;
+            };
+
+            messageBox.Show();
+        }
+
+        private void InitRateRequest()
+        {
+            var messageBox = new CustomMessageBox()
+            {
+                Caption = Messages.MainPage_RateHeader,
+                Message = Messages.MainPage_PleaseRateApp,
+                LeftButtonContent = UILabels.Common_Yes,
+                RightButtonContent = UILabels.Common_No
+            };
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton: // yes
+                        //TODO: duplicate
+                        App.ApplicationSettings.IsRatingSet = true;
+                        var marketplaceReviewTask = new MarketplaceReviewTask();
+                        marketplaceReviewTask.Show();
+                        break;
+                    default:
+                        App.ApplicationSettings.LastCoolDownActivated = DateTime.UtcNow;
+                        break;
+                }
+            };
+
+            messageBox.Show();
+        }
         #region Navigation
         
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (SettingsManager.IsFirstRun && !_initialized)
+            // in some cases we dont need ability to get to previous page
+            if (NavigationContext.QueryString.ContainsKey("clearStack"))
             {
-                _initialized = true;
-                NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
+                NavigationService.RemoveBackEntry();
+            }
+
+            InitRateAppRequest();
+
+            if (!SettingsManager.TutorialAlreadyShowed)
+            {
+                NavigationService.Navigate(new Uri(PageManager.TUTORIAL, UriKind.RelativeOrAbsolute));
             }
 
             // get chosen participants from addparticipants page
@@ -64,6 +177,16 @@ namespace Foodler.Pages
         {
             StateManager.InvolvedParticipants = ViewModel.GetInvolvedParticipants();
 
+            if (CanShowAdvert())
+            {
+                // dont go to next page while ad is displayed, do it after
+                App.FullScreenAd.DismissingOverlay += (sender, args) => base.OnNavigatedFrom(e);
+                App.FullScreenAd.ShowAd();
+                App.IsAddShowed = true;
+                return;
+
+            }
+
             // which page do we go
             if (e.Content is AddParticipantPage)
             {
@@ -75,6 +198,11 @@ namespace Foodler.Pages
             base.OnNavigatedFrom(e);
         }
 
+        private bool CanShowAdvert()
+        {
+           return (!App.IsAddShowed && App.IsAddLoaded && App.ApplicationSettings.AppRunCount > 1);
+        }
+
         #endregion
 
         #region Private Methods
@@ -83,7 +211,7 @@ namespace Foodler.Pages
 
         internal void BtnAddParticipants_OnClick(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/AddParticipantPage.xaml", UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri(PageManager.ADD_PARTICIPANT, UriKind.RelativeOrAbsolute));
         }
 
         internal void BtnGoFoodTab_OnClick(object sender, EventArgs e)
@@ -112,8 +240,13 @@ namespace Foodler.Pages
                     MessageBoxButton.OK);
             } else
             {
-                NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+                NavigationService.Navigate(new Uri(PageManager.ADD_FOOD, UriKind.RelativeOrAbsolute));
             }
+        }
+
+        public void MenuOpenAbout_OnClick(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri(PageManager.ABOUT, UriKind.RelativeOrAbsolute));
         }
 
         internal void BtnDone_OnClick(object sender, EventArgs e)
@@ -256,7 +389,7 @@ namespace Foodler.Pages
                     StateManager.FoodContainer = foodContainer;
                 }
 
-                NavigationService.Navigate(new Uri("/Pages/AddFoodPage.xaml", UriKind.RelativeOrAbsolute));
+                NavigationService.Navigate(new Uri(PageManager.ADD_FOOD, UriKind.RelativeOrAbsolute));
             }
             
         }
@@ -289,7 +422,7 @@ namespace Foodler.Pages
 
         internal void OpenTutorial_Onclick(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri(App.Pages.TUTORIAL, UriKind.RelativeOrAbsolute));
+            NavigationService.Navigate(new Uri(PageManager.TUTORIAL, UriKind.RelativeOrAbsolute));
         }
     }
 }

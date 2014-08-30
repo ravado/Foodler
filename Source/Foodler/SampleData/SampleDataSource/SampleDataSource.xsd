@@ -27,6 +27,8 @@
     <xs:attribute blend:FormatParameters="1,3" name="ParticipantsTabLabel" type="xs:string" />
     <xs:attribute blend:FormatParameters="1,3" name="FoodTabLabel" type="xs:string" />
     <xs:attribute blend:FormatParameters="1,3" name="SummaryTabLabel" type="xs:string" />
+    <xs:attribute blend:FormatParameters="1,8" name="AboutTabLabel" type="xs:string" />
+    <xs:attribute name="AppTitleLabel" type="xs:string" />
   </xs:complexType>
   <xs:complexType name="Participants">
     <xs:sequence>

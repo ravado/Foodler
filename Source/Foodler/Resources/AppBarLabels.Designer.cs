@@ -205,6 +205,15 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        internal static string MainPage_ShowAbout {
+            get {
+                return ResourceManager.GetString("MainPage_ShowAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to how to use?.
         /// </summary>
         internal static string MainPage_ShowTutorial {

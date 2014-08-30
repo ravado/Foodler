@@ -61,6 +61,69 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contact with the author.
+        /// </summary>
+        internal static string AboutPage_ConnectWithAuthorBtn {
+            get {
+                return ResourceManager.GetString("AboutPage_ConnectWithAuthorBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to     App allows you to share meals price in a restaurant, bar, fast food between people you were with. Simple and clear interface makes it easier and faster than calculating it manually..
+        /// </summary>
+        internal static string AboutPage_Description {
+            get {
+                return ResourceManager.GetString("AboutPage_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to     If you have any suggestion, complaint or question write me an email :).
+        /// </summary>
+        internal static string AboutPage_HaveSuggestion {
+            get {
+                return ResourceManager.GetString("AboutPage_HaveSuggestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rate the application.
+        /// </summary>
+        internal static string AboutPage_RateTheAppBtn {
+            get {
+                return ResourceManager.GetString("AboutPage_RateTheAppBtn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to    Please rate my app if you like it, to help other to make a decision.
+        /// </summary>
+        internal static string AboutPage_RateTheAppText {
+            get {
+                return ResourceManager.GetString("AboutPage_RateTheAppText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to about.
+        /// </summary>
+        internal static string AboutPage_TabAbout {
+            get {
+                return ResourceManager.GetString("AboutPage_TabAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to version {0}.
+        /// </summary>
+        internal static string AboutPage_VersionTitle {
+            get {
+                return ResourceManager.GetString("AboutPage_VersionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to male.
         /// </summary>
         internal static string AddAnonymousParticipantPage_MaleTabHeader {
@@ -208,11 +271,29 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to no.
+        /// </summary>
+        internal static string Common_No {
+            get {
+                return ResourceManager.GetString("Common_No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Me.
         /// </summary>
         internal static string Common_SelfName {
             get {
                 return ResourceManager.GetString("Common_SelfName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to yes.
+        /// </summary>
+        internal static string Common_Yes {
+            get {
+                return ResourceManager.GetString("Common_Yes", resourceCulture);
             }
         }
         

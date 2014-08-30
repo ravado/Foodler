@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AboutPage_DontVoteBadlyText" xml:space="preserve">
+    <value>If you don't like something in the app, just write me an email, and help to make this app better. Do you still wanna rate app?</value>
+  </data>
+  <data name="AboutPage_InfoHeader" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="AboutPage_ThankYouVote" xml:space="preserve">
+    <value>Thank you for your vote!</value>
+  </data>
   <data name="AddFoodPage_InvalidDataHeader" xml:space="preserve">
     <value>Invalid Data</value>
   </data>
@@ -141,11 +150,26 @@
   <data name="Common_UnavailableFunctionalityHeader" xml:space="preserve">
     <value>Unavailable</value>
   </data>
+  <data name="MainPage_DoYouLikeApp" xml:space="preserve">
+    <value>Do you like the app?</value>
+  </data>
+  <data name="MainPage_FeedbackHeader" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="MainPage_FeedbackSendEmail" xml:space="preserve">
+    <value>Send me an email with a description of what you do not like, and may already be in the next version of your wishes will be taken into account. Send a letter?</value>
+  </data>
   <data name="MainPage_FoodTabFoodLimitMessage" xml:space="preserve">
     <value>You can add only {0} food items in the light version. Would you like to get a full version without any limitation?</value>
   </data>
   <data name="MainPage_NoParticipantsMessage" xml:space="preserve">
     <value>Participants should be added first.</value>
+  </data>
+  <data name="MainPage_PleaseRateApp" xml:space="preserve">
+    <value>Please rate the app, it does not take much time. \ nGo to the assessment?</value>
+  </data>
+  <data name="MainPage_RateHeader" xml:space="preserve">
+    <value>Rating</value>
   </data>
   <data name="MainPage_SumTabResetMessage" xml:space="preserve">
     <value>This will reset all your changes. Continue?</value>

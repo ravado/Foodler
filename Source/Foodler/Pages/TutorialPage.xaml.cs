@@ -6,6 +6,7 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Foodler.Common;
 using Foodler.ViewModels;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -28,6 +29,12 @@ namespace Foodler.Pages
             ViewModel = new TutorialViewModel();
             DataContext = ViewModel;
             ViewModel.TutorialFinished += TutorialFinished;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            SettingsManager.TutorialAlreadyShowed = true;
         }
 
         private void TutorialFinished()
