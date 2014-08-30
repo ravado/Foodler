@@ -196,17 +196,18 @@
                                     TextWrapping="Wrap"
                                     Margin="0 20 0 0"
                                     Padding="20 5"
-                                    Text="    App allows you to share meals price in a restaurant, bar, fast food between people you were with. Simple and clear interface makes it easier and faster than calculating it manually."/>
+                                    Text="{Binding DescriptionLabel}"/>
                                 <TextBlock
                                     TextWrapping="Wrap"
                                     Margin="0 10 0 0"
                                     Padding="20 5"
-                                    Text="    If you have any sagestion, complains or question write me an email :)"/>
+                                    Text="{Binding WriteEmailTextLabel}"/>
                                 <TextBlock
+                                    Visibility="Collapsed"
                                     TextWrapping="Wrap"
                                     Margin="0 10 0 0"
                                     Padding="20 5"
-                                    Text="    Please rate my app if you like it, to help other to make a desision"/>
+                                    Text="{Binding RateAppTextLabel}"/>
                             </StackPanel>
                             <StackPanel
                                 Grid.Row="1"

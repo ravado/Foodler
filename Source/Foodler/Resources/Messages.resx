@@ -157,7 +157,7 @@
     <value>Feedback</value>
   </data>
   <data name="MainPage_FeedbackSendEmail" xml:space="preserve">
-    <value>Send me an email with a description of what you do not like, and may already be in the next version of your wishes will be taken into account. \ nSend a letter?</value>
+    <value>Send me an email with a description of what you do not like, and may already be in the next version of your wishes will be taken into account. Send a letter?</value>
   </data>
   <data name="MainPage_FoodTabFoodLimitMessage" xml:space="preserve">
     <value>You can add only {0} food items in the light version. Would you like to get a full version without any limitation?</value>

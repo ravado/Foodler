@@ -11,7 +11,7 @@ namespace Foodler.Common
         private const string IS_RATING_SET_KEY = "rating_set";
         private const string APP_RUN_COUNT_KEY = "app run count";
         private const string TUTORIAL_SHOWED_KEY = "tutorial_showed";
-        private const string LAST_COOL_DOWN_KEY = "last_cool_down";
+        public const string LAST_COOL_DOWN_KEY = "last_cool_down";
         private const string FIRST_APP_RUN_KEY = "first_app_run";
 
         private static readonly IsolatedStorageSettings AppSettings = IsolatedStorageSettings.ApplicationSettings;
@@ -208,7 +208,7 @@ namespace Foodler.Common
 
         public TimeSpan CoolDownInterval
         {
-            get { return new TimeSpan(1, 0, 0, 0); }
+            get { return new TimeSpan(30, 0, 0, 0); }
             set
             {
                 throw new NotImplementedException();
@@ -217,7 +217,7 @@ namespace Foodler.Common
 
         public bool CoolDownElapsed()
         {
-            if (LastCoolDownActivated >= LastCoolDownActivated.Add(CoolDownInterval))
+            if (DateTime.UtcNow >= LastCoolDownActivated.Add(CoolDownInterval))
                 return true;
 
             return false;

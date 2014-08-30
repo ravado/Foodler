@@ -8,8 +8,8 @@
     <Language code="ru" />
     <Language code="uk" />
   </Languages>
-  <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8b}" Title="Deluga Lite" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Ivan Cherednychok" Description="App allows you to share meals price in a restaurant, bar, fast food between people you were with. &#xD;&#xA;Simple and clear interface makes it easier and faster than calculating it manually." Publisher="Ivan Cherednychok" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
-    <IconPath IsRelative="true" IsResource="false">Assets\Tiles\icon-small-lite.png</IconPath>
+  <App xmlns="" ProductID="{697048f7-7224-4db5-bb68-0332aa968b8b}" Title="Deluga Lite" RuntimeType="Silverlight" Version="1.1.0.0" Genre="apps.normal" Author="Ivan Cherednychok" Description="App allows you to share meals price in a restaurant, bar, fast food between people you were with. &#xD;&#xA;Simple and clear interface makes it easier and faster than calculating it manually." Publisher="Ivan Cherednychok" PublisherID="{4b5b2358-ca55-4e85-ac1b-c86aed96dba7}">
+    <IconPath IsRelative="true" IsResource="false">Assets\Tiles\app-tile-lite.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_CONTACTS" />
@@ -24,9 +24,9 @@
     <Tokens>
       <PrimaryToken TokenID="FoodlerToken" TaskName="_default">
         <TemplateFlip>
-          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-small-lite.png</SmallImageURI>
+          <SmallImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-small-lite-transparent.png</SmallImageURI>
           <Count>0</Count>
-          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-medium-lite.png</BackgroundImageURI>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-medium-lite-transparent.png</BackgroundImageURI>
           <Title>
           </Title>
           <BackContent>
@@ -35,7 +35,7 @@
           </BackBackgroundImageURI>
           <BackTitle>
           </BackTitle>
-          <LargeBackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-wide-lite.png</LargeBackgroundImageURI>
+          <LargeBackgroundImageURI IsRelative="true" IsResource="false">Assets\Tiles\icon-wide-lite-transparent.png</LargeBackgroundImageURI>
           <LargeBackContent />
           <LargeBackBackgroundImageURI IsRelative="true" IsResource="false">
           </LargeBackBackgroundImageURI>

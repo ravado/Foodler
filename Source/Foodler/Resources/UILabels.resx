@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutPage_ConnectWithAuthorBtn" xml:space="preserve">
-    <value>Connect with the author</value>
+    <value>Contact with the author</value>
   </data>
   <data name="AboutPage_Description" xml:space="preserve">
-    <value>App allows you to share meals price in a restaurant, bar, fast food between people you were with. Simple and clear interface makes it easier and faster than calculating it manually.</value>
+    <value>    App allows you to share meals price in a restaurant, bar, fast food between people you were with. Simple and clear interface makes it easier and faster than calculating it manually.</value>
   </data>
   <data name="AboutPage_HaveSuggestion" xml:space="preserve">
-    <value>   If you have any suggestion, complaint or question write me an email :)</value>
+    <value>    If you have any suggestion, complaint or question write me an email :)</value>
   </data>
   <data name="AboutPage_RateTheAppBtn" xml:space="preserve">
     <value>Rate the application</value>

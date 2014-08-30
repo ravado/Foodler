@@ -1,6 +1,15 @@
 ﻿App allows you to share meals price in a restaurant, bar, fast food between people you were with. 
 Simple and clear interface makes it easier and faster than calculating it manually.
 
+Updates in version 1.1:
+-----------------------
+- added page "About";
+- added transparent tiles support;
+- fixed bug with contacts synchronization;
+- fixed bug with showing tutorial more than once if app was not closed;
+- performance improvements.
+-----------------------
+
 Keywords:
 food
 money

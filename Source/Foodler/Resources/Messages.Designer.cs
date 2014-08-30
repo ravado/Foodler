@@ -178,7 +178,7 @@ namespace Foodler.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Send me an email with a description of what you do not like, and may already be in the next version of your wishes will be taken into account. \ nSend a letter?.
+        ///   Looks up a localized string similar to Send me an email with a description of what you do not like, and may already be in the next version of your wishes will be taken into account. Send a letter?.
         /// </summary>
         internal static string MainPage_FeedbackSendEmail {
             get {

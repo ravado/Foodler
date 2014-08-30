@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.IO.IsolatedStorage;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using Foodler.Common;
@@ -56,7 +57,10 @@ namespace Foodler
             DeviceInfo = new DeviceInfo();
 
             InitFirstAppRunEver();
-
+            //if (IsolatedStorageSettings.ApplicationSettings.Contains(SettingsManager.LAST_COOL_DOWN_KEY))
+            //{
+            //    IsolatedStorageSettings.ApplicationSettings.Remove(SettingsManager.LAST_COOL_DOWN_KEY);
+            //}
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
             {
